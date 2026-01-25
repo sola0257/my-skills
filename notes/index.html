@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get笔记</title>
+    <link rel="stylesheet" href="notes/files/style.css">
+    <script src="notes/files/script.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="icon">
+        <img alt="Base64 encoded image" style="width: 162px; height: 36px;"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUQAAABICAMAAAC5gXw7AAAAclBMVEUAAAAQExgRFRgRFBgTFRgQHCARFBkSExgUFBgSFBgRFBkQFBgQFRsSFBkRFBkSFRgQFBgRFRoQFBkSFBkSFBkQFBgSFBj/a0EQFBgVFRv/akH/bED/cED/akH/a0L/aUH/akH/bEL/akEQExgRFBj/akFPcxd5AAAAJHRSTlMAIN+/YBDvn0CAz0AwkK+gYFBwj3CAf79/MN8iEO+bcGBMgF/cSJjkAAAIZElEQVR42uya6W7bMAyASZ2+E8duurvYwLz/K65Ll8nRRV9DCmzfz8pQ7U8URdOB//xnO/hRw7+K6uSA2WGlgUdVRFQpcBRWpKnk0MMiUA2dMPQLIbuxgHeEvd5V0mJ3HeYtfqA3znBjJA5jEWZSDIJ8pEJ4Hyi6IvPDLT/NjVuEIDE45xz6bCiOVPAe6OiNYLu9RYnMDjtuceKWo6VZdBoY0FIG8R40Copy2+ImN+zQ5Pht5UDzqDQbhXlED7uix7IsYAlIaSRAnR12TK9DJhLDeTIUgngswn4MfojwKMrQgKUMGF8L7XllGZkn4hF6z3N2sUVBGVR+uABH5bYnwMJQNCkFWNFMOmBYHlRyn0CkIj/cgKOnG0e4cRQ0jzLhUNBsEPZBelNuDkTBDU95ignRmKSZKDabHZKCffCm3ByIpvmQHfZW6lgRkaxhNrpyIb/VIZUPk4gm40g2SLlhDK2ghiVoQ79pZzoUtlWvlK0kj/5RErVweUybYEkxNjzCZsIUQDZ9bw55QnDUh7sr8FESu2l2e/KPSl3FhgXsSPPHD1/b2BocwcFVwmMkajk9UINQ1NXdKuv81KiuFHpdpS+5ZC0biHEydOUAD5E4lWQBglhDf5UP7uLceshis8QwIZpTcoaDIZJHeJDEwSv3XSi6wt1JdQ/ccYXSoLdLtDRFNNlJNMCjJFZBqdJOpZmgzyDd1s/vvWqzRPQ7HQyPkuiip/YKnvJOomncFksZOtA9w1aJ9u84RGUrcX2oqhs/shKtmtIjhLQURFYvXI6WzqHLP1X1pIvBlpiXSMU2iRjW9NvRZ+nXnAghfK8ozN2mhgnYn2oXlrFsVMjIn0/k0cI8aicxGYgnWAvf2JUNJ5HLK3hwrx0RUAbDeDbuLMoVxmZpsd3dTUcT7D5RaOZGF+WQW7+GqkEkNyyKVT0VFNFaWe39JtKI+V8XyGNFntKIWBSFUmosy8FaK2UlhOCbJsfWvmIWPTqK+M11OwfiSFkGTiLfPsbxqkoKIQzNp4EYMiVRY+HTn02iqbZzIH5Y9KlsTa9opFV0sEBiYQXlOUHic43d2SH/qYyy9PEaYxVSz5eoDHkwp16ZuukvL8/Pz9++7+kwXKsV/fN2VRjWAHMloiSeI6RSIkx4+Xq58ukzOD4WHuiVZLTwJwQrdvOBlmKeNAAvMddZZarKKl5S/LjccBZHQwEdrumOF3MkHphCbR6mdUHISEw9A39rcb3fL45PX7ytmmxX2GCwPSmlWplcyEwrv2Ya9CxGdK1C8GAk6hVxCDpeSH26THjJfiASOpXy2yaVZkREolpZhxrxyuQFvK/rBjEuj5c4EIvpwQOjte3ny5Rn99+SZ2h4hUT32JIWSOTplVJ3qg7hJOskInGISIJtPIluNzu+wi/Yw7ZOhLw+k4/cJtERSEy9ypQ9K9FPSJX06eypgQh1VOLPcs50V24QhsIxHiCQhGzTVlX3dvr+r9iqG5OMybnAjVqp5+doQMmHMQY7fPy60fEYWckjusPynqkS4h7VHxKc3sooegLE2GzQGbt0ADFaokEQjRQKaivWIVRA1BdnrQ0CKiDGELuyVByJsfZbyScCiLM06rP0mp4qIJK6laqFEF0c5hxpeb//6h7ix+g9D2LiQZiurRj6VlVAqFuxLhDiGFFkyYjhz5t3G0P8oen4rMUL01V4Y6aq5P18K9eMIYpGi+XllNdHYcdC4WiWgPU6ZmOrILpyhkqfBnHc1otGW/wVb79/u/FIP7XB2UvOVY7PB91UQlxqDPE0iEvyPT59fv/+w1vomcyj1fUyRNU9Q0GTKeFnlApdcx7EDgQBsFF4/EnHSP5OMdQHECtM0TCztXZwbvmxq+mIQLUBgJi/suC2Qlw9PUKUCmGZnqnIsw9e7VEF0MnpEEdwtI0OlyltiU1vEgvK+du+6MRft+38nbVz7kpnQexAPAoM0QtTt9+fuASdEWClhasWrXM/9jOpjN+1HiKezz67anoSrPOyTUy+6O4zQHz/fajKdcivf1vVKqHCaush4qPiNXPjZUgYC4uKNF8KvsToBmo2t0rZfIgFUcMX+HcvP5THPOK0uwpr7bV+u4LFGRDLTdH00CHei8QsnEN+wAjfgakGyf/DELXJoGhT2YYO1pZp9eA2tckxxVu9pkqI2BTxy5BPHnRquECtgq2OwvCdCHFsToOoFSwNlE+pp2RW3YLEvpMCLEUoMK6RUjyVx4lYnVS8hasO7UEngWQ73D+lz6DYPQmV8szBWuucu4DkXx5EvCOFGPvVgKwFH/TQ+kSCYMq5X6FXMir+C9u+dl0vsDhD2VnHGPfK8GvDpk/dGKFbTvt33o8eobzUwSnjgPIzdp2f5WRbB8GMtBg+eLars9YbeaHDtUZsnbNswC0CO/mwZt5ocJEHVnbpXichLrsHhFG/0nUJIJdaoLAMyeiLPwXR4IqLbRlGANk+6FYopCIZUlUM46kN1gRjaBzxpNyxamXMrY09UwqiNjhC0a092OGSLw1ao6YM/nD4uGxhNPyobYb6IkLczwrPknbPOpTXT6oexu2YIabYFkW6WDOoxakzpuVp05EJ2ARgCCiKDqf+bAJN55I6XJ9wmVBmOX6dY6OQGxMD3kBZb+9AfWJ9IfiEerFCQwCk1A/MJQl0bANVlbLYmjBGK1LAPeDiaeK6O4x0KHJFY0wMZVJkOobACALGWNC6YzDz4WEUlOpS8YTfjSaSmhokmoLZ+9ChazI0j2ZDkBeNG9Ggaq6NoRHYzpwMMQ1luLSM2wf62VlmpRSHYel0k61uGX62txnNaXaBvfJD3xSIBk5ZTlhIdgOD8AHsPEaOQk//ym2c54kk6eNDDfFXQX1P/+9FvmfqG5Yr1sBI9+UHAAAAAElFTkSuQmCC">
+    </div>
+    <div class="info">
+        <div class="name">@Get达人</div>
+        <div class="date">于 2026-01-12 11:00:55 导出 452 条笔记</div>
+    </div>
+    <div class="filters">
+        <select id="dateFilter">
+            <option value="">选择年月</option>
+        </select>
+        <select id="tagFilter">
+            <option value="">选择标签</option>
+        </select>
+        <button id="filterButton">筛选</button>
+    </div>
+</div>
+<div class="notes">
+    <table id="notesList">
+        <thead>
+        <tr>
+            <th id="dateHeader" class="sortable">
+                <span class="date-text">创建日期</span>
+                <span class="sort-icon">&#9661;</span>
+            </th>
+            <th>笔记</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="date-list-item" data-date-str="26-01-12 10:25" data-date="2026-01" data-tags="AI链接笔记,自媒体内容生产供应链,一源多用内容复用系统,核心素材积累方法">
+		<td>26-01-12 10:25</td>
+		<td><a href="notes/10-AI工具与应用/f01e5760b91f199fe361b8672c60d96c.html" target="_blank">2026年自媒体内容生产供应链：打造“一源多用”的内容复用系统</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:24" data-date="2026-01" data-tags="AI链接笔记,爆款标题,内容创作,自媒体运营">
+		<td>26-01-12 10:24</td>
+		<td><a href="notes/10-AI工具与应用/cfa5eb476eaa051a39c3ef24e47de6c8.html" target="_blank">7秒吸睛：爆款标题创作指南（9大技巧+3大公式全解析）</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:24" data-date="2026-01" data-tags="AI链接笔记,IP打造攻略,个人品牌建设,争议性内容创作">
+		<td>26-01-12 10:24</td>
+		<td><a href="notes/10-AI工具与应用/f065065a11ae5ec0cc1adec466405814.html" target="_blank">IP打造的争议性策略：从"老实人困境"到认知破壁</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:23" data-date="2026-01" data-tags="AI链接笔记,消费者心理,产品转化率,电商详情页策划">
+		<td>26-01-12 10:23</td>
+		<td><a href="notes/10-AI工具与应用/1002439d2d45e6f32b5b235217759403.html" target="_blank">提升产品转化率的5步详情策划方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:21" data-date="2026-01" data-tags="AI链接笔记,内容价值,实用性,认知性">
+		<td>26-01-12 10:21</td>
+		<td><a href="notes/10-AI工具与应用/9aacb246d8b4e2e5d8099991877b61fb.html" target="_blank">拆解何为「内容价值」：实用性与认知性的协同框架</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:20" data-date="2026-01" data-tags="AI链接笔记,小红书获客,精准粉丝运营,初创账号策略">
+		<td>26-01-12 10:20</td>
+		<td><a href="notes/01-小红书/acd5c7223080213f73d64f3d1695f9ba.html" target="_blank">小红书初创账号破局指南：从0到1000精准粉丝的实操方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:20" data-date="2026-01" data-tags="AI链接笔记,个人IP打造,私域朋友圈运营,内容输出策略">
+		<td>26-01-12 10:20</td>
+		<td><a href="notes/10-AI工具与应用/52cb07731407949b7363d800cdeb4c74.html" target="_blank">私域朋友圈运营超全攻略：从IP打造到互动转化的完整路径</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:19" data-date="2026-01" data-tags="AI链接笔记,内容创作,选题方法,爆款选题">
+		<td>26-01-12 10:19</td>
+		<td><a href="notes/10-AI工具与应用/4906b538e458b60c7908cbf9d0cdd80b.html" target="_blank">8个找选题方法汇总：从模仿借鉴到创新突破的完整路径</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:18" data-date="2026-01" data-tags="AI链接笔记,小红书运营,截流策略,流量获取">
+		<td>26-01-12 10:18</td>
+		<td><a href="notes/01-小红书/f68481e1a6c3c5f426bd1eba06a2d39a.html" target="_blank">小红书运营核心策略：“截流”方法论深度拆解（Day13）</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:18" data-date="2026-01" data-tags="AI链接笔记,小红书运营,点击率（CTR）,内容推荐算法">
+		<td>26-01-12 10:18</td>
+		<td><a href="notes/01-小红书/f50311f0e0a4cabb4d86651338fd6761.html" target="_blank">小红书运营核心指标：点击率（CTR）深度解析与实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:17" data-date="2026-01" data-tags="AI链接笔记,算法推荐机制,小红书流量层级,冷启动破局">
+		<td>26-01-12 10:17</td>
+		<td><a href="notes/01-小红书/ed1d29bb8673347ec403c058f9c46cb6.html" target="_blank">小红书流量层级运营指南：从冷启动到长尾爆发的全链路突破策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:17" data-date="2026-01" data-tags="AI链接笔记,小红书运营,脚本创作,内容爆款策略">
+		<td>26-01-12 10:17</td>
+		<td><a href="notes/01-小红书/90a1e8b5da90d8a54f652f252ab032f5.html" target="_blank">小红书爆款笔记的核心引擎：脚本创作全攻略（Day25运营知识拆解）</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:17" data-date="2026-01" data-tags="AI链接笔记,矩阵运营,流量放大,账号矩阵">
+		<td>26-01-12 10:17</td>
+		<td><a href="notes/10-AI工具与应用/e0c4e926eedcf206117993231ea2c1d9.html" target="_blank">运营矩阵搭建与流量放大策略：从0到1系统方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:15" data-date="2026-01" data-tags="AI链接笔记,新媒体运营,钩子系统,内容运营">
+		<td>26-01-12 10:15</td>
+		<td><a href="notes/10-AI工具与应用/2ae9ce3bef9bfdfa5e6bb980e96feed8.html" target="_blank">新媒体运营钩子系统（HOOK SYSTEM）全解析：5大类型+落地指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:14" data-date="2026-01" data-tags="AI链接笔记,短视频运营,爆款内容创作,流量密码">
+		<td>26-01-12 10:14</td>
+		<td><a href="notes/10-AI工具与应用/7f24cf00762b257d22639cef1b244b9c.html" target="_blank">短视频爆款6要素：从流量密码到内容创作全攻略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:13" data-date="2026-01" data-tags="AI链接笔记,小红书运营,搜索排名优化,长尾关键词">
+		<td>26-01-12 10:13</td>
+		<td><a href="notes/01-小红书/fea6d2b89ee7474ff38cfb42cd141cb2.html" target="_blank">小红书笔记搜索排名优化全攻略：从流量获取到商业变现</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:13" data-date="2026-01" data-tags="AI链接笔记,小红书起号,新号运营策略,15天起号法">
+		<td>26-01-12 10:13</td>
+		<td><a href="notes/01-小红书/3a23bbb2e9a281c5b0cac1408c026849.html" target="_blank">小红书新号15天起号策略：从0到稳定流量的实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:13" data-date="2026-01" data-tags="AI链接笔记,小红书运营,笔记爆款策略,内容分发逻辑">
+		<td>26-01-12 10:13</td>
+		<td><a href="notes/01-小红书/cc07d64b2d97de5f00a7022bb5827e3e.html" target="_blank">1小时预判笔记爆不爆的三个黄金指标：小红书内容分发逻辑与优化指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:13" data-date="2026-01" data-tags="AI链接笔记,小红书运营,薯条推广,笔记限流恢复">
+		<td>26-01-12 10:13</td>
+		<td><a href="notes/01-小红书/1fdf54aee0dba4e6a2014f2ca33e896b.html" target="_blank">笔记限流5步检测与恢复全攻略：从小白到专家的流量自救指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:12" data-date="2026-01" data-tags="AI链接笔记,流量运营策略,内容爆款预测,平台算法规律">
+		<td>26-01-12 10:12</td>
+		<td><a href="notes/10-AI工具与应用/91bda053b2be4b3ba5eb3c7532775e93.html" target="_blank">内容爆款预测与运营策略：基于500条实测数据的平台算法规律解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:11" data-date="2026-01" data-tags="AI链接笔记,小红书运营,小眼睛流量池,笔记优化技巧">
+		<td>26-01-12 10:11</td>
+		<td><a href="notes/01-小红书/5eb7598f7bfcfa8c4b07a44d29eebf50.html" target="_blank">小红书笔记"小眼睛"流量池全解析：阶段定位与提升策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:11" data-date="2026-01" data-tags="AI链接笔记,内容运营,更新频率,账号运营策略">
+		<td>26-01-12 10:11</td>
+		<td><a href="notes/10-AI工具与应用/a960e658377a55625a8cd4b687808d72.html" target="_blank">内容运营策略：笔记更新频率与质量平衡指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:10" data-date="2026-01" data-tags="AI链接笔记,小红书运营,笔记流量提升,二次发布技巧">
+		<td>26-01-12 10:10</td>
+		<td><a href="notes/01-小红书/02b007c63c5fec4b483d6f7c876c72ce.html" target="_blank">小红书笔记二次发布流量提升策略：从“几十阅读”到“2W+曝光”的实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:10" data-date="2026-01" data-tags="AI链接笔记,账号定位,内容创作,零基础涨粉">
+		<td>26-01-12 10:10</td>
+		<td><a href="notes/10-AI工具与应用/5a3cb07491fcada34ff218bd2eb5de23.html" target="_blank">零基础涨粉指南：从0到10000粉丝的4个核心方法</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:09" data-date="2026-01" data-tags="AI链接笔记,内容创作,爆款逻辑,用户心理">
+		<td>26-01-12 10:09</td>
+		<td><a href="notes/10-AI工具与应用/746acb29c493577eaf791648aa7288a1.html" target="_blank">从"爆过"到"持续爆"：内容创作的底层逻辑与突破路径</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:09" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款笔记技巧,内容创作指南">
+		<td>26-01-12 10:09</td>
+		<td><a href="notes/01-小红书/df6aa2e915f26d3de803ab214972089e.html" target="_blank">小红书高流量笔记创作指南：6大爆款形式全解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:08" data-date="2026-01" data-tags="AI链接笔记,视频号运营,冷启动策略,七天启动法">
+		<td>26-01-12 10:08</td>
+		<td><a href="notes/02-视频号/212b8fb7972a09456acad299eedb47df.html" target="_blank">视频号七天运营启动法：从0到1冷启动全流程指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:07" data-date="2026-01" data-tags="AI链接笔记,蝴蝶号涨粉,中老年内容运营,热点流量运营">
+		<td>26-01-12 10:07</td>
+		<td><a href="notes/02-视频号/4c422d9b55c412c2350a7f3f68231a0f.html" target="_blank">蝴蝶号3天涨6000粉的五种实战方法</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:07" data-date="2026-01" data-tags="AI链接笔记,蝴蝶号变现,短视频运营,新手带货技巧">
+		<td>26-01-12 10:07</td>
+		<td><a href="notes/02-视频号/3351effc892d6dde533341eb1c1224f3.html" target="_blank">蝴蝶号短视频平台新手变现全攻略：从0到1实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:07" data-date="2026-01" data-tags="AI链接笔记,7天起号攻略,新手短视频运营,短视频快速起号">
+		<td>26-01-12 10:07</td>
+		<td><a href="notes/10-AI工具与应用/d5d08bf00703e83831e863fd64ee463c.html" target="_blank">新手玩转短视频运营：7天快速起号全攻略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:06" data-date="2026-01" data-tags="AI链接笔记,蝴蝶号起号,视频号运营,短视频带货技巧">
+		<td>26-01-12 10:06</td>
+		<td><a href="notes/02-视频号/40904ee1b4d1901f51149801fd8259a8.html" target="_blank">蝴蝶号（视频号）高效起号策略与运营指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:06" data-date="2026-01" data-tags="AI链接笔记,蝴蝶号运营,视频号带货,中老年电商">
+		<td>26-01-12 10:06</td>
+		<td><a href="notes/02-视频号/3370f70138879f4c79935ba957edaf0a.html" target="_blank">蝴蝶号（视频号）起号与带货全流程优化指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:06" data-date="2026-01" data-tags="AI链接笔记,蝴蝶号新规则,视频号运营技巧,流量优化策略">
+		<td>26-01-12 10:06</td>
+		<td><a href="notes/02-视频号/9de7afe2ecd6d0b3b90297a7538d4648.html" target="_blank">蝴蝶号12月新规则与播放连爆技巧全解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:05" data-date="2026-01" data-tags="AI链接笔记,蝴蝶号运营,视频号规则,内容创作规范">
+		<td>26-01-12 10:05</td>
+		<td><a href="notes/02-视频号/2b7d2874b686dec43bd2f48472e505ed.html" target="_blank">蝴蝶号运营规则全景解读：从合规底线到流量变现</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:05" data-date="2026-01" data-tags="AI链接笔记,视频号运营,蝴蝶号变现,品牌广告合作">
+		<td>26-01-12 10:05</td>
+		<td><a href="notes/02-视频号/76b9fcc33e6749d810a780065da1e704.html" target="_blank">蝴蝶号10大变现渠道全景解析：从入门到进阶的实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:04" data-date="2026-01" data-tags="AI链接笔记,社交媒体运营,内容营销,新媒体营销">
+		<td>26-01-12 10:04</td>
+		<td><a href="notes/10-AI工具与应用/e2204ea860dcc3542f40419aa97e4e72.html" target="_blank">12大新媒体营销狠招：社媒×内容×直播×KOL全维度策略指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:04" data-date="2026-01" data-tags="AI链接笔记,小红书运营,内容创作,爆款钩子">
+		<td>26-01-12 10:04</td>
+		<td><a href="notes/01-小红书/29adb3a3385324318b25994706f0ef7e.html" target="_blank">小红书爆款钩子全攻略：10大类型200个可复用模板解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:03" data-date="2026-01" data-tags="AI链接笔记,AI内容创作,提示词工程,内容工业化">
+		<td>26-01-12 10:03</td>
+		<td><a href="notes/10-AI工具与应用/e3c636ae62185593d4c3aabf004715ea.html" target="_blank">Dan Koe：AI内容"永动机"构建指南——系统化创作与百万粉丝增长策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:03" data-date="2026-01" data-tags="AI链接笔记,新媒体运营,钩子系统,内容创作技巧">
+		<td>26-01-12 10:03</td>
+		<td><a href="notes/10-AI工具与应用/825f11550631bda598da316ec1b88c13.html" target="_blank">新媒体运营"钩子系统"全解析：5大类型+实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:02" data-date="2026-01" data-tags="AI链接笔记">
+		<td>26-01-12 10:02</td>
+		<td><a href="notes/01-小红书/e3e4cf26167ddfdf917345a133dba170.html" target="_blank">小红书7个核心流量池机制全解析：从系统信任到用户沉淀的运营方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:02" data-date="2026-01" data-tags="AI链接笔记,新媒体运营,内容创作,自媒体入门">
+		<td>26-01-12 10:02</td>
+		<td><a href="notes/10-AI工具与应用/83c11bb2762872347c30ab521b2d9069.html" target="_blank">四周自媒体运营自学体系：从0到1的实战化能力培养方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:01" data-date="2026-01" data-tags="AI链接笔记,小红书运营,新媒体运营,流量池机制">
+		<td>26-01-12 10:01</td>
+		<td><a href="notes/01-小红书/6252525bcc6efbc0344d8f818eca9887.html" target="_blank">小红书流量运营全景指南：从流量池机制到实操增长策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:01" data-date="2026-01" data-tags="AI链接笔记,爆款笔记,内容运营,运营复盘">
+		<td>26-01-12 10:01</td>
+		<td><a href="notes/10-AI工具与应用/1997ba5348be1ddd31198a5ac3bd5a7f.html" target="_blank">爆款复盘三件套·SOP全流程：数据驱动的内容优化方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:00" data-date="2026-01" data-tags="AI链接笔记,新媒体运营,内容创作,运营方法论">
+		<td>26-01-12 10:00</td>
+		<td><a href="notes/10-AI工具与应用/70a4cc36912e59a31c6797722db75f9f.html" target="_blank">新媒体运营实战指南：从入门到进阶的系统方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:00" data-date="2026-01" data-tags="AI链接笔记,公众号精准获客,高客单IP打造,自媒体商业变现">
+		<td>26-01-12 10:00</td>
+		<td><a href="notes/05-公众号/c563018cd4ff7a086b2a425eea15a00e.html" target="_blank">公众号精准获客的4个潜规则：高客单IP打造实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 10:00" data-date="2026-01" data-tags="AI链接笔记,个人IP打造,一鱼多吃能力,高客单体系">
+		<td>26-01-12 10:00</td>
+		<td><a href="notes/10-AI工具与应用/911d7d925289b4d2fb3a6de56deed6be.html" target="_blank">2026年个人IP红利竞争核心："一鱼多吃"能力构建与实践指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:59" data-date="2026-01" data-tags="AI链接笔记,个人IP打造,IP公众号运营,高客单价变现">
+		<td>26-01-12 09:59</td>
+		<td><a href="notes/05-公众号/c5aab81166f23e074acbe1b2af38b63d.html" target="_blank">2026年IP公众号价值分析与运营策略指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:58" data-date="2026-01" data-tags="AI链接笔记,小而美个人IP公众号,公众号运营技巧,精准定位">
+		<td>26-01-12 09:58</td>
+		<td><a href="notes/05-公众号/592e0f4cab0f2d87b1028d6b5c694b90.html" target="_blank">如何打造小而美的个人IP公众号：吸睛与变现的实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:58" data-date="2026-01" data-tags="AI链接笔记,个人IP打造,公众号高客单,自媒体变现">
+		<td>26-01-12 09:58</td>
+		<td><a href="notes/05-公众号/62a6c3107227575e6ecbab3326731a68.html" target="_blank">公众号高客单成交指南：个人IP打造的实战路径与案例分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:57" data-date="2026-01" data-tags="AI链接笔记,新媒体运营,自媒体干货,运营经验分享">
+		<td>26-01-12 09:57</td>
+		<td><a href="notes/10-AI工具与应用/5b54555cfa853929cf23241148926201.html" target="_blank">新媒体运营实战指南：从入门到进阶的系统方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:56" data-date="2026-01" data-tags="AI链接笔记,小红书运营,内容营销,爆款笔记创作">
+		<td>26-01-12 09:56</td>
+		<td><a href="notes/01-小红书/a36f5dbb2d1569b77386c28f56ee24e8.html" target="_blank">小红书爆款笔记创作全指南：从底层逻辑到实操落地</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:54" data-date="2026-01" data-tags="AI链接笔记,内容创作,流量密码,爆款标题">
+		<td>26-01-12 09:54</td>
+		<td><a href="notes/10-AI工具与应用/3e0916babec9896e0135a2a51042c76e.html" target="_blank">内容创作"钩子"策略全解析：从理论到实战的爆款流量密码</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:54" data-date="2026-01" data-tags="AI链接笔记,小红书运营,账号定位,内容算法">
+		<td>26-01-12 09:54</td>
+		<td><a href="notes/01-小红书/5030b7f2f50534344c7fb3d89467e4de.html" target="_blank">小红书运营0-1速成指南：从定位到养号的全干货手册</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:54" data-date="2026-01" data-tags="AI链接笔记,体验营销,品牌战略,消费者体验">
+		<td>26-01-12 09:54</td>
+		<td><a href="notes/10-AI工具与应用/9ed24e0ad5cad68f3dce7985b88a0ee1.html" target="_blank">体验至上：品牌营销新战略——从卖产品到卖体验的转型指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:53" data-date="2026-01" data-tags="AI链接笔记,小红书运营,利他性内容,爆款选题方法论">
+		<td>26-01-12 09:53</td>
+		<td><a href="notes/01-小红书/a46d8df2af6db4c5c6706948cf7a1cab.html" target="_blank">小红书爆款选题方法论：以利他性为核心的内容创作指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:53" data-date="2026-01" data-tags="AI链接笔记,小红书运营,内容合规,账号风控">
+		<td>26-01-12 09:53</td>
+		<td><a href="notes/01-小红书/2aa777cfee5131954ecff21279d9bb54.html" target="_blank">小红书账号风险防控指南：伤号行为识别与运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:53" data-date="2026-01" data-tags="AI链接笔记,小红书运营,封面点击率,CTR优化">
+		<td>26-01-12 09:53</td>
+		<td><a href="notes/01-小红书/ffa9015c2aab0c99a6f1075d955b1161.html" target="_blank">小红书封面点击率提升全攻略：从核心逻辑到实操方法</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:52" data-date="2026-01" data-tags="AI链接笔记,矩阵运营,品牌账号矩阵,金字塔模型">
+		<td>26-01-12 09:52</td>
+		<td><a href="notes/10-AI工具与应用/827590a4e5f1df5a1cd8f26d10fbd4f3.html" target="_blank">品牌矩阵运营深度解析：模型、价值与实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:52" data-date="2026-01" data-tags="AI链接笔记,内容营销,短视频运营,情绪化钩子">
+		<td>26-01-12 09:52</td>
+		<td><a href="notes/10-AI工具与应用/1e02689f0468287702d8097fa3491339.html" target="_blank">短视频情绪化钩子策略全解析：9大模型与实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:52" data-date="2026-01" data-tags="AI链接笔记,网感培养,新媒体运营,爆款内容逻辑">
+		<td>26-01-12 09:52</td>
+		<td><a href="notes/10-AI工具与应用/9924c0600c90de55f75b83057b2d0465.html" target="_blank">网感：新媒体时代的核心竞争力——从小a工作室视角解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:51" data-date="2026-01" data-tags="AI链接笔记,社交媒体运营,流量提升,关键词截流">
+		<td>26-01-12 09:51</td>
+		<td><a href="notes/10-AI工具与应用/e8315bf00c515aee762cf8aee6ea5c7a.html" target="_blank">关键词截流实战指南：社交媒体流量提升80%的核心方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:51" data-date="2026-01" data-tags="AI链接笔记,小红书运营,新媒体策划,人设构建">
+		<td>26-01-12 09:51</td>
+		<td><a href="notes/01-小红书/f3fe44fdbd9af701f4bef43c984d1d52.html" target="_blank">小红书人格化人设构建指南：从0到1打造高信任度账号</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:51" data-date="2026-01" data-tags="AI链接笔记,社交媒体运营,账号权重提升,流量运营策略">
+		<td>26-01-12 09:51</td>
+		<td><a href="notes/10-AI工具与应用/1f261aa07e765f511f25b59fe24333e7.html" target="_blank">社交媒体养号策略全景指南：从原理到实操的流量运营方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:51" data-date="2026-01" data-tags="AI链接笔记,小红书运营,账号风险防控,内容合规">
+		<td>26-01-12 09:51</td>
+		<td><a href="notes/01-小红书/6a045e68f14e6d58ddb081f3cda07532.html" target="_blank">小红书账号运营风险防控指南：封号陷阱识别与应对策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:51" data-date="2026-01" data-tags="AI链接笔记,消费者心理,反向营销,品牌信任构建">
+		<td>26-01-12 09:51</td>
+		<td><a href="notes/10-AI工具与应用/65a49c3f694bf86f327907518c8b6593.html" target="_blank">反向营销：颠覆传统的"以退为进"增长策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:50" data-date="2026-01" data-tags="AI链接笔记,小红书运营,视频脚本创作,爆款内容策划">
+		<td>26-01-12 09:50</td>
+		<td><a href="notes/01-小红书/e76243f2cf7fe32f05ffd5808687ddc9.html" target="_blank">小红书爆款视频脚本创作指南：从结构搭建到类型适配</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:50" data-date="2026-01" data-tags="AI链接笔记,公众号运营,小绿书运营,新媒体入门">
+		<td>26-01-12 09:50</td>
+		<td><a href="notes/05-公众号/179b249f8b7b65b2c4266f0bb4e5c898.html" target="_blank">公众号新手运营指南：从小白到1000粉的"小绿书"运营全攻略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:50" data-date="2026-01" data-tags="AI链接笔记,品牌社群运营,用户关系管理,社群营销实战">
+		<td>26-01-12 09:50</td>
+		<td><a href="notes/10-AI工具与应用/796971a3e13ff071bdba5339ebbd69f8.html" target="_blank">品牌社群运营指南：从广告群到深度用户关系的构建方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:50" data-date="2026-01" data-tags="AI链接笔记,借力营销,小品牌突围,热点借势">
+		<td>26-01-12 09:50</td>
+		<td><a href="notes/10-AI工具与应用/50d2f85849f86bf727aa565749c35ec7.html" target="_blank">借力营销：小品牌流量突围的核心策略与实践指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:50" data-date="2026-01" data-tags="AI链接笔记,品牌构建,差异化营销,用户心智">
+		<td>26-01-12 09:50</td>
+		<td><a href="notes/10-AI工具与应用/3444334734a1f3fe8b4063121ab192d0.html" target="_blank">差异化营销深度解析：从小品牌突围到用户心智占领</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:49" data-date="2026-01" data-tags="AI链接笔记,小红书运营,违规行为自查,流量提升指南">
+		<td>26-01-12 09:49</td>
+		<td><a href="notes/01-小红书/b20ad3cf4aac561f4d127d117641852c.html" target="_blank">小红书运营流量低迷自查指南：8大违规行为深度解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:49" data-date="2026-01" data-tags="AI链接笔记,新三感,品牌构建,情感营销">
+		<td>26-01-12 09:49</td>
+		<td><a href="notes/10-AI工具与应用/93c17142c961d0e5ca28abf3c76b77bd.html" target="_blank">新三感：从卖产品到造魅力的品牌升级方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:49" data-date="2026-01" data-tags="AI链接笔记,场景营销,营销方法论,用户洞察">
+		<td>26-01-12 09:49</td>
+		<td><a href="notes/10-AI工具与应用/c7ce14c5bf64ed03aba446f123f8e111.html" target="_blank">场景营销深度解析：从概念到实战的爆款方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:48" data-date="2026-01" data-tags="AI链接笔记,用户运营,流量转化,品牌增长">
+		<td>26-01-12 09:48</td>
+		<td><a href="notes/10-AI工具与应用/ba25e6a16d6b2c061e13231611fb2e50.html" target="_blank">品牌增长的底层逻辑：从流量获取到用户培育的系统化运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:48" data-date="2026-01" data-tags="AI链接笔记,小红书引流,社媒运营,私域转化">
+		<td>26-01-12 09:48</td>
+		<td><a href="notes/01-小红书/29e342a85e8f0f1e38c53a98bd9a3ab9.html" target="_blank">小红书精准引流策略全景：从价值交换到转化提升的实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:48" data-date="2026-01" data-tags="AI链接笔记,情绪营销,情绪价值,小红书引流">
+		<td>26-01-12 09:48</td>
+		<td><a href="notes/01-小红书/35ac05362b58cc965e11c69b57d7c8bd.html" target="_blank">情绪营销：从贩卖产品到贩卖情绪价值的战略转型</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:48" data-date="2026-01" data-tags="AI链接笔记,自媒体运营,平台差异分析,流量增长策略">
+		<td>26-01-12 09:48</td>
+		<td><a href="notes/10-AI工具与应用/a71ede0e9517c8ce0a30c5588265d801.html" target="_blank">全网自媒体平台核心差异与运营策略全景分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:47" data-date="2026-01" data-tags="AI链接笔记,情绪经济,悦己消费,年轻人消费">
+		<td>26-01-12 09:47</td>
+		<td><a href="notes/10-AI工具与应用/107efba917817fb38acbca972a23c279.html" target="_blank">万亿赛道：悦己情绪经济如何拿捏年轻人</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:47" data-date="2026-01" data-tags="AI链接笔记,小红书运营,长尾流量,关键词优化">
+		<td>26-01-12 09:47</td>
+		<td><a href="notes/01-小红书/2346986673af6211d4fa8f3610414dbf.html" target="_blank">小红书关键词运营全攻略：从冷启动到流量垄断的实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:47" data-date="2026-01" data-tags="AI链接笔记,感官营销,品牌体验,五感营销">
+		<td>26-01-12 09:47</td>
+		<td><a href="notes/10-AI工具与应用/6168937ebfcfda739350b83c1a7358ac.html" target="_blank">感官营销：五感驱动的品牌体验与消费决策研究</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:47" data-date="2026-01" data-tags="AI链接笔记,文案写作,体验营销,用户感受">
+		<td>26-01-12 09:47</td>
+		<td><a href="notes/10-AI工具与应用/38818a4ab6843de13c8dae88a4446006.html" target="_blank">好文案的核心逻辑：从承诺到用户感受的营销范式转变</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:47" data-date="2026-01" data-tags="AI链接笔记,用户运营,私域营销,流量转化">
+		<td>26-01-12 09:47</td>
+		<td><a href="notes/10-AI工具与应用/1ea1abb0f482458d118946863d1f90be.html" target="_blank">私域营销深度指南：从用户关系经营到长效增长体系构建</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:46" data-date="2026-01" data-tags="AI链接笔记,初创品牌运营,小红书品牌搭建,品牌定位策略">
+		<td>26-01-12 09:46</td>
+		<td><a href="notes/01-小红书/9f6856c1938abe17718d0d74d4b63ba4.html" target="_blank">初创品牌小红书品牌搭建指南：从定位到留存的系统化方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:46" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款笔记逻辑,社交媒体流量">
+		<td>26-01-12 09:46</td>
+		<td><a href="notes/01-小红书/371838f33e9fa6f01fbc0afc85a66ba7.html" target="_blank">小红书爆款笔记的四大底层逻辑：从流量密码到运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:46" data-date="2026-01" data-tags="AI链接笔记,小红书品牌IP,内容营销方法论,人格化运营">
+		<td>26-01-12 09:46</td>
+		<td><a href="notes/01-小红书/1d619cbb6a2b339686dd7421a03674a4.html" target="_blank">品牌IP在小红书的内容营销全攻略：从人设构建到节日运营</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:46" data-date="2026-01" data-tags="AI链接笔记,营销触点分析,用户需求洞察,品牌增长策略">
+		<td>26-01-12 09:46</td>
+		<td><a href="notes/10-AI工具与应用/9b92d8fdc29678e0f518833382add65e.html" target="_blank">营销核心逻辑：痛点、痒点、爽点、爆点与燃点的系统解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:46" data-date="2026-01" data-tags="AI链接笔记,社交媒体运营,账号权重,流量恢复">
+		<td>26-01-12 09:46</td>
+		<td><a href="notes/10-AI工具与应用/8d6c8867162e023f77981a427ffc512b.html" target="_blank">社交媒体账号权重问题深度分析：表现、成因与恢复策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:45" data-date="2026-01" data-tags="AI链接笔记,品牌调性,用户身份认同,感官体验设计">
+		<td>26-01-12 09:45</td>
+		<td><a href="notes/10-AI工具与应用/8f946bbe083ffa68adcdc4812dda01da.html" target="_blank">品牌调性构建指南：从产品思维到用户身份认同的转化策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:45" data-date="2026-01" data-tags="AI链接笔记,小红书运营,新媒体策划,爆文打造">
+		<td>26-01-12 09:45</td>
+		<td><a href="notes/01-小红书/d9bf14e2ca72596f5cb287650b51b1e9.html" target="_blank">小红书爆文打造指南：从标题到互动的全链路运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:45" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款内容打造,7天起号攻略">
+		<td>26-01-12 09:45</td>
+		<td><a href="notes/01-小红书/e36770bb63fd059f0fc3d10c49bbece5.html" target="_blank">7天成功起号：小红书运营全流程实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:45" data-date="2026-01" data-tags="AI链接笔记,Z世代营销,情绪价值,抽象发疯营销">
+		<td>26-01-12 09:45</td>
+		<td><a href="notes/10-AI工具与应用/d4d4f376ee24b2b908d0f5067570e352.html" target="_blank">抽象发疯营销：品牌与Z世代的情绪暗号与运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:45" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款标题技巧,情绪化表达">
+		<td>26-01-12 09:45</td>
+		<td><a href="notes/01-小红书/86ece882b415b3a280952aac063117e2.html" target="_blank">小红书爆款标题打造指南：情绪化表达的运营逻辑与实操技巧</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:44" data-date="2026-01" data-tags="AI链接笔记,小红书运营,活人感IP,UGC社区">
+		<td>26-01-12 09:44</td>
+		<td><a href="notes/01-小红书/5631f2cbd7e4810e142ea9d1d4af316c.html" target="_blank">小红书IP运营深度指南：以"活人感"为核心的第一性原理与实践策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:44" data-date="2026-01" data-tags="AI链接笔记,社交媒体运营,品牌年轻化,老登化危机">
+		<td>26-01-12 09:44</td>
+		<td><a href="notes/10-AI工具与应用/392a5a8d8efae9cec9bb1abda97f6233.html" target="_blank">品牌年轻化运营深度解析：从"老登化"危机到增长重构</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:44" data-date="2026-01" data-tags="AI链接笔记,视频号运营,爆款内容打造,冷启动策略">
+		<td>26-01-12 09:44</td>
+		<td><a href="notes/02-视频号/4f9982ff038c25d89ac63c9d5dc44be5.html" target="_blank">视频号运营全景指南：从0到1快速起号与爆款打造策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:43" data-date="2026-01" data-tags="AI链接笔记,品牌故事营销,消费者心智占领,品牌人设构建">
+		<td>26-01-12 09:43</td>
+		<td><a href="notes/10-AI工具与应用/a9aa0c5efbc3f18785c80f5ed4fcc3cf.html" target="_blank">品牌叙事战略：通过故事与人设构建消费者心智</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:43" data-date="2026-01" data-tags="AI链接笔记,品牌去营销化,社交媒体算法,价值观营销">
+		<td>26-01-12 09:43</td>
+		<td><a href="notes/10-AI工具与应用/c94d967fb8df4d2b79bb950572a40319.html" target="_blank">品牌"去营销化"趋势深度分析：从广告轰炸到价值共鸣的范式转移</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:43" data-date="2026-01" data-tags="AI链接笔记,品牌建设,营销策略,消费者信任">
+		<td>26-01-12 09:43</td>
+		<td><a href="notes/10-AI工具与应用/64b11725a35402d44090c4483c7d11d5.html" target="_blank">品牌与营销的本质区别：从"卖产品"到"建信任"的战略跃迁</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:43" data-date="2026-01" data-tags="AI链接笔记,不完美营销,自黑营销,品牌定位">
+		<td>26-01-12 09:43</td>
+		<td><a href="notes/10-AI工具与应用/6a8c9428205523162d79bb8fce58e8d6.html" target="_blank">品牌营销新范式：将产品“缺点”转化为核心卖点的策略研究</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:43" data-date="2026-01" data-tags="AI链接笔记,品牌差异化,反差感营销,用户心智占领">
+		<td>26-01-12 09:43</td>
+		<td><a href="notes/10-AI工具与应用/0d21db8d1bc18f9d55582bc3ee0424c7.html" target="_blank">品牌差异化战略：通过制造反差感构建用户心智</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:42" data-date="2026-01" data-tags="AI链接笔记,社交媒体运营,嘴替感,内容创作趋势">
+		<td>26-01-12 09:42</td>
+		<td><a href="notes/10-AI工具与应用/c8d86d0ce1b95805c53876f2a7a9da10.html" target="_blank">社交媒体内容运营新趋势：从“黄金3秒钩子”到“嘴替感”的范式转移</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:42" data-date="2026-01" data-tags="AI链接笔记,兴趣消费,Z世代消费,圈层文化">
+		<td>26-01-12 09:42</td>
+		<td><a href="notes/10-AI工具与应用/8d69c93930c85f690e6435c90f570b6d.html" target="_blank">兴趣消费时代洞察：定义、驱动因素与品牌应对策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:42" data-date="2026-01" data-tags="AI链接笔记,品牌IP五感,年轻人消费逻辑,品牌人格化">
+		<td>26-01-12 09:42</td>
+		<td><a href="notes/10-AI工具与应用/15ab03eec24b7a05e666a3cfe37f7196.html" target="_blank">IP五感：让年轻人上头的品牌IP构建方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:42" data-date="2026-01" data-tags="AI链接笔记,社交媒体运营,发疯式营销,品牌破圈">
+		<td>26-01-12 09:42</td>
+		<td><a href="notes/10-AI工具与应用/dae318405fba2da70f2d98e6a708f9cc.html" target="_blank">发疯式营销深度解析：新消费时代的品牌破圈方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:42" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款内容打造,社交媒体运营">
+		<td>26-01-12 09:42</td>
+		<td><a href="notes/01-小红书/3da49cb7dc37d92261aeb396bb0dbdcf.html" target="_blank">小红书爆款内容打造指南：基于5大核心要素的运营策略分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:41" data-date="2026-01" data-tags="AI链接笔记,情绪营销,Z世代营销,文案创作技巧">
+		<td>26-01-12 09:41</td>
+		<td><a href="notes/10-AI工具与应用/753af6d941f29d74df7ad5a4b0eb5158.html" target="_blank">情绪营销深度指南：从小文案到品牌增长的情感化运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:41" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款内容公式,钩子写作技巧">
+		<td>26-01-12 09:41</td>
+		<td><a href="notes/01-小红书/85a94156a6b97417e96f1b8e85dcbf2e.html" target="_blank">小红书爆款内容创作指南：8种高转化率钩子公式全解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:41" data-date="2026-01" data-tags="AI链接笔记,小红书运营,新号冷启动,算法推荐机制">
+		<td>26-01-12 09:41</td>
+		<td><a href="notes/01-小红书/b1792b65f42a1e18abe88b2731e72691.html" target="_blank">小红书新号冷启动指南：养号策略与算法逻辑全解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:41" data-date="2026-01" data-tags="AI链接笔记,消费者心理,情绪价值营销,品牌营销策略">
+		<td>26-01-12 09:41</td>
+		<td><a href="notes/10-AI工具与应用/792d2b0f24ae12714c636e4917b9863a.html" target="_blank">情绪价值营销：品牌营销的静默革命——从卖产品到卖情感共鸣</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:41" data-date="2026-01" data-tags="AI链接笔记,小红书私域运营,获客转化复购,分层运营策略">
+		<td>26-01-12 09:41</td>
+		<td><a href="notes/01-小红书/d3626f1a52f08a030c5c0576eda2c912.html" target="_blank">小红书私域运营全链路指南：从获客引流到复购裂变的系统方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:40" data-date="2026-01" data-tags="AI链接笔记,小红书运营,长尾词优化,搜索流量获取">
+		<td>26-01-12 09:40</td>
+		<td><a href="notes/01-小红书/211bd20f202ec6061608ef89b10861ff.html" target="_blank">小红书长尾词运营全攻略：从流量挖掘到爆款打造</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:40" data-date="2026-01" data-tags="AI链接笔记,小红书推流逻辑,价值匹配算法,流量突围策略">
+		<td>26-01-12 09:40</td>
+		<td><a href="notes/01-小红书/8bb2eadefd960cddb6b5f3514fbb6a4a.html" target="_blank">小红书推流逻辑深度解析：从价值匹配到流量突围策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:40" data-date="2026-01" data-tags="AI链接笔记,情绪营销,文案创作,品牌情感定位">
+		<td>26-01-12 09:40</td>
+		<td><a href="notes/10-AI工具与应用/d71c44bcbbda4935cf4d09f7e809e7c9.html" target="_blank">情绪营销实战指南：从价值挖掘到文案共鸣的方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:40" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款内容创作,社交媒体传播">
+		<td>26-01-12 09:40</td>
+		<td><a href="notes/01-小红书/68ea2c24cb2773d1d9964ed09c61d48b.html" target="_blank">小红书爆款内容创作指南：5大核心法则与实战策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:40" data-date="2026-01" data-tags="AI链接笔记,社媒运营,小红书SEO,长尾流量">
+		<td>26-01-12 09:40</td>
+		<td><a href="notes/01-小红书/fe4fc2c14bb9be0c16b79efffb2f8fb4.html" target="_blank">小红书SEO实战指南：搜索词与长尾流量撬动增长策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:39" data-date="2026-01" data-tags="AI链接笔记,小红书起号,社媒运营,新媒体策划">
+		<td>26-01-12 09:39</td>
+		<td><a href="notes/01-小红书/90b7035260180b94c2c9e12db5d9b2a8.html" target="_blank">小红书七天起号实操指南：从冷启动到流量破局</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:39" data-date="2026-01" data-tags="AI链接笔记,自媒体运营,平台差异化,流量策略">
+		<td>26-01-12 09:39</td>
+		<td><a href="notes/10-AI工具与应用/632649a74892227126f27203cdf46922.html" target="_blank">运营必知：全网自媒体平台核心差异与流量倍增策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:38" data-date="2026-01" data-tags="AI链接笔记,小红书运营,公众号运营,算法差异">
+		<td>26-01-12 09:38</td>
+		<td><a href="notes/01-小红书/5890ccfbf10fc18e6aff273295f3d63d.html" target="_blank">小红书与公众号算法差异深度解析：底层逻辑、数据权重与内容策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:38" data-date="2026-01" data-tags="AI链接笔记,小红书运营,钩子策略,爆款内容">
+		<td>26-01-12 09:38</td>
+		<td><a href="notes/01-小红书/bbfd9f99e2c99981b9e718b1968aca37.html" target="_blank">小红书爆款内容打造：钩子策略全解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:37" data-date="2026-01" data-tags="AI链接笔记,中老年赛道运营,视频号零出镜变现,30天账号起号">
+		<td>26-01-12 09:37</td>
+		<td><a href="notes/02-视频号/03cc32b85bd13d24e8507bb1642919a8.html" target="_blank">视频号中老年赛道运营全攻略：零出镜30天变现10万实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:37" data-date="2026-01" data-tags="AI链接笔记,小红书运营,账号权重提升,内容曝光率">
+		<td>26-01-12 09:37</td>
+		<td><a href="notes/01-小红书/bb4e595f35c3e46b9ae6e7ffa018dab8.html" target="_blank">小红书账号权重提升全攻略：从原理到实操的系统化运营指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:37" data-date="2026-01" data-tags="AI链接笔记,提示词工程,AI图像复刻,Nana Banana Pro">
+		<td>26-01-12 09:37</td>
+		<td><a href="notes/10-AI工具与应用/6d05ca208bcb871307150fc385ab1053.html" target="_blank">AI图像复刻全流程：基于Nana Banana Pro的提示词工程与实践指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:35" data-date="2026-01" data-tags="AI链接笔记,GPT应用,短视频脚本,内容创作效率">
+		<td>26-01-12 09:35</td>
+		<td><a href="notes/10-AI工具与应用/260ead2207bc409480a910f70725aa34.html" target="_blank">GPT驱动的爆款短视频脚本创作全流程：从选题到分镜头的AI赋能方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:34" data-date="2026-01" data-tags="AI链接笔记,小红书运营,28天起号SOP,爆款标题模板">
+		<td>26-01-12 09:34</td>
+		<td><a href="notes/01-小红书/fc9a15c53576acab99e948a0134c23fe.html" target="_blank">小红书运营从0到1起号全流程规划：28天标准化SOP与实战模板</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:34" data-date="2026-01" data-tags="AI链接笔记,蝴蝶号起号,视频号带货,中老年选品">
+		<td>26-01-12 09:34</td>
+		<td><a href="notes/02-视频号/bc8fabb83b92863858dd42082f019d78.html" target="_blank">蝴蝶号（视频号）起号全攻略：从0到1带货实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:33" data-date="2026-01" data-tags="AI链接笔记,小红书运营,爆款笔记,流量分析">
+		<td>26-01-12 09:33</td>
+		<td><a href="notes/01-小红书/713aa63b050be205257d9bceff375f83.html" target="_blank">小红书笔记爆款潜力评估指南：三大核心指标与全周期运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 09:32" data-date="2026-01" data-tags="AI链接笔记,内容创作,自媒体运营,流量算法">
+		<td>26-01-12 09:32</td>
+		<td><a href="notes/10-AI工具与应用/566fbab3a21ceabae130069bee0579dd.html" target="_blank">自媒体账号流量突围：平台算法机制与运营策略全景解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-12 07:38" data-date="2026-01" data-tags="AI链接笔记,账号运营,小红书涨粉技巧,薯条推广">
+		<td>26-01-12 07:38</td>
+		<td><a href="notes/01-小红书/26f9e998a0b62d16d335b71628a20784.html" target="_blank">小红书涨粉秘籍大公开：创作者学院4大核心运营技巧全解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-11 23:11" data-date="2026-01" data-tags="AI链接笔记,小红书运营,DeepSeek,搜索流量运营">
+		<td>26-01-11 23:11</td>
+		<td><a href="notes/01-小红书/a4e75f9f09805d1b5359863257ebe1b5.html" target="_blank">DeepSeek在小红书搜索流量运营中的高级应用指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-11 23:07" data-date="2026-01" data-tags="AI链接笔记,小红书商业特刊,自媒体运营2026,信任经济">
+		<td>26-01-11 23:07</td>
+		<td><a href="notes/01-小红书/5ee10bf14e1c69bd0ac3c5ef1728e0ac.html" target="_blank">2026小红书商业生态深度解析：从流量红利到信任资产的战略转型</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-11 10:07" data-date="2026-01" data-tags="AI链接笔记,小红书运营,流量提升,二次推流">
+		<td>26-01-11 10:07</td>
+		<td><a href="notes/01-小红书/9b7f36e490c3d566dca278c11290ec04.html" target="_blank">小红书笔记流量提升指南：破解"小眼睛不过百"困境的实战策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-11 10:05" data-date="2026-01" data-tags="AI链接笔记,小红书运营,流量破局,小眼睛提升">
+		<td>26-01-11 10:05</td>
+		<td><a href="notes/0e76054a6a880e49d676ff10de088f82.html" target="_blank">小红书流量破局指南：从"小眼睛<200"到上万的实操方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-11 10:03" data-date="2026-01" data-tags="AI链接笔记,小红书运营,僵尸号盘活,账号权重提升">
+		<td>26-01-11 10:03</td>
+		<td><a href="notes/01-小红书/87d3f1318685d41f89c83abf836f5d68.html" target="_blank">3天盘活小红书"僵尸号"：从限流到流量破3000的实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-11 08:31" data-date="2026-01" data-tags="">
+		<td>26-01-11 08:31</td>
+		<td><a href="notes/13-内容创作/4367ce50c6bc4bc8c3c89e6214bbc587.html" target="_blank">暂无标题</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-11 08:23" data-date="2026-01" data-tags="AI链接笔记,小红书AI规则,AIGC内容规范,社区内容治理">
+		<td>26-01-11 08:23</td>
+		<td><a href="notes/01-小红书/3d64badf4cf0c91e83c378f642d4a0ea.html" target="_blank">📝 小红书AI内容创作规范全景解读：风险规避与合规指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-10 01:02" data-date="2026-01" data-tags="AI链接笔记,小红书运营,新手博主,账号定位">
+		<td>26-01-10 01:02</td>
+		<td><a href="notes/01-小红书/ba3a0a89189a1ef812ff0154791cc6bb.html" target="_blank">小红书新手博主冷启动指南：从0到1的账号建模方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-10 00:59" data-date="2026-01" data-tags="AI链接笔记,小红书算法,内容运营,关键词布局">
+		<td>26-01-10 00:59</td>
+		<td><a href="notes/01-小红书/2d3dcb8488eecc160cba8a62905b30fb.html" target="_blank">2025小红书算法机制全景解析：从流量逻辑到内容运营实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-07 22:34" data-date="2026-01" data-tags="AI链接笔记,小红书运营,新人博主,流量提升">
+		<td>26-01-07 22:34</td>
+		<td><a href="notes/01-小红书/a9d53ebed1d443d8560e478ed87b106e.html" target="_blank">📈 小红书新人博主破局指南：3步攻克"黑洞期"，流量从100-500到爆款的实操策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-07 11:02" data-date="2026-01" data-tags="AI链接笔记,流量密码,自媒体爆款,选题技巧">
+		<td>26-01-07 11:02</td>
+		<td><a href="notes/10-AI工具与应用/a965eec0ee2b66d77e059b154492faf3.html" target="_blank">自媒体爆款内容创作指南：从选题逻辑到实操方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-07 10:57" data-date="2026-01" data-tags="AI链接笔记,小红书流量,笔记曝光提升,内容运营技巧">
+		<td>26-01-07 10:57</td>
+		<td><a href="notes/01-小红书/059be0117692f98f9564a3bf9c3eb491.html" target="_blank">📈 小红书流量急救指南：5个立竿见影的曝光提升策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="26-01-06 20:40" data-date="2026-01" data-tags="AI链接笔记,小红书运营,自媒体流量,新号起号">
+		<td>26-01-06 20:40</td>
+		<td><a href="notes/01-小红书/d7f97cc57d75b577404b4e334eff67e1.html" target="_blank">小红书新号流量困境破局：科学发布策略与15天起号指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:26" data-date="2025-12" data-tags="AI链接笔记,室内绿植推荐,耐阴耐旱植物,新手绿植养护">
+		<td>25-12-28 21:26</td>
+		<td><a href="notes/10-AI工具与应用/ff3ac8182d4a2d1c20b30dcdb481b188.html" target="_blank">🌿 2025室内大型绿植选购指南：耐阴耐旱品种全解析（附24款图鉴）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:25" data-date="2025-12" data-tags="AI链接笔记,新手绿植推荐,家居绿植避坑指南,高存活率室内植物">
+		<td>25-12-28 21:25</td>
+		<td><a href="notes/10-AI工具与应用/6602d9836e78a0c65ab64d2e44634b44.html" target="_blank">新手家居绿植选购指南：科学避坑与高性价比推荐清单</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:24" data-date="2025-12" data-tags="AI链接笔记,室内绿植推荐,新手植物养护,绿植避坑指南">
+		<td>25-12-28 21:24</td>
+		<td><a href="notes/10-AI工具与应用/a12da3cea74d2cadbacaf5d8d1e8a935.html" target="_blank">室内绿植终极指南：新手必看的「不死星人」推荐与避坑清单</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:24" data-date="2025-12" data-tags="AI链接笔记,新手绿植推荐,绿植红黑榜,家居绿植避坑指南">
+		<td>25-12-28 21:24</td>
+		<td><a href="notes/10-AI工具与应用/76047dfa3a90227ac2fabfd51e1171d9.html" target="_blank">绿植终极红黑榜：新手必看的血泪经验总结（附高性价比选购指南）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:24" data-date="2025-12" data-tags="AI链接笔记,新手绿植推荐,室内植物避坑指南,高颜值低维护植物">
+		<td>25-12-28 21:24</td>
+		<td><a href="notes/10-AI工具与应用/4962a3cde2a5e6630071a335626c4ca4.html" target="_blank">新手绿植养护全攻略：高存活率植物推荐与避坑指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:24" data-date="2025-12" data-tags="AI链接笔记,绿植避雷指南,室内绿植软装,新手绿植推荐">
+		<td>25-12-28 21:24</td>
+		<td><a href="notes/10-AI工具与应用/9f516930d9f6b44abe89a260a409d024.html" target="_blank">室内绿植终极指南：新手必看的10款推荐清单与8大避雷指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:23" data-date="2025-12" data-tags="AI链接笔记,室内绿植推荐,绿植避雷指南,家居植物搭配">
+		<td>25-12-28 21:23</td>
+		<td><a href="notes/10-AI工具与应用/c317860122b120ba0f851dcd9cca7b92.html" target="_blank">2025室内绿植选购指南：避雷清单与高性价比推荐（附风格适配方案）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-28 21:22" data-date="2025-12" data-tags="AI链接笔记,小红书账号分析,绿植内容创作者,新手账号数据">
+		<td>25-12-28 21:22</td>
+		<td><a href="notes/01-小红书/cc807f293fee47e04f0dd4fbe0c9834f.html" target="_blank">小红书用户"绿植姑娘"账号基础信息分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-27 18:14" data-date="2025-12" data-tags="AI链接笔记,小红书运营,内容发布策略,流量优化技巧">
+		<td>25-12-27 18:14</td>
+		<td><a href="notes/01-小红书/7719b729c927ddf0eb0040ed45f7a62b.html" target="_blank">📊 小红书内容发布黄金时段全景解析：从平台算法到垂类策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-27 18:12" data-date="2025-12" data-tags="AI链接笔记,小红书运营,原创保护,创作者权益">
+		<td>25-12-27 18:12</td>
+		<td><a href="notes/01-小红书/255e1668cbed1eb19a9de9d9575af844.html" target="_blank">小红书「作者原创保护中心」深度解析：权益体系、申请路径与运营规则</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-27 18:08" data-date="2025-12" data-tags="AI链接笔记,小红书社区规范,UGC内容创作,利益相关申明">
+		<td>25-12-27 18:08</td>
+		<td><a href="notes/01-小红书/351c7e28293c8fe1a948a40b89b78f7e.html" target="_blank">小红书社区内容创作规范与行为准则深度解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-27 17:59" data-date="2025-12" data-tags="AI链接笔记,小红书运营,内容创作指南,爆款笔记技巧">
+		<td>25-12-27 17:59</td>
+		<td><a href="notes/01-小红书/3b200760d1eab1cc3d8f54c7ec7fec48.html" target="_blank">小红书优质原创内容创作指南：从0到1打造爆款笔记</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-27 15:25" data-date="2025-12" data-tags="AI链接笔记,泡泡玛特,潮玩营销,用户运营">
+		<td>25-12-27 15:25</td>
+		<td><a href="notes/10-AI工具与应用/51d4c6a9a332a8c80026e87d080bb6ae.html" target="_blank">泡泡玛特多渠道营销与用户运营策略全景图</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-26 22:20" data-date="2025-12" data-tags="AI链接笔记,AI简报工具,Notebook LM教程,Gemini实操指南">
+		<td>25-12-26 22:20</td>
+		<td><a href="notes/10-AI工具与应用/e920c2bf631e09dce11b1f369b8ba94c.html" target="_blank">AI年终汇报效率工具全攻略：Gemini与Notebook LM实操指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-26 22:10" data-date="2025-12" data-tags="AI链接笔记,AI内容创作,Notebook LM,一键生成简报">
+		<td>25-12-26 22:10</td>
+		<td><a href="notes/10-AI工具与应用/e664d3b9843e80e04dbc8fd471e440d2.html" target="_blank">Notebook LM全功能深度解析：从AI笔记工具到内容创作引擎的6大核心应用</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-26 21:41" data-date="2025-12" data-tags="">
+		<td>25-12-26 21:41</td>
+		<td><a href="notes/99-其他通用/194d7742dc4457e9e3ea3e24de8cbd7b.html" target="_blank">信息源的监控和处理</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-26 21:39" data-date="2025-12" data-tags="AI链接笔记,n8n自动化工具,AI工作流,内容生产提效">
+		<td>25-12-26 21:39</td>
+		<td><a href="notes/10-AI工具与应用/b9929ea54ca328cc07223805dea7f87a.html" target="_blank">n8n自动化工作流工具深度体验：AI驱动的内容生产提效革命</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-26 10:23" data-date="2025-12" data-tags="AI链接笔记,DTC模式,女性创业,新消费品牌">
+		<td>25-12-26 10:23</td>
+		<td><a href="notes/10-AI工具与应用/24e0f29cc5c8b2aad155ea28e4bdaaaa.html" target="_blank">The Sill：从"植物杀手"痛点到年入千万的DTC绿植品牌创业案例分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-24 08:22" data-date="2025-12" data-tags="AI链接笔记,Gemini 3.0,Nano Banana Pro,AI工作流优化">
+		<td>25-12-24 08:22</td>
+		<td><a href="notes/10-AI工具与应用/93fa63ffc4fd01ea58a6f3b7cb46a415.html" target="_blank">Gemini 3.0与Nano Banana Pro深度实测：AI生成工具的工作流革命与风险警示</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 23:56" data-date="2025-12" data-tags="AI链接笔记,美团AI,小美App,LongCat大模型">
+		<td>25-12-23 23:56</td>
+		<td><a href="notes/10-AI工具与应用/08831f9e373e5ebddc96a5ccef65d383.html" target="_blank">美团AI产品线全景分析：战略布局、产品矩阵与落地进展</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 23:55" data-date="2025-12" data-tags="AI链接笔记,美团AI,龙猫大模型,小美App">
+		<td>25-12-23 23:55</td>
+		<td><a href="notes/10-AI工具与应用/25240030bd2ed0f7246d0fe6878b26c0.html" target="_blank">美团AI产品线全景分析：战略布局、产品矩阵与落地进展</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 23:50" data-date="2025-12" data-tags="AI链接笔记,美团Agent小美,AI产品体验,对话式交互">
+		<td>25-12-23 23:50</td>
+		<td><a href="notes/10-AI工具与应用/bd1d4c207c706823fa83acbd4d8f71b6.html" target="_blank">美团Agent小美产品体验深度测评：AI交互的现实困境与未来路径</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 22:21" data-date="2025-12" data-tags="AI链接笔记,花境设计,低维护植物,庭院景观">
+		<td>25-12-23 22:21</td>
+		<td><a href="notes/10-AI工具与应用/180aafee05c09c3b50496e76d1bbef70.html" target="_blank">低维护花境设计全攻略：两套四季常绿植物组合方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 20:43" data-date="2025-12" data-tags="AI链接笔记,Nano Banana Pro,Gemini 3.0,AI生成工具">
+		<td>25-12-23 20:43</td>
+		<td><a href="notes/10-AI工具与应用/0a3685a4ec31f18702b28407a853cf46.html" target="_blank">Gemini 3.0与Nano Banana Pro深度实测：AI生成工具的工作流革命与风险警示</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 19:31" data-date="2025-12" data-tags="AI链接笔记,AI视频生成,OpenAI Sora2,数字分身">
+		<td>25-12-23 19:31</td>
+		<td><a href="notes/10-AI工具与应用/b2ed2d0f7071331190ddc1e138f14644.html" target="_blank">OpenAI Sora2视频生成模型深度解析：技术突破、应用场景与商业野心</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 19:18" data-date="2025-12" data-tags="AI链接笔记,豆包视频大模型,Seedance 1.5 Pro,音画同步技术">
+		<td>25-12-23 19:18</td>
+		<td><a href="notes/10-AI工具与应用/c6e52bc4c71c19741bf70d1aac03f3b8.html" target="_blank">豆包视频大模型Seedance 1.5 Pro深度解析：音画同步革命与创作生态升级</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 12:29" data-date="2025-12" data-tags="">
+		<td>25-12-23 12:29</td>
+		<td><a href="notes/99-其他通用/11d79f2c4b857fc9bc3e034929822283.html" target="_blank">转化为付费知识</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 12:27" data-date="2025-12" data-tags="">
+		<td>25-12-23 12:27</td>
+		<td><a href="notes/99-其他通用/6e81f2f4b80c1ffff1a78ee2e95ab5ed.html" target="_blank">陶罐生态种植法：评论区热议</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 12:26" data-date="2025-12" data-tags="">
+		<td>25-12-23 12:26</td>
+		<td><a href="notes/13-内容创作/7d6798580683043f7fc9494fa4393004.html" target="_blank">陶罐生态种植法脚本拆解</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-23 12:26" data-date="2025-12" data-tags="">
+		<td>25-12-23 12:26</td>
+		<td><a href="notes/99-其他通用/7aadc53a49f348147e561c71c439093a.html" target="_blank">陶罐生态种植法逐字稿</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-22 01:48" data-date="2025-12" data-tags="AI链接笔记,AI编程,n8n自动化工具,内容创作提效">
+		<td>25-12-22 01:48</td>
+		<td><a href="notes/10-AI工具与应用/794f1e58c0a54295af271c707f61daf5.html" target="_blank">n8n自动化工作流工具深度体验：从内容监控到AI编程的提效革命</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-22 01:47" data-date="2025-12" data-tags="">
+		<td>25-12-22 01:47</td>
+		<td><a href="notes/99-其他通用/1908e72685cbf7d91262f5b43d99ae44.html" target="_blank">这也是我想用的办法和方向</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-22 01:46" data-date="2025-12" data-tags="">
+		<td>25-12-22 01:46</td>
+		<td><a href="notes/10-AI工具与应用/e6a4a2bdb0e5bbd62231c3bfd6aa0893.html" target="_blank">Prompt 的关键性</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-22 01:46" data-date="2025-12" data-tags="AI链接笔记,n8n自动化,自媒体工具,内容生产效率">
+		<td>25-12-22 01:46</td>
+		<td><a href="notes/10-AI工具与应用/edb6439536b8218539cfe7d8a4cb145b.html" target="_blank">n8n自动化工作流平台应用实践：自媒体内容生产的全流程革新</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-22 01:26" data-date="2025-12" data-tags="AI链接笔记,AI摘要应用,知识获取效率,多维度内容梳理">
+		<td>25-12-22 01:26</td>
+		<td><a href="notes/10-AI工具与应用/16832e76189a9ece0a6c9eea83915016.html" target="_blank">AI摘要型内容的价值争议与应用策略：基于知识获取场景的深度分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 19:59" data-date="2025-12" data-tags="录音笔记,AI工具,工作应用">
+		<td>25-12-21 19:59</td>
+		<td><a href="notes/10-AI工具与应用/4f52718a56473bcf944f679dc8df89d1.html" target="_blank">学习AI工具并结合工作应用</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 19:58" data-date="2025-12" data-tags="AI链接笔记,AI工具教程,Google Gemini,老屋改造">
+		<td>25-12-21 19:58</td>
+		<td><a href="notes/10-AI工具与应用/eacb407ea01a8e063a98c87b08237e5d.html" target="_blank">Austin Chou MooSun YouTube频道深度分析报告</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 19:50" data-date="2025-12" data-tags="AI链接笔记,Google NotebookLM,AI资料整理工具,RAG技术应用">
+		<td>25-12-21 19:50</td>
+		<td><a href="notes/10-AI工具与应用/0263626cbc5e8c6e1f6d4df9277ae9c4.html" target="_blank">Google NotebookLM全解析：AI驱动的高效资料管理与知识萃取工具</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 19:36" data-date="2025-12" data-tags="AI链接笔记,Google AI Studio,产品宣传图生成,AI工具教程">
+		<td>25-12-21 19:36</td>
+		<td><a href="notes/10-AI工具与应用/6e3f5338832acf9f0bb9fb559d2625d5.html" target="_blank">AI工具一站式生成产品宣传图与食谱设计教程</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 19:16" data-date="2025-12" data-tags="AI链接笔记,Gemini工具教程,AI创意设计,儿童教育应用">
+		<td>25-12-21 19:16</td>
+		<td><a href="notes/10-AI工具与应用/bd685116b24e463b2add0e7b14ca4fd5.html" target="_blank">Gemini创意与生活学习类21个实用功能深度解析（下集）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 19:16" data-date="2025-12" data-tags="AI链接笔记,Google Gemini,AI生产力工具,多模态数据处理">
+		<td>25-12-21 19:16</td>
+		<td><a href="notes/10-AI工具与应用/6e963b1cdfd08a4412363d1b5e600655.html" target="_blank">Google Gemini超全应用指南：21个AI功能深度解析（上）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 16:58" data-date="2025-12" data-tags="AI链接笔记,免费AI工具,AI视频生成,指令优化">
+		<td>25-12-21 16:58</td>
+		<td><a href="notes/10-AI工具与应用/55efb843d28555cbb7b4f0d2434b8937.html" target="_blank">AI动画视频生成全指南：从入门到进阶的实操手册</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 16:53" data-date="2025-12" data-tags="AI链接笔记,YouTube,网站底部导航,Google LLC">
+		<td>25-12-21 16:53</td>
+		<td><a href="notes/10-AI工具与应用/cdee8808b36dbfdb1178ea010eb08ba6.html" target="_blank">YouTube网站底部导航及版权信息解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 12:33" data-date="2025-12" data-tags="AI链接笔记,Gemini 3 Pro,Google AI Studio,免费AI工具">
+		<td>25-12-21 12:33</td>
+		<td><a href="notes/10-AI工具与应用/f1df7d86c5b6dcd6eef8dc3f8af9542f.html" target="_blank">Google AI Studio全功能深度指南：免费AI工具的隐藏王者</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 12:32" data-date="2025-12" data-tags="AI链接笔记,GPT-5架构,提示词技巧,AI效率提升">
+		<td>25-12-21 12:32</td>
+		<td><a href="notes/10-AI工具与应用/0ea4e2e2da0ace594208762db32600a4.html" target="_blank">GPT-5架构变革与11个效率提升技巧全解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 12:31" data-date="2025-12" data-tags="AI链接笔记,Topview AI,Sora 2,短视频生成">
+		<td>25-12-21 12:31</td>
+		<td><a href="notes/10-AI工具与应用/f99889295e8e85969cb78c98129fb0fb.html" target="_blank">Topview AI：基于Sora 2模型的爆款短视频生成工具深度解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 12:30" data-date="2025-12" data-tags="AI链接笔记,AI生图工具,Nano Banana Pro,多模态生成">
+		<td>25-12-21 12:30</td>
+		<td><a href="notes/10-AI工具与应用/e8432099a099a33a8e5b3f28beec4f28.html" target="_blank">Nano Banana Pro AI生图工具深度评测：功能、使用指南与场景案例</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 12:09" data-date="2025-12" data-tags="AI链接笔记,AI自媒体运营,爆款文案生成,数字人视频制作">
+		<td>25-12-21 12:09</td>
+		<td><a href="notes/10-AI工具与应用/88f7201220c3e2b79f6279875e11e3fe.html" target="_blank">AI自媒体全流程自动化运营指南：从选题到数字人视频制作</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 09:08" data-date="2025-12" data-tags="AI链接笔记,红人聚平台,元梦客AI系统,AI获客">
+		<td>25-12-21 09:08</td>
+		<td><a href="notes/10-AI工具与应用/89a3525935cfecb42629091497d4ca31.html" target="_blank">红人聚创业者服务平台与元梦客AI企业系统深度解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 08:44" data-date="2025-12" data-tags="">
+		<td>25-12-21 08:44</td>
+		<td><a href="notes/99-其他通用/4ce7b37906fa0d2e786419a159b672f5.html" target="_blank">植物盲文：可触摸的诗意</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-21 08:43" data-date="2025-12" data-tags="">
+		<td>25-12-21 08:43</td>
+		<td><a href="notes/99-其他通用/e77460f21da91b43a4f6132b3bb5f5ae.html" target="_blank">植物盲文：触摸自然的诗意微信视频逐字稿</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 12:27" data-date="2025-12" data-tags="AI链接笔记,百度秒达,AI编程,低代码开发">
+		<td>25-12-20 12:27</td>
+		<td><a href="notes/10-AI工具与应用/b6a90652485562d5a262c8353aac5be2.html" target="_blank">百度秒达：AI编程普及的颠覆性产品解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:14" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:14</td>
+		<td><a href="notes/05-公众号/8bbbefd3f44866210ab3db3e6c46a43f.html" target="_blank">微信中园艺公众号精选清单</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:04" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:04</td>
+		<td><a href="notes/13-内容创作/62ab22c2f085217c7c284ec50ebc8fa1.html" target="_blank">5步爆款文案生成术</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:04" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:04</td>
+		<td><a href="notes/04-抖音/2b51829e70e9bffda2e9ba80426a07d3.html" target="_blank">抖音“反向操作”引爆流量秘籍</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:03" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:03</td>
+		<td><a href="notes/14-流量运营/4f26c2a2bf633d908f8642d3b6d97a34.html" target="_blank">同城流量反向操作指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:02" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:02</td>
+		<td><a href="notes/11-私域运营/59950cf0cbd87982fb3abe57f95259fa.html" target="_blank">私域爆单术：一部手机日销2万+</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:01" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:01</td>
+		<td><a href="notes/10-AI工具与应用/1f5561ef11eebce39b868afa4f967bc3.html" target="_blank">AI数字人直播实战手册</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:01" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:01</td>
+		<td><a href="notes/99-其他通用/777e5518606a418560bc1b4c8eacbda9.html" target="_blank">花卉租摆全案解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 11:00" data-date="2025-12" data-tags="">
+		<td>25-12-20 11:00</td>
+		<td><a href="notes/99-其他通用/301f5e925f59235b17977e14888b157b.html" target="_blank">花卉租摆方案与报价</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:58" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:58</td>
+		<td><a href="notes/99-其他通用/d3d2e288790269c60c73cceee3e3d3cf.html" target="_blank">企业级绿植租摆服务解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:58" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:58</td>
+		<td><a href="notes/99-其他通用/a71ab3d12ce590c055bb75b3ab8bab2e.html" target="_blank">深圳24小时食物银行揭秘</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:55" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:55</td>
+		<td><a href="notes/99-其他通用/16e4857d478303eb5373dd32a65bd6fd.html" target="_blank">盆景艺术展示解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:54" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:54</td>
+		<td><a href="notes/13-内容创作/88b636500af4a0008d27d6d4a52443e0.html" target="_blank">脚本结构分析：</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:54" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:54</td>
+		<td><a href="notes/99-其他通用/c71d5aff93d3caf3a383e332b5bbd28c.html" target="_blank">温室盆景养护秘笈</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:52" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:52</td>
+		<td><a href="notes/99-其他通用/07840ec4cad85e982d0b4176b263c49e.html" target="_blank">生根粉合规性评估指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:51" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:51</td>
+		<td><a href="notes/99-其他通用/0f89cc555111cf4e8aab1a89af1bda9b.html" target="_blank">生根粉合规性评估指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:51" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:51</td>
+		<td><a href="notes/99-其他通用/0ded22d1143e70f185617cf762a1c78b.html" target="_blank">微型盆景定制方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:50" data-date="2025-12" data-tags="">
+		<td>25-12-20 10:50</td>
+		<td><a href="notes/99-其他通用/d8acb5f48e2b11b974f4fc7708ca3a7d.html" target="_blank">600年道观里的植物哲学</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 10:45" data-date="2025-12" data-tags="商业">
+		<td>25-12-20 10:45</td>
+		<td><a href="notes/99-其他通用/ca61e6fb3a37c4817db04e6d42399247.html" target="_blank">百元气球塔爆单秘诀</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:58" data-date="2025-12" data-tags="gemini 官方文档,Gemini 3 Pro">
+		<td>25-12-20 02:58</td>
+		<td><a href="notes/10-AI工具与应用/30a653a8a023bd313a5b853f3893d2a5.html" target="_blank">用 Gemini 应用生成音频概览 - 电脑 - Gemini 应用帮助...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:57" data-date="2025-12" data-tags="gemini 官方文档,Gemini 3 Pro">
+		<td>25-12-20 02:57</td>
+		<td><a href="notes/10-AI工具与应用/47828c1c4fd0a1973547677f39ebf1b5.html" target="_blank">用 Gemini 应用生成音频概览 - iPhone 和 iPad - ...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:57" data-date="2025-12" data-tags="gemini 官方文档,Gemini 3 Pro">
+		<td>25-12-20 02:57</td>
+		<td><a href="notes/10-AI工具与应用/026c8bc2e57fabd0d4e108c0cb5ee776.html" target="_blank">使用 Gemini 应用生成和编辑图片 - 电脑 - Gemini 应用...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:56" data-date="2025-12" data-tags="gemini 官方文档,Gemini 3 Pro">
+		<td>25-12-20 02:56</td>
+		<td><a href="notes/10-AI工具与应用/b4e60ab432815a494523dbac22cae17c.html" target="_blank">使用 Gemini 应用生成和编辑图片 - iPhone 和 iPad ...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:56" data-date="2025-12" data-tags="gemini 官方文档,Gemini 3 Pro">
+		<td>25-12-20 02:56</td>
+		<td><a href="notes/10-AI工具与应用/d574caeff733d31c49122348bf60c8e0.html" target="_blank">使用 Gemini 应用生成视频 - 电脑 - Gemini 应用帮助h...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:55" data-date="2025-12" data-tags="Gemini 3 Pro,gemini 官方文档">
+		<td>25-12-20 02:55</td>
+		<td><a href="notes/10-AI工具与应用/f8df907dff6c817aab34ccae67394fd0.html" target="_blank">使用 Gemini 应用生成视频 - iPhone 和 iPad - G...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:24" data-date="2025-12" data-tags="录音笔记,AI发展,中美对比">
+		<td>25-12-20 02:24</td>
+		<td><a href="notes/10-AI工具与应用/1aaffca1e8b43aaecbe7b91b026a1e8b.html" target="_blank">美国AI先驱现象对中国的启示</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:22" data-date="2025-12" data-tags="AI链接笔记,AI泡沫风险,Geoffrey Hinton,就业替代">
+		<td>25-12-20 02:22</td>
+		<td><a href="notes/10-AI工具与应用/1dbec6f27dcc00bba35729680b7470e2.html" target="_blank">AI泡沫风险警示：Hinton关于社会动荡与行业回报的深度分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-20 02:19" data-date="2025-12" data-tags="AI链接笔记,AI就业影响,技术伦理,行业裁员潮">
+		<td>25-12-20 02:19</td>
+		<td><a href="notes/10-AI工具与应用/40559059c7d205019623b3f1f26fbbaa.html" target="_blank">AI先驱警告：技术革命下的就业危机与行业变局</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-19 19:26" data-date="2025-12" data-tags="AI链接笔记,ChatGPT高阶应用,思维模型,决策工具">
+		<td>25-12-19 19:26</td>
+		<td><a href="notes/10-AI工具与应用/3bbd986b11cc3e32ebb69e59fc1f54f2.html" target="_blank">ChatGPT高效应用指南：激活高阶能力的5个顶级思维模型</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-19 19:23" data-date="2025-12" data-tags="AI链接笔记,Gemini 3 Pro,多模态AI,代码生成">
+		<td>25-12-19 19:23</td>
+		<td><a href="notes/10-AI工具与应用/4afae8f31c0892ca87a6b7ae2831007c.html" target="_blank">Gemini 3 Pro深度解析：从多模态智能到实用工具的革命性突破</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-01 13:15" data-date="2025-09" data-tags="flomo,小程序,商城搭建">
+		<td>25-09-01 13:15</td>
+		<td><a href="notes/20-知识管理/bf22e80d4f4254a905d7dbd9d29da477.html" target="_blank">#小程序  #商城搭建这个小程序初期是为满足给线下交易提供收费渠道的需求...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 22:44" data-date="2025-09" data-tags="flomo,公域,直播">
+		<td>25-09-10 22:44</td>
+		<td><a href="notes/20-知识管理/84e2dff94c4f2ee39fca89d462cc413d.html" target="_blank">#公域 #直播我在微信直播里看到一些花卉绿植商户，大部分在卖附属品，像花...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-22 11:55" data-date="2025-09" data-tags="flomo">
+		<td>25-09-22 11:55</td>
+		<td><a href="notes/20-知识管理/a85fa2626f77e568919b04c2192c5929.html" target="_blank">思路归档路径：1.flomo和get随时记录想法、问题，注意添加标签2....</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-26 06:05" data-date="2025-09" data-tags="flomo,小程序,商品分组设计,商城搭建">
+		<td>25-09-26 06:05</td>
+		<td><a href="notes/20-知识管理/2a9b96fd9b307ec431a1fdcfaa996e50.html" target="_blank">系统后台给每个商家建立一个分组，每个商品通过分组来区分所属商家。同时，建...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-26 12:07" data-date="2025-09" data-tags="flomo,小程序,商城收费结算">
+		<td>25-09-26 12:07</td>
+		<td><a href="notes/20-知识管理/d106c2c08a5a3e80e0925d8e26d10666.html" target="_blank">客户支付的运费，应该归属于商户还是归属于我的商城？经讨论，运费属于商城，...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-26 20:56" data-date="2025-09" data-tags="flomo,小程序,商品分组设计,商城收费结算">
+		<td>25-09-26 20:56</td>
+		<td><a href="notes/20-知识管理/2c216e7c9e6b0ca5e15ba73740574fa5.html" target="_blank">小程序商城里面商城商品的分组是这样设计的：每一个商户是一个分组，但这个分...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-06 23:23" data-date="2025-12" data-tags="flomo,随想,公域">
+		<td>25-12-06 23:23</td>
+		<td><a href="notes/20-知识管理/9f616cf53071a0f9ef71f7c5611cb8bb.html" target="_blank">我在想，从评论区里找问题，然后去商城退换，可能会更好吧，小果。#随想 #...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-10 21:29" data-date="2025-12" data-tags="flomo,随想,内容创作,公域">
+		<td>25-12-10 21:29</td>
+		<td><a href="notes/13-内容创作/0ce28b10c5ff757afb50c8109664c7b8.html" target="_blank">我想到，如果能够利用外网得来的信息，形成一个与国内的信息差，然后再用国内...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 23:05" data-date="2025-12" data-tags="flomo">
+		<td>25-12-13 23:05</td>
+		<td><a href="notes/20-知识管理/973f38ac39770475f2cd1139948fffa6.html" target="_blank">关联自：</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 21:50" data-date="2025-12" data-tags="公域">
+		<td>25-12-18 21:50</td>
+		<td><a href="notes/14-流量运营/dc3bb71eaf83f1f5ae66bc4ed30179e8.html" target="_blank">香而雅产品推荐视频逐字稿</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 17:29" data-date="2025-12" data-tags="AI链接笔记,数据采集,AI工具集,开源项目">
+		<td>25-12-18 17:29</td>
+		<td><a href="notes/10-AI工具与应用/904c14b4e5862f5b0b240ee61774b6c9.html" target="_blank">AI工具集精选：从开发部署到应用场景的全栈资源汇总</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 17:26" data-date="2025-12" data-tags="AI链接笔记,MCP协议,模型上下文协议,Agent工具集成">
+		<td>25-12-18 17:26</td>
+		<td><a href="notes/10-AI工具与应用/1bd097f9047b3d4d271c84e18c0a8f84.html" target="_blank">MCP协议生态全景：12个核心资源平台深度解析（2024）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 17:23" data-date="2025-12" data-tags="AI链接笔记,Fish Audio,文本转语音,语音克隆,Ai工具">
+		<td>25-12-18 17:23</td>
+		<td><a href="notes/10-AI工具与应用/be201107aecf46b13f9602a969afa2f9.html" target="_blank">Fish Audio：情感化文本转语音工具深度解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 17:22" data-date="2025-12" data-tags="AI链接笔记,Prompt Optimizer,提示词优化工具,AI效率工具">
+		<td>25-12-18 17:22</td>
+		<td><a href="notes/10-AI工具与应用/e24e02e638a408047a28890535529d0a.html" target="_blank">Prompt Optimizer：AI提示词优化工具深度解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 17:19" data-date="2025-12" data-tags="AI链接笔记,开源爬虫工具,数据采集,AI驱动抓取">
+		<td>25-12-18 17:19</td>
+		<td><a href="notes/10-AI工具与应用/a3af336879cac9bcd919f38703d7c91f.html" target="_blank">2025年五大开源数据采集工具深度评测：从AI驱动到可视化操作</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 17:14" data-date="2025-12" data-tags="AI链接笔记,AI舆情分析工具,资讯订阅工具,TrendRadar">
+		<td>25-12-18 17:14</td>
+		<td><a href="notes/10-AI工具与应用/57d55a02506c64269978388a6935a7b2.html" target="_blank">4款AI驱动的舆情分析及资讯订阅工具深度评测：功能对比与应用场景</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-18 02:23" data-date="2025-12" data-tags="AI链接笔记,AI内容聚合,自动化工作流,信息降噪,资讯订阅工具">
+		<td>25-12-18 02:23</td>
+		<td><a href="notes/10-AI工具与应用/337b493d77236259f04cf0b32ef7cfcf.html" target="_blank">「降噪」产品深度解析：AI内容聚合平台的三次迭代与全自动化内容生态构想</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-17 09:44" data-date="2025-12" data-tags="">
+		<td>25-12-17 09:44</td>
+		<td><a href="notes/99-其他通用/3f2aad6e0ea6bd7e274191fe8b94e675.html" target="_blank">深圳24小时食物银行全记录视频逐字稿</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-16 23:12" data-date="2025-12" data-tags="AI链接笔记,数字游民,技能堆叠,个人知识管理">
+		<td>25-12-16 23:12</td>
+		<td><a href="notes/10-AI工具与应用/cf51f3bcdd8833dec27111c904b0dfa1.html" target="_blank">十年跨界学习实践：如何通过技能堆叠实现"做热爱之事谋生"的"不可能成就"</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-16 23:09" data-date="2025-12" data-tags="AI链接笔记,个人创业经验,流量转化策略,自我提升方法论">
+		<td>25-12-16 23:09</td>
+		<td><a href="notes/10-AI工具与应用/258bbd2bb1a68eee645ac3018c5715ea.html" target="_blank">个人创业与自我提升的11个核心经验：从好奇探索到自主商业模式</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-16 23:05" data-date="2025-12" data-tags="AI链接笔记,一人企业,数字游民,低启动成本创业">
+		<td>25-12-16 23:05</td>
+		<td><a href="notes/10-AI工具与应用/763954dadc7b8d7f744320b59a5b4f74.html" target="_blank">一人企业：低启动成本的现代创业模式与生活设计指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-16 22:57" data-date="2025-12" data-tags="AI链接笔记,Dan Koe,个人成长,一人企业模型">
+		<td>25-12-16 22:57</td>
+		<td><a href="notes/10-AI工具与应用/6566489f95268dbae9f9240d2e585d7f.html" target="_blank">Dan Koe YouTube频道深度分析：个人成长与价值创造领域的内容生态</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-16 22:56" data-date="2025-12" data-tags="AI链接笔记,内容创作,表达技巧,思维训练">
+		<td>25-12-16 22:56</td>
+		<td><a href="notes/10-AI工具与应用/1445cb02a8621f9c23783712a15796e5.html" target="_blank">如何清晰表达：从构建核心思想到三大进阶表达框架</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 23:53" data-date="2025-12" data-tags="AI链接笔记,AI数字人直播,实时互动系统,数字人建模技术">
+		<td>25-12-13 23:53</td>
+		<td><a href="notes/10-AI工具与应用/c30b2fc9dd59bc7e85e65ceb4ba5d281.html" target="_blank">AI数字人直播技术学习全景指南：从基础到实战</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 23:22" data-date="2025-12" data-tags="AI链接笔记,知识管理,flomo使用技巧,小红书运营">
+		<td>25-12-13 23:22</td>
+		<td><a href="notes/01-小红书/7dac7bc4a7fef1430eeca5b54a449d71.html" target="_blank">利用flomo实现小红书稳定日更：知识管理4步法打造内容复利系统</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 23:17" data-date="2025-12" data-tags="AI链接笔记,读书笔记方法,以终为始阅读法,flomo使用技巧">
+		<td>25-12-13 23:17</td>
+		<td><a href="notes/10-AI工具与应用/d88b77ad1140e2c49c7a2f416d10d768.html" target="_blank">「以终为始，为我所用」：科科的高效读书笔记方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 22:55" data-date="2025-12" data-tags="AI链接笔记,私域流量运营,内容策略,爆款打造">
+		<td>25-12-13 22:55</td>
+		<td><a href="notes/10-AI工具与应用/e8aa5850176e8aaf4a764b544bbd3301.html" target="_blank">私域流量高效运营的核心方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 22:30" data-date="2025-12" data-tags="AI链接笔记,抖音运营技巧,平台算法规则,流量获取策略">
+		<td>25-12-13 22:30</td>
+		<td><a href="notes/04-抖音/99cb45f3e44dfde030ad333e19dd3d48.html" target="_blank">抖音流量提升核心技巧：平台算法规则的"反向操作"策略解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 22:29" data-date="2025-12" data-tags="AI链接笔记,腾讯元宝,短视频文案制作,爆款内容创作">
+		<td>25-12-13 22:29</td>
+		<td><a href="notes/10-AI工具与应用/59b3e9537d7bd2c40727b3dfdd9a7db3.html" target="_blank">腾讯元宝爆款短视频文案制作全流程指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 09:03" data-date="2025-12" data-tags="AI链接笔记,植物养护技巧,Sheffield Made Plants,室内植物指南">
+		<td>25-12-13 09:03</td>
+		<td><a href="notes/10-AI工具与应用/10d31728c47cf892473f824be115f806.html" target="_blank">Sheffield Made Plants YouTube频道深度分析报告</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 09:03" data-date="2025-12" data-tags="AI链接笔记,YouTube园艺频道,多肉植物养护,家庭园艺技巧">
+		<td>25-12-13 09:03</td>
+		<td><a href="notes/10-AI工具与应用/c77bb2946d916b2090dd5523ba523f1e.html" target="_blank">YouTube园艺频道"花花世界"深度运营分析报告</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 09:00" data-date="2025-12" data-tags="AI链接笔记,玫瑰种植技术,园艺YouTube频道,扦插繁殖方法">
+		<td>25-12-13 09:00</td>
+		<td><a href="notes/10-AI工具与应用/57d0b30f397c91fa0b1a5d493dd847ee.html" target="_blank">Dream Rose Garden YouTube频道深度分析报告</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 08:38" data-date="2025-12" data-tags="AI链接笔记,植物养护,Natural Fertilizer,有机肥料">
+		<td>25-12-13 08:38</td>
+		<td><a href="notes/10-AI工具与应用/d5930fb98ca1ac1eaaef9fe069444380.html" target="_blank">Natural Fertilizer YouTube频道内容架构与核心资源分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-13 08:31" data-date="2025-12" data-tags="AI链接笔记,YouTube频道分析,兰花养护,内容矩阵运营">
+		<td>25-12-13 08:31</td>
+		<td><a href="notes/10-AI工具与应用/35d994568cde66c6c509927ff604be5f.html" target="_blank">Happiness Garden YouTube频道矩阵及内容生态分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-12 23:33" data-date="2025-12" data-tags="AI链接笔记,豆包AI,七步阅读法,提示词工程">
+		<td>25-12-12 23:33</td>
+		<td><a href="notes/10-AI工具与应用/f09985fc98f1ba59c11ae008071f2b42.html" target="_blank">豆包AI七步榨干一本书：高效阅读与知识萃取方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:33" data-date="2025-12" data-tags="">
+		<td>25-12-11 19:33</td>
+		<td><a href="notes/05-公众号/b65f094bbe3fb341432772b7469a7817.html" target="_blank">公众号高热度图文文章说明这是一篇公众号图文栏下的文章，阅读量、点赞量、转...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:33" data-date="2025-12" data-tags="">
+		<td>25-12-11 19:33</td>
+		<td><a href="notes/05-公众号/06504f9a12b3710ba8a4adbe294e7852.html" target="_blank">公众号高热度图文文章说明这是一篇公众号图文栏下的文章，阅读量、点赞量、转...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:33" data-date="2025-12" data-tags="">
+		<td>25-12-11 19:33</td>
+		<td><a href="notes/05-公众号/cc25cf24427090725f63cbb4bd2754d8.html" target="_blank">公众号高热度图文文章说明这是一篇公众号图文栏下的文章，阅读量、点赞量、转...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:32" data-date="2025-12" data-tags="录音笔记,公众号,图文,协作">
+		<td>25-12-11 19:32</td>
+		<td><a href="notes/05-公众号/9d4518ee5be3fdbd008ab3b6bf7f3d73.html" target="_blank">公众号高热度图文文章说明</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:31" data-date="2025-12" data-tags="录音笔记,公众号,链接">
+		<td>25-12-11 19:31</td>
+		<td><a href="notes/05-公众号/3de67d1dd326ff59f02506d0f844af07.html" target="_blank">公众号图文链接来源说明</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:31" data-date="2025-12" data-tags="">
+		<td>25-12-11 19:31</td>
+		<td><a href="notes/05-公众号/35802fff56bd273049c6cc2230d592c4.html" target="_blank">公众号合集内容分享这是公众号下的一个合集，分享了通过链接捕捉到的内容。</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:30" data-date="2025-12" data-tags="">
+		<td>25-12-11 19:30</td>
+		<td><a href="notes/05-公众号/616f42a9e2828e7f5db436214ca13cd3.html" target="_blank">公众号合集内容分享这是公众号下的一个合集，分享了通过链接捕捉到的内容。</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:30" data-date="2025-12" data-tags="">
+		<td>25-12-11 19:30</td>
+		<td><a href="notes/05-公众号/0e98c9c750630748da64c6757933aab4.html" target="_blank">公众号合集内容分享这是公众号下的一个合集，分享了通过链接捕捉到的内容。</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:29" data-date="2025-12" data-tags="录音笔记,公众号,内容分享">
+		<td>25-12-11 19:29</td>
+		<td><a href="notes/05-公众号/d2f035439a98265942ad39a334648a89.html" target="_blank">公众号合集内容分享</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:27" data-date="2025-12" data-tags="录音笔记,公众号,内容分享">
+		<td>25-12-11 19:27</td>
+		<td><a href="notes/05-公众号/0e66d458777453abcc57bca7c391fbf5.html" target="_blank">公众号合集内容分享</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:26" data-date="2025-12" data-tags="">
+		<td>25-12-11 19:26</td>
+		<td><a href="notes/05-公众号/af33a4d8864b0bc61241e5c258f87a77.html" target="_blank">公众号图文栏合集分享说明</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:22" data-date="2025-12" data-tags="录音笔记,鲜花养护,小程序设计,用户体验">
+		<td>25-12-11 19:22</td>
+		<td><a href="notes/21-录音笔记/51aee6816ff8d952e26fb28ae0b6cb64.html" target="_blank">鲜花养护栏目设计与跳转逻辑</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:22" data-date="2025-12" data-tags="录音笔记,视频号,植物养护">
+		<td>25-12-11 19:22</td>
+		<td><a href="notes/02-视频号/da0ac14f35ba79f3b3a0c1d0d3cf023a.html" target="_blank">视频号分享养植物的感受</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:21" data-date="2025-12" data-tags="录音笔记,公众号,图文栏">
+		<td>25-12-11 19:21</td>
+		<td><a href="notes/05-公众号/a5ed6f7592edab16baaf8791691a0158.html" target="_blank">公众号图文栏截图说明</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:19" data-date="2025-12" data-tags="录音笔记,视频号,公众号,内容区分">
+		<td>25-12-11 19:19</td>
+		<td><a href="notes/02-视频号/7d84a6e8bcc6647e828afc0a789f7fae.html" target="_blank">公众号长文</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:19" data-date="2025-12" data-tags="图片笔记,办公室绿植,植物科普,脱不花">
+		<td>25-12-11 19:19</td>
+		<td><a href="notes/22-图片笔记/0f5e17fff60198679fde82bf4604a9d7.html" target="_blank">办公室植物分享：十大功劳与90岁高龄绿植</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:18" data-date="2025-12" data-tags="图片笔记,千百季养花指南,园艺,花卉养护">
+		<td>25-12-11 19:18</td>
+		<td><a href="notes/05-公众号/7c5a510b86e415342796a2896e1eb007.html" target="_blank">千百季养花指南公众号内容整理</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:17" data-date="2025-12" data-tags="图片笔记,养花指南,花卉图鉴,千百季养花指南">
+		<td>25-12-11 19:17</td>
+		<td><a href="notes/22-图片笔记/4877a420f69650dfa9ef6de5884687e2.html" target="_blank">千百季养花指南图文汇总</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:16" data-date="2025-12" data-tags="图片笔记,鲜花养护,花艺知识">
+		<td>25-12-11 19:16</td>
+		<td><a href="notes/22-图片笔记/4224d3d8d6efb781278cc2253b768f7e.html" target="_blank">鲜花养护知识大全：通用步骤与常见花材养护指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:03" data-date="2025-12" data-tags="AI链接笔记,月季养护,养花指南,月季病害防治">
+		<td>25-12-11 19:03</td>
+		<td><a href="notes/10-AI工具与应用/a3babecf1599c01fdf10e836f4a79fb4.html" target="_blank">千百季养花指南：月季养护专题内容汇总（2024年）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:03" data-date="2025-12" data-tags="AI链接笔记,千百季养花指南,花卉养护技巧,年宵花养护">
+		<td>25-12-11 19:03</td>
+		<td><a href="notes/10-AI工具与应用/9e7a15095001ffa02bd53876ca0b43ab.html" target="_blank">千百季养花指南：常见花卉养护问题与解决方案汇总</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:03" data-date="2025-12" data-tags="AI链接笔记,家庭园艺,新手养花指南,季节性养花">
+		<td>25-12-11 19:03</td>
+		<td><a href="notes/10-AI工具与应用/ad8c58a8e86e049fca57a575a2274def.html" target="_blank">千百季养花指南：31篇核心内容分类解析与季节性养护策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:02" data-date="2025-12" data-tags="AI链接笔记,千百季养花指南,月度养花预报,养花避雷手册">
+		<td>25-12-11 19:02</td>
+		<td><a href="notes/10-AI工具与应用/653439f0f0578781e51485a422d23734.html" target="_blank">千百季养花指南：月度预报内容概览与分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:01" data-date="2025-12" data-tags="AI链接笔记,花卉图鉴,植物养护指南,新手养花">
+		<td>25-12-11 19:01</td>
+		<td><a href="notes/10-AI工具与应用/dc1a934422853769b88c7f94f083a4f0.html" target="_blank">花卉品种图鉴与养护指南大全：37个精选内容分类整理</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:01" data-date="2025-12" data-tags="AI链接笔记,千百季养花指南,植物问题图鉴,家庭园艺">
+		<td>25-12-11 19:01</td>
+		<td><a href="notes/10-AI工具与应用/4558b0453d76e7f7ca11a660b5e0bd8d.html" target="_blank">千百季养花指南：31个植物问题解决方案汇总</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:01" data-date="2025-12" data-tags="AI链接笔记,长寿花品种图鉴,长寿花栽培技术,短日照植物养护">
+		<td>25-12-11 19:01</td>
+		<td><a href="notes/10-AI工具与应用/6c274a31aa38a855fdcbca81fc56fac1.html" target="_blank">长寿花品种图鉴与栽培全攻略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:00" data-date="2025-12" data-tags="AI链接笔记,蕨类植物,室内绿植,植物图鉴">
+		<td>25-12-11 19:00</td>
+		<td><a href="notes/10-AI工具与应用/1cac7ce576dce50808a2d35bd3a3fc3e.html" target="_blank">蕨类植物图鉴：28种常见品种分类与养护指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 19:00" data-date="2025-12" data-tags="AI链接笔记,养花段位,新手养花指南,植物养护技巧">
+		<td>25-12-11 19:00</td>
+		<td><a href="notes/10-AI工具与应用/c45509aae73244bcd059a71fd41444de.html" target="_blank">养花段位体系全解析：从新手到大神的成长路径与植物选择指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 18:59" data-date="2025-12" data-tags="AI链接笔记,三角梅养护,植物病虫害防治,生理性障碍">
+		<td>25-12-11 18:59</td>
+		<td><a href="notes/10-AI工具与应用/6eb9ec5296a4708e5320c129f6b5e95d.html" target="_blank">三角梅常见问题诊断与防治全指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-11 18:58" data-date="2025-12" data-tags="AI链接笔记,小众植物,观赏植物图鉴,附生植物">
+		<td>25-12-11 18:58</td>
+		<td><a href="notes/10-AI工具与应用/abb1bafc41e4c952da34ec80ce719407.html" target="_blank">最小众植物图鉴：12种珍稀观赏植物的分类与特征解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-10 00:17" data-date="2025-12" data-tags="AI链接笔记,模板资源,AI增强工具,行业解决方案">
+		<td>25-12-10 00:17</td>
+		<td><a href="notes/10-AI工具与应用/d154e1111aa165e40c940ce94fef2c61.html" target="_blank">精选模板资源汇总：AI增强与行业应用指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-10 00:17" data-date="2025-12" data-tags="AI链接笔记,飞行社,业务认证体系,100道题认证">
+		<td>25-12-10 00:17</td>
+		<td><a href="notes/10-AI工具与应用/e5eac561d509a0f09964854059d3e9eb.html" target="_blank">飞行社业务认证体系建设进展（2025年5月8日更新）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-10 00:16" data-date="2025-12" data-tags="AI链接笔记,飞书多维表格,新功能上线,王大仙教学">
+		<td>25-12-10 00:16</td>
+		<td><a href="notes/10-AI工具与应用/bd3b9b9994fdefc2acf73011d7f62c3a.html" target="_blank">飞书多维表格新功能上线通知：王大仙教学内容预告</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-10 00:15" data-date="2025-12" data-tags="AI链接笔记,飞书多维表格,文档协作工具,AI内容创作">
+		<td>25-12-10 00:15</td>
+		<td><a href="notes/10-AI工具与应用/966359b7623ae3bfd220b4070302db0a.html" target="_blank">飞书多维表格官方上手课页面信息整理</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-10 00:13" data-date="2025-12" data-tags="AI链接笔记,飞书多维表格,王大仙课程,业务高手培养">
+		<td>25-12-10 00:13</td>
+		<td><a href="notes/10-AI工具与应用/001ab25840ff3a7e51e8af542d451ced.html" target="_blank">大仙课合集｜跟着王大仙，做飞书多维表格高手！</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-09 23:51" data-date="2025-12" data-tags="AI链接笔记,AI变现系统,个人品牌战略,客户画像生成">
+		<td>25-12-09 23:51</td>
+		<td><a href="notes/10-AI工具与应用/710f7a0ef5069177e43341695acbf277.html" target="_blank">AI驱动的变现系统：从个人品牌到百万美元收入的实操框架</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-09 23:48" data-date="2025-12" data-tags="AI链接笔记,YouTube Shorts,AI创业,单人企业">
+		<td>25-12-09 23:48</td>
+		<td><a href="notes/10-AI工具与应用/97fbba753d30debc56a27f7b525aae38.html" target="_blank">YouTube Shorts视频页面信息：《How To Start A One-Person Business With AI (From 0 To $1 Million)》</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 10:03" data-date="2025-12" data-tags="">
+		<td>25-12-08 10:03</td>
+		<td><a href="notes/10-AI工具与应用/837a8ada64dbd534cfb2fa725737370f.html" target="_blank">ChatGPT 总结视频内容</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 09:08" data-date="2025-12" data-tags="AI链接笔记,AI提示词工程,个人品牌自动化,深度思考辅助工具">
+		<td>25-12-08 09:08</td>
+		<td><a href="notes/10-AI工具与应用/50e86325d836430010f59eb0751d7941.html" target="_blank">AI深度应用指南：从"提问工具"到"数字员工"的转变方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 09:01" data-date="2025-12" data-tags="AI链接笔记,Dan Koe,个人成长,自我提升">
+		<td>25-12-08 09:01</td>
+		<td><a href="notes/10-AI工具与应用/f9563525eb79fd8c5a40fa10d36c2a17.html" target="_blank">Dan Koe YouTube频道《Season 4》系列内容全景分析报告</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 08:59" data-date="2025-12" data-tags="AI链接笔记,多巴胺排毒,心流状态,行为设计">
+		<td>25-12-08 08:59</td>
+		<td><a href="notes/10-AI工具与应用/b3e19a9b590aa4f36039cbe2df9479a4.html" target="_blank">现代生活重置方案：30天多巴胺排毒协议深度解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 08:57" data-date="2025-12" data-tags="AI链接笔记,个人发展战略,反主流职业路径,高杠杆技能">
+		<td>25-12-08 08:57</td>
+		<td><a href="notes/10-AI工具与应用/59f90271ff61568ebe4ab18b4b2155ed.html" target="_blank">20岁人生战略指南：突破平庸默认路径的心智框架与行动蓝图</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 08:52" data-date="2025-12" data-tags="AI链接笔记,表达能力提升,PAS框架,金字塔原理">
+		<td>25-12-08 08:52</td>
+		<td><a href="notes/10-AI工具与应用/e58116da05bc0bb9a59b5b28f9221c97.html" target="_blank">提升表达能力的三大核心框架：从新手到专家的进阶指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 08:37" data-date="2025-12" data-tags="AI链接笔记,AI提示工程,LLM高级应用,个人品牌打造">
+		<td>25-12-08 08:37</td>
+		<td><a href="notes/10-AI工具与应用/ad8cacbfe7a5783c3cff82991a93e4df.html" target="_blank">AI深度应用指南：从"随机生成"到"精准控制"的LLM高级使用方法论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-08 08:26" data-date="2025-12" data-tags="">
+		<td>25-12-08 08:26</td>
+		<td><a href="notes/10-AI工具与应用/3d01f0289afa434cb5b8ad794fb47283.html" target="_blank">Metaprompt</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-07 17:45" data-date="2025-12" data-tags="录音笔记,内容创作,观众思维,短视频创作">
+		<td>25-12-07 17:45</td>
+		<td><a href="notes/13-内容创作/46dee6e25dceeb9950e4b071f2685643.html" target="_blank">短视频创作思维转化：让观众成为主角的三大关键</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-06 17:45" data-date="2025-12" data-tags="录音笔记,内容创作,爆款特质,传播规律">
+		<td>25-12-06 17:45</td>
+		<td><a href="notes/13-内容创作/8fc427db0badf04caafc39a667e90d1f.html" target="_blank">爆款内容的四个特质分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-06 15:12" data-date="2025-12" data-tags="录音笔记,商业模式,直播带货,互联网公司">
+		<td>25-12-06 15:12</td>
+		<td><a href="notes/10-AI工具与应用/0d8a720478c577b645aebc506b71c0f9.html" target="_blank">互联网公司商业模式分析与直播带货选品策略及AI工具使用指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-04 08:02" data-date="2025-12" data-tags="录音笔记,商品需求,情绪价值,随想">
+		<td>25-12-04 08:02</td>
+		<td><a href="notes/21-录音笔记/62d0a0b4210324e70309d7df1492930c.html" target="_blank">商品功能与情绪价值的需求差异</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-01 19:52" data-date="2025-12" data-tags="">
+		<td>25-12-01 19:52</td>
+		<td><a href="notes/99-其他通用/70ed60fc358d4e6077c2827fb2628141.html" target="_blank">掼蛋商业模式解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-12-01 19:46" data-date="2025-12" data-tags="录音笔记,商业模式,掼蛋比赛,视频号运营">
+		<td>25-12-01 19:46</td>
+		<td><a href="notes/02-视频号/18f2e4b94cdf6b01c2c5cdcd566422f1.html" target="_blank">某个人结合掼蛋活动的商业模式分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-30 23:27" data-date="2025-11" data-tags="录音笔记,五年规划,行业分析">
+		<td>25-11-30 23:27</td>
+		<td><a href="notes/21-录音笔记/fd935c0f66530765b4fc5861382a25c7.html" target="_blank">根据五年规划周期反推当前重点行业方向</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-30 23:24" data-date="2025-11" data-tags="录音笔记,行业分析,投资思路">
+		<td>25-11-30 23:24</td>
+		<td><a href="notes/21-录音笔记/6b37623c41a1b8ef960f96d6a08e556c.html" target="_blank">如何通过行业生命周期反推投资方向</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-30 23:16" data-date="2025-11" data-tags="录音笔记,五年规划,产业发展,职业规划,随想">
+		<td>25-11-30 23:16</td>
+		<td><a href="notes/21-录音笔记/f97cc9e790a93cca35410834139b5f42.html" target="_blank">从五年规划规律看未来10年个人发展机遇</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-27 13:08" data-date="2025-11" data-tags="录音笔记,AI,AIGC,美学鉴赏">
+		<td>25-11-27 13:08</td>
+		<td><a href="notes/10-AI工具与应用/9bdb7d6944bd0d538ef10fae0e6451d2.html" target="_blank">AIGC美学的鉴赏与创造方法</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-27 12:33" data-date="2025-11" data-tags="录音笔记,人工智能,设计,智能交互设计">
+		<td>25-11-27 12:33</td>
+		<td><a href="notes/21-录音笔记/0e4d820172995a26436f28f9c3df8166.html" target="_blank">智能交互设计专业介绍</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-15 07:25" data-date="2025-11" data-tags="录音笔记,小而美,重点突出">
+		<td>25-11-15 07:25</td>
+		<td><a href="notes/21-录音笔记/4da7246ffda829ba9b3f552761dba0ac.html" target="_blank">突出小而美</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-15 07:25" data-date="2025-11" data-tags="录音笔记,发展理念,小而美">
+		<td>25-11-15 07:25</td>
+		<td><a href="notes/21-录音笔记/57f2b961467fc1334e89a8cbc68fb3a4.html" target="_blank">小而美、慢节奏、高质量的发展理念</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-09 00:49" data-date="2025-11" data-tags="录音笔记,有赞,平台机制,抢单模式">
+		<td>25-11-09 00:49</td>
+		<td><a href="notes/21-录音笔记/0ef205acfb5b6df1411bf6e4c4058750.html" target="_blank">平台订单分发与抢单机制可行性探讨</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-05 00:41" data-date="2025-11" data-tags="录音笔记,1688,有赞,铺货工具">
+		<td>25-11-05 00:41</td>
+		<td><a href="notes/21-录音笔记/0bdcf0c98ec343812a89675d959fb8d3.html" target="_blank">如何用工具快速在1688上铺货并获取商品详情</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-04 02:34" data-date="2025-11" data-tags="录音笔记,市场调研,产品组合">
+		<td>25-11-04 02:34</td>
+		<td><a href="notes/21-录音笔记/a1bf2239b13c067b395158b4aa4c1828.html" target="_blank">租摆市场调研及产品组合方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-04 02:31" data-date="2025-11" data-tags="录音笔记,商户信任,产品推广,个人品牌">
+		<td>25-11-04 02:31</td>
+		<td><a href="notes/15-IP打造/2fe06a2b1d1c772cc503e576471b13db.html" target="_blank">以产品推广建立商户信任与需求</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-11-01 11:06" data-date="2025-11" data-tags="录音笔记,营销,隐性卖点,产品宣传">
+		<td>25-11-01 11:06</td>
+		<td><a href="notes/21-录音笔记/a41135feb70e98c2405b349d1d9b1f01.html" target="_blank">优秀营销需绕路寻找隐性卖点</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-30 11:22" data-date="2025-10" data-tags="录音笔记,比赛组织,酒推广,小区情况">
+		<td>25-10-30 11:22</td>
+		<td><a href="notes/21-录音笔记/3d9ab32b5194e6863249e5d53842e7a4.html" target="_blank">比赛组织、酒推广、小区情况及社交生活交流</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-30 11:21" data-date="2025-10" data-tags="">
+		<td>25-10-30 11:21</td>
+		<td><a href="notes/99-其他通用/e2c5ea8a7c8f1f6542f20d85cdc63a92.html" target="_blank">掼蛋活动和商城的结合，互利共赢的契合点讨论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-29 18:44" data-date="2025-10" data-tags="录音笔记,小程序商城,闲鱼,合作沟通">
+		<td>25-10-29 18:44</td>
+		<td><a href="notes/21-录音笔记/241e5d7e0794d84a1a86955f8ea65c18.html" target="_blank">与闲鱼卖家合作小程序商城的沟通思路</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-27 22:27" data-date="2025-10" data-tags="录音笔记,合作方式,激励政策,技术路径">
+		<td>25-10-27 22:27</td>
+		<td><a href="notes/21-录音笔记/ff62088a2a916953c6e8b797d2f24901.html" target="_blank">不限地域基地入驻小程序商城的合作与激励对接</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-27 21:25" data-date="2025-10" data-tags="录音笔记,儿童手表,功能优化,产品对接">
+		<td>25-10-27 21:25</td>
+		<td><a href="notes/21-录音笔记/8e33749517eecebb6ee01b848a5f57b1.html" target="_blank">儿童手表奖励功能优化及对接建议</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-27 20:19" data-date="2025-10" data-tags="录音笔记,商户信任,供应链整合,项目瓶颈">
+		<td>25-10-27 20:19</td>
+		<td><a href="notes/21-录音笔记/607dd5ffba406d2765b7e1cdb5f58046.html" target="_blank">关于供应链整合与项目瓶颈的思考</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-27 10:54" data-date="2025-10" data-tags="录音笔记,项目合作,市场管理,商户信任">
+		<td>25-10-27 10:54</td>
+		<td><a href="notes/21-录音笔记/dc8b73d76caac74756cc2188ab7aa9ed.html" target="_blank">项目与市场管理部门的业务关联思考</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-25 07:30" data-date="2025-10" data-tags="录音笔记,塔莎的花园,发展历史,经验参考">
+		<td>25-10-25 07:30</td>
+		<td><a href="notes/21-录音笔记/ddc3237c8dde6f8c84f82bdbeab6308c.html" target="_blank">查找塔莎的花园发展历史及参考方法</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-25 00:41" data-date="2025-10" data-tags="录音笔记,运营管理,面积档位,GMV,随想">
+		<td>25-10-25 00:41</td>
+		<td><a href="notes/21-录音笔记/c7c9c74165b5e4c49e503ee248e5d131.html" target="_blank">统一面积档位以便管理和业务增长</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-23 21:12" data-date="2025-10" data-tags="录音笔记,商户地图,建联方式">
+		<td>25-10-23 21:12</td>
+		<td><a href="notes/21-录音笔记/8a612abd7034b7968030c05978e40ee3.html" target="_blank">商户地图查找与建联方式思考</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-23 21:01" data-date="2025-10" data-tags="录音笔记,业务冲突,沟通注意事项">
+		<td>25-10-23 21:01</td>
+		<td><a href="notes/21-录音笔记/94d1be32ad122093d8f635bea9794153.html" target="_blank">花商寄养业务需规避冲突</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-20 23:19" data-date="2025-10" data-tags="">
+		<td>25-10-20 23:19</td>
+		<td><a href="notes/99-其他通用/6be95e0d83ba2e7dc1ba43d753b7f0d0.html" target="_blank">我如何确定给合作商户多大面积？设计20.30.40.50四个不同面积下不...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-20 23:12" data-date="2025-10" data-tags="">
+		<td>25-10-20 23:12</td>
+		<td><a href="notes/99-其他通用/a48baa9e018b08e2bcc373d6747b3ca7.html" target="_blank">闲鱼绿植合作计划</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-20 23:12" data-date="2025-10" data-tags="">
+		<td>25-10-20 23:12</td>
+		<td><a href="notes/99-其他通用/760a0ff0e9fee5de062a6fd389d2e005.html" target="_blank">在闲鱼上找到第一家绿植花卉商家，用入驻小程序的方式聊合作，在平台上下单让...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-20 08:29" data-date="2025-10" data-tags="">
+		<td>25-10-20 08:29</td>
+		<td><a href="notes/99-其他通用/6a1119f64be0c16470b340e862d6e95b.html" target="_blank">活动免费参与，支付材料费可带走作品，不带走可以把作品留下来装饰场地，每次...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-20 08:23" data-date="2025-10" data-tags="">
+		<td>25-10-20 08:23</td>
+		<td><a href="notes/99-其他通用/7a2feed98e88cc3729432493c7a31dfb.html" target="_blank">亲子植物手工创意</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-20 08:20" data-date="2025-10" data-tags="录音笔记,场地活动,场地运营">
+		<td>25-10-20 08:20</td>
+		<td><a href="notes/21-录音笔记/373a23184080c714ffd7e1fc6f1ba79c.html" target="_blank">场地可举办亲子植物手工活动</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-13 00:39" data-date="2025-10" data-tags="">
+		<td>25-10-13 00:39</td>
+		<td><a href="notes/99-其他通用/9ddb1c5214fdd43ae464b05b0f42bb04.html" target="_blank">花卉市场冷启动方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-13 00:37" data-date="2025-10" data-tags="AI链接笔记,花卉+,花园城市建设,数字化花卉交易">
+		<td>25-10-13 00:37</td>
+		<td><a href="notes/10-AI工具与应用/fec9a7425c312d6444980f5652018e6e.html" target="_blank">产业多维发展，用“花卉+”为花园城市建设添“花”增“绿”</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-13 00:20" data-date="2025-10" data-tags="">
+		<td>25-10-13 00:20</td>
+		<td><a href="notes/99-其他通用/650c5e0233e1f436221eb5d729142656.html" target="_blank">花商入驻引流策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-13 00:11" data-date="2025-10" data-tags="录音笔记">
+		<td>25-10-13 00:11</td>
+		<td><a href="notes/14-流量运营/76495984c51f07113f18436965032bfe.html" target="_blank">初期场地与小程序平台流量的重要性及分销模式探讨</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-08 15:09" data-date="2025-10" data-tags="AI链接笔记,公众号运营工具,壹伴助手插件,AI排版工具">
+		<td>25-10-08 15:09</td>
+		<td><a href="notes/05-公众号/d0ac0fa4f599b05d4aa27113a20b2e72.html" target="_blank">壹伴助手插件全功能详解与使用指南 📝</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-05 17:33" data-date="2025-10" data-tags="">
+		<td>25-10-05 17:33</td>
+		<td><a href="notes/99-其他通用/e40a45b692045d6152a367974106d2b3.html" target="_blank">亲子乐园推广策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-05 17:30" data-date="2025-10" data-tags="">
+		<td>25-10-05 17:30</td>
+		<td><a href="notes/99-其他通用/dc5d11b5292db7419eb3ca6e5befffe0.html" target="_blank">亲子乐园营销策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-05 17:28" data-date="2025-10" data-tags="AI链接笔记,亲子乐园营销案例,社群裂变增长,限时折扣策略">
+		<td>25-10-05 17:28</td>
+		<td><a href="notes/10-AI工具与应用/38d9c0428058bc20c802eeb14e440ccc.html" target="_blank">菲尼城亲子乐园暑假营销案例：20分钟30万销售额的增长路径</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 22:07" data-date="2025-10" data-tags="">
+		<td>25-10-03 22:07</td>
+		<td><a href="notes/99-其他通用/ba68ec6648f2b95846b195f40f607220.html" target="_blank">商业需求整合之道</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 22:07" data-date="2025-10" data-tags="">
+		<td>25-10-03 22:07</td>
+		<td><a href="notes/99-其他通用/b26552e290be8bb9b329143257cb16c7.html" target="_blank">碎片需求整合灵感</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 22:06" data-date="2025-10" data-tags="">
+		<td>25-10-03 22:06</td>
+		<td><a href="notes/99-其他通用/8cf11e98d3f61166e7ae5d8b577c79ec.html" target="_blank">需求资产化核心环节</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 22:04" data-date="2025-10" data-tags="AI链接笔记,需求资产化,数据资产,需求聚拢">
+		<td>25-10-03 22:04</td>
+		<td><a href="notes/10-AI工具与应用/eac3465fe0e2d291a850fca611756665.html" target="_blank">需求资产化：从分散信号到价值释放的全流程解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 21:33" data-date="2025-10" data-tags="录音笔记">
+		<td>25-10-03 21:33</td>
+		<td><a href="notes/21-录音笔记/f70d073ed2e27259cdd735e70a44c43e.html" target="_blank">整合需求是发现商机的关键</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 17:34" data-date="2025-10" data-tags="">
+		<td>25-10-03 17:34</td>
+		<td><a href="notes/99-其他通用/d78a5cdeddb99e0b754cbe7bcddc6a12.html" target="_blank">优惠券使用规则解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 17:33" data-date="2025-10" data-tags="">
+		<td>25-10-03 17:33</td>
+		<td><a href="notes/99-其他通用/737e4fee5506958366d508ec6b7a5ab5.html" target="_blank">场地分销预售策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-03 17:10" data-date="2025-10" data-tags="AI链接笔记,有价优惠券规则,淘宝优惠券使用,优惠券退款政策">
+		<td>25-10-03 17:10</td>
+		<td><a href="notes/10-AI工具与应用/0402ae34c509b2022a3ee4604a37e5e5.html" target="_blank">淘宝有价优惠券购买及使用规则详解</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-01 09:55" data-date="2025-10" data-tags="">
+		<td>25-10-01 09:55</td>
+		<td><a href="notes/99-其他通用/abf540d64849cc6cd1e000c5245c96cf.html" target="_blank">农业用地合规变现</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-10-01 09:20" data-date="2025-10" data-tags="AI链接笔记,麦脉币,可持续生活,农事体验">
+		<td>25-10-01 09:20</td>
+		<td><a href="notes/10-AI工具与应用/a18da38d2f637ad8ee49bfc02958bb2c.html" target="_blank">国庆节小毛驴市民农园"麦脉币"游园活动全攻略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-27 09:55" data-date="2025-09" data-tags="录音笔记,大棚设施,田园生活">
+		<td>25-09-27 09:55</td>
+		<td><a href="notes/21-录音笔记/7249164f1c71c9e714befc0eb2e572ce.html" target="_blank">大棚设施逐步完善，期待开启田园生活之旅</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-25 23:37" data-date="2025-09" data-tags="AI书籍笔记,有赞商业思维,产品卖点提炼,商业思维">
+		<td>25-09-25 23:37</td>
+		<td><a href="notes/10-AI工具与应用/1c69b40877aecff567d283c5e5dee120.html" target="_blank">从众从众心理也叫羊群效应，一种是为了寻求靠谱而从众，一种是为了精神满足或...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-24 22:06" data-date="2025-09" data-tags="">
+		<td>25-09-24 22:06</td>
+		<td><a href="notes/10-AI工具与应用/07f59c9e3d201a78bb7cbffc92fbb60c.html" target="_blank">gpt 个性化设置</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-24 08:42" data-date="2025-09" data-tags="图片笔记,知识管理,流程图,flomo">
+		<td>25-09-24 08:42</td>
+		<td><a href="notes/20-知识管理/5c3d4a11400c8d522c062f7be89f9148.html" target="_blank">知识卡片生成与管理流程图解</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-24 08:41" data-date="2025-09" data-tags="">
+		<td>25-09-24 08:41</td>
+		<td><a href="notes/99-其他通用/e5aba88ec37de7eb6f7010b1aee440ed.html" target="_blank">笔记归档流程总结</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-23 09:21" data-date="2025-09" data-tags="">
+		<td>25-09-23 09:21</td>
+		<td><a href="notes/99-其他通用/04760532d179f065d9c9687a28db2bc4.html" target="_blank">碎片思路归档路径</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-22 15:57" data-date="2025-09" data-tags="AI链接笔记,花卉绿植直播运营,短视频爆款规律,直播选品策略">
+		<td>25-09-22 15:57</td>
+		<td><a href="notes/10-AI工具与应用/234b36a861f29476db161c23a7afefe0.html" target="_blank">花卉绿植直播领域爆款规律与运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-22 15:04" data-date="2025-09" data-tags="小程序商城,商城页面设计">
+		<td>25-09-22 15:04</td>
+		<td><a href="notes/99-其他通用/4b02508aaf6d3d5b6c499986db33a5d8.html" target="_blank">花卉小程序商城布局</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-22 09:05" data-date="2025-09" data-tags="图片笔记,小程序开发,tma copilot,多商户分账系统">
+		<td>25-09-22 09:05</td>
+		<td><a href="notes/22-图片笔记/fcee516362456ff9705ed6f08bfc8356.html" target="_blank">多商户花卉平台小程序功能架构与设计说明</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-22 09:04" data-date="2025-09" data-tags="图片笔记,花卉市场运营,私域获客,tma copilot">
+		<td>25-09-22 09:04</td>
+		<td><a href="notes/11-私域运营/5b737fc7f786af30517a3993f656046d.html" target="_blank">新型花卉市场与个人IP打造全域获客私域及留客复购方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-21 18:00" data-date="2025-09" data-tags="图片笔记,产品营销,消费者心理,有赞商业思维">
+		<td>25-09-21 18:00</td>
+		<td><a href="notes/22-图片笔记/2e6b8cd11eda7a1a12f0a1a4db0c4e2e.html" target="_blank">提炼产品卖点的方法与消费者心理分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-21 17:58" data-date="2025-09" data-tags="AI链接笔记,卖点提炼,人性营销,差异化策略">
+		<td>25-09-21 17:58</td>
+		<td><a href="notes/10-AI工具与应用/324f690fb5df2d0e95ba058ac5fa095b.html" target="_blank">产品卖点提炼策略与实战指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-21 17:55" data-date="2025-09" data-tags="AI链接笔记,销售沟通技巧,客户信任建立,需求挖掘方法">
+		<td>25-09-21 17:55</td>
+		<td><a href="notes/10-AI工具与应用/4f8cbc37e8f9b92ac8e62efe7be9b543.html" target="_blank">销售沟通八大核心要领</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-20 03:07" data-date="2025-09" data-tags="">
+		<td>25-09-20 03:07</td>
+		<td><a href="notes/99-其他通用/06780397774e8dd6ad522cce27c1d5a5.html" target="_blank">爆款视频精准客户秘诀</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-20 03:06" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-20 03:06</td>
+		<td><a href="notes/21-录音笔记/53ee9196ff5d149fd4fbfe477e8ee7c6.html" target="_blank">关于爆款视频和精准客户的思考</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-20 02:59" data-date="2025-09" data-tags="录音笔记,短视频,精准客户,获客方法">
+		<td>25-09-20 02:59</td>
+		<td><a href="notes/14-流量运营/6ef6716c93022801838c5b739f908895.html" target="_blank">短视频获客方法及相关课程推荐</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-18 21:50" data-date="2025-09" data-tags="录音笔记,短视频,播放量,复盘">
+		<td>25-09-18 21:50</td>
+		<td><a href="notes/21-录音笔记/1aef8171387218e8c18834371edcec22.html" target="_blank">短视频播放量提升与复盘核心要点</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-18 21:42" data-date="2025-09" data-tags="录音笔记,个人IP,获客,卖点密度">
+		<td>25-09-18 21:42</td>
+		<td><a href="notes/14-流量运营/2400bbac88f25fd84796888413542090.html" target="_blank">如何打造卖点密度高的个人IP以获取精准客户及相关课程推荐</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-18 21:29" data-date="2025-09" data-tags="录音笔记,外卖店,一店多开,店铺利润">
+		<td>25-09-18 21:29</td>
+		<td><a href="notes/21-录音笔记/6a14892de15a3d629a925fd50f30c32d.html" target="_blank">一店多开模式 美滋滋味儿拌饭与左撇子炒饭外卖店经营情况讨论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-18 14:13" data-date="2025-09" data-tags="图片笔记,电商文案,书籍推荐,ChatGPT">
+		<td>25-09-18 14:13</td>
+		<td><a href="notes/10-AI工具与应用/a9cd9d0ca80d894b482b8b98f8d40c69.html" target="_blank">电商卖货相关书籍推荐与文案创作指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-18 11:21" data-date="2025-09" data-tags="">
+		<td>25-09-18 11:21</td>
+		<td><a href="notes/12-电商运营/13115804679a695ea0b836760d57abad.html" target="_blank">详情页设计</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-18 11:14" data-date="2025-09" data-tags="">
+		<td>25-09-18 11:14</td>
+		<td><a href="notes/12-电商运营/47c20f91e0de6cea4b93b6ae3d95bf80.html" target="_blank">写电商短视频文案遵循的原则</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-18 08:25" data-date="2025-09" data-tags="AI链接笔记,AI会员运营,有赞碰碰贴,门店复购率提升">
+		<td>25-09-18 08:25</td>
+		<td><a href="notes/10-AI工具与应用/e075e2cf53d184e8d409dc230dbb99f1.html" target="_blank">AI驱动门店会员运营：有赞碰碰贴与智能化客户运营系统实践指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 22:04" data-date="2025-09" data-tags="录音笔记,社区食堂,智慧餐厅,商业运营">
+		<td>25-09-17 22:04</td>
+		<td><a href="notes/21-录音笔记/bc08820c30933744d510ff9ac6ec990a.html" target="_blank">探访国内最会赚钱的社区智慧餐厅：空间设计与商业运营解密</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 22:03" data-date="2025-09" data-tags="">
+		<td>25-09-17 22:03</td>
+		<td><a href="notes/99-其他通用/1ece825c4450b86774ec87d1bddc970e.html" target="_blank">这是一种用文章嫁接产品，导入商城的方式</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 22:00" data-date="2025-09" data-tags="AI链接笔记,办公室绿植,香蕉种植,职场互动">
+		<td>25-09-17 22:00</td>
+		<td><a href="notes/10-AI工具与应用/7d22a1d7c0aa069bdbb84391920be6f9.html" target="_blank">办公室"小焦绿"香蕉养殖观察记录</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 21:54" data-date="2025-09" data-tags="录音笔记,账号运营,内容营销,粉丝增长">
+		<td>25-09-17 21:54</td>
+		<td><a href="notes/21-录音笔记/bb85c790459ec30f38858b0ff1583098.html" target="_blank">个人账号运营五个多月情况汇报及内容与营销关系分享</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 21:51" data-date="2025-09" data-tags="录音笔记,蛋糕烘焙店,会员储值,信任问题">
+		<td>25-09-17 21:51</td>
+		<td><a href="notes/21-录音笔记/79d2b02930794633cded82808491d354.html" target="_blank">蛋糕烘焙店会员储值问题及解决办法</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 21:47" data-date="2025-09" data-tags="录音笔记,顺德菜馆,运营策略,顾客服务">
+		<td>25-09-17 21:47</td>
+		<td><a href="notes/21-录音笔记/d84389c16f77cda45cfbe3ac97383ecb.html" target="_blank">顺德菜馆的运营策略：提升销售额与复购率的秘诀</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 21:44" data-date="2025-09" data-tags="">
+		<td>25-09-17 21:44</td>
+		<td><a href="notes/99-其他通用/a0c91bb1aace89891cf839b6ca3ae338.html" target="_blank">这就像给职场疲惫的灵魂来次“植物版断舍离”🌿✨</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 21:42" data-date="2025-09" data-tags="">
+		<td>25-09-17 21:42</td>
+		<td><a href="notes/99-其他通用/4dc8e0145348e8344f31c8b67a912b2f.html" target="_blank">工位绿植焕新计划</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-17 21:40" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-17 21:40</td>
+		<td><a href="notes/21-录音笔记/a88e8ee8a4e0e22e76b93f28d33f653a.html" target="_blank">用“换绿植”吸引大厂年轻人到店的营销方法</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-15 22:06" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-15 22:06</td>
+		<td><a href="notes/21-录音笔记/ee7667fbe0ff1d62810ccf494eab8a18.html" target="_blank">调整思路，关注市场热销品决定销售方向</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-15 22:03" data-date="2025-09" data-tags="">
+		<td>25-09-15 22:03</td>
+		<td><a href="notes/99-其他通用/9ea9f0381bab3557c08c046cabb99152.html" target="_blank">绿植商城上架流程</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-15 22:01" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-15 22:01</td>
+		<td><a href="notes/21-录音笔记/be60e43d78d46c7c8232c63f556be9e3.html" target="_blank">淘宝小程序商城商品上架流程与思路记录</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-15 21:58" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-15 21:58</td>
+		<td><a href="notes/21-录音笔记/fef1ef79e66607099296260510a1c12e.html" target="_blank">画商不配合产品清单，商城搭建遇到难题</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-11 19:14" data-date="2025-09" data-tags="录音笔记,人生成长,自主探索,家庭教育">
+		<td>25-09-11 19:14</td>
+		<td><a href="notes/21-录音笔记/3dd8a79abd6e288aad78cfe81555ba4b.html" target="_blank">人生道路的成长与自主探索</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-11 09:16" data-date="2025-09" data-tags="">
+		<td>25-09-11 09:16</td>
+		<td><a href="notes/99-其他通用/d9ad4703a0aa4c67720e0780f18ace3d.html" target="_blank">花店团购成功秘诀</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-11 09:13" data-date="2025-09" data-tags="AI链接笔记,花店运营,团购策略,私域流量">
+		<td>25-09-11 09:13</td>
+		<td><a href="notes/10-AI工具与应用/9a6b22666863d4694afc5657f58acd1a.html" target="_blank">"盗美人"花店团购运营案例与策略分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 12:16" data-date="2025-09" data-tags="小程序功能">
+		<td>25-09-10 12:16</td>
+		<td><a href="notes/99-其他通用/63da0a6f5fdb6a75dfd5d1c0b4ca1ff7.html" target="_blank">花卉商城功能规划</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 08:18" data-date="2025-09" data-tags="">
+		<td>25-09-10 08:18</td>
+		<td><a href="notes/11-私域运营/ca0eddfc488cfb863b73a92438cc18b6.html" target="_blank">小罐茶私域策略拆解</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 08:16" data-date="2025-09" data-tags="AI链接笔记,私域运营,用户分层,精准引流">
+		<td>25-09-10 08:16</td>
+		<td><a href="notes/10-AI工具与应用/0544068bf9be3186f16601b5de7957dd.html" target="_blank">小罐茶私域运营策略与GMV增长案例分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 08:16" data-date="2025-09" data-tags="">
+		<td>25-09-10 08:16</td>
+		<td><a href="notes/99-其他通用/aab8d97e9909234d3ba3001389b7336d.html" target="_blank">花卉大棚冷启动策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 08:03" data-date="2025-09" data-tags="">
+		<td>25-09-10 08:03</td>
+		<td><a href="notes/99-其他通用/03873fe089ec795a9590ddafd1686991.html" target="_blank">项目冷启动策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 08:02" data-date="2025-09" data-tags="">
+		<td>25-09-10 08:02</td>
+		<td><a href="notes/99-其他通用/3c2b30bc86d09d7e947682df57035698.html" target="_blank">商户线上增长方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-10 06:38" data-date="2025-09" data-tags="">
+		<td>25-09-10 06:38</td>
+		<td><a href="notes/99-其他通用/819ebc9fe72a95db274cd91abaa04863.html" target="_blank">小程序灵活定价方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-09 14:09" data-date="2025-09" data-tags="图片笔记,花卉产业园,农业合规运营,北京市休闲农业指引">
+		<td>25-09-09 14:09</td>
+		<td><a href="notes/22-图片笔记/83429ef03ade15b058569b6de167f89e.html" target="_blank">花卉产业园项目执行报告（北京海淀区设施农业用地合规化运营方案）</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-09 14:09" data-date="2025-09" data-tags="图片笔记,慢养四季公司,农业用地合规,花卉销售监管">
+		<td>25-09-09 14:09</td>
+		<td><a href="notes/22-图片笔记/e145c8a195ba7bb230e38761f70ea88c.html" target="_blank">农业用地花卉销售合规运营指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-09 14:07" data-date="2025-09" data-tags="图片笔记,文件闭环逻辑,风险管控,慢养四季">
+		<td>25-09-09 14:07</td>
+		<td><a href="notes/22-图片笔记/9101b3b77872005178c86b1365b44d52.html" target="_blank">三份文件的闭环逻辑</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-09 13:44" data-date="2025-09" data-tags="">
+		<td>25-09-09 13:44</td>
+		<td><a href="notes/99-其他通用/950b5e6496cf4de8495d182312fd2a35.html" target="_blank">商户痛点与平台优势</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-09 13:44" data-date="2025-09" data-tags="">
+		<td>25-09-09 13:44</td>
+		<td><a href="notes/99-其他通用/60c7c8ee7f29bcb746dd9b942a69e1f1.html" target="_blank">线下定价与数据真实兼顾</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-09 13:43" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-09 13:43</td>
+		<td><a href="notes/21-录音笔记/6abdf5916e812295c2faa9635aff78f2.html" target="_blank">如何兼顾线下灵活定价与商城数据真实性</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-09 13:28" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-09 13:28</td>
+		<td><a href="notes/21-录音笔记/2a6e47c5d637fa62f9140e7405afd429.html" target="_blank">与拟租场地商户沟通，探索平台吸引力与资源结合点</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 21:43" data-date="2025-09" data-tags="AI链接笔记,直播卖花,乡村振兴,花卉电商">
+		<td>25-09-08 21:43</td>
+		<td><a href="notes/10-AI工具与应用/cb06b06336036fd7576e1de75772042d.html" target="_blank">浦南花卉基地直播卖花：流量撬动销量的乡村振兴实践</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 21:38" data-date="2025-09" data-tags="商业经营">
+		<td>25-09-08 21:38</td>
+		<td><a href="notes/99-其他通用/fed65f23bcc6177c1a40ee9e6695b7fa.html" target="_blank">花卉解压引流闭环</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 21:09" data-date="2025-09" data-tags="录音笔记,商业经营,店铺设计,消费心理">
+		<td>25-09-08 21:09</td>
+		<td><a href="notes/21-录音笔记/df41e4209148ce6f7f6c6ad73f1f1789.html" target="_blank">彩票店创新经营思路：结合多种产品打造高频社交活动</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 21:03" data-date="2025-09" data-tags="">
+		<td>25-09-08 21:03</td>
+		<td><a href="notes/11-私域运营/c723c2f6a617573d12e6a38f8229cb1e.html" target="_blank">花卉私域运营策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 20:53" data-date="2025-09" data-tags="AI链接笔记,私域运营,童装品牌,用户留存">
+		<td>25-09-08 20:53</td>
+		<td><a href="notes/10-AI工具与应用/3ff33e9070926f1db3dcfe3c6c383533.html" target="_blank">ALLBLU幼岚私域运营案例：产品+内容+服务驱动增长</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 20:48" data-date="2025-09" data-tags="图片笔记,小程序开发,多商户系统">
+		<td>25-09-08 20:48</td>
+		<td><a href="notes/22-图片笔记/73f3b63e9866abce22daaddb18d48d53.html" target="_blank">多商户共用小程序平台功能需求记录</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 13:31" data-date="2025-09" data-tags="">
+		<td>25-09-08 13:31</td>
+		<td><a href="notes/99-其他通用/a3a5da916aad22c81b3236bb8cfd5d7d.html" target="_blank">项目冷启动策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 13:18" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-08 13:18</td>
+		<td><a href="notes/14-流量运营/933214977d3db991da815d70a719bc5d.html" target="_blank">我店科技项目初期如何运作流量循环模式</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 13:15" data-date="2025-09" data-tags="">
+		<td>25-09-08 13:15</td>
+		<td><a href="notes/99-其他通用/3cafcee17a140c85f958067074a6bbf2.html" target="_blank">构建吸引力核心公式</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 13:12" data-date="2025-09" data-tags="录音笔记,需求分析,吸引力构建,线上运营">
+		<td>25-09-08 13:12</td>
+		<td><a href="notes/21-录音笔记/7a14353e37f2fe81aa03de1ececb96b2.html" target="_blank">如何通过深入解析目标需求构建吸引力</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 11:59" data-date="2025-09" data-tags="">
+		<td>25-09-08 11:59</td>
+		<td><a href="notes/99-其他通用/67c01d4ce3d278aeffcca3c6692de9cf.html" target="_blank">商业模式创新与风险</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-08 11:54" data-date="2025-09" data-tags="AI链接笔记,我店模式,消费积分,实体赋能">
+		<td>25-09-08 11:54</td>
+		<td><a href="notes/10-AI工具与应用/b9ea43009e41e0633a892d0c8d41e062.html" target="_blank">我店科技商业模式分析：创新与风险并存的实体赋能探索</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-07 20:37" data-date="2025-09" data-tags="">
+		<td>25-09-07 20:37</td>
+		<td><a href="notes/99-其他通用/110e8e059d97f28c0f3b1f850912180b.html" target="_blank">消费分润模式解析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-07 20:33" data-date="2025-09" data-tags="录音笔记,消费分润,股东模式,现金流管理">
+		<td>25-09-07 20:33</td>
+		<td><a href="notes/21-录音笔记/cda28df64ce6ba579fba6668fba69e83.html" target="_blank">消费分润与股东模式的商业逻辑探讨</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-06 07:34" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-06 07:34</td>
+		<td><a href="notes/21-录音笔记/bf45b6be9a7e457e86a0f21c89b96778.html" target="_blank">提升到店客人交款便捷性，促进快速成交</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-05 20:17" data-date="2025-09" data-tags="">
+		<td>25-09-05 20:17</td>
+		<td><a href="notes/99-其他通用/b5870917e9daa78895359315ccfced85.html" target="_blank">公域传播双线转化策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-05 20:14" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-05 20:14</td>
+		<td><a href="notes/21-录音笔记/032fa801bc43d49fe064e334edbcfa30.html" target="_blank">项目启动阶段的思路梳理与公域传播策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-05 20:03" data-date="2025-09" data-tags="录音笔记,随想">
+		<td>25-09-05 20:03</td>
+		<td><a href="notes/21-录音笔记/0b11602f5e21d02c92d0655397a4875b.html" target="_blank">最近对公域获客的思考让我感觉与项目目标渐行渐远</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-05 15:25" data-date="2025-09" data-tags="知识库搭建,商业变现">
+		<td>25-09-05 15:25</td>
+		<td><a href="notes/10-AI工具与应用/15f63d141eeda23327beb9c503e08329.html" target="_blank">AI整合植物知识库</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-05 15:22" data-date="2025-09" data-tags="小程序商城运营流程,系统搭建">
+		<td>25-09-05 15:22</td>
+		<td><a href="notes/99-其他通用/89039e14714acee755b9c7e544de55e5.html" target="_blank">多肉商城运营方案</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-05 14:57" data-date="2025-09" data-tags="录音笔记,线下商城运营,多商户管理,扫码支付流程">
+		<td>25-09-05 14:57</td>
+		<td><a href="notes/21-录音笔记/4facba5b2626c2b6526fbdc12e1d3113.html" target="_blank">多肉绿植线下商城运营流程与系统搭建方案讨论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 23:11" data-date="2025-09" data-tags="">
+		<td>25-09-03 23:11</td>
+		<td><a href="notes/99-其他通用/e397010a862ee23be092f01165e3edc9.html" target="_blank">给老同学的电话话术（建议通话，更显真诚）“老同学，没打扰你吧？有个关于项...</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 23:08" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-03 23:08</td>
+		<td><a href="notes/21-录音笔记/f3b4a910fee99f5ae73badb596c9586a.html" target="_blank">关于与镇上合作及预付两年租金接手基地的讨论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 23:05" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-03 23:05</td>
+		<td><a href="notes/21-录音笔记/9fef696a1ea81ae08ba752c02c454078.html" target="_blank">关于鱼池欠款和花棚项目风险的讨论</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 21:20" data-date="2025-09" data-tags="录音笔记,直播带货,流量密码,人群画像">
+		<td>25-09-03 21:20</td>
+		<td><a href="notes/10-AI工具与应用/9166db62102729742a9283a19051faf6.html" target="_blank">直播分享：直播带货流量密码与3.0AI实战年课介绍</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 21:02" data-date="2025-09" data-tags="录音笔记,商业策略,人工智能,用户价值">
+		<td>25-09-03 21:02</td>
+		<td><a href="notes/21-录音笔记/929111641a3c96f1478f97b77429bcc3.html" target="_blank">小米的胜负手与人工智能时代的商业策略</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 13:45" data-date="2025-09" data-tags="">
+		<td>25-09-03 13:45</td>
+		<td><a href="notes/99-其他通用/5409b1a79bcb18ccac97f17856d524fb.html" target="_blank">项目启动15天规划</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 13:41" data-date="2025-09" data-tags="">
+		<td>25-09-03 13:41</td>
+		<td><a href="notes/99-其他通用/ae3f790ffe866552741a122c68ecbee9.html" target="_blank">15天冲刺行动清单</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 13:40" data-date="2025-09" data-tags="录音笔记,项目运营,合规管理,场地运营">
+		<td>25-09-03 13:40</td>
+		<td><a href="notes/21-录音笔记/f3dca0ec6ab560e438797c049b9990f3.html" target="_blank">项目启动阶段工作流程梳理与合规运营方案调整</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 12:16" data-date="2025-09" data-tags="">
+		<td>25-09-03 12:16</td>
+		<td><a href="notes/99-其他通用/4e637ae7cdbf14e8ab6a2d95e5ed1a3d.html" target="_blank">工作思路与小程序运营</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 12:16" data-date="2025-09" data-tags="">
+		<td>25-09-03 12:16</td>
+		<td><a href="notes/99-其他通用/6f0f7fa82030f02fddfa65d04000fb9a.html" target="_blank">花商转型与监管应对</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 12:15" data-date="2025-09" data-tags="">
+		<td>25-09-03 12:15</td>
+		<td><a href="notes/99-其他通用/ec1799ac094c8e1cc49a670d323999b1.html" target="_blank">花卉种植合规要点</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 11:58" data-date="2025-09" data-tags="录音笔记,花卉种植,摊位展示,合规性解释">
+		<td>25-09-03 11:58</td>
+		<td><a href="notes/21-录音笔记/1939f141abc69455e3c25bc62ed88266.html" target="_blank">花卉种植展示合规性问题探讨</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 11:53" data-date="2025-09" data-tags="录音笔记,花商转型,农业农村局监管,AI应用">
+		<td>25-09-03 11:53</td>
+		<td><a href="notes/10-AI工具与应用/931063960641ea700d7f37838b3888ab.html" target="_blank">花商转型与农业农村局监管应对策略探讨</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 11:46" data-date="2025-09" data-tags="录音笔记,小程序商城,客户吸引策略,老年人用户">
+		<td>25-09-03 11:46</td>
+		<td><a href="notes/21-录音笔记/0a1d251c1db20ad2b806e7b2fab67355.html" target="_blank">小程序商城运营问题解决方案探讨</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 08:50" data-date="2025-09" data-tags="">
+		<td>25-09-03 08:50</td>
+		<td><a href="notes/99-其他通用/b49513db5ffcfa97f651740c25dea60f.html" target="_blank">公域传播受众分析</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-03 08:49" data-date="2025-09" data-tags="录音笔记">
+		<td>25-09-03 08:49</td>
+		<td><a href="notes/21-录音笔记/25aa3bd114dec46e6b604c3d56258974.html" target="_blank">如何确定公域传播内容的目标受众</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-01 17:05" data-date="2025-09" data-tags="录音笔记,经验与科技,空杯心态">
+		<td>25-09-01 17:05</td>
+		<td><a href="notes/21-录音笔记/26f72fd60f865edfcb6e0f84d06b42df.html" target="_blank">空杯心态与经验、科技结合助力成功</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-09-01 16:59" data-date="2025-09" data-tags="录音笔记,感悟">
+		<td>25-09-01 16:59</td>
+		<td><a href="notes/10-AI工具与应用/527056bbbf8554c4a34a15ac11b563f5.html" target="_blank">老一辈人的智慧与现代AI科技的结合</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-08-31 12:35" data-date="2025-08" data-tags="">
+		<td>25-08-31 12:35</td>
+		<td><a href="notes/99-其他通用/c673178c40f77d0f3ada96d10d37fa96.html" target="_blank">植物知识库优化指南</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-08-31 12:28" data-date="2025-08" data-tags="录音笔记,成交要素">
+		<td>25-08-31 12:28</td>
+		<td><a href="notes/21-录音笔记/41453abf6b084480fbb2e3321c7cc16c.html" target="_blank">信息差是促成成交的重要因素</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-08-31 09:24" data-date="2025-08" data-tags="录音笔记,AI知识整合,植物课程设计,知识付费">
+		<td>25-08-31 09:24</td>
+		<td><a href="notes/10-AI工具与应用/0fe6a9cf97af612155062774519f9139.html" target="_blank">基于AI整合植物知识库的课程体系设计与商业变现思路</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-08-31 08:58" data-date="2025-08" data-tags="">
+		<td>25-08-31 08:58</td>
+		<td><a href="notes/99-其他通用/d12c14a90300fde733479a8e1a43776a.html" target="_blank">👏 Hi，欢迎来到Get笔记</a></td>
+		</tr><tr class="date-list-item" data-date-str="25-08-31 08:58" data-date="2025-08" data-tags="">
+		<td>25-08-31 08:58</td>
+		<td><a href="notes/10-AI工具与应用/620dbdd2062ad9ccfd232d34f71aba2a.html" target="_blank">🙆 Get笔记2.0：你好，我是你的AI助手</a></td>
+		</tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', initIndexPage);
+</script>
+</body>
+</html>

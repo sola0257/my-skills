@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>笔记限流5步检测与恢复全攻略：从小白到专家的流量自救指南</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="CdIKc6bGBtGaFmtju4Zv11kP/4natyvVmMYFx3o62wO8647NKmbT7izPZjWmPXOEr1yWGzn5Q4BkIX9Tzvb64xgkxcN3LjpmSJcMAWT8GXD&#43;3Ey&#43;9z64NtywDSQr4EePzY7uvQhpC0ZtsuOttajnTpbjXLc0j9yifDnvkZzZI/u/nokB&#43;fMfo0pkF3j5LB9n02FxKBPON9fEYULag5BLD/76cfHaR8gqrzczSxD5BrlDNAT4VTlWjI/U/Eg4QxyNB//vqq86uy9S3fmHjvO1frtzfwnPEd6fo0OyEvkbOfwl0iQibHGr8hmSDA0BmZoZ7F9ZeSlC7tLQ9WjZ74wMNUJjGjRv5uUuw00XBuQLH7pAq/taTKTGkAKI3u6tBS0zCOFnINnBGZzhNUnhqWB6MoOPLWmj7p0aOfrXxpHd3Hmll5HQxs39AIizFQTfxhhd7yCpJpBlcODPzd78Bv&#43;hqv6o8VyqrP/WjFYmj5tUKJTsd8DvzynfnGVl5RG3ihAZU1OQhv3evnkCLauf76173ActQclyDDyna070u01yOy9SwYVzp/IYILRwCfsVJb3wRjQM/C9sGXPyTEJg78IqhZrMiTDaRMgapt/8iQDnKyX39jhf&#43;zjQsJL410yyDkDr5aR6DE0Kb9N6O9TudXb6VEUFnYRfbJlaQXzI580Kpw6&#43;FlJfblIiz3OVuT5nYR2m/kiLUQfesBKvMmXLZy4OhgNpyXP8GDNxZvGYy7gSmOXX08p9wYYedi&#43;jaVHrhX35M7spzKw3Fj3Hj3GO1wYpFwBGby5iI/4MlN5udazSPCUGdUakYqa9qQowQCVE7HUnC9AU5Ukj1L4V5zRnUlj77KuuJ5HsWq7buazUqvfdu398su8/no4tyHnNrvGLbUm4wG2v4wd8dLOhQ0AU8f5JKACByeFXx5gAxqA7f1dzJcQlFYuB3yNN1ZeSe9fEl0JLofGuDBALx/HQnS0S&#43;w&#43;F7912V7ySSZiQjKlpAIk2GD&#43;aZOFwD/&#43;bSJMj2lAYBUrXgpuB&#43;EL8Iao7mx5G0acovYNzNTXI/9B/4WiXFWIS8SKT04XBdUxB7D7W&#43;tbGX&#43;CWu/nMqDIy5j4oaCd6qedrkI7Oi1WdoxmyQNpGXfTDGgDLu1qjh&#43;NmcU4h5vhCyXKwv2tz2Q3o725INwiJn3RMlnCF15It5LWv8ldFoim8pHRLXbq50XL&#43;bUNM8j83EdMSdsyvZilrBS8GWAxbYtjLZKGj3CMW/wfLHM2alPd0omUYAwsSSrEQpJ&#43;ZoRo7mc&#43;joSfnkVbXnnZtPnYaQcImttSncjKKtgAEChwOdq4xa3/atubHeNWNkyk5toJ&#43;gamOK&#43;g6kB7YaErW&#43;yHkf401NxbO1XiSPgz4AvgrYRCp66tLpO&#43;VrHRuoDqf2n42SjHEdyMeqkKxpf9QPnomMBz&#43;UgAQ6mZGxbJqXeYWwaW15G&#43;2XdXAFrHLdWlAOxiGkwf&#43;3GouV7YeHvjm2xk9wwMEu4hKsNRkFVNeiBrIZAQvXIU/rSckXQwmiK3rZ0pRCnyUmnOJhCJPmU9n33mEBDElUBuZAlqthxleOn&#43;o8FURcyjucnks8&#43;hs8aCAiIo1JoXw5CaNZ/smboR4WBPRTP3zoJwdJaQmKa&#43;dRuE7wXNURJ5EPNjPMQn381hkpQdxnVLMu/nRcLUqFfMLb5kFaD2Zk&#43;bu7AXOP&#43;0aYOIgjj&#43;7xivkzq49OD4U1l1CJfhTVQkVWjqBd6DwQBOl8FIHM/QI2fS74wFmdEMV4x2aIEiGpPjEhnjTT16wy78J39p0AJksNH7yWKPi3Dfrzr4mGEraDXFaapytW3lzKIJGYAPo5HrjMV3evxnaXGxo1YXwhCXg65pv1b8gUS3pw0ahxtmrSBzhtbdq1wWkV3ZA6kIGGqpdQ10buOYv6hoX/0LqXXX2VqkeHXnwHMHow82rzymM4EnWnStq&#43;k0ytC28ayO1NFNVGe05&#43;jOkG1cp/rguIaV6YTK3bHLJ4LlIO7zpy75vKqzgVfYJBAF2FLVslH60&#43;bAdPxqY4QEC84UuSgH9W5E0Up7Ij8GQCH/ev/M3r6y&#43;aTDZm75l8y3ksO7/ZiNDIscJ4lwcFSjaYwxD6LKywOL8DVJLZRHMm1oh5SXudWNNKS0ykq6K45zg5KeDJ59CgGzjqDcenY5Zon56tzKNwOropc6&#43;GtFH&#43;GzA7TdoLSv9tPDACCk9nU452vUV0Ql0FVNZ8JET8jGRlgge4tULmQnBKfdPbhA&#43;R1rYcbLwHVL7RbG0&#43;DYDp/ZdkcEGhHDwFvbsK3ZU6o0LbojTJ5bwsGG2RwfNryOsvbTqVdWYCRVmZHA8erZ8zFKtT2SQU6SA0rVvEoncn8X1G4zb2pVN&#43;uKX/CqC1r8IkBGJnXmPuMuWDKwHTC2Faywfbk7D1Wc5055qLWjNVaGdgGqXT&#43;YOU7kqumcEQUQ5eoMF89iLecGeJNxJfcAZJPzwbQxE23xtqD0VU77WCWDMtlZ78Kwihs22DgbuufaCw0l7mDH16YgDoK&#43;maTIkoMjXx30pIxKwDx2Uk/zgi4OvFz8QZ6lUNTLURoWAEAoSxMJEskNzhgRbtrHtYxHhDte0WD&#43;fdAgFKaHncWCh2FtjEKdaDCdgwRgmdPXLNTtJKJ/S48C&#43;oKhcFlFBbRk2Kz/IIGW45CvWkPJBO9STw/dA177iqlomrnwTVGQyAsusti7wIpLUOVx4FgoLQESb4SlbOzqN/KPXiR8IK9&#43;r8/P16i01jDPDI3EsqF4ehWtbEz8FYf6mQ7Nlmze7uD0WCctNMN/db1lIB6DbI9Y6ETr5tvVIpA0jXWgrGmag9MR2ul3L4&#43;s85QEDj2SnktSBJUc/vtXaamAe0sf26oDOlP1DhQEeYUI6CAcCul4ASxhY7F4b/4Do3MNQu8wt8O4nojfMQxYSVHmdtoFgbfNWZJeKBjzzorlfM7TwFGclUNVWx7jINq8lhmwmI220jWrbgfGzRQmRzWvj2exNPNceY6N9YP73Tp7riulKBDCuOeoxndo/tmUyut&#43;csE4PPGPZE09SXprGx0UZ7Ppm1wbxxXgHzEebHZROcbfCkGD&#43;tdjr3TpchbuY6ayDa07E9vGNxMLSvrA379GDVJ4jIfKkPNwJrqfJbW&#43;Z/9eW&#43;vHJEaPusyR6aTyQ3pTqVbHUl7KsOiLjo5DeiI6tDzp3Xm0nCJaGSESIlV8S6uk7VuJp9UYmab6uFBZRYLtjClUiTTdyVuI6L6sv76dTwj8/wnJTht&#43;9s2KhrwaVjRaalq4v5D8MLNkGBl7zx4dbdTkxHFysixbdBxwAAwrLcl5tLx/Ol1T7v9wZvqdSzT2Rth7MncgNqiWK7u4/0JE7eBdJWcyW5Iru&#43;TxwTY6cu2Eh1lC03XXQd8GboElRN0shdEFYSBjrJErMGAf3Li3mGPTjjOpLF6O8XbLt5aTZXnDYzBFz2DnDJoSoGZTyFCLP/Q2mvMqs6DqKpb64nyMRKM3NwUaRZpE3/55vODhTa7oROphnVcG330ht2pmwm8OYYA2SDmJsaL1RDtqTFTsvWhdv8X/&#43;wGpsMvxGUR2syNPJ6BT848Ok3Qb2zFtyOf/oO6qyhzDNmXC5C5HCibpgoKgrZirIeS68HR6vyAGix5o3SyhZuQB9KO8afd6lhy/PPjkaqgl8IKqaR4niCiMYP&#43;KaxmyVr1hafd&#43;pHtJOhzU9blLvIrUJfy/fhRE8BNDW8XOFjw9ZrHd4DiVJv4e/ajEa&#43;Pv3hgedQ0gaMd4DTTTZhENpy6K2Oci2K6qzpwBwOLgB9iLsYOu3uJA9umnCPr2WKV4o/oazkjqh/Ob&#43;rvPjqi18HIYzUt7z&#43;Z3qWWYfftopmROrcnAhh3JJd7DhBRzGJ4l6wuKgBdV8ms6XVf7h3EYBWqSJn4zB&#43;NEomzBpH40cFXJFEhim6HcSttbSB1i/b2BXo5H45TbAyxvTI98dl&#43;4WPSkuMXQaEEcUSZUgXnft4dtQWIpbg1QQREDBMMSqgVh2KTFs&#43;OXmictrr2KDp&#43;aYq0e2IUs8O325T90y2Y&#43;SLM0anNuT6kjFO7dOnpYB960WfKsYTnHg2AO0dsrWXaPqv6stFF&#43;CPHCRDaRl1d4P70F6ksWdwtb3mVXsTbD3tH1EyVAnqxJ63&#43;23/g9k3cJP5haepnl0DNIOiZmzMSrw8B2pV5AU/aVOhgIY9jvbKRKcTzpeyHQzoSmG891bHSC2tol&#43;D/FG8GiDo/OldfvpMigLhqnWI&#43;naclSwwtsoq1CFpjRxEcORXgJ5jtyUTbNynXWkN6Ydr8/Mmy1MnR&#43;MWzKKVZYgECUQCJPt8pQfVWtre5UtWNwa56CPb6JlHbnTisl7Wsb7lAd5&#43;WmMX5QFEa3PnKAgXvQPz1&#43;zxRd7au/0tp4vCfmoblrgmaurQAowttY083abluRh0aGG7mZUDUfFlOhwGd6EqMsEQkbQnBqaTdGajCjw&#43;KhT7TeipDMhlDn4tNXoBNcAKUai6dwCyOZSTzYF98IwO8fdTv7wLdr/8D/hMA27SThFRZgrtoB&#43;Rl3cbjSvFjaB/ca/XUNttHkgtAOyLGOjBCGJsfg8nKyqEaw9eAo3Y4o5GIc0omOffUMd1zZUvvXliSZX169w8&#43;tlNfWnL4c0vwS5fnNcTjyD&#43;zVxt3aEFj37eFVFwNnEFpF0uIrLthn/eb3ZT6VkZW6KPEWRY6ylGqipTKaE9ijKx&#43;FVSyoRvq1Lfhm9XqsDrbNmIRiCCffjtkzLqTHp3pdaAt5Y9Fdjp&#43;Zar0LwQ6uR/EMD7/OfI8VdxCo/iUBwDZryRjEVON/jmfCl&#43;QwALvoHQsbaKA4g41C3lWtA1K9JbISMLFzerPi&#43;2lbuk&#43;6BGYgGPGKUt5n/ilTJVBdJfwCu0/wTnt8SxgsHYtEL4r3RzLo9x41GMDBONrvoSlGdOzOzJeMEhDy8OolrabTYKXHgCU3YoK8NFScHneI/FKWYaY/ZfehHFhrLOH5r636dRP3nRlPVvzq&#43;uXZS29hGN2/bSRnKnNF6ojpbdDRlLZ33ejloCrQU5R4quoSZTFK8AbphK4wOu3quFqEgFUIplS33rH4pabz7ai1VkY6yqGJTBbycUnqNDGdzTKd15q7fR2iJkocN&#43;FdfZpIK&#43;KM6chhuUvvYu1O1V9kaDzxXH5Pr1PEzGNBTsgJWPGyrYbOVWIHd0o5zIEdkWa/ocpMV4fWs9v9x3siKP5izmAzesj/mRckeGBCSTETrXVCghwJupvzdMpHjn0U6fpSBLNr1J9uHH4rwh3LCqsyVAXUavq1v5/3Q/UuSVj&#43;NYT9y7O3E4JlJR4Ilyt6VANWb2rt30HM&#43;PGh23zfZ1duZ2HIScBNz2BQVkiO5lxlO3&#43;By1ZP3xQTo0HLlazLUGiApQT2VWfrYhrdxM2U3eb3vOr6R2evQv3jBvPHmY78RwPZ5tZjLoWLMpK2l2CKX8JON1wJ4AGZ8ZGxaC8E9UjkL19c5ma3Lxs3YNfmMIeaLNj/8GR/LL2fE&#43;Gl1MA1XKjFfVL5VA2jEXeHmLbDWWZkNEcEyGINJsW5dEsjp5r0EFHmfcNEcy3Lqiaa4rirhPrFlS37huvni4oByYdG1d0eQ5ywdvsLm8TKpYk/WuZPhGa9YlmsgSATV/4BlKbc3tTg18ljaMKYQ1u9I2lVYzLeBPEk8eHjUEuyFNsgJS4F8TlpIChgtgISzlzxxsnxwyndGTnxHsPhjyZS2VEpZ04UP1BllxLW3y6NAUu1qLBhLwsJye&#43;Jwbx&#43;4RZJUbHBa5PY&#43;M5r8xN16ntT9YUa/mI3VoJUZRF5BfZCNUuXCrdLHESIVDgFazKxyyXBIiOkDAnim/G1t&#43;OLi8uZQxfKuA2/MKinefl46t/Ydy2BvSArcrD7OSTQhf/ak6Wco5l0Y2WabPtbT3RG38b2Vp1AHuhlfwYlTBjBnAPGa2QoEmPOxMAyt1QGqbpBbykYD5IOhK7wFwmoTQjH95e0ogqJArOXnX00YIqD/u/A0QQH5IseOXvn4tBWqBND3/D3Dx5g1s1VksvMFYc/4IyBhRldHQe7tyugaaTMIw533XDYz8akYCuHB1aQ&#43;EUZ5k6DEQJqwtTbIWj/o70JJCoawxRjQOsBy9BaWu80KrDMz6eg2jUrPCxoAXm5IytAI5RrEkI/OqsdO0DOUvooswQ7Pi9IoNoeyCpcwp7xNO&#43;WvMz&#43;ppZ7/4v7/j1ZBJnFBE6kbWoZaSjwiqunbCrAcmfgTDGpjaeRpeMpSJJkt7jyvf1DhuaWIxiFx7gIQVtXTfjQqo3PDYEcIQCtqmgDFL&#43;lSYMfLaSDqzksYy033PXceXw51clIebCnvV7IMGERVjkVuTyRlshytX/tJ8FUuJYGA3HI9hrVcEBZ5/Is6Kk&#43;6KySunqDnbf5cJYt5m0NcfuJwQLeVgDcFEl84MBBsvb8VvQyABmrz0GwLs/TTfpLV6gN861IWUr5Wp3ph1gLJWBRcBeeBu9tRfjWpqWYRGwKpMeicC0k0Q5nTsCuBmn6ymEdvtec4MRh6fZrART86YyUZsLcZaq&#43;qkrBq5qdZ1VFJDHWTz0y9Xn0RRjhK&#43;x71wlctjEETPZW2KBfsRwRpFfpICtD81EY1MzsBNZOXTT2pJusJiWWQ3hnUhlrLui3DRUOfMNrqXd/d&#43;CNFsakpPAvi5A4jAO2SWTzaFUW7Ct2WJihzCIUyK2IAvm6cXR1JEBlqrM2ZcLBO0hsW0b0mFD91hTas/D&#43;TTiiUxZmjUSAPJCfnPzOhYCH6i&#43;Qrs6rsg3oh0ESBtb30F6l&#43;3Afz2ZvMVfFOwJJ4T9JWmI9K9vxWwIeofJ0SjSuO4mMhhtr5ELdvlMKG6F03udAT7THOJPl5zusRuVwR1HRMPpPtgLOwp1STURvK9vW3Jy7Ij5131O17nxoz1QjaoTXQdHmNzTbRfcaNtZ45wsJ9iKIVqM0HpHdfOCo&#43;QXWM5FBej5Qzuc3rYAmuPhUe8fTpCKwkKorGN3pdqgxXiCkAOINbxzl5UfeCqL0RdcSHDaJp6JDLrg0BlnqoqZxz/jbJaYp6pKWlANRxHissZuZnaTL5Ofcw72QNlGo8yoLh0&#43;dYJQObo7mbZryGceO&#43;IE1dIC6/ct8Pip6I6iiG6AJW7BzFbEbwWGvuxSq2ccF95&#43;NkQwp8L7UOqja8AG8jQRZaqQB57cgABrnr3j2cUKJOMOOG56NvpGdMSjVpT6b5bs3Mlp5ZcmyICQYR6IQ&#43;b&#43;z7FRsjcwCzZFylEUsS0g2TlgC4f1KPT0vpGI5aG07akP20ZYQa7fsLKha7zVof35Rvg1cV/9CED5NO2doT5hRTzz2&#43;zEtTg1cZvlmlKiZr5cWJEmK7p6sUczUYH5OY18v9CdYR775hO61Ec2dSzHt6utQiLWAsh2L9pPKqeZhor3jq3qWtKv0gnHfmxfXjSKCPO4teBmgCbKUBV/NBJbXtZIa4mNasQOtJUd850y79NMiZZPkf9&#43;7nahbKePOzRiS&#43;UKQGXMbPKyi6uNF7/LjaJU2ZPsOs8UV63SVXBTtUvmUYA6m5jo6G3BdRhRVteVxH9XpIqwqzbug7fxA&#43;xfOeUDuGD71w24vw7LgCI3E5xshP2R5OrIhjoEACnY219z19vQ49GhPgcVdI6s7QzVsZ0W65g5WjVl8Eb/51ofHmWtNWDdVNLfOa7bdy5k4E2ZJMj3dze95PuDESJGnwJul9VUe2dzD9iRlnnpMHp4wun5jy7e7YprGzA1UoTkDGJOzm2J1QnX&#43;rOfg3PDlCWvm6h/yeWP8mZHTBwxW1aKsLn1jawHT1lDlPQCojeoMkDRPkkdme4APy8eB/puv79lbQr3Z8ZXARjOn4LVwITZeQL4cwHD2u2NUmen/VewMWpvEnk0/ipMKxZW9Y0PAGvlOybBYFjmqthtHypJjUwNAWOzRljCP3cWz3"></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>笔记限流5步检测与恢复全攻略：从小白到专家的流量自救指南</h1>
+        
+        <p>创建于：2026-01-12 10:13:08</p>
+        <p>标签：
+            
+            
+            <span class="tag">AI链接笔记</span>
+            
+            
+            
+            <span class="tag">小红书运营</span>
+            
+            
+            
+            <span class="tag">薯条推广</span>
+            
+            
+            
+            <span class="tag">笔记限流恢复</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            <div class="attachment">原文：<a href="https://mp.weixin.qq.com/s/-T96dyCFfh-jporSzOiX1w" target="_blank">笔记限流5步检测与恢复全攻略：从小白到专家的流量自救指南</a></div>
+            
+            
+        </div>
+        
+        <p><h3><strong>🔍 一、自查[笔记限流]：三大核心检测维度</strong></h3>
+
+<h4><strong>(一) 看小眼睛：阅读量增长趋势分析</strong></h4>
+
+<ul>
+<li><strong>判断标准</strong>：以<strong>2-3小时为单位</strong>观察增长幅度，而非短时间波动。</li>
+<li><strong>典型案例</strong>：前2-3小时增长500次阅读，近期2-3小时仅增长50次 → <strong>疑似限流</strong>。</li>
+<li><strong>极端信号</strong>：阅读量长期停滞在<strong>两位数以内</strong>（如20-30次），99.9%概率被限流。</li>
+</ul>
+
+<h4><strong>(二) 看收录：系统检索状态验证</strong></h4>
+
+<ul>
+<li><strong>检测方法</strong>：使用<strong>非发布账号</strong>搜索笔记标题或关键词。</li>
+<li><strong>核心结论</strong>：搜索结果无显示 → <strong>未被系统收录</strong>（隐形限流）。</li>
+<li><strong>处理流程</strong>：
+
+<ol>
+<li><strong>敏感词自查</strong>：删除疑似违规内容（推荐工具：零克查词）。</li>
+<li><strong>官方申诉</strong>：路径选择【搜不到】或【流量异常】，修改后申诉通过率更高。</li>
+</ol></li>
+</ul>
+
+<h4><strong>(三) 看薯条：推广权限与反馈分析</strong></h4>
+
+<ul>
+<li><strong>检测路径</strong>：小红书APP主页 → 创作中心 → 薯条推广。</li>
+<li><strong>关键反馈</strong>：若提示“不适合投放”，需关注三类原因：
+
+<ul>
+<li><strong>账号问题</strong></li>
+<li><strong>笔记时间问题</strong></li>
+<li><strong>笔记内容问题</strong></li>
+</ul></li>
+<li><strong>注意事项</strong>：<strong>不能投薯条≠绝对限流</strong>，需结合其他维度判断。</li>
+<li><strong>解决方案</strong>：修改封面/标题/文案，过滤敏感词后重新上传。</li>
+</ul>
+
+<h3><strong>📱 二、自查[账号限流]：账号健康度检测</strong></h3>
+
+<h4><strong>(一) 账号功能完整性检测</strong></h4>
+
+<ul>
+<li><strong>检测范围</strong>：登录、评论、资料修改、直播、群聊、私信等基础功能。</li>
+<li><strong>官方路径</strong>：小红书APP主页 → 帮助与客服 → 账号申诉 → 账号检测。</li>
+</ul>
+
+<h4><strong>(二) 账号信息合规性自查</strong></h4>
+
+<ul>
+<li><strong>重点排查项</strong>：
+
+<ul>
+<li>昵称、头像、背景图是否含平台禁止内容。</li>
+</ul></li>
+<li><strong>处理原则</strong>：根据系统检测结果，<strong>针对性修改违规点</strong>。</li>
+</ul>
+
+<h3><strong>📊 三、笔记数据来源分析：流量结构解读</strong></h3>
+
+<h4><strong>(一) 核心数据查看路径</strong></h4>
+
+<ul>
+<li>小红书APP主页 → 创作中心 → 数据中心。</li>
+</ul>
+
+<h4><strong>(二) 常见认知误区纠正</strong></h4>
+
+<ul>
+<li><strong>错误观点</strong>：首页推荐占比低 = 限流。</li>
+<li><strong>正确解读</strong>：数据来源占比反映<strong>用户点击行为</strong>，而非平台推送量。
+
+<ul>
+<li><strong>案例说明</strong>：推荐曝光1000次（点击10次），搜索曝光100次（点击90次） → 搜索占比90%属正常现象。</li>
+</ul></li>
+<li><strong>特殊场景</strong>：干货类笔记普遍<strong>搜索流量占比高于推荐流量</strong>。</li>
+</ul>
+
+<h3><strong>📈 四、笔记数据分析：单篇与粉丝数据深度挖掘</strong></h3>
+
+<ul>
+<li><strong>单篇笔记分析</strong>：点击笔记数据详情，拆解流量结构（推荐/搜索/关注等）。</li>
+<li><strong>粉丝数据分析</strong>：通过粉丝画像功能，精准定位增长异常点。</li>
+</ul>
+
+<h3><strong>📝 补充细节</strong></h3>
+
+<ul>
+<li><strong>限流误判高发场景</strong>：新笔记发布后1小时内流量低（正常冷启动现象）。</li>
+<li><strong>敏感词工具推荐</strong>：零克查词（免费且精准的内容合规检测工具）。</li>
+<li><strong>申诉关键技巧</strong>：先自行修改疑似违规内容，再提交申诉，可显著提高通过率。</li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

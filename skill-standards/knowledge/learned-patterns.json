@@ -1,0 +1,71 @@
+{
+    "metadata": {
+        "created_at": "2026-01-15T09:21:00+08:00",
+        "last_updated": "2026-01-15T11:08:00+08:00",
+        "total_patterns": 3,
+        "promoted_to_rules": 2
+    },
+    "patterns": [
+        {
+            "id": "LP001",
+            "created_at": "2026-01-14T22:00:00+08:00",
+            "source_skill": "content-production-pipeline",
+            "category": "Skill协作",
+            "problem": "误解 Skill 为异步任务系统，尝试'调用 Skill 并等待完成'",
+            "solution": "明确说明 Skills 是指令文档，必须直接按照 Skill 的指令执行所有步骤，而不是'调用并等待'",
+            "is_universal": true,
+            "applicable_to": [
+                "所有 Pipeline 类 Skills",
+                "多 Skill 协作场景"
+            ],
+            "usage_count": 2,
+            "promoted": true,
+            "promoted_to_rule": "已整合到 content-production-pipeline v1.2 的 LLM 执行策略章节"
+        },
+        {
+            "id": "LP002",
+            "created_at": "2026-01-14T15:00:00+08:00",
+            "source_skill": "xiaohongshu-content-generator",
+            "category": "API调用",
+            "problem": "Midjourney API 返回 grid 图（4张组合）而非单张高清图",
+            "solution": "调用 Midjourney API 时必须设置 auto_upscale=True 参数，确保返回单张高清图",
+            "is_universal": true,
+            "applicable_to": [
+                "所有使用 Midjourney API 的 Skills"
+            ],
+            "usage_count": 3,
+            "promoted": false
+        },
+        {
+            "id": "LP003",
+            "created_at": "2026-01-15T11:08:00+08:00",
+            "source_skill": "content-production-pipeline",
+            "category": "Skill协作",
+            "problem": "修改组合类 Skill 时，规则变更未同步到分支 Skills，导致分支单独调用时行为不一致",
+            "solution": "组合Skill与分支Skill必须双向同步：1)修复/优化必须同步到分支Skills 2)分支Skill要能独立运行 3)质量验证、错误处理逻辑必须写在分支Skill中",
+            "is_universal": true,
+            "applicable_to": [
+                "所有组合类 Skills（Pipeline）",
+                "content-production-pipeline 及其分支",
+                "product-pipeline 及其分支"
+            ],
+            "usage_count": 1,
+            "promoted": true,
+            "promoted_to_rule": "R11 组合Skill同步"
+        }
+    ],
+    "rule_promotions": [
+        {
+            "pattern_id": "LP001",
+            "promoted_at": "2026-01-14T23:00:00+08:00",
+            "rule_location": "content-production-pipeline/SKILL.md",
+            "rule_section": "LLM 执行策略"
+        },
+        {
+            "pattern_id": "LP003",
+            "promoted_at": "2026-01-15T11:08:00+08:00",
+            "rule_location": "skill-optimizer/SKILL.md",
+            "rule_section": "R11: 组合Skill同步"
+        }
+    ]
+}

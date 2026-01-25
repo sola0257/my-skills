@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI图像复刻全流程：基于Nana Banana Pro的提示词工程与实践指南</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="3ZaWhaq&#43;/UcUvOKXfRVHJ68Khk&#43;oWvmtrH7zIgp59O55/VXKNBDhAQozoGwpP/Y8bEYoeykhtyjrdLHxsc812mdarSCgIOjvWlX3LqnNcRE3q4EsCMJ2WI/rYtBibjWHGdAHG8CS3Ie3W&#43;mpJ/MXP5&#43;lZx4WzhoDt/rHoMuokYkIqHWvPUfJxEFiltK03/E6fTWS5vShvVPIpitpTRE/v6MVC0WII2zBOcpk3XWGGbpUVi5olbLwJ9vrAurJLwMCdLm8SELYN1Kby2RsBKRjxZeVh3UdmvIHFcfNecr0Or2Ei9LeJR3jHovRX1F3lClsZjmOokHTE1iyHwRf1YyR&#43;1OzgUcOIiJohBqwPerzR8xhHosYkpEPoDLs/2z3Dl9kNZqZwIusozFbVuo4TTmxFKMR2CjvmPc4ridxkgGyz2ugbhcYqHC6uRdTEQQk7dxm6yPrXu6PtXTs55xlpB8z9d2ONqexf5p6xfEVVcFrGuAaIRQaDL3XZX3r8HZNSJt0NZmTNgubnIdgV4ga0V1IgcRNNo78TlQLPtjLCioEuoYCvEx42Tm7CDOG3OpeYeiBFpnqQfMXnGLQV7gkaD3C7XhcK6JAch1drMNvJHoGtpfivdsernq5deY8rf&#43;C5DdDXAanreQS4SbVQ9bm0sybqOag2VYLfPP8Kv2k/5RsMNh5qdh81PJ0iKq&#43;wI1ST9siDFwMg2U3ypOBwfG7vPFoEdcy71sxWNbaJIR8fy0cvYFaowIPBcK0RCWEXQu35ksQ0DDD70c1JZHON5Y0BD3pC/a2uipGROiZYu2j1RtGvfRRKAqiqracmcrL8urwc/ZO9DWp1NABD3upuIZ5Ud&#43;78EXM04hU2pp30ZqqLKiYPTKTQaVUsXEl3tJ8DNtZO7trc840uSqKZn7/LU4un0aXyBaBcp&#43;9ZZGLj0gNdIntOWefHCtBE1So5TmcuhhFdd7HbRJ5g&#43;MnWUGHO/g8p5jQF3dq47txfzyFWfXNK8xu4Cc3J6XpjdgPtPEee77Dbd4&#43;wDcKSDyAZemVep&#43;zuzpBVsny5e8yDjcAnKdjh5c4SlAu7m3qQwDvj3X7lCVx95Tq7V18HaY6k1vL7fdUWGjftKS0MWmVnUwRiTRft/6vUYGDsaXcq&#43;xRp1V93tVxZpyHL&#43;bU5sjBMYcB8U0tw9Iv9eihuaZhJreGlxXil2fBst&#43;WlAE9tY2yYA7v0EYuYUmpxl7cPdaSLc3XCCfvmU5f9TBV5KBFJTP4lWhDQAYidcKqojE3RgONq&#43;5It23TVCmPGEw&#43;I1WSENVHGmogq5FT0W2BrZf44hIfHhOuqoAA3jef8Jpr89w8P&#43;FeSTIHyv67oNZAq/2VZ7YZ1wkbJm4qUYHYd8ou93g72h3eIOfEOVU&#43;kNzukGpUI/APQGWE7VMAh0iNqtBjZoIBHLCjv2HSvKl//qtgb8lhbc7584JnCyGeOaA3Ntu61/BdbURgcxA3kvhTmG9izrFRIM5vi3lDb8pQaZlvix5mApohn0jaJgJtgD&#43;bbHnILXe/7J5Clv1TASJTIt7tGtzCaoFRNsrGsm/Xedqq2XJfQbdZxGkVm5qW4Y6dSL2en3q/G7sF0nn6XCDka8RrWAJjhYNpvgFELuj3meayLrv1y3qHwdOn2fNvn9NwFmlC58HKqhDX7TRNveH1tC0EyPsndVWbcEKbE9CIAy8rVshxaEy0VM8kbBT34zjutQDSEQr3wfonW&#43;6Uhb6R4X84qtcRP&#43;m/fArmV/joNaf10ziCFqFK2geusvPscu4jfcMw89Ox9swYpLZykVwrO4uMRdaalEieMZ9Eb9MuGZOvhgduad10oA/egmsMpRFR/XTWfbTECjkEHJioOue/D0LPpfPYIkomZb5iuZ6ruOb&#43;WQ9mOfbrQ9i6&#43;kGeShJsuUIayQJ7DW8IabyQS6MV4p9i4A0h33fwQ9N/hl0kJ&#43;XK8FxjD/rd5omgVjyAZL24Igho7p9hR1j&#43;2fxkXuLLa8UZx9Y9ANyOn6hEWwkGFNQYOm/lkiECn5z/XoUfVHfbYnPcz3ZhXb5/SFxrTUMnfYWlJbi/f6SEz07MBSyIL8iurzxQ&#43;cOQd3m98S7ZRAfWiIyQCIoxJJwAiuhq/HuluZdw6VyWO/BsV6GU9/ivxmRIh5hIzmV4bGdWNa7r2dVJ/3/lUyLwJOfBCIXH9eHZ9oyIhID0DsVCYIoC2TiG4LbMgxrzxdcTM8Niv06b/bSwQc/QF8OJfD4EKL0npPSrbjhJxXIVoiV7qZ&#43;N9jz3XS3b7BnEh1qC8YNXO7Xc8FCZbCBqCgieP8pH&#43;BVmxVGcvmAdv4FOS5/dI0TUBbsoFDMIkroZnbk3bLcIA1eOSheJeMbJaLidCDw7fi/X4cAtCy94BmW27LEM0jlkh7huW0b7LpHZj91SbNhGurOXp/3PpAqxoWxrL/VeQIaB4DzNf4Z3&#43;zxMK5Mak0O/UDv1PKQf1AVNNCrUu2XgTGVnrs8Xpv6CxejOvhh5msJNtcfxOLkYcgDCL9cdY2zTq41SkD2W4LuRhkB8Zppu/7R8gYKQ&#43;Gl/VNeLgQwJwq5EYmfoQxdD8sroSzP0OKhpmOU4e3F13pP4tTRqKUtz2tbgY1lT8jqyrS7OHjunJSTRdUTD3SwZ003evVLbL3i3FU6HxPHC7gdWBEGlX0/tBQd0OIXqQNkWF7oEvSbAnC6u2lo1U7th3&#43;exzXE2xuAhjD8RQUaWikYpTMROU3A&#43;EvVHwkWcvZ&#43;dKvZukJ5JMMzN/92vfZTjKLIfHQ3FTAaTQl55JpQbGtwefROFw8SXAptKfTsT69aVUmKaNl89zK033ESLvtz3MkEZ2dJLLNGoTxBQDZeLzaf&#43;M5F9w25DC4/QakSjo6jSAiLmWRQp0kfNn6oBX&#43;N&#43;eEOlpVQBRFM4IIT&#43;5ly5Q/e0O3Xru0ki/xQADivSo5RRaSHgRNrX0pfUgnEeIpLEfdxSJticw2Er5&#43;qcjy3m9FrCrqCO2J0VvWsMRp/cb2aPhm0Dz9K6YSaKhPTW2XKz6QQnxx/1tkL3&#43;nPTNhmmGTkylxCeBQ2s0guZS&#43;NOCcAp3EMbO1O81VnQ8wiPgIdvonOSCHHcpIGpsfkINRsqoNpuhp97fdczEFBHiUai44xcmNr9XgmwkmVRZ0DYiqLYNWz7sCp58StPEugHbclJXh9/k1tzssBaow6YlPWQ3T2jVh1x&#43;d8eoW2nGZh/vPWmr2JK5pmBgKKagkdJC6lxVsc8XIiw6sUDL/5u0JvwK48RNP7P9MZAqxdwsf96mgzxajuntnu&#43;rZUxEuL/veJ4WuApIjKRkR5/cWAa&#43;lFjnf3uD0DLYX4cGFVugltQ3dLA/rSa5eHxPW1ZktlxEgbUWhXNGUYuqlFrtwvqq20z0mI6dBMXQNRGGeHpHIaLjfk/Uw7SLM8FsYWHTBS2Tae1hjehtOhyw&#43;UJbxu/Hnhu7w051y5Nu0c&#43;aCD7PmqCSgLCyQkDkn5oEVlFe1A8VyOf3NB&#43;2yoByBqRhHnlwnzDDB5sFaWUbC&#43;VOWvkkkwmJcDmtcNeR1d8Zc&#43;GZCvntOCyFK5N9rM2nKIhJKgoE6kUYiSL9GzG&#43;adARqcOCqyIcKaMPsoDXSaZjxyZposmO/rSNMr5FNM3z5Qsm/BMBhO5cT1rzjVM0xZ67giUcPfaWXHKi0YRYmOCRF2buRSdI8SnZ8B8zmjQFW350PGtvIiZRBRqUnqwZsZC3aEnyfYr/j/Cr39DmReZy8e6CSL5yJdKp9ZpxucCKDeMpTZZQPqFqRdsNkDhm1HRxU1kCixLJQ4LOAvfshVZV6Sc2iFWW6w&#43;HKgaN4ktnzxVPa3Snku4m9qSOdW0S6rg7MDbRIljAkvwnivH6FYGZqt7ZTOi/RBFPaOvZZVnx4GoYw&#43;WqDAd7HGJQDDqnhXXv0f043qIHSkznuHDH0kts7Ca9aNij/U87QybCOHRA/UWAMFJc9MAB9u/i02HbsCe8RaGys0RsvUTRHbaHJpq1woPNMv6nwFchUY&#43;b8U9HR&#43;RvaOlfbaFKSHVqpfwvhy2bktFCLeZPHoNLWJRisCvAWv0sRxcn8/BnvDqDdOWmCXgZKagVFhfzbsjZnHVdHphxe681Sbt1CuDg6am5Sr9YI0Wp5dWmjS6SfEWOloFEWxMOi2dka/x4WuzKfs3OuIZ0BO3T8cKPC/bXB2MkdZiua/f758mVVIUawIWaik9OZwnJyCS5y6ujR29Efm4tji8eIUs5l51zn2VeE1lgYLx2gz/OjmB1dahze0ISijqwqLOxn/0rBL&#43;BcCFsJKUEBwQijkhU6QygLdkyIZJpqxztqfmOR92WCT8wDRSUWBy7UZItyiaXL5PNOfG4G9FFQ7BjoGrw/1hhnrUAANhpq&#43;w8EqJ8ErojMsQLmCwzsPSfW9ch9XBSvknrUAzkp0XNTk/pjdm7PnwrM9KIOuM/SQggUhUH&#43;m1ZPC78TtqMQFE1ziQhNEbiz1WieOF7EXIqNERSeYs5S0Qz&#43;fRbYMCCZOpsVSWMuO9B4fXQwirWFPTE9EGPMRH/TGQWS4HbgxMm/C9FYqga91km6T5AEL4oJDxTIkcdXbCAOO6e//SFpB2GwBCQgR1wG2qhQvU8iO//l3ay9okx2Il6&#43;YV/QpvLsu34CKhs3zQmPyYxW6qIgTqMP5PZ&#43;MV3ueaBGOY57q4rPKNZiBQHOytcYP4Yq1BTZLQ6aAAkAbhfAqXJn1u4s2t8g&#43;Lwg0OGwFedTRyXR5HXIzy4/mm9TPZ6X71xjv6C1RxV76UtReJV/srDlwRXY7hgkdy9j08fJTWNnHYrhcLnVMI&#43;G1dDy1ZJfGEHXC0mZKEgvT90lQ6q55FRx/tj0VtImbI6dK3stXNb6h3V&#43;vrFzTTrmKyTFd0U7OWR40YREfarzznorCmO/lsuO6vH&#43;i5EQzAQOB3iT1Xhq6CTIMIiVtQS3yDYAor6X10KaM&#43;alr6/iZdhISdjjl14&#43;FjwzgNF09DY1AwMisMEZ1RriOMMX2b15g8I74jggtZZbTMBFfoatSNz/jKWGvBdn2o2tqCMScXxN7goSI/dR9wZT9ICeSny6bvJ7INkRpnV6nZA&#43;Nk0AxPZjAp/BnlWD9Nmck&#43;EVzO7aj8WJ5&#43;4GSM7zlpmYdLq7jhP8zyXk6RP9DmxR6nzXuD8DUtQT/&#43;5B8uKOW424NOAhkOB3CUU93xL60qQe7UgZdJH017igqT/aG89WSCDMsHpJXViPj/rjZBYECbm6R1joUuxnd1FeAOLHsYznXjWmX0oKs/IHVK5ETW3NhbUR6neo568hPL9nUgHT5bMCHHHHck2LCxo2XCYFk1gzeypmKB0ckEAKd7LfVUsVtceGpxEEgCaMS3CW0HA9N1St2rgh&#43;pn5lige8G0&#43;iImB1404UEiFLljlHLhcGAVuOBs6wkh6kgLNjUEg/DwhHlrWmK/TP0o7YaqHD4d&#43;K7JbuIETsXnLhGmxwHKRnN2QUbF0Mlgi3NkrYqwIQw1s1RyJD73QbIoeFr72naWB3wXgWAF&#43;jXEWAzanMO8Ek29Jcnb&#43;/QAT8xL1AN2K8/Yb6ugjrUVi/LoaLITJEAo03ZxHhwovr3cifKjSwURmv4mSyuY81RItiKLC/DSTO1WmMSn38h6e8du0rK&#43;5f3Y7XYCt31BQQT&#43;mxX4YzYbKvj/W5xEzjqWF60twtPsT1y6KqzfOP5AFPGXD5qUdPei8rttl7W4I8oCeyBRZxMzM7lA/JGfl/&#43;X992/UZ3pameoCc2fPvGJMpLDq8hakdbwzcQ9jrruUcMqqVCbSq2VXMMmxz6OXimDRIieobn/jMRU13xtQXcR06Bclqorqsm&#43;VYvnzgqwTysRiHnQ9UXfbGv8baVgGhNWzX/xlYWs2gBmlZIgQgZNuphEb45puwFsPRiyvx4FR81iAhYP&#43;hqHGQNDUpYuVvz/cNTdx7oEv762TjJJ3Ire&#43;RGcs5PIu4e/Rr1b3krlQj8YF7eWK78HEuzP&#43;jwEu60cqPiXfVfSVgXO7TE8foXtZ5BgZsaDT&#43;A&#43;w1qCo3EBGzVzvS6l4KRA9s81NbGcB9M3W3fRxHUFJDQbJFH8GBZRbMuSNK51u&#43;YeNOsBq3DHpeLE2vakITNy0N9zqb&#43;7Hhq7xvv6JfincndtgW08Y&#43;L54aXwstIhRib/7BH/jPLvDmT6bMwsxD8oWXPaBrqerx/6GX8JE7MhbdQj5EOfMKmYZ3SvlUY/NkKm/fXbOIuKyERQjIe5Y4rX75spUpS1G8PKUy5Z4VelVLlUA6ftpFOr5GNydTrw/Fqxsmd3x6jsPJzIdraOOkZrinGKsIUXDwXTXizYCqYy/NOqF&#43;7gmsA2xhxmAGV30yuRoiDCkHdg7VwwVhlg3hIlZE7vecTz&#43;x87IBYzuatBeCq3vQdvAmY6SWlGzfE8X7gLen/9sD8hCBjjIqaet/Q4RnkUB3qB6kNnCGS4tFEFwn1UELIYDdEug9cvXd9U4ya8smHAJ0jnVk8SsWmUEidlo&#43;Vjh7FEfXqiL3XewDWG&#43;FgqKHvGMpG/3gizKWxyokWjtZaSi2B1xDY9GWyoGkFrhuU9iHj87zjAqDEzK&#43;OFob4188ebKbJppFLkR4wOdWjPw0ByPdT6bpHMP&#43;9EbaJbaniG/PBSv7ACtNj4HwyzRUcViKmX4CAsbYRLLU1Mdq5NrUnBLLhUyfOHp5ir0CUkv8dm4ZOFe0Sostrdbc/jckDdBpaUAJ1IyKN4KxbaCo5RmTepysiy4zEuZuJpQi6tG628zX15Wdfz/SnHAN0ihPxO&#43;yJs0xDuQXYMgI7ccBr90WSQ11e5v0gPng002C8Zojwczw/IYc9DpOGur5KzPE9JG0c4JBycvbPF&#43;qSbMsy1nV/fLulw3rxP1G6J30LQklstx88chMk9uu63EaSiTVIyJQGG2bL4c/RB6aQhHABNW4B3jWpoBPfqu5U31NtPyPlECTAdeoO4aCSXi5rg1qhfgCU92DjDQJKIasGsTgp7m1HupwBxVDDUUz78PNjLkJUnAtPJJUXSDydhNr0aTc6dxNPnTzRnaVr3tOf2dUQOUNND3B2Msl1guv9fT&#43;VnaI9ehrdNt3LY1nVkly0RVmSrOXEmlOyaRVmxxWaINJflqD6UuldTNaI5pEwf4xh3jl8iDSe&#43;UsPlO8or9O81BpgzGIIdZlpnkCnswUYSyeEXcd0nSpSsLRRaJB2zYfpM1PSjWgo&#43;w3KIMJLljobfl/TcifeF9jquPTxgWrjgSdps8CiQwnXIugdJw8F8oOgSlTD23eYbHUNfsZs3cwtNoySX/ZB9mcPk6caI0SH7g5GvglUHgDveWeC07iEZEbw445ANtsH5lMB6KI9xEvg9mWQwuVwcOixHq0I2d8fCyklABDLChgKXRAXvh&#43;XJhfLQRAxJWrN786ENpBMZD2FTzJhJXQgI08N2tu9Y1emnpPIsvRSZgWhQHrcEHHwUq17tgJj8xUo9om6RNVLN/YDINLa&#43;1uqB49bhT1mJ9KjwnGnQ4&#43;yq5lMZSN3303qJlICAQUQL6o&#43;5DYWhXzEYwab/N&#43;3jfa9AWijG8zhIkMcZx3krcNvu1KvnAkebeVjkvBtvDj/VFBj7ZtBm&#43;Nd0dHko3KyROBXvrkp27g&#43;QneLbgBazN/GxXa4C4VNv1xNyaWYtsMZTyNecFJgfuYmRclhDRcw9d0md4PVtox/ddhUpHdX5/dcxFaLejtjRGxvJzQRXEWEK2QC3rSEMfTT74kRgMi8P7bcNSBi&#43;NuSgWTaCK&#43;vGlufOvQPsd7cToAZwITWqCujUfYYYE&#43;LmBrhvVG&#43;8Q7ITV1tc4ubVPs5R1nByWcFiXZ5PfPhfugtfq0YVBKWUS2M6zfm&#43;OnVO4fS1UdQYfXyGdNs/L/RQ/RdGYMbm3APPlTq/o5Knqq7bx3DadnXy2xb6ifsmG9nJK3wTdUX8/cv4kzou4VXE1O0D5OKgJ3esY2ze8ZJbrwm7Z8unTN9Lw0IM78MtmiL2gsU4cjzy45HjJKRp1Jsr3Tea57U5HD1nzwM52Osou27qmB6pKtiHNGJq4vA9agMHCC8&#43;zvZkMQMFpYVRqrMrF3emZq&#43;zmnXSTdb/L6cICvtmtCbrdlGZYTDRg8Fazp0&#43;X4E6VeeJO&#43;bD4hKIPqwH9dRL9XJwqFt1FoYzmbGhyTclW9g&#43;GLlmvdZx48keEOehsBythnypuVF6jTgeiGU8&#43;hRJuqZE4Z2CCfLAklOhwrW4knokL1EOBMLZ4gW4H1RYoQTkKcO3fTqkpPK/GaxhE005AyL7No8jJaT27MqrtLedrp6JAL9JNIUVTfxFMVBxr/FDtADszjkP80="></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>AI图像复刻全流程：基于Nana Banana Pro的提示词工程与实践指南</h1>
+        
+        <p>创建于：2026-01-12 09:37:03</p>
+        <p>标签：
+            
+            
+            <span class="tag">AI链接笔记</span>
+            
+            
+            
+            <span class="tag">提示词工程</span>
+            
+            
+            
+            <span class="tag">AI图像复刻</span>
+            
+            
+            
+            <span class="tag">Nana Banana Pro</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            <div class="attachment">原文：<a href="https://mp.weixin.qq.com/s/Qxz07jF3PEeoxNoH7HHibA" target="_blank">AI图像复刻全流程：基于Nana Banana Pro的提示词工程与实践指南</a></div>
+            
+            
+        </div>
+        
+        <p><h3><strong>🔍 核心功能概述（基础认知）</strong></h3>
+
+<p><strong>核心价值</strong>：通过<strong>提示词工程</strong>实现AI对含自定义中文字体图片的精准复刻，解决传统AI绘图中文字内容与字体形态失真的痛点。<br />
+<strong>适用场景</strong>：教育笔记可视化（如数学公式笔记）、设计素材复用、个性化内容创作等。</p>
+
+<h3><strong>📝 技术流程拆解（操作步骤）</strong></h3>
+
+<h4><strong>(一) 图像反向拆解阶段</strong></h4>
+
+<ol>
+<li><strong>输入要求</strong>：上传包含<strong>特定中文字体设计</strong>的目标图片。</li>
+<li><strong>AI处理逻辑</strong>：通过深度视觉解析，生成结构化提示词，包含三大核心维度：
+
+<ul>
+<li><strong>文字内容</strong>：精确提取所有汉字（如“一次函数 (Linear Functions)”标题）。</li>
+<li><strong>视觉细节</strong>：字体特征（黑色正文/红色重点标注）、排版结构（分栏布局、便签位置）。</li>
+<li><strong>环境要素</strong>：背景（浅色木纹桌面）、光影（柔和室内顶光）。</li>
+</ul></li>
+</ol>
+
+<h4><strong>(二) 提示词生成规范</strong></h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">优先级</th>
+<th align="left">模块</th>
+<th align="left">关键要求</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>1</strong></td>
+<td align="left"><strong>文字内容精准度</strong></td>
+<td align="left">具体汉字+位置+笔画特征</td>
+<td align="left">“左下角竖排小楷写着‘时光慢递’，软笔枯笔带飞絮尾”</td>
+</tr>
+
+<tr>
+<td align="left"><strong>2</strong></td>
+<td align="left"><strong>画面细节补全</strong></td>
+<td align="left">纹理描述+主体互动（解决原图模糊问题）</td>
+<td align="left">“复古皮质信件折痕里嵌着文字，占70%面积，淡紫色蝴蝶停在‘慢’字撇上”</td>
+</tr>
+
+<tr>
+<td align="left"><strong>3</strong></td>
+<td align="left"><strong>光影渲染质感</strong></td>
+<td align="left">光线来源+渲染技术</td>
+<td align="left">“黄昏暖黄色侧光，8K超写实纸张纹理，OC材质还原皮质反光”</td>
+</tr>
+</tbody>
+</table>
+
+<h4><strong>(三) 图像生成与优化</strong></h4>
+
+<ol>
+<li><strong>工具选择</strong>：使用<strong>Nana Banana Pro</strong>专属绘图工具。</li>
+<li><strong>操作步骤</strong>：<br />
+
+
+<ul>
+<li>输入反向拆解后的提示词<br />
+</li>
+<li>启用“文字优先”模式（权重最高）<br />
+</li>
+<li>选择超写实渲染风格（如示例中数学笔记的“工整流线型字体+红色标注”）。</li>
+</ul></li>
+</ol>
+
+<h3><strong>🎯 专业提示词模板（实战工具）</strong></h3>
+
+<p><strong>基础框架</strong>：<br />
+<code>[文字内容]，[字体特征]，[排版结构]，[纹理细节]，[主体互动]，[光线来源]，[渲染技术]</code></p>
+
+<p><strong>案例应用</strong>（数学笔记复刻）：<br />
+“白色螺旋线圈笔记本，黑色墨水书写‘一次函数 (Linear Functions)’标题，红色墨水标注核心公式‘y=kx+b (k≠0)’，配手绘坐标系图表；背景为浅色木纹桌面，右下角右手握蓝色中性笔指向红色圆圈注释；柔和室内顶光，8K超写实纸张纹理。”</p>
+
+<h3><strong>📌 关键技术要点（补充细节）</strong></h3>
+
+<ul>
+<li><strong>文字优先原则</strong>：在提示词中，文字内容与字体样式需放在最前，确保AI优先识别。<br />
+</li>
+<li><strong>细节过载技巧</strong>：避免笼统形容词，用具体画面描述（如“虫咬小洞”替代“旧纸张”）。<br />
+</li>
+<li><strong>工具限制条件</strong>：必须全中文输入，Nana Banana Pro对中文语义控制精度更高。</li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

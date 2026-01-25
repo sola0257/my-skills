@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>陶罐生态种植法脚本拆解</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="G&#43;LTydI60WufhNSAGNWsSfM&#43;Wb3SrR&#43;yWf8R6pIp301JmBmX/&#43;DQRfjx7akNNhwrkBLDg9EXwevgx/cK9QvibzditvjkRquhF88IajvVNrbIwdkPs1mcOP6NUim05MDSNW3oVVISh75uhFdEThm2H3wfJA0O97EnyoZcTMZc9yXY614ATm0cKOmI3OWAwGHHhfSqFp&#43;BoX1ZKqrfYUBfAFQigb3LS5wbpEoSv/aHpnvvXhWX7jUIlfw9/B3EaaCx0tAr6wLaG9Y&#43;3bUXM6tBgX/81TNk8zm7eQtoOY6oCUpkb89nC8Nx7xrOtxfwQEX/p8MIzWq&#43;snhbV5Wev8d0wk&#43;rm2MhhJdInYE9uh8tubLiNEtV7jET24yJ5Obue1NaItIWA6MKAenDy1PNz5g4JrZRGQsEskRpcBkIjeTii1L2IFANSS0NXdGYQnE&#43;ttjbP1VX7WmjUTt3s4LJ82QMz5iXvdQzmwPmXRszeaoNjfaHuWwalMbQjR8Hx/n44t/Pa/Hx6Sz8EGuVzx6p4jYbyVMDRRg87bERhmrSyfxiHhte4Uzaobg45mIdexgHzfBHW39jWLVBLvzcOxeyNveDtjv3SR8kKdul1/KKfM&#43;NB3DPAT8ZdfKx5/qBIqUWtNNDAu1f14MU/uBSDHkqegPMtfTVKufRE6aZC9lQf4fk/FD1GLpM/K/BkA9kbCPpohU5ILqSVRdCN5yk7Lf9y82uXWcOF2N2GlQ&#43;PBX7nGzV8w0RRTQV&#43;D06IQR6ZFDKJKBzqpMUm&#43;nkFmSyHKh2cjK/eIPzFdAUHsDnOBZ8S/wg6vcPzJZuYpr0yVc4jE8otIz3GQh58mHusa7GuowH9pR6B&#43;57QfOfyzWQ9Y&#43;/SrgJyeTAj4IUMEi9VorPm8XndJ3hVjbdXIrCahgRjyFC1KKcOHSZ7FA89I5y63TffVp4W/nqC/fAh/q9fFtjeZQWSKoAKti7bpucUSRIVuhxiPeACkb4jCbTFYD82acXjt4x8LejJxappXILqo5vWenayrMn0si8I74IBUa8ETFtdsFPMA7DqG2nmrIJQe3v6JplXQIz8Ar4BiDC5sWapU02aXA0ZzLXqz&#43;uPmsQ1SHXs4p2VJIZZ/puGYtizNxxGfClzi31DINjJRJh1enba7WgKfoCDxYaXI55or/qZweN4/Y7gjc4ZBbQ71IpnRRYJ&#43;USH/&#43;Zrh&#43;FNWKOARc4ktA0J88uTVNxrT7ZFh5FbOfCP8YIwBUWnvg/tv5zEL/wVw6Eq9ol/hcnFuarG1pu&#43;fxibPwPeTeYfXoPhd&#43;12O5n9pQSKOSPnzfsEVLOEsiDRNan5hiGGEKf&#43;xMs/KSTEzVFvsWES9RvHHY4mJqqfS/6O8RDVTqd&#43;B5GbPOwHMR5Auq/xfFT6PGo8wUovteVqXeR4aJ98PnUxrRWS4yRl5nwMrrDgJnDB49kVAup6blQg9GmJL3TRw2eaLSVxcrLcidT5cm7jMXxbv78qoCaIXc5fVANBIMBQ6QD/99p&#43;qGutI72CqDq4BezwboXk4c3CqEqcI9InjkhOgvYdnLwl2OIZR5svGVe/SV/iaL209CxgMCVeQTpih4xSyUA2ASN0kZSnlBr&#43;ytE5BzhUoqv/QWlRJrD7e4MGHCmsBp9GWnmAymB5ffFBo5Q25KQYqLXXWb/uz1rP1BpRHhVp3j&#43;n2pYVdWgyFwHZ&#43;2JM0I3rEX0w/ZPk&#43;O1pHkP/o5vXnZnyPWWCf1wk9fwGlb6pBfuD8soYbf89kpJTgZMeCQXTh1mJOtx879J4Fp4DAQO0tq08QIwYpCE0HiLXbr89IXA7lb2yzMLuNWuRr4kHNq0ZncbGKJ77WWi7EYn6UVgyjr&#43;/0bJ1tb&#43;&#43;cYIKTUQkAI&#43;knWKNbblJh6Mu055xCcOr8kPJzU4JUmrqZoY/bOmOS4phI4Jd7f4i6RkGIkterxKP8w1qYjTcaoYD8MYEVUyLws7BVx6Ij/He81/76zLNHSf6fXwV4BLOMODimk6lwHJNUpet08F28mQlb3HOS2UnI5qwNPdJ4ufpFiH17ZwFL4Q2&#43;NdUDTBmFZwbOhKpubiI90ya7leCBCEJim6OmgTQFn8hXwwUAaZLzhtEDu6//OjMRk/MxoYB&#43;IRk4aipnTcnf4foSfi95fguFjgpPdaNGW2aZ2AP0viZpuwLHNA9n5EyYeva/2t05BsyLwd15yiifx1k06WT9FFv8cO6LEn4s4cV5fsXFzoBOVXBauwonyZ/RgOUuKWxrA6mXYJ&#43;6pUy3QTC0t1SkQP7EuAxpMDgI0MKUNqkJQdc&#43;1x3cpIkSJ9xfwmlOFq3z0GOqsjWMIGc1UJ9oOyTP7BL7y4Eo/trq7O5g/dGqHYoBl6T&#43;/YH/yASF7Sz0F8tuya0H/&#43;ijREtuFdFW5/1SxbfrgRNOr7nhEOO&#43;yDY351IcTc0eejw&#43;RmzpzOuCW01TAtKHq0ynoyxMYW1s2pqvnMYn3P/UuqcMaSl91FhHQRC1eU0gH38s&#43;ysZbGrIkjHDqEsK9aGou3sf8079r&#43;yHKPlEbSm&#43;4jL&#43;BN4P4FA8/PAiJl&#43;cORiZpjjwZVAUd8oGQxBo7MBN0s3mDZ6KKLL8JKvOzvbRye5TKzqFFkWqC&#43;Nwe9lzNxIIRxcXNuAUefdF&#43;o30NmUzVpwSRUXwcJdGUrCDe2lHBFOivfkN1EhwnFZJU/blWqsCyl3ylxU/NFP4wGhXOqHtk1Kt0WzG9gsNd2mzfdTbiVzyp6ozPcih5Sc3hovg1e3o43bBxC6QHbyWGeqha8ltpGYEj7ZMnyqLWjlJDrj1HIHeda3FyZle2ez559eTpDErrDSpLkQjjVVdPSbh5EYCwEOCEwvNfnYtY3YB0h8/RslvolNbiOTihqnsE9qFzbXbKgdowkWLoubJpIHfezpkUsxp3o1IDIjNGd05acbmDlFQV6jUWLymRQaTk3t3g&#43;recYnj3gDsDiqhdIBpKxZCTY1TvhZqEBUa&#43;8LF4RuC3Zgpo0d1e&#43;RCXAaU9JsWfhnCuPnESGIAR9xrBQE2w2Mv/gemrbORjx0WwimdiGBlXFs1qZu45rAoHfSD17CuRKNbu7ECnMQ5F6XEpDC/Ltkcd8D6uf1xNT4gXNBhPv00ma6lHayPl/OYZSImqorBAXpCm2a02ayqb1umGEWbQO0XDUsImFg8aFDACBgxirpf2y082MaotFOi&#43;&#43;hrpXCULhV5o2V49RXIVLOl/og2QItKkoIY7B3rZ2euWsuJLxYVlPwt3isGcjhmLuB/sLWC7IIPTzZJAfCXPEcV&#43;f/AJHhV15f85P7RZi1OyRCeORS97QeqMF&#43;ammLLDZyFlio2x8wyDjcS9/cs6XyaFDdi&#43;E27hSeSWOXfw9kkjBiGHFcm3PhX7H12MaeQZsfjxBaL3VV0MJa4nfJrKUd7YnqIWweyTQtht3wj8eH31k94QG12Vja7o&#43;BDxsWXtPt6qz/zFkwPOJbMNu5WP&#43;BNEVjxqNj&#43;ciLX676Oq3tWxId1vWgyYXHFcPlgnaLe0kI6b73szlL2jD1kaqpt6i8ffgPkyKPzOoknenvcJR&#43;deIlP6FVs4XRGqQMUsbMCXZ0khHZ7WdzO3buxiFskqoGOcAgKpQbIgMXliCKa3ogOnsxvOC69uQ9/YTuH&#43;sX4SboNN48xLYgwnKxDv6an2gLZ6j2fYpL2CN7jJ0wwdmpeyWKKiDdmFiuXoEyfuu4SDfR4sV7J6TPX1the2xUUBIhPccW1ctpbvpzOMl8tKdWI6/FHrIwUFIIQtHJQNpqhPnvCHle7DzdKpdXPV&#43;j0TQDHzkANBrfpZqfVowj1qMfW7SJOqNlUJ55kEREbc4b2Je95hSBu7F8/maYnteahiRSgkcBQKCFhyrQzKk9M39rgriPFjzRNmYMNxtmX4RkcvFXmJvSqdELMO126FYh9ohXyoVnx/d7V4iKah4sTX4mkA7l8tCcGMf8ilhf9rz85droH83Uw6glBGvKdIx6h/vRbBZxms64q9UulcWJ36&#43;9Z5JE5HpR/UFNYPQTx4lFeEVkfTH0HkkziAqeYU/TxU7lqKWglmz7JfhUzDjNEyDP&#43;xQ6Hd9FCutAQQlgRfx94pIw0DxLGBV57FqKLnPLrBZBvF3Sfu2EmsfHRA3GB31c7r9ZOZCfFBmdjF012Zmyr&#43;n08RbO7Wgkd7vgHAXDmF1pcpMRJgpGsVXTDv7MkJd0&#43;CAOKQ16uDFODDdIYPsDrHhsDmO6U93chSP6vXjNE974ijB2xVwamz&#43;3fvjMmvL6VscGxAqMyPTLhd1yP2ictcVmzlXCkaAtiK/VFeaGdf&#43;YAktbSNE3c9AbiG24LbUtHMibE/3qNkf2i9cR/rWG9uEyvpqupkpCkoz7vYtBUXPKhY40T9fQMA4RP6lEGd3AdPHNeAU7HqH9sdI8po5Tm4ksAFiYpjukmHrc5qaQ4d8MH&#43;qSmMz3RECgg9YDrwvC8kUxtElTQBsa7eXEfsS5x4gTFl9u75Uk7Wos7ygyfMF6VECTJP2PM075/YkYbxVjBHiGCwzXJNN1syfPasWlGT/o/z8CaLsO0sWw0o5I61sqj3&#43;SJsMARcqJP70wygKIsjrbPr40OowmvokwnzPaA0DYi2xadnqlaDsh187CA4dbSPp7086AdDW/67lH5zAT9opZsa7ZKm0oE5NcyKBHtkhtA9sNgKX/Q1wf8jd0mp5dZvGx4ZptaeQi9RRpXVG2m2r9S7Ug44Q/eqmNGz/JrLqAKT/YQXuHLyqiCkqKXswlpHYfdvbX9ZD3SjBG/GETLMEwwFUAuKOhI5nKmmQaQ8YnNykj0sjqo&#43;SAKtXAYrq8YQAL9zmsQIZcFEEBLBWWH6I26epA0KQLahQ/YedzJU8IXO5OOP33zyLotZI1lI6ZEUTKaQgJaxG&#43;epNcGUoKHhVjrb5CiUhbCypHH2sCRuN//pwcJYkWKPuZMK8lBcQupZ8z1MFL0aHb11fn1IjCskL3/mhZiO53LEQcA&#43;1sk2LEx2MlfPDrJExQUafzcZmoXFCAjYHPpofVQ30GZxdy&#43;Ki6A9Jo9x5qInnolU9krYLPn0E9DaYjVXFs8MScidVp2oUyihQNCjoePdAuD61i5mkaeNYiSRRFYYdsMd28QpcP5s4/PXNtYEWOOQ5KntkvfNuhIGGJMRmKhNdQt2XOmMWo2YUMQTasS94&#43;xCEeOxhRnXv3T9vR2rtQVKZaY0aLbYNhV7JNTJNAXzBarqs0wzGpeBvTI1BbHmk1VYawRxkCPUYu3cXbpktSmHB5AFtzm/kpU36rxF1fi0wDKTFhGblyZ8oaKnNLLxWheo9YmwauQOtUHuEilRIzb64GQDvNt92ovVOcVJG1ZcseLWdN&#43;QNJFkI6K2xyPTa/hX1Jx&#43;LNQm9EJXeWh7ZtBzfKEroS0RuJKThj7N/s4KYtJfe6vRCsgaQdQVKXe8SCtghOPoTQSthLD&#43;u/lgmEnXDslp03bByD3h6o5N5HJljIENP&#43;b1jm3l5psibz5AcnxzzzrogZsbEBLQqi23DPl7UWBPNJ377JUmhQP&#43;m8Z3jAMYkwfG6ANMDgAzvuzkXsg9ECQzEpzIjXTG9pj8dDk8lTFZ&#43;578RKs&#43;qC4QeJRl/dg8aWXhvvCrPHRrb695/GmlKlMd3p9VuHFw5JDbQZMV85cNRVj8z4qZAFpnoUL9tnx646tiC3yYP3fTJXyRRDuUkUQe6cKgNl5n2EVutcvm655f2wFhA397UvTufVdw7KCm/TiZ6AL3l76FEV0BYqazv1kAB7W0fN7rOgjQoOAQgOci6dXzXjR/cHhL79j4KflMD5&#43;k2N&#43;4Mm6LjmgESNwUHLRVMNm&#43;WL3pgWan91cK3LAuQYnyebXDFZ3uhtR78O7bXUlvBsFtnCiPdFmkVNyrSZWh/o9KDLBba2x/uK1jkaJOj77q3TXvbW210p&#43;tPjN6gHnbarx4AgC7o/DzD/3E4pl9aXU6QM7AuKuwkdFtCS5th5nsbD5f65UhFIqrdQFBL&#43;YemEirmKkaow6S8OF0tTTQD8o9q&#43;63QekFcf7BBK5yyBibdNKTmBg3A77noyg/b4ZgxtqwUc4arB3eG3RrGLTyvlH6pO9TGHbnNIsyTiu90DjTDaSkhhhE86s5ash3VGXpEVVnpJFP6bpoMmoQT/H/tjJp16i54Z5Vnq107eOSLsGXhvPpitr6o2XESg3R5KkyylmMusILq&#43;thZU3nx&#43;b/w84IZbuciQ8/0xER7D4o59LjVxQTkbdC8EFhxuEbHzGjFCHRN/wq7YelekAa2yKKrgIuCrjP5254Q/2xtD389H&#43;UQbW92kPYZCcB/PN8axlh2zXT1kCSW/jmuAVHLIDqy7aY/fvXU40NP11lv9DL0qFS1UtyCVJjKXZtlWaYDT3CVEYf&#43;t/gqdbx9YKwYvs41AtWhJ6jdO//2XDn7JverLUfIV6hAYSKWeQ45hLavPMcGqd6yJZuSdnjCpw4/vJr3s0jCPmoK4NRzR1wgHlV7nHMP6/QVqDfH/z4GbP5zqk2dr3MSo7fDSQknihNGzyH38yTKny/0We2cFAypvBnZIX6nP&#43;3nxYcTNp0qe4F/CMeAAu9aen6XkG3XffBI87uuN&#43;7eI67uI9fWTQnEFPktlWUgPcU&#43;lVuDvAxV5uJ5uyRQdSZGRtZ1ODAqxpnuarIsn0/Lbd4Rdq4ZUjJHYfelOE33dhK8pSJ2qSj&#43;y/1vxe05ivX&#43;5OLmcqCwmFtTlqdPBH2AHZO6gcOvXXOAlL1tUOeh04PEhHLKA2a7Gf9WztnxAgpTtZ73V3&#43;LK84q9cLlsTF4yG2I3VDO6NhfTSS3H3ejZ/1iwARPTwZ&#43;A&#43;Dfe6kQqpiGxv3BlezQxhRi4D3vgxH4zUgA0P8BftWjIl&#43;q9H9INHmGQyFc2Pz5X1m8G0fWj3RrGjexlCJs/Yl3z/IEl/4vr40urdyviI15&#43;6jXKnFqgHwInrg&#43;pNxQFRWPORfHXBaRR5eq5pyZuLwCnztMX/fCI5RX1ozaTdAXpVBgAvmGz7c2UsF8TepHx758EZF&#43;1H9AJuZ4NB/9YbMTrhTIyCW7mXXozRpdRiVpdayTpQL&#43;s/Y/ZvYiotr6Yw4P5/wiHoaY1d9g96xMPKI0FwOZGHPobH6rFPDVEM8IzlGA5iEMTz3mYVv8vKYlZUxww&#43;Gthoa2j7mpvStBRJSgwFopuaQIXczD2&#43;s2d99EB6J1hwfiipC/Lmekr0EARx6&#43;ldjjle15Dm0Up/IXD8dvu0oMoz1qFnFGxAejUZi85KXYwHF4uTNRHzKEcJhOb2IciHQcxgoF0GrGJ&#43;NpXHimimUFJNeafF2Z1UBr/WRDempGEOo23Q1wHESyo4bEaxsqxWEkLNZ5UfT5cKGK&#43;MO77PVx0VY/iXwgvC9bJn33LUPAe6Zc1DWVB/m4oa6P0z8HW/6Ei2bzsJPsQ7hl7aFN6Mcxb/IrF5ZKQ4rXPa9BWh77bzC1BOjfOwQaQO0dLFNwpJGl5nSeJftujvl4o6X0nChJW3XNu5yY6uu1sMVzwQ8&#43;c6w2UK0B/bMLrRy37uqt87yRrEeAVyBE8Bw1BNXa6W/JRJE7FguGcX7RLmTIMoISum4ogVUHI6&#43;2MWLP41Kupt/oDPgr13csWhFEMIkWpAp8m5W3OtbyfY&#43;tko8GsxcVTNq27CAxDzdHeyTc5&#43;Z5ff73fvy8c2hsn9X/aKU5hGtPMKceyHlrARDTD3krRGKoMLZQ1mVh8jZAYuEEwYMqRhUwpPtSEMnnuRfttg/36vCJbrk3s0V6rLWMRyTNwgsp5i9hYqwLnTXqGuL&#43;e2yLlN6j5v6S2rwxjGAhyg4vxWzt&#43;VrVcpXOmAJ1gZ0p8DSkSEJSp1PnPRp9J7DfSYKLFuLZmPjN1ZKbYXYUnk3Hp0NJzsUlL3wyjuEUe6NTI0iYyCEX6g2mw2garYR7VaxA&#43;URxI0tr&#43;5NghOBuJi1gCwsOHwLGxLIPSF4RV1uUAbbBPH43kASsmRtJbLnVIFMSoUiZMUMGB28yqgJdU0DkOd9gi3QZJ6yEdWbt8casu2E26W8hzvfocyQBR2MWae9HJat1qZJ/1wEG/27I&#43;PM3mPDV7E3QEKfGoKPaAh6/guUOx8Kyc4vo1IEdSTPVo6ZuS3cDNQuDohnQO97Fh5AibbXy1r0UCzGosmPj7dGdC9OuefCtQvNG/KYOPwwwYPxe&#43;OVaGsaPVekBv1SzcwhwojLEby16O&#43;8AjsPDIGPOfKWbJ8OS5O6ISISZxY3OsIbmrd8hWblHy7OpvD3z7185W0anJG3xf3/RDBCaiZbQB3YvGO0ixhrRecCjPwnUhWobwm6m3syAWN0uvXzpNO&#43;NkpwRY5dH07yi1lDxP0VMvdYufU6OW9nuLh2pc71mh5esMXSuwHSuqom3OjQ6rpgoca7MejfE&#43;9xS/x8UMU1WXEwdMgTMEVvW9TQZsbiPbNScqJVviE38oE/mS/xNGNZ5D3XiMJKkRD9yd1BlNLFPqOYqFuep1IiQKjFjSKDtCimvckZqmRbspKLUiU8TE9bP2Be8cmzmn5iuMY6mIZ32zabDVKMPboJnutBr002tbDjfFky7jZWDxu9MxdHtkbbdOMaaKlPqjt5zzJ1zXYYvnv8SAybl0uW1W5UflXQbcOTXxGmDfhgjLFtvOPg3j6vDjXoEwcMrKgQNro2OpaoxsTagAvJB6Sls6086DulLQK7laHt/RzrI5U61vpoKbzwEdRyeYYdFBxPVX7GLDwl1dh5R6KmUNbBJa1yEETdwW&#43;3gt/NAXIDFgKlw89E9pf9&#43;avTldqTYxRG5NzBDlldxtPs1t4CJ4RTxVeFk8&#43;vo/6nd38nmsKt4SgFKQzaAj5zabhWa8XoyCBxZ0SRXDSqgi9K2oOmbB5Qwyo5DVRrP8BYz3pu2fWi3WH2H/NxOavdzv/LZgG9HaEe9u4eXO2tU/K40CpJBquIIk/hkXCc04dT2Xa8qQb01qbGr5D1G3d7SNtrb0lat2m7rggt&#43;4GCcOnR4B2uwvNyuM2FMhXcBo6Z28yGIqeI2D8ZNsDNMDX9SnibuCO2xTXiHHy2rjNlzkMbmkmJmU5e1zxGnYuVKkz1BJBqyQo0nrkLKu0MP5AdGchtQAdIHcIwT7eAjHFnabI&#43;dlC2/&#43;9gNqg=="></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>陶罐生态种植法脚本拆解</h1>
+        
+        <p>创建于：2025-12-23 12:26:38</p>
+        <p>标签：
+            
+        </p>
+        <hr>
+        
+        <p><p><strong>脚本结构分析</strong>​</p>
+
+<ol>
+<li><p><strong>开篇引入</strong>​</p>
+
+<ul>
+<li>展示多个生机勃勃的盆栽案例，引出“陶罐生态种植法”的核心概念，强调其无需泥土、仅靠水罐存活的特性。</li>
+</ul></li>
+
+<li><p><strong>原理说明</strong>​</p>
+
+<ul>
+<li><p>聚焦未上釉的红陶罐，解释其内部布满微小孔隙的结构特点。</p></li>
+
+<li><p>演示水分通过毛细作用缓慢渗透至陶罐外壁的过程，类比苔藓和植物根系像“吸管”一样感知并吸收水分。</p></li>
+</ul></li>
+
+<li><p><strong>功能优势</strong>​</p>
+
+<ul>
+<li><p>强调该系统的自平衡特性：植物根系按需吸水，避免烂根和频繁浇水的困扰。</p></li>
+
+<li><p>点明适用场景：特别适合喜湿耐阴的植物品种。</p></li>
+</ul></li>
+
+<li><p><strong>案例扩展与互动</strong>​</p>
+
+<ul>
+<li><p>展示更复杂的生态缸案例（结合陶罐、苔藓、水景、鱼类），增强视觉吸引力。</p></li>
+
+<li><p>结尾抛出互动问题，引导观众在评论区分享尝试意愿。</p></li>
+</ul></li>
+</ol>
+
+<p><strong>结构特点</strong>​</p>
+
+<ul>
+<li><p><strong>逻辑递进</strong>：从现象引入→原理拆解→优势总结→案例延伸，形成完整认知闭环。</p></li>
+
+<li><p><strong>类比修辞</strong>：用“吸管”比喻植物吸水机制，降低理解门槛。</p></li>
+
+<li><p><strong>互动设计</strong>：通过提问激发观众参与，提升内容传播性。</p></li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

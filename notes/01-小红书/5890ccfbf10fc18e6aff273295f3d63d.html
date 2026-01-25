@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小红书与公众号算法差异深度解析：底层逻辑、数据权重与内容策略</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="S6RP&#43;s7xyC&#43;vTokz&#43;58sNswp9kOD24VNmCS8FYWOL1NYU1AUrXA9GJfc9WIUTUdXmqMLeIkUThe&#43;7kYNdQUcYmWSRFkF9DrNvWj82Qp8zxBUF5RkewuzdWijzjGSzsvlYKMZX9W/RgKpvZnBtATiSNcyMEibhxm/hDa5l0nGbPTAc1zPRSLFA3BKyeF&#43;yOJfznQMYVirS6LJ4&#43;HjcUbEONvLOlwEiDZJeKnvCJasz7VXu3CmLTs/Hm5P&#43;E5Gfc6CLHDI8/22DsR6pNViWG1GS7de5EtvhJPLe0rUEKFMswa12SUZCPSPSMzkT1VyceLE6mzwupEfkEaZ8i4jaDsBKDqBfcP0l2hsIeB1XJ8zD7mGTEwbz3D1sK32nZofgoRh6r7Wi7wmzJAKI/NfVBMOgn8fYew7wP&#43;10cjmY&#43;pwfwVZmUE7XNxGrhJqcUulOj/VmjDAaN/h2kDSPGWMIYOpa4tlECa7YRFOvgelP2dbbJP&#43;/BQfgpdb0dRtT6QipPCUOZihjdvydeLLiB5hqotOEwyTpUwilwSoibCUaz3TFuwv8SPYHb2sb9t2xnViZxN9OdcvTlNDrJzHAfWDhoJqCsJIcCz1PFiXI73Z52lAl1iBDr76JtLMStIooN7&#43;emECqCbsBtGTcAF6Gkn1x7tyJYha4IPGV92pMicZZVtf61V1gmk56kTyyyCYZgz9JtUFdTAETQT7gXpTnTCEH/UOPmg2Zbvs73OtdMao5Vf8NSmmzKcSftPmhun0/Y5qbZ/hIJ/hmEOkX3G0dYFeoHcpXeWiH7f9NUJ6b0Z2KQ/wucaEnKLGrp9EH1VZKcGCaLmkqEM0zDIRXtqTWfkKYAA9Lm4OFeM8Vbvqwyw267OulMIIHiVNoYgJ&#43;1njUUVpZygdQzje9Y&#43;JtH29R1iEJz3X0BoIJtBNN7Lzma3k4MTcoFw8iBziFeBnDy94qi9NhzIABf49Q/3PT9qKLoszt/mae2RgollN8D9H6SquqTCucgFJfbP3tbE2oTCxPV9ucum9y9uu6nFOgSt82Z/z1&#43;idtpzZUELE4JLXns2lEEycQVcfGVJxZ9txoEXdhOYsANHYW1xrarEeDHzRQh3q1i/GvIkbC0POezfguprEEKBweSNYybPcfEutZpxfMM3yFai2wjkUA7fGabFTq4jEhCSoHftEvPju/780oHS&#43;eYZVEfNbvWVqWs/DU17QptvVSaDVO9WmKGZLdxinM3c7SJvfqPALqUPD1X1Jmf4I8t1Miotjiu2I4qDtMTyEl7TEx&#43;V/aebcyxPjit0wPh6c3/txDpRUSkUyFhxySfShLnjxvhUZAo&#43;2&#43;v9eOFcpWxWMkCHt9A8qjMOGNs4uSv1EoC/86teJ3iazH&#43;dLy87gdYq1gclzPIbs4duK7dkTd0Ky9xSPQAwXZBd&#43;OEG71sOG0deWP0/NJoZuQuTzvEtj4C10dXj1sOU9Yxto2YsSkrxH/KyPCvc0vPnnPyuctucrcnaXDl75wkj3NC0H&#43;jyayQC9XjObzM13b9herrxGdCIxvHBAxI1rOddJ3zGKXFDasa4E&#43;gnP9pH3B9q0S/fFfvN8sqRhER4FdzqQ/VJNxzBWqalRiMfM3pKAzRGL3R4A/h0Ee5LnLQ3H7bpCKrtOrMRUllOG/PYYyTq9FBW2pDRwBuahd9iHc0/dD1GiO2VHW5afJSL3VzHwiZdtsbcuouZTUuY2UUoeAms4BaDU2CNUN/2pA26zTs7yF&#43;M5wxsXVbA1q5MjhT1ckPXRJMYVRTsUHURx2qf/&#43;i72csO7D3OtYCcNDSIwARCMjLFqKULGeZQ/6so&#43;KlROLDEFYBl5YzwwlZ4b0t8/l3/yaxahy6TM0vhnOGv0JSpzUlrtWOW9vMoNI5fnWfB4XWrjuOhmKsea0pFg5NW6JPNghQyUPTkcLUDaWzh2YrsfiOFPKBA2Io/AW0U4WxrBOsZ0oWnmT8gjmdA/QoIK6ZMY0pVQgIDnIJ84OU7YUmDb2PxvSzS&#43;saEBAkRSVmdhoMkP3ZskNSnx5nZ2bi6mDXkxrVa4ZI5o35WNoZStpsKqL9aLESzTW5ir4zXwh01Y4YRygD0JzNdppRf6ZpFCW2CZN7hwrrLu4DBMfCZqdtf6HVI6hVmfI9mt6My2jv7cKm9ENMcAA3t81878NESFkGhrpXuk/XMJ00qriMXK3dImkmZon4mhR7/QEyh4YszUURJXz96TwACih5x267stsTuS0ubvfYY&#43;Tmq2F55QNW6ew1pKJm&#43;Ju0R4pPl2/XqO91Gxypsau45I9V4LrjPRTiA2sc74/ZO2&#43;IceEGxKm/S8j/U9tShBejBh384SRVvQTzw06RvZmubPKa4/qdmswVt9bdIqMu1xObmAO0OdsGGGx/UoM7bcAjHG3X2wVpLitdzGrHW1FxdAo9rYtH8spWQ0y5YMjWm1BN1ar4iWTjdplSczu595bG2VpNozR8c6tJ&#43;/XGyCeTO2rl7mKGhoZoanU9&#43;En9kUXiD6WVk4UGFcvoZMiFwxKf7/LXVW&#43;qPlQd3K9CQU3fJKd1UyksDUVWO7rXUt6BL9lNnUAFYDBfy/&#43;TH2aiUITEH&#43;tKrv3rXqUJXmI2jXrmQSapZTpDf&#43;tOKnqKBy0BFFQwehhuI6zQ0&#43;nLApdgXypUZyUka&#43;1SpS&#43;9dSYYXTksIYVb0HVQbSSs/SwPpyuAn2i3lG36pRerFZQDjvMFT8Nfyv&#43;KXYNfRIYHCH/0r7jA2hxQhAsUmTymxI9Chyk8uPGiDETumy0YqbaYzxDRp8W8urXwIAfHMkAz6CkxwClZM5okWYCtbU6WSMI1zdr2SBGwT8dw0W7rkMDC7bedrrqKkFlLQhMAbv9pPCdxTG8zPLE&#43;tFY9GxEs0nn5IPXpnSOjwQ6c3&#43;YKO1ax2ypfjzDhPbp9/t1plZHgL&#43;0eRPcWCBcNCoGE7CGsRNSE/zyQWr67Y&#43;zqksaGnAO&#43;f4MWRbW14iQWAHE/KrGnpgkf7jAHx6DJVusD5E69y8dCaWdWgGG&#43;hYWm1XHCG6zUNgoVX2kbZvAwSZJv6Ythh0CtnfUdrEDmrF3rQPDTE4cZz4uYzSrjvZa4dmTeHlX6sef&#43;JLmH042oMol9VEtkc&#43;4sSXyyB0kGQQpqmPZQ3lviplNl4vIQzu7zupMBwAN/hqQL5Go/fOXO3RgNnbWLntZ&#43;SV/1EgsnhQ8AiJFZjT6AyNlfaXpJd4yVHbywZqbZb9EJH998N6PbyB0&#43;9/Eg/niZs8LBzhQTzX56l/gq5PhFPYmI/KinUHliYwtD8tNMrXAZisJH1xu/ILj/rO0eAgeeTMsZz8w0B1EFXLFlIXl1EKLf0L4YRShNTvUrKxSMRrlkaAv//93r3MX6KU/OFuKbvzkLguyF2oiodG/q4gKzW6hJxf2rG67vhdK9BFaCLsp4Pu3&#43;RQHqeePOwaWEhvz&#43;l3yDWTnQ7bIf817h7lfxz3v1y9XELPZTDtlToloWO2O2jpNOaR8gjyP380Sa4nZSYMkBUty46QSk8u&#43;DhzwgZez2/rdiyNTKNcDT&#43;QpHjcMesz8JLNJ2CX2J3DdNAT1G4ngPf54EKcBuvWaEdMn6u7AI8FG2h4oFtA8OWufsoIk65X9NoSXuyQ&#43;nkaeOQW3eDOpFegyLc9H/huHxVgwIXnWjxfYVnT6OUhmGePkIO&#43;XMJAv/QXsNVsYsZSxS7aInvMymynHCHtREtG2KQHJT55OqsdrFfS&#43;rnJsfTQax/4J4ST&#43;ldL7/OfVKT8HdV5bFa3eLP6&#43;Zrqf/8J/Nb6mw/Rqhh30Jh1YU8SG6nh92ebjVK6UEwodRy/qyxYZd2UxbEjnDUAkQPz7gCqepeG&#43;Jj6/kWeIdWJsKk6uYLSbAAWjvkPtyoyeNY9hiSPtjyIg3YaKYlzCrYi1wm1MEKiqmqRs4ai7Q7PpAZCr7CZoex6SiQJ73hVQpXLmzj2pB2lkzQ7EymhMw5N7kx9v&#43;icDo2dhjSspqVFlAZbP6iXHWTBwQUqPd7l9MdnXsxRqpU7ciWnohcRRjYFTe7a/wRUEFSfquVuAroTkQ0AoQzJprZqhIwgpbo0eelS1FukcN58ThbgKkdHP53Vp&#43;JUUIMG1NrhM7iynVNsZp&#43;pPz6it77BwlK24DiD1jUdahWI3fq8JOkEhei3QSwdBG7kuJ6ghMfgF7dr8xc&#43;7zimeHq40&#43;xw3p9WeXzSpN6ErU6Mm4Ck15sIqIZ47COoz2D8grrbu5QYcQs&#43;aDZAFRTel3raf7kG3X3bcZtitbpKaagzeTD52SwujbDjJtI2unOwnsmjdqnZMxDRmwutUIvQQyMcc8GUrbo&#43;TQvBNqnBfmlhmLYKomfzDbGlwaeV&#43;8EAJ5zJfETgVbE4ZYhwzzIeiEoF6uLtz6EBREr6L6hEQ1LauvSESpvjLfYunHuZDH1YzysL0dT3adBkPA07KD1nHeqnrzihQtLqe1WXGcEVoHNhxs5W1jZgeyk7iicdT1hbz8HROl5lM8ZgsgksFEb&#43;AVeWLLHLtZ&#43;Ge7DB/bvgSXyD6e7kjlGNWeuGoieo4sg02n0AcFkT0&#43;92zo4iMDTU6ThXbLwG0nWfuFpmlzy4CSqO5/kFRRd0sdGDPV8VBjJOC9eCR3&#43;77dyyhzwaJ7XDpK1SRm2vKx34ohoTHuVF/nIteUgKqf9JROwqIk&#43;9nnnbeU1u9X9UagjBDEF0fT5bt0&#43;llXc&#43;mDguL&#43;tHlfVmV5fgo2sa4F4diIJN1yWvVu&#43;zsomJGAVYN6mSKLSwIpq267&#43;SztOmTJM5M3lgUwTYg72kiSTMVskuHpXL163I65pdIj&#43;TignRDwNJzZrcxKCNVIQFuBiAFW9Hl43z2G59NdHaM3DeaIN4QRtKla/R8VqKJqQrP&#43;Ngy3zC3wD7k0CiM8JIOrE3/2iBE5x2MZaniM&#43;8vjuxe5EKpCMaqobGW5pRV5rc4XPbUrVyOaP7BmWUdRt4SF2fbKQkOevnUvCZXj6m/KebbWdU2A9PVLwVaI62QVLMfRW57sa&#43;j1y2wz7u2q9/zwI9fB&#43;pNeeamdFGqt&#43;fOkaNVA4qGdfcxsZnVf339vjzMwzIgHVTbyMpeQ/RSUagiQt7UZaHMd/kbjhDn5OsvNvZSYplf3hvUAunLOY2n0iDuW4erCQcGq9q4kJR&#43;&#43;QtxCP3Wvdr0wXsFYxoBqGXJsNyPTLVuEJgrzIa0DscpiTXV6CesX7b5mStui10lNhqNLW8GPprQJzDQOhjBTsVrWbtWajD74zwafKj4mII/aUF5CbAEZwhiYpQ2BcT0jHta5rc4hxtfRte/Ao4jcgJdkpmi8gy2eyrBHwvuSZqfWubGzQ5MeLrzig80TubbtW4BMlJAVzZoCy&#43;2uU/6MXX9NlAB29gHU1ZYWL7penU9oAF39ktI1qxJWvndqHeaWa5G8zpzm&#43;zjXZZ7ytCv522Hi0oQz13OpmGwjSg/VcGS3My&#43;MwAcO1JUCnaimdm/DGVBtHSA8LojSj5SolFiGTDGbK2F7erbPbebu0gsHU12rvyawry3P1i9pAeV5KJjVjP4BXE0ud2uVlLUvwXFsCCHF8vRIzHn6dL8fEzjAI96jNwQUfhC5AGpS0T/l9PBHKkgKQTTk/tVrH1&#43;jZ1pPkWRpqoSRW5cWyUKvmK0Lzbg/DoMhm85nZf5HjXSf6d77vdZ4CuVpCHSL0X&#43;mg2TX&#43;7XF&#43;/0MH6h/pnsmpo6hGzD2rvQ2zVQ7Ov0cXtaVmp2cDT0aU/gW1UqAT5ivHnUF1a/aCS0e6IkMJyvRzc5kIsSbWOLgCIx26DRtM5eF4TpKsEyU2dtKJY&#43;NSItiDN8Zk5YqfXO6pREJJOv0O&#43;KUkdSA3Usy8DIP7gjIEYreVWBk94Qx/UrLm/wKV5c3KclllIIUnvdPm5mcXfjunjcEry2RzujJ7vbZOFdj/gx8ywJ6&#43;RTqLjCTdAj3F6ochNGC&#43;axLwbMTL0Ihk1jG92CVZGxo61m1wUn5pLrguEMbRMGVfHjwNq4WtSMb6uYVfhMjTZgmPmW51lidUfn0mEbjp2WtUF&#43;HQPKqK4hqbDnUJk4sF3FyZIpa797LbArYnBy/Fwo07&#43;4c1aZc59Bf3/b9A2NqSL8eXa83isTasR&#43;haDCGJyy4ePRwddO49NFqXijEX4&#43;SLGF8sthJVDDA/fKovhhAvsyUjUXsON&#43;0/0Ibmn5J9d2eJfGTgmERmZn1vjicspjsgl/Bge1Mqt9OgT3a3KEcQDa27bsrZ//gMY5yohPhHpmJlgJoxf/j4egVeItkvTRMdTFldON5JV3TCc8SZ47upBM51wi4JtEPqKBDj9L51SNvbP3rxyMfe54v8&#43;9UO78zfVIPdqLoXS5mV&#43;yVPpJe0YK5Lxp9Cu&#43;prKg4AaW5Pyn5Eh9OMbiL55FliB0A/K9e2fh3hjV&#43;euBHmTxyV6YaBPlZ&#43;PhmJ0D3GxgkoE/An/vPVBDCfptqGti1hB3jGyNC5nTwgLDrge6zH2fRv38hEE1GvitmTKgtGWwocY0I/Y2HwgqiPhqorkFgsk0A8sfcTeLn19DFihHsvYz8ytMMzr44MgTdujQm9xZ48LXM963ceGS848Wr8B6v7t9ZbQOiDTTK9k7YtOlKqMc4XGP6hVZVXQcXLXzNRWCUFe1nlxCWrvfycAtum65ccBpTCMife8vXEljkKIZQLalHjgnpQsP7kQ8&#43;EZVj&#43;qjLtDkX9h2kAesjRnsEf0Hkn9dQ&#43;VlWUq&#43;Gbx1n2I4YD&#43;R2gFTSVXdO3Qyc&#43;eceCCR8tYtLDJ7dpk2Y0rfUw6vGT2ZJ&#43;VM96D6vRqYU6Xtceb/jKGSn3AxpE9JE8iLxeH63HUlTOJJE&#43;ab&#43;oMLqzqNBSxYsWJn6TqA3rSqyRuDgPPtt871TOfU0SePzAwq6kuw9M8VAGz3f8yaU9DPeXkG6Z07CjqgU4zOqDSiR7HEdxj1TzUl3SRAaDURVO7gdCVXp5r8MDZ4aV&#43;V9NmllCyF2ghSkYLRdt8J&#43;B/mWR6umKUd6PG0WjqVX1qb8JdNEDP4BT&#43;KT1seCYcABU0P186sM/QJnxRTdGaSNV1WqnuxxxvuTewOHpfUO53/u5Xjtdq0LJiidnepZA/CUPG&#43;Jp2ooe1DNCKSlsIS7oadJ2wPT4cFS&#43;soPEmBf89NYg/avPF2BlXBe2Tz6XT6og6kq4Y/V/uOaWEgKF9hICnIFGZUqbjs1Nn6ulmVUKhNlm1l4X1sap56t4OS&#43;cMUldDudK1wyU2iI/ogtee/6AmMPqGVN4FpXcPX8Fw&#43;TEG1dtEW4TQB&#43;mFFQP&#43;f9/uMWvbY0ENsbsSAkEhPaFA6bXESrbXRDMqGfT67nKkviLbn9JPBk65z9BzUgfW4PaDIkuFVCCdueedXFG9dOu5lxbJy4UMMLNORdkDF&#43;PMsVYChMwI5jBSBb284ZvHqNSFC7f9V4sGn&#43;I8qUZr2RFepVTtV5JeZ5w0bB&#43;LEBNsbfxOvxvlasUNa8Es73EGJp9rrOxN8ZsKWIwGxz8cd0cw&#43;YnqhPU23v4EI&#43;iEBgxE/be1VMXDTQbfqnCZhTtUB3NJNSS6MuC66/mTWFNuMJQiImte8O2CCPhCbWUs0tYTEyrfJ7OvthfGhGW5W7CZ3eY&#43;BqQwVKEgC0rlqRJxt/bZsjweD4ZkrsWszKVDSbgPN/lFXC6aD70yAMdL5xos82R/bRlvbd/wjgFu3yq0osIMZnx9xlitXLx&#43;XjAb04Q4/PbVciXHJMPDCJrA4SGSZTPLtBZuLXCHL&#43;J5WHpAVZ5eGke5CkPCCAtoD9UNHCau47e30lRS58WBvs&#43;X6iowdYMBwAwoHlkQqOu4b6ZCJUnYNSACfaRRK/gAL8sQBvBX8kWazSQusKMXJge0/16nfFpvUdyqyNlAOQPZLjgsk5kuF6HDGu5P7IvL3PWxcBQEUABPGGwqiktbHW1LihU8pkNVe3pbZODaeR0OMntW&#43;r7wo4b0cjlaFwggyysBbQXHXFamCOPBK2/oon8Gmvm1cPD1jA62/DjOOHbOEDxwMcTU0axYo1WvklCPeQE1l&#43;TbLrGchBGSGSf5D3sURREadz&#43;Lu1sUb6ygBGbExTqOyagupcXLuzx1288WSWQSVj5rWZPXdtoH0sYYDTrkQxR3ESw4y/5fxLtKPgDJFyLqa42C/DGip/zrV8bvmFIFIstC8Sp&#43;26904MPbtexJAxGD08D/P13&#43;JUXtGd781PLqAismhCuLOw5jO8LjRvAXz9rmCZic1pAXmYJq6/wIYX0zRXZSSa3KnHVBeoE0A1uTusq750l5dF8KHRLNKGlR2UJ3nBuDliXJJaj2pWyPGSWTTi8GxmoJtKkN4JSERnICIqbsHcK8WJreKEJSoCdeAmU3XJrkI4T/1C68HEd1j0g02s/lNaezoRs&#43;w5DygHfpT7gnNUiI&#43;6cG6rznYw4tEMCrzw3uhVcoIzBmWx5v&#43;m4dbv&#43;GU9H9E3cM1V9HV4rLmJSNVzbfi6T6n2vKOtt6paQzNLzn6yfEQC7UQgHBnhZngJv/Mst9SBW5iGXtJiURFmAQPTcRa2rhgqyCAd73TLyQs55e9OBn8u4OFmH4olAQtl5nMXZGmnWOgp&#43;KoxLRAnwnwllD05N6Np7F578nPZcP4MR3MkuDQ4ptcGFsQSyr5Ju1CsEcMr&#43;fT93Dd5SAD/wv46&#43;GcEIsqWcDmnpesAsJtl9lwyzWycm8j7/gB8nHUKEFz3sT/JEBQ/C15PgIa0iv0krH3DV4&#43;ycEEvXwhTXL9JyUUu2gpOLutzVO/lijz&#43;wCohN942KBw4mNjZq3g97ALaoemgcCtoqRstbT1X5xYLfuVVe04CasR61C"></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>小红书与公众号算法差异深度解析：底层逻辑、数据权重与内容策略</h1>
+        
+        <p>创建于：2026-01-12 09:38:49</p>
+        <p>标签：
+            
+            
+            <span class="tag">AI链接笔记</span>
+            
+            
+            
+            <span class="tag">小红书运营</span>
+            
+            
+            
+            <span class="tag">公众号运营</span>
+            
+            
+            
+            <span class="tag">算法差异</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            <div class="attachment">原文：<a href="https://mp.weixin.qq.com/s/vy8ChoLRfichd-0z-jkmAQ" target="_blank">小红书与公众号算法差异深度解析：底层逻辑、数据权重与内容策略</a></div>
+            
+            
+        </div>
+        
+        <p><h3><strong>🔍 核心差异概览（背景）</strong></h3>
+
+<p>创作者在跨平台运营中常面临&rdquo;水土不服&rdquo;问题：公众号表现良好的内容直接迁移至小红书后数据惨淡。本文通过对比分析两大平台的<strong>底层逻辑</strong>、<strong>数据权重</strong>和<strong>内容偏好</strong>，揭示算法差异对内容传播的影响，并提供避坑指南。</p>
+
+<h3><strong>🧠 底层逻辑：圈子 vs 广场</strong></h3>
+
+<h4><strong>微信公众号：社交圈子逻辑</strong></h4>
+
+<ul>
+<li><strong>本质模式</strong>：&rdquo;订阅制&rdquo;，用户关注决定内容触达，类似&rdquo;私密朋友圈&rdquo;。</li>
+<li><strong>传播核心</strong>：好友&rdquo;点赞&rdquo;推荐权重极高，依赖社交关系链扩散。</li>
+<li><strong>内容分发</strong>：关注列表为主要入口，内容触达范围受限于粉丝基数。</li>
+</ul>
+
+<h4><strong>小红书：算法广场逻辑</strong></h4>
+
+<ul>
+<li><strong>本质模式</strong>：开放式内容广场，算法主导分发，不依赖关注关系。</li>
+<li><strong>传播核心</strong>：基于内容质量和用户兴趣标签，主动推送给陌生人。</li>
+<li><strong>内容分发</strong>：&rdquo;发现页&rdquo;为核心入口，新账号亦有冷启动流量机会。</li>
+</ul>
+
+<h3><strong>📊 数据权重对比</strong></h3>
+
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>核心数据指标</th>
+<th>权重关系（以小红书为基准）</th>
+<th>爆款关键因素</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>微信公众号</strong></td>
+<td>打开率、完读率、分享率</td>
+<td>分享率 &gt; 完读率 &gt; 打开率</td>
+<td>用户主动分享至社交圈</td>
+</tr>
+
+<tr>
+<td><strong>小红书</strong></td>
+<td>点赞、收藏、评论、转发、关注（CES公式）</td>
+<td>关注×8 = 评论×4 = 转发×4 = 收藏×1 = 点赞×1</td>
+<td>深度互动（评论/关注）</td>
+</tr>
+</tbody>
+</table>
+
+<h4><strong>小红书CES流量公式</strong></h4>
+
+<p><strong>互动权重公式</strong>：<br />
+<code>点赞×1 + 收藏×1 + 评论×4 + 转发×4 + 关注×8</code><br />
+*关键结论*：1个关注的流量价值 = 8个点赞，引导用户关注和深度互动是流量破圈核心。</p>
+
+<h3><strong>📝 内容偏好：深度体系 vs 解决方案</strong></h3>
+
+<h4><strong>微信公众号：深度体系化内容</strong></h4>
+
+<ul>
+<li><strong>用户行为</strong>：有耐心阅读长文，追求&rdquo;系统化&rdquo;知识。</li>
+<li><strong>内容形式</strong>：倾向完整逻辑链，如&rdquo;新媒体运营全攻略&rdquo;（3000字+）。</li>
+<li><strong>价值传递</strong>：强调理论框架和方法论的完整性。</li>
+</ul>
+
+<h4><strong>小红书：场景化解决方案</strong></h4>
+
+<ul>
+<li><strong>用户行为</strong>：追求即时答案，对长文容忍度低。</li>
+<li><strong>内容形式</strong>：需将深度内容&rdquo;原子化&rdquo;拆解，如：<br />
+
+
+<ul>
+<li>「老板3分钟要看的周报模板」<br />
+</li>
+<li>「5个灵感选题库工具」<br />
+</li>
+</ul></li>
+<li><strong>价值传递</strong>：聚焦具体场景的实操方法，用&rdquo;问题+解决方案&rdquo;结构。</li>
+</ul>
+
+<h3><strong>💡 踩坑复盘与实操建议</strong></h3>
+
+<h4><strong>典型错误案例</strong></h4>
+
+<ul>
+<li><strong>错误操作</strong>：直接搬运公众号3000字干货至小红书。</li>
+<li><strong>失败数据</strong>：展现量仅为个位数，互动量趋近于零。</li>
+<li><strong>核心原因</strong>：违反小红书&rdquo;反教科书&rdquo;偏好，未进行场景化改造。</li>
+</ul>
+
+<h4><strong>内容改造策略</strong></h4>
+
+<ol>
+<li><strong>结构调整</strong>：采用&rdquo;场景+方法&rdquo;框架，开篇直击用户痛点。</li>
+<li><strong>形式优化</strong>：将长文拆解为系列笔记（如&rdquo;3篇搞定运营周报&rdquo;）。</li>
+<li><strong>互动设计</strong>：在笔记末尾设置开放式问题，提升评论量（如&rdquo;你踩过哪些运营坑？&rdquo;）。</li>
+</ol>
+
+<h3><strong>📌 关键洞察</strong></h3>
+
+<ul>
+<li><strong>平台定位差异</strong>：公众号是&rdquo;私域流量池&rdquo;，小红书是&rdquo;公域流量广场&rdquo;，运营逻辑需彻底区分。</li>
+<li><strong>用户心智不同</strong>：公众号用户为&rdquo;主动搜索信息&rdquo;，小红书用户为&rdquo;被动发现内容&rdquo;。</li>
+<li><strong>内容生产逻辑</strong>：公众号重&rdquo;系统化输出&rdquo;，小红书重&rdquo;碎片化解决&rdquo;，直接迁移必致流量折损。</li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

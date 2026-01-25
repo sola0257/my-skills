@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>场地分销预售策略</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="j1yMu29uovlXeYgtZZC/87XFp1XkOIvDQX8WQXTQpcLMt4y9/r50QxdzFkwbrGbqs4kXi3f1mrIa4nCUI5eEn4FTMDLTLDQ16pq7B6hb01HtkG8ogsZ91NUxQ87M3zMh7LRays&#43;7BV5X8VgvItDkPFfIYY7L6BZz8oYyAgcoO4NBaxIAWcDikPq35mTuNWCMjG9QvzEdJ6xd2Lmjy7gsb2iNzCjkV&#43;eNqmvGH4USBanjAbx5X3NrEdpDAn1JGr9AsRqiC6hpES1uLtwj0lpMAtpiOEL0RAjpOHSq0n1s7hJM1wWdRx5il1f/OaSHHL58h&#43;jcM2v7/tXJLQblJRH0etrtWrvz3pzzWhnQ9zUiMo1puredSRk&#43;/x899qxU/8bSmggGd68uhM2pTYU8eLSL7Sj6Gkjynwx3uJRxxszF&#43;qbpP9gpgIXabfaaAr&#43;7FOMWRhtoLedJUBnwwBTcGAgM0sm1zsw1u2Y0CL52KtiLu2JpPwM5RcJ1OdMUW11VXgk&#43;F58hBuu3aWqLUKFSrdcHkDiSlNF04jtJZz1Ig6E3r3y80K7hJLu9skvrbLtszkpsU2qvyESpdzxebAtXvUpIuJ5&#43;tktAKQGeig1VwqKHcHLSPUUP7dNtIilej689VWYNIewOWFk93WqF30OotPStlCpQ3yjh4TscjuFktvpotpZkTMLJDOnqNFDtpm8JF0QNzARQYpKeCnUylNlVedq58UKISmkPLbw2clmGIjAjHssSqidS68fzIaZzCN64ogWKy4dnQuezDeQQvPyh9M3tzPPEMITQuTrF&#43;DzC1dCKwmWziPD9PDOh&#43;FguzgngPzLHx1r9eZvYugaPSiUs5oslJybAUwTT24oOpGrqhyAKrKN&#43;v247kmXc1dVrQixeW262v17g9rBJVCrWrJ9&#43;mze5xZXBK3jfaKroqV8RLN0cvu/xEDuBg9OVfH68Zw2w&#43;1cSSjDrFgwRoEX3K6HfJDMPTpLNcqeNoa82BF917VQ9eLM0Q5vL5TM2EW&#43;kx21itOQPR&#43;bbtmoVw1DQkWUogtFQtDBug40eK9SXMLFqMTUZvCQlPRLDtLkt24gDW24&#43;kL7Wxb/9t2&#43;0sbkY0rhL1nkEiFXRWUikyLP9zXbKlIvMX5xznhdcme3LokesBCr0psveqgU/ai8id380GoOBUBDLencg0WZ4sPnfNyaDfQfldc&#43;3uxg4oWIWMS9zxbBLajcS/nDaF9rIne1ilWnduTg4PYwx3Jt2aET58eBzD3O&#43;QSRmaHugxXPuKY/Sq66W9A2n4T6qshqRUCimc9vWGHUwaxoTRlhiBRFu&#43;mMKX1RLpjep2S/IqE213kPqa&#43;fSm7XyW95JJaU3MbebKozacON&#43;Wb/T0mIpsYRU4MM&#43;j3H4NAxZqHd&#43;aGWHE7VU8tNZSlm7OhlYrfpv0KUdu9GASBkElQ7O1IkT2yTWjtNQJ42WZrBasVfwtRCsI5x3047TC9Eh4&#43;cLWq07O4Cfbu2&#43;srEEdmnrFqiJGeVmq2LX5t8/Ph6Wnwg2bQ5BHiF/a&#43;5UVGtXJ7c5m0Wa5sw7remWuYbkkopqdMc8jtXfOb&#43;uxNQHtnP7NHAXsVm7LfRXXzSozsIKV2AWxBBlEPrvYT4YyZEHKrIEAYrWNRqJZk2Y0FT1gpo2gAXvSaorIW1TzsuJrTkrLoqQ9O4IiChhL7HOpfM1pXt2lnpGsxFSXpR4hhb2shSNKExyIzIAMkE8qp2JGyiEAeakrHUQiEywoPGbmn79QGor800MaOpDAV/jcn/FIwyTaFepysq9Vw8gbp3KBtNnvKmly&#43;W&#43;OBKKkgwLMgEGCFbYPkRCGDujpwNCAJfps35fXC3twarYxLzrk1VIHScpalLYJHVOOA662ntNUNyET/iwgLPzCgfAZyleTZsCsFK7J8q0QQf2j5MHJt2A&#43;84vKdpB/m31JZMSk37xqvJev9Y4kDx1kmkQ9ZYERvOOY9NFs8c4K0dMEBvipGCFrO8zP3Ph2WZNjEdTmLT&#43;5tFvVvhoEHSUM8KhsLc9N7hT/4lKyVDdFbavBcfl/lPbmXvJB297UJmWj9uMfQyZLYF1OoVSroDKd1ljTUjUG/9y8QMW08t0OpNP8OhDT2tdNcIMAlsZ8qDNYPhW/DppDQuoSVTCNe0pQ/0LPms6sr7CQnuHP0gkGbOC4LH5G/Aoeh&#43;QTel9CJQlce2epgZfQFSe8/CVMfk4dzzNMK8rLBnxVOvsCgI&#43;A1yyE&#43;u2p&#43;1Em&#43;emWIOmDlzVJR6vZUCJXAeuINfLQ5ZaEzNo5NK7jpm6PqeSUkLtKOtKIGsnDGkwis6bCu2R7fwv4FNDNaY&#43;Dc7nXt1keKfO4JT49Z/Tq972DWHOjeSQEqFpGKQ/7uUmLl/4knJW0UNtbPbZoY5YwkWHAdUz/4oGrN0HVy2mDpcMS5HVIQveddd0/TBPlaLs3XjupxmK8lHYbNReGRucf39mXXw9vuvm2fSEnl/2adbMLeRtKy8uuNFg9pxdtJAorVMWLNuW4xLQ8tmCAmnSgu9mWHrywWNlTvdI8C1nV0oD8TPYJuId0gcP/D9B4Q05v2GwbgD8T1m/MOTyQlnF/&#43;wkSBA6DammfCO6ScdSjOSAlaoNr9oZJTUhTAJ5j/1VJVovqnDy/oXxWJZpFMfa8NB1AVjssiiHQoIqdEJc3CgpnOHFSK4Q9W9QNFX2SvzGnwV7smuF&#43;IGPjrQd/CpbRxlEdxNzhvCLI3JQX0D1t7Lh22UBv&#43;6RZVM040Uo5QDQBj42Hx4vhbGCda1VcvMJeL261RTaQzbSWFr/VSC06KBhG4os9IDGIeYarUq8G93ng/3Yxh2bM7o/MYZOyXxMaE2GYNgXFDmPzu3PZmuvaPq31J2/ouYX9YOInXJ4N3cb3MI2/MFBEZd2Q4c1ic/xw8ipfyZgJoY5iPEYRhwrRYv6/BZBxCazM0jyNY830uc8xKByVTlstB0Qzy50OF&#43;Jmmgs7&#43;A/kVqEOEI68E2F4QuEn&#43;C9cdKHL2crOKBjKZ7MGKwJQ6YQ3ltIabvd8OfzpVm1aCk7XAk7&#43;6QGsorCpFmyyDdZ295aXcTP5PG1DAZTb0LF4&#43;RsEy06nebG8IH9UpHzoQ8DCzlKCcEDvgFecz3UyG8trPCld5&#43;7CYbndNK4lxk3lxSmkFLjvWpKf8X9A9Hz68O1esKwXoAwq7S5eE3e3oqGUgY94N5P68pBm24XZ5B78SqvYA2R4X5M7lofLyeCzBrKhHR5T6wapH7mFkD/Uyk1mqTClRm2ZpQGXlMarI/WNqJd64BaRqateCkVMkAy2O9cOuM7MvurCKRvAWwCsTbkSTxG6j4CGRD&#43;djDCCqJn9VPldLPwXuPBYPX2e/m4NLsO14PWKGB/p3fdOSMugP5Day4qKSkO/4hFqOvJHBpSPgAFhNTmJbdr5I7dTggHFDq8S4daCgWAlHRq4BwHeC&#43;s5zY25E/Vu4zoeluCkG56BGShshs5d2RMu0piq8XdtRP7M0OQqFepsVD&#43;AOuVBptSZNpEuBf1Kmf0n6v11uiQPMAtkuMyEm1XQ4MAhiVfFEaPZD5E5CXVN5jwZMe&#43;5U7O0Ozms24ZBghi8XWUHW8Uk2KJIlinzOCEuCKLXr91B&#43;VamH/UiYHmiOtVXe4jP3oqKvl5NrzWZ1x7abetOJkEqW&#43;Y3t4514d56LmOtS5aLcbBq/wCzes9bcniapZr9nnFzsC2XjhEzTZEVpKoiFU/msbGXYNm&#43;zYNOvn5G/Mmd9uTXTdmaqR7e0KftvFwY775AfLiB7RCCdyjgWKb6uftvTeq3GKSZpSbltZzBwOt/pMYJ1atGcwjvd/S3srH7&#43;OLE/D9OIOKqcbsIgr39SNHsp/ugyoEiRCe7nt7cy72rKDzo/s2BOX4QH7DhEpTBePu6u10RWzLJLNP9ToQTL9lzYHb5GEaM&#43;sW4PQJvS4GM8auWbnOBJ5C8pCbWCu6pyqTVYmCFYHt/qo&#43;ytfwpxR28RSTFeLD1tU5TxcCRVoatb1q8KJ7X3MWAEQdONw&#43;&#43;YgkhGN7uKkNNgOFH8hzoQXJfhzG4yCscgQR&#43;K6xsXkKfhx8NGJvmbg1QbhGYd/8KUboQqRZMkDI1kxtNg/ijE6Beu8lovp2494lMdYnFIW82m9COYBqJ7buGfx1Lj1SKDMQZvK3IM74XxX0Tzpirdi9i31j9gmBBwA6NSWCaw15Fg0FyxVSQMKXh2UVs5bbMVVfWd0OC4U/HLbP47jnYUlG1Kb&#43;KWAWwKZcM92wdkvLg1XJp38mtRmuKgmoWQb51cM43oYMXqyWRgo03xsEU2Jf5zjgtrAOUWDLrrrpksIhcgElCMIlkUximjSfWpfFYdejZEXuBJYuDNub6Dqp3NzRgXmFm9Bs&#43;9MUsIuk85hXxUtbFdiajJcg1HB09wR2gOPTNZgkin9JRPRrMcL8GmTQr76xNuHxNlSkTx75vRvZjGOUkE/xm&#43;Gbx9tWHHi5feGtAY6jHb4Ihv5&#43;ybTjJUNnLx&#43;55qOx2DibBgTTRibgCHeRvWg6P9bZr/XO9YA0SQU7lai&#43;nmiXOY47TmBcjrSrqDOasIJd8qNxpbCe9HKJv06chrChnBB2DmUch1QyQDJtWVquk3BTgTN4HUQVYRRwr/nC1QNX25fGrJGqUyl0vWjctJ4dI5XzOVYjXDy0EZE1WsZLaasM/jXIfDViOvWZlwNmitAffQzbVTgSJhiKbB53mSphTr&#43;0hM/rCmrx6adsfszzkQGOrFZmpOYnlxt/kqlBVFmh83jpZGuPwH7E9YXwNqGwar1mAaf93iWqEh23ZXbaJQIKnn9VlmEFQ00rndZ6n4HXvXGCj6/dj7pyXYzZr/d0OyyN37YLYywrJ3Kzje2ZEj/3fdm8N7yC75qx9Th2p6Wl8UkeRlCd5VgwNcR6&#43;iy/82Ad1m5HO&#43;yMhar8R/9WZ15VU4srOc92nvKUv5gsn&#43;nrLM44deuEOfJ6E5nQpyPxKaYw4/ptzeVFF5wxnLeWULiKtELjd/nn87/ce9BytiV6xHuiK4XWukI0fpRjsRaUQfTxeK54FjbUk52ioCectMv4l4tnUjktPTM4V4X5k2LLeBkQAk2ElrS2IYdTnvPr1JIpiGkHZ8nRmHwulyA5PZad1DG637Z8gtsKBOxG9FyhBC8yZdKtj4ghogaqR8IGhUZKXPWIf1&#43;jo5x2dSiObbWvTv77D5QPzQ2621B7qZDsIhsLmob0r6fkJsf&#43;G0MllS&#43;A/rUyGXDX&#43;T8XQZMRmK9Txq7IANO8zTmQ6ktpx/tchQx2E2RLpkGDcm/sU1KFOKXETXEv8RmzPXbZehm5QE9VgtriM34tbMyQN2tnZ0lpfati1LlL7tBaAOadCVGjo315soHlVFpP1f6e&#43;9L1/GrbbNxlA92671r89Z005IwHh/&#43;uGHnkxwUD2AhQ49xXUCEibsIpRb4B5IBTLw&#43;&#43;h6e4IbZcrPu/h1RFKBuZTBC79yzfJqcuxoHDnOe0B1tQCkt6jN/1lfdBoLFN&#43;NjLPO80JDKvI2aQNFqnFFSLQF3IkV3fzqDW7J6LYpTzkCTICTlVJVdvolOXZi23dppNepXOzaLpUb99u3gQOwhdjTAphc/&#43;csuRyAEXlgAY8jdybpTg9gxtiX1RB8fWVHGJVjV534GV/cFjMa7hHLUZaFm3QlJvof4L/OS/fSicBs&#43;NNr8Itoud7KzjR7EOFwCE0PAQpCXqj/ZJGPKe7D/QYNKsroMP7Wxcgwm/b7UdOgtiVlXfPHbRAdSx&#43;24hufReY0uWT8GPlhmo5kfd3uVXbKEr6eyhqU0a2QntNDASVTlN0WE1hFyvBvrbojjDmEtgMxm8RauIw6r/7XBqW5JvaUtM0axruSrLI6CK7WYabjlYUHvgvebaqGkIOlhg2GYevWuaWgFTxHgSqOwU7fpuM&#43;Yb2cAirbB8xS9RFa5mYfrxrkZd0kuoDzADnzq68rCxJs6iVRS3C00XbmOgLBSZQaozsDC6acuIo8&#43;OVM7U7imJNjU1FlItgxKhyxphg2Xivdw5yOVvigMyAtnIr/7h4nB&#43;kOe&#43;v6VyX874CuCse&#43;HXxMIsaZLB1BLY0Iaacddjc/TpmLDPtbaT23&#43;DreFTk7BB3PdeBThoY9uW0GUcKfuXwx3SEYkJCTEEfGnOnZ7wOefEqTiyPft4iElvozOUM8I8t2t0RPXPsmEl13e2v0ot//z3UTVmlf0eycrf4loUogu/YaqVGgzvxPajk4bCSugh8L0Hhz47WZvxG0VA0IKmGhKq2qXAG1qofzXd35klyCoITcEPCRvub2bNZPUSyxAklHt0b1oaA5hgJxxU4Ztmae/JXnDRIDbr4tZK6KiPpH4nmuB3Eo8/V5xqc7macVjr&#43;onIsiZitC3WMVkBKEfwUMMpPCxjZc8gBKFu5HDDyzaD5J87RSAx6lWD5474IDYL9BxBJbGL4UHp56I/AUbpQPuePjS3adb5QhrdvIch2RaaRAn0oQ2nq1i0lqIusEsGwgdrrCu2PY2SuaGhXWIIGpVFSsGp2PzJpJOfRoqYzVcqn2zVYdTfIIkXgXpXInoRTIvZ39tIgZOOf9rccd28o3I7U2BAhzhsu9U9mbdQivFB6tZ24od6oLd5KqYlIKLTj7nNPA&#43;h1&#43;pZBxAvDCfHvHpKotCEX&#43;3fyTYR9F5dWewgm6E&#43;e0ZMk0AIocwKXiJRwhIjNhuimAxslJSmpGLbITGtppzC79rX8CsKxHWzhRqwEhkI/ir4KYg9LYEBxAl2FcUKsKhJyEMyas0R5qG8qce5hu7HRgpWDlpclDfhUnn4CZLn8iHtsSfqLpHlsisTKEfio1&#43;zd9fLlwAlWlc9Fh7X04igtYgrXYJeirCvFAACYy5/Bzs5pCk8JjIuE/ht1fuIuM6bdlWCRvBT/Q&#43;fjYRCnH24/1oV0e/pi&#43;g4Id9CW4AmlaijNGdg7hanqZWIA55P31hPcI8PefEm6khbjp1G0yEuqJckVRKi7IzVhgKMj8T2MKR3PFR5Mm7g0gh/8S7iuYS4dlM0tOtpZkO40DeTns0liN3cMtlT6mYiElvt90OOrAXZ6ygWbnlrDTF9FEbNFwS6BFRaCtKG&#43;OonASRHCRMOsRNmLUzvYXePsBalkE4o4UL/5vqVci0T1WFT8TbozVMbK1IMP6gw83CrPPbmRLlqcHRKIV0ZPSfM/f7S6VSzKgnuzClIDZHFx0NuORrG7XCcaCRdKiMvcUstTZBR2p6q4CrilGrbnKl1ZVKeUYvbYM6rxoqvBHi920rCAWGFOuouH8O07pWcmakmr6eluMEl4oMBEAly50K2xkZPvP1Fu6Egq54OFDnNdkvdStREiTyDnVDaYy3ioZy2q87QC9uqmIgLJu3jlV7r5X7nzFagsNU2voUOBAm2N5HYIJugDlPOmlrGowqVcIpSNhZPfyAVUqzFKGHHFqVOJyKqhuXv/bq6b72QYegAMCNCZ/LiIkcb93q7NyL8KlbE38M5w6D5hICKcnyEZPrQp7m2pF13c/sUu8VfmvNmK&#43;9MXTGocUJ/VNpsHqAbn&#43;xaVMFLPrKpiYKyrZtgwjzMkLLtjEDLOSsTUPR4smb9Ffkf7EDXkM/Blsggj1dlMnuQl9D&#43;5s5yUXaT9npYiCskhJMYUFA6ycRoe19fiQ30Ugx6iXFHVJt3/bab18Fhe3RnfEtgGkWt55auXlU6REdE8jQPCmQLawNttbOYrlHVa2KqnfwQNDTs15rnUXQXEzzmz/QhKA2U5DKfZ/QVmPvK7MCZylACZWVG6VhaUC7wLeEutQSt7bZz3Uy20pUmOUTnQiVsZae/W2Ki1ciOs4vK8eT9JjhI2uBwz9MnoNXnWTti19EsMZY8grpxcVxg7UiPdr0o4h97Ybjf1PXIpw7MRS&#43;wIJK2&#43;j5JRt02/SxLDu1xxTSHZr/WY3cGDPlxhCcFTq9XxRS/jBNhWyzHATyVgrmKIcx2nm5k1dAxV&#43;h6BZkSUDtPBrj2abuUIYC6aGJS6kFuDFlf/4U7Pkl8ceSKjGeoFhvCKmnyySz4x4SE0BE/qvfcJHEtN9gAm2tghE7kt4PL/Cmsfll/sAEXCu/NkfAkmSR3Luqjuk2EPui2iJHDrjpW2BdfIK5gb68Kns48iAaUeW0e9Av/qT32SzrEI&#43;zQ1z1iwmiXlsrof8fYnuPDdUUst11xlplbB7IDzHXSDBpLYktEWaHKv7Qb&#43;70JlY6drfJq/bvzIlRThY8D5aIDohOMSi697vvRojvwbyblWB8S72Z5OZfR3yV&#43;ihSMsL8yw/RYxGVD&#43;OBIgVuNXOaekG81Asldt2zq562mQpX6GHs9ZR9HPePyyH2xUiykfhahi1ZpfjXWZbKzobqID34fi/ZNRzHbZehnHm&#43;YQHK8PAnKe1H2Q09mRkDPjkIbXExS9mOGUWEpE7jLYhDvNpi9xrCZYBK/ofYhrO1Wwp&#43;RAYkplPEr1ByE0dIWsO84Qzv5N6MSI7JEYf1zycglcoUpODHYNPYg2JJ34wSAi/hHLqROO/sRHPbmnb9r8j1Ruj9SB9Ew6iHP7FtVE5&#43;CYwneb&#43;znk&#43;0x35QwXnQIvZqJxcBeD9n5GtztPlbNblpNlzKPjWgTOp9MuAClijrIaHlwbn0v0QD/f&#43;PoNis05xK/IGBczQSMCTvt&#43;M1FMsjc0uVgWy5OJoLYZJrGucDayeP7/xNiFKj8APSfM1VCfopMAl5wVtiRre/0OLCusBdaWFNKaFj6RVdl&#43;rv7jSn76V0kcwzFuXXaz93iIRUzjt2a2lkOFGuACg8MV7gopsmkfK33fGyYEXGdVI3YPxZyqDKx7i&#43;dhOltSm4cpa14Jhh2gkGvsnL9f7EflJ8XcfdvUIqR2qhXPiNLQIZw7raYEaE2GbprmSPqpRTFAM3Kz2epD8pwk&#43;RBN9XXCB8luMfecY0lGiZ2nuYRZtQYBpljf90xNUBbF8njT4C&#43;RmOLTqi1QC0aS5zXKFALSz4ErUemmcDzcTqqck7P1jpqahwj8DJAl5Wb9EYg3HaPNn5NmUk/ZgpkpUb&#43;yaSItEkTZtLjpkYDIXW/5scDrK&#43;v/GCWJOwHff7lVwin6yWtiHsmmNfJvRgh7nbh2ieB/QluM2iZ2sR8oUu4TnWdxJNTU5v5uQcjCbGUqnu&#43;dpJ6GjMaHloeH4QE4c&#43;ty57ocmxG&#43;j5Uy0m&#43;5TWll1S0wYn2pKNYvtquHHArmEE&#43;ADJseIC&#43;NW9K4lrZ5qIw4DWjut9t9FPV97M0SNl4PIR&#43;pSWdqsXHGlHrAJtFP9&#43;/ssip1vTctPQ7haDAMoCU2mpqLeECX29G/jP9sOSQWX0OlVJzQW2aC4wy05r&#43;uOs2QgEZ/q2SsXXyfeKUzgfPE6PQCKgSwuRx0tbjxOxO8nrx3IHQQDuuKPorsutWyeWykf30wV/BtLY7Bl9N/nw1IuAtADznPgnBGTB5dKpH81KZSLNefDwlkRKh4Px7J7QM5QyT8hI0o&#43;SxCGUFr4wReIEcW/jsHIjOA9whg84NPCJcx20q4gg/Sjk9IIVd&#43;2UbiMoLde3PFjcQF5LGRSkIRgTCVTtWpERDdCugm6qC2BJ9lvqxyxpssORI2gclHaClSVuoxb/B4LnXdt&#43;6ihmEKlyJ2kjpKp1DhDAbsF3/RVt&#43;4hsk0Qv5XuWK06HAvhGbU2D5knRV0YaCZqqFiH8JrpOsrrLhLF2TpHbZQj/XYpZgnBED8ZiWmwEp9TfkNvjsptRRWvy3CQSa9hHI/KATJEOQhyjJE7gpfhHj2eRLAPx1dZ7bBJUKl5XWFEeVy6BtdwwzRMFNrMzbpYXP7B44CUdS2O9Y2P/Wlk4&#43;iL4FipRtmE17MKpO5oHdrgZ5SUg&#43;mx/t8yxzZJObfOzYNswDyFUOtzbfLGTYNlPRn0jHdmGNrI1EhnZ9o0svueAtjACqy5WNuoxIJsQhu718xJNEhkRmjOzCR&#43;aIR0JNDc9LnxV8BX1792O&#43;5i1kaY4EdY8k6dI9/JHmjdMSutu5vuI6R1mdCfEUG90e4PmkSCrHagy3y3sUSQ&#43;732s08yn9UBL/gE&#43;ALMry&#43;BPhFJzGKWgL4bXkYo91SVzfMPniZrLPL5caYWdKotY0vYPLh1zcxwF9hMoUl4&#43;rG/Q3gJVJTjMDVIh9409pwO9i0b6&#43;NjiR4FOMH1LUxaMd5cEZc51VYKvAiWTY6pS2UWTGqbOYx6IYjUjHKcZb4LbywEgXFuvqNhjrd5equvfOhE4t6T0Y8dNsfTI/zigEKpfT16BGxrzIkHISLcjQPHoVk/8WCIQANhN9ae9GHW3E2IfYG4iIlK9KxTAWaJNYuO7l&#43;PbB2WyivpPJqQFawFQ7W4ryZp0oBD5u6mu0VbicTQLxS41vWG7hMkcUS7lFQbY9X4AT8IJkw57pQbHZJgT9uoKmtA8fCRmJT8zbV1/IYp93UBIpUGFeCeIb2XekvTIkMsy1xTv45xYeLJI&#43;jh3vLv1y3zk32adz2d55Kd39NqKU5JZ&#43;Y9xw&#43;&#43;C6OVwWyXfbkSyLZHpTVJ5&#43;ypouFjWv5/jzm8ycX2ODC6vn1pkj/9pFpTzOuXCqFQbd4rOkPq7EtZgywTrw9kCHxGy&#43;SkOcEM8eO4sqU2WW2AiVAubaSc&#43;fEsN2KmSgfTvGHDkkjh62kJXsfFhNfZ1n2anV/IKYDNSFsbX50CUwdr6I7sXODZ6Br0OwzEwnHGH39x4vjgrdYQOj80dYl4rpkHPs3REG3Xng&#43;IhkbNfSIH4G1SBcqveuqBKpRWQ/s7rWQuLThhjn0kUi97pma6y652RvOfYu/HqY0&#43;2GkGCyRLKjn9yUBG1Q7Ez/oq90VpkLwobhvaoZmiWc8378TQqVgMADXJjFk1w/xeUxmClIZFQYGhEXqfM&#43;fv5VwJe3hqelFCNa61QrtX87/W8FyXy6GfUunUpuhQdtFDrFyusJrVxe969Jv5j&#43;zsX7OgwP/np9e31kXnh8ejKgGo9&#43;fjR&#43;DhJ/jp42YJX8QQMZxOYyd&#43;XGH181Cx16moQHjsIU3GJHVr4jr2/L/dLwqJmzBMFmy3XrZyE3oGLr3NKzECjUMuZ&#43;fbxrG7klFOdpEEy8bTS&#43;4q724ALc&#43;dtd0CZmPuVYXzTX0ShaEAG73TA3HOeH4nt8Odr5NmjMCzg1u9KkZrq47Q2R5c2E9&#43;M8Zol9sFEM/72Gm5vLP8a9UL9HWvnyckBpa5HA/KIbL98HM0dAGyFSWw5DxptjG6QSgqEMOdOyQevN8&#43;QJ3wNEVN1dQkcUcmqAV&#43;GxPZvtnzbQ9pcUf1qAMDFMrh7nVoubPNlNlTzGmYojNxXEFvXSCs/WEQSKYYCV&#43;0pqEHZwp14wlxwomLM8BTrGYYH4HRUqcK0cvGU0j9DSBwOEP&#43;Tx0Fcsct/3MA4FsSVX7LCzQJzxK7XL0mEyT1FNDQI2vWAzHifFnZKJf9VcSBdi36DYNm7UqZkeebXaIBccsvofX6seF80RU&#43;MYS3lpRAwrHdd6D&#43;0nYwydxFBkmb8KEtlGph1U/k&#43;apJH8LQioTKmtPORLRAUyZJzUW0rSawlgbqUXw1KvaW1bR0Z/uMnDfoOiueleTnRqvoMpo88VTT9rJp7y0&#43;FauWzRtJ1xZnPpDuDldhgUOrdkoQrkKTknbWNgZOjhCkUalcy0hRf1WSqPfOZ2ZD5yFm08&#43;YAo9eOV3yX99CdFX1d1dsvt9BkGlEJdwcRn&#43;1RHlzsA6QtkWGTPpo&#43;RjZV4tPU1ng4QWVfb4sjOibJLI89xrAazki0RXMwj1R/A3UvfiIsz4JbGVZyOj7N0hoJPkeRj2NST5GiFmme3NKw&#43;h/8jXh3DPCPaxnUZsGmCFuaixwzOJp/F3WGbLjyKUHw11w8HIphxHqXDiUQCz9zIKtUBC&#43;haIP0vFjVEWeAwLh1M&#43;GcJTgcy7axMAZy1p&#43;c2u/YhR&#43;HuKBNABuAWftf4zzz8DlDZ8ByrjycmYjE9MFhgWekJI9keDvgX&#43;oK6aGNwPP/3mdZjmMFAhKFDfVzGUQXqg7GRU&#43;tgqSUiFVU6oVpADIwNvm4UBaduEu/UOdjoJNLV54HNjsqEkQsBbmV9kiFYZYSPTMCvHURYQrM3fpZWgrFWnB4dgvlKhhayf8M&#43;e/Zg&#43;MQZ9DZzWPwd3bURn9hIHM9h5WUsNIN5nhCLEAk7en1cKLTm4swmAglrx14zFx0S0dLHG2USeJfUH5jEaZaIJK6qmhqdnUyYd0T17B/CXdjuwadjGBrC5uknfrDKYl&#43;hspa5P6hNSJiLCtK3bw0ME/pjvnwt&#43;8mHIkPrH0PuKfHwPE80IaM4G0BFEghewZ8FIULE&#43;DG9/oBe2FFIb3EBDmyY9&#43;4mIhBLTdF/yExYko&#43;hnTp8Agq56kGijJM&#43;G4cobol&#43;Gp6qoHAKNsmtoaTodSqw1gN/r4o7QwG&#43;e088r88kHQK&#43;0p97fiSzPw92YVrSo1iCXg6rchTTXQJSsrrskw2Tqd1mR&#43;JGNbiKeewYw10Y/wIWop7W0r9Ncrj5oVupZ259T2bRItv8bCURaDSpetiNA1/8g3gYxe4XVQA54cBbzDuNnVpkqVt1wpHctzQk9iUt0cfdGdtlXjO9lJ0YQY/a5g=="></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>场地分销预售策略</h1>
+        
+        <p>创建于：2025-10-03 17:33:13</p>
+        <p>标签：
+            
+        </p>
+        <hr>
+        
+        <p><h3>场地分销与预售锁客的协同策略：从“快速拉人”到“长期绑定”的闭环设计</h3>
+
+<p>结合你的场地分销方案（花商/个人展域租赁、有赞二级分销）与淘宝预售锁客逻辑（有价券、储值卡、续期权益），核心是通过 <strong>“分销裂变扩大流量入口，预售工具沉淀高价值用户”</strong>，同时满足农业用地“线上交易+线下体验”的合规要求。以下从 <strong>分销引流与预售结合的具体场景</strong>、<strong>锁客工具适配</strong>、<strong>合规保障</strong> 三方面拆解，附实操案例和数据支撑：</p>
+
+<h3><strong>一、分销引流阶段：用“预售钩子”提升裂变效率</strong></h3>
+
+<p>分销的核心是让花商、个人爱好者、KOL成为“推广员”，而预售能降低用户决策门槛（如低价体验），同时为分销员提供更具吸引力的推广素材。两者结合可快速扩大场地曝光，实现“拉新-转化”一步到位。</p>
+
+<h4><strong>1. 分销员激励：推广预售产品得双重奖励</strong></h4>
+
+<ul>
+<li><strong>花商/核心分销员</strong>：推广“首期体验座预售”（如个人499元/季），除常规直推佣金12%（59.88元）外，若用户同时购买 <strong>“储值卡预售”</strong>（如存1000元到账1050元），额外奖励储值金额的2%（20元）。参考“分销+储值”模式，可将花商推广积极性提升30%+。<br />
+</li>
+<li><strong>个人/轻量分销员</strong>：推荐好友购买“早鸟体验座预售”（前100名立减50元，449元/季），除间接佣金3%（13.47元）外，完成3单可获“场地VIP拍摄权”（带1人免费体验），利用“稀缺权益”刺激社交分享。<br />
+</li>
+<li><strong>KOL/探店博主</strong>：发布“场地花海写真攻略”时植入预售链接，推广“双人体验座拼团预售”（2人成团享8折，798元/季），博主可获得“成交额15%+免费展域使用权1个月”，兼顾内容吸引力与分销动力。<br />
+</li>
+</ul>
+
+<h4><strong>2. 预售引流款设计：低门槛+强场景，降低首单决策</strong></h4>
+
+<p>针对个人爱好者的“拉新难”，用 <strong>“预售体验款+场景化包装”</strong> 替代传统分销的“硬推广”，让用户“先体验再续费”：<br />
+- <strong>产品设计</strong>：推出“花案体验座·7天预售尝鲜”（99元/7天，含基础陈列工具借用+1次拍照光位使用权），价格仅为季卡的1/5，降低试错成本。参考“低价引流款+高毛利续期款”组合，新客转化率可提升40%。<br />
+- <strong>推广素材</strong>：为分销员提供“预售倒计时海报”（如“前50名送定制花签”）、“用户体验Vlog模板”（含场地实拍+种植日记），避免分销员因“素材不吸引人”而放弃推广。<br />
+- <strong>合规细节</strong>：预售页面首行固定声明“仅用于展示/科普，交易在线上完成”，分销链接仅通过私域社群、朋友圈分发，不在场地首页露出，避免“公共零售”合规风险。</p>
+
+<h3><strong>二、转化锁客阶段：用“预售权益+储值绑定”锁定长期消费</strong></h3>
+
+<p>用户付费后，需通过预售工具将“一次性体验”转化为“长期续期”。结合你的分销方案中“续期权益卡+储值卡”，重点设计 <strong>“预售定金锁定+阶梯储值优惠”</strong>，提升用户留存和客单价。</p>
+
+<h4><strong>1. 定金预售：用“损失厌恶”促使用户快速决策</strong></h4>
+
+<p>针对花商的“首期高门槛”（9000元/季），推出 <strong>“定金膨胀预售”</strong>，降低首次合作的资金压力，同时锁定意向：<br />
+- <strong>规则设计</strong>：花商支付1000元定金，可锁定“首期展域使用权”（锁定后7天内付尾款享9折，逾期定金不退），定金可抵扣2000元尾款（相当于“1000抵2000”）。参考“定金膨胀+限时尾款”模式，花商首期转化率可提升25%。<br />
+- <strong>分销员激励</strong>：推广定金预售的分销员，定金阶段即可获得5%提成（50元），尾款支付后再获剩余7%提成（490元），避免“长周期推广无即时反馈”导致的动力不足。</p>
+
+<h4><strong>2. 储值卡+续期权益：用“超额价值”绑定复购</strong></h4>
+
+<p>将分销方案中的“储值卡（+5%~+8%赠额）”与预售结合，设计 <strong>“预售储值享额外展域时长”</strong>，引导用户提前充值锁定长期权益：<br />
+- <strong>个人爱好者</strong>：预售期购买“季卡储值”（存1500元得1605元，+7%），额外赠“展域优先选位权”（可优先选择光照好的区域），参考“储值赠稀缺权益”策略，个人续期率可提升35%。<br />
+- <strong>花商</strong>：存38000元得41040元（+8%），除原方案中的“4季展域使用权”外，额外赠“《运营升级权益包》1季免费使用权”（价值300元/季），用“服务增值”替代单纯价格优惠。<br />
+- <strong>合规操作</strong>：储值卡仅在线上小程序发售，场地内不设置储值宣传物料，用户到店自提时由工作人员引导“扫码查看储值优惠”，避免现场推销的合规风险。</p>
+
+<h4><strong>3. 续期预售：用“权益递减”刺激用户及时续费</strong></h4>
+
+<p>针对分销方案中“续期商品仅对‘已启用首期’标签用户可见”，叠加 <strong>“预售续期阶梯优惠”</strong>，避免用户流失：<br />
+- <strong>规则设计</strong>：首期体验到期前15天，向用户推送“续期预售提醒”：提前7天续期享9折+赠“养护工具包”，提前3天续期享9.5折，逾期恢复原价。参考“限时折扣+赠品刺激”，续期率可提升20%。<br />
+- <strong>分销员联动</strong>：用户续期后，原推荐分销员可获得“续期奖励积分”（1积分=1元，可兑换场地资材），解决“分销员只关注拉新、不关注复购”的问题。</p>
+
+<h3><strong>三、数据监控与合规保障：确保“分销-预售”闭环可控</strong></h3>
+
+<p>结合农业用地合规要求和系统工具能力，需从 <strong>数据指标监控</strong> 和 <strong>操作边界控制</strong> 两方面入手，避免风险同时验证效果。</p>
+
+<h4><strong>1. 核心监控指标：</strong></h4>
+
+<ul>
+<li><strong>分销侧</strong>：分销员转化率（推广链接→下单，目标≥15%）、佣金成本率（分销佣金/首期GMV，目标≤8%），若转化率低则优化预售素材（如更换海报文案）。<br />
+</li>
+<li><strong>预售侧</strong>：定金核销率（支付定金→付尾款，目标≥70%）、储值转化率（首期用户7天内储值比例，目标≥20%），若储值率低可增加“储值赠体验时长”。<br />
+</li>
+</ul>
+
+<h4><strong>2. 合规操作边界：</strong></h4>
+
+<ul>
+<li><strong>避免“固定零售感”</strong>：场地内仅设置“自提点”（类似快递柜），不摆放预售产品价签，用户需扫码查看线上预售详情。<br />
+</li>
+<li><strong>交易归属统一</strong>：所有预售订单交易主体为园区公司，花商/个人仅作为“联合生产者”或“体验用户”，发票由线上平台开具，避免场地被认定为“商业零售场所”。<br />
+</li>
+</ul>
+
+<h3><strong>总结：核心协同逻辑与落地步骤</strong></h3>
+
+<p>| <strong>阶段</strong>       | 分销玩法                          | 预售锁客玩法                          | 协同目标                          |<br />
+|&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|<br />
+| <strong>拉新期</strong>     | 花商/个人分销推广“7天尝鲜预售”（99元） | 定金膨胀（100抵200）+ 分销员双重奖励 | 3个月内通过分销带来50+新用户      |<br />
+| <strong>转化期</strong>     | 推荐储值卡得额外积分               | 储值赠展域时长（存1500得1605元+优先选位） | 新用户30天内储值转化率≥20%         |<br />
+| <strong>复购期</strong>     | 续期奖励积分（兑换资材）           | 预售续期阶梯优惠（提前7天续期享9折） | 年续期率≥40%，高价值用户占比≥30%  |</p>
+
+<p><strong>落地建议</strong>：先用“个人7天尝鲜预售”测试分销员推广效率（1个月），再上线花商定金预售和储值优惠，通过有赞后台“标签用户可见”功能控制商品曝光范围，确保合规同时快速验证效果。</p>
+
+<p>通过这套组合策略，既能用分销裂变解决“快速拉人”，又能用预售权益锁定“长期复购”，同时满足农业用地“轻商业重体验”的运营要求。</p>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

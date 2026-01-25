@@ -1,0 +1,19 @@
+{
+  "self": {
+    "name": "慢养小静",
+    "xhs_url": "https://www.xiaohongshu.com/user/profile/5483a61cd6e4a91b6fc931c1", 
+    "last_check": ""
+  },
+  "competitors": [
+    {
+      "name": "植物医生",
+      "xhs_url": "https://www.xiaohongshu.com/user/profile/104256789",
+      "tags": ["养护", "干货"]
+    },
+    {
+      "name": "阳台花园记",
+      "xhs_url": "https://www.xiaohongshu.com/user/profile/987654321",
+      "tags": ["造景", "生活"]
+    }
+  ]
+}

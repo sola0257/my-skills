@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多商户花卉平台小程序功能架构与设计说明</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="02jOaix7ItpWvfR54rHwQoh6I7PiiPBHDAMBCblcxeYtP59fTkKxDXvuoocKRDlijgbzSGP544TqJl&#43;t8WMG3ekScvKoODTdmke46g&#43;CBp8GOBdu9JwEly3JpTTLJuBQROlYS42GJnnjNikrrgBC8OXOMuSr6vRSm96a39hbg3dDusj&#43;hRkSBxo4Ka/fmBqV7O/mPKsWowabJb/GlgJ6YwWOQQZz6WX8L2O9wIFOWiUKkJ00vcdjNfztmsu0x&#43;cbMCuTLAzPeUeN19GFZibbqtUpcANj8eSV19FhmDJOG3rhbixY/KWzPU0yhrUAFdT6BTAM5tgz&#43;ok3hoJMpkvS/3Kx4lY&#43;iRodQEsK7cQ24fBpLv3Dop4YjuNX2fakO7kijW&#43;6rrkCJAKH1yV2E&#43;Z6zbLYhOrJB6yFY80HkHG30ig9KWNTzuL&#43;rlLV/GBctzHjD7vZ5a7pkXF/shUBrHuQaDk7TGa43tMau&#43;AVpK3TAH3W4IeBgvtsGPvZnq59LU3drh7KMV8tR32R4sQzgGVzgyuM9wjhQfDwnCcNFWitLLpa9OhBryTl78IiT1Z878kvHGTufNuBlduif27Kmn&#43;TLoxcUc/3MTLfqTMVmO4gxCRHidevVwqrTRCxLqQ1uOynEpQsSNmi7AM3BaaysKTGV8NWUCYYinLLL4pR4PWGNRax1fq&#43;N2yerxs3ADRAGZAkxzTrnT2iLFjDjSZE4gvsgOkiFvXbIAGRN8ZwFRI2hmO2KRGaSUC5eE&#43;WUDf&#43;/tqm/WhNnMtWrvcHm&#43;VQwRdGYKFyxfkt49C3DrxT0/W&#43;1VGvZK2HHrBW6xYwZmERop&#43;0dGSHqmt/n6EJ3H6qEfj2uVuzt0ogfr4nUqwynjbS5EHFINj2LknomDFf548&#43;whcaiUZ1na1OBsqjWDzBSxM4pfYwXSkM2goYLmP7LgvmOUa/g5mp/hLWfMiw39peyAXzqL88Wq&#43;9T4AM5g0gvT2SfSV8P1zyrHeaXXpMnWTSYewtsZKtSJ793NHMSFtKUgS2XNimL7yDpBn7GV&#43;YIM8iZJNktoVM8uT1vD5coTA3rSGhdYkjI9K1WQCkKNq8KkZa1Ao4bXIgAUrVvIAU4mlzC0pXJRzVHRme7oGGNBHdnrQTQJ22xw1hK1x3PjUzk2WV4l5f6w3FLuQiE69A53VhUUDLI2ataOdMQJQCDY8ttWMxOYUYyA/EBGTwAk42ITsvDiuzNpMcpXQT8/RjrCt2kw/Lk8OUXHzC1b/8GHyK6Inwpme4e2W31uQLz0TZ/s6/Duo6YBjNJO/4OcFkoSv0X0h4KjOVbZkCVt8X/Qn86&#43;Et8mQdzlCGn8yU9YWa0aJREkOYEzwe4HK2Kb7wCxTLYqRCnOmjOsjniGs1iJnqT0jI2mbSMGk8xxwX3dSuUh&#43;xcJltBi9NEOib2/2gigSUDT/&#43;1gqAjX9GMCeMQ6NC&#43;kRVg&#43;qksaEdUh1hAou4OZWdkISrcjCcf0HTsGRHTDvZpCTckx7js0Um7gALPYWaTSHQg//CnVe9p3C2K/wP0u0LjXSl3dq2Mac/bQ4G7OVwY&#43;JblQ6ffWu3TZJswkdkTawv/kXnQDxwGhj/4G9xB3V42M6QdlM47Wn&#43;NqNO5&#43;KNY6wuPDTQ9G48sLx0EqlZyGP2Sj/tNqxLNqic&#43;sN17sinMel8NU1iWWtEBwk8lU/j/rw9FTVZZgBgNAqOcxBnG/ft1x7Rkb6gfxdiTrUcs8vdLii/xYQTHhA23ohEY7GKyOy48FCFOkq22lC2o3k36bSgNXUuhXe0DZg1HVcyRrP3Nb2nVWm8mg58aD9CBhticjAIo&#43;HqolL35dPNhWvu3tu3WTUK7EzIFP7YZgk145qkEkgwRZQZZDXsy77kqdG&#43;fZLczxbsajY2BGa/HWC1rNHRU2ekiXf12SnWf&#43;sN4b1U/GxRXGfcg43qM6bIu7JqjNtz9oJ6zVuytnJve/pgkuYK3XKfbyyNAP&#43;AM/0LZv&#43;YLAgg1ls0&#43;8NX1w6XSoaXA0fvTFs49BHYSuj0zbI2Lyh7NBePp1F6DlB0CRQeg18TPiHfqmjiwb1m/&#43;Tq9dgfPf4B&#43;z9Cmrxkqju0Xk4iMyxtzwS6hPp7diFrMiFE2KlzktItOr9n&#43;VasYacxhY2vzCrnr8d0f9yI4Tqd5QUj/Omj0KW2XR/T5EVjtwMCKb&#43;GEwxyk2U/2AEs2xoG/w&#43;TXuEM41ICJz5MAyzmcCB5ka6hcXlv4sHWV2yGKsO8Z&#43;TnBVAFfj4tXckG60iLilKEUA2wWY9Oho8N0TUq6UCR7DYgs8MprG8X59xUPuC61Tk4BekeSFSxANnmoM1TcdVlXq6V6xHcKIrQ63MaTEgEcsGLe6LRk4e/EJhDOh67l3Ua/BsimsivIEad7nrxndogrYWgVL8&#43;PRI1WuTisbCjtl&#43;DhHFadV8EBcLnx&#43;COT9OrL9bApRLiYfORqyWIEtmNxbmaU74Xksg65G9RJ&#43;P6kJl2g9yym8JaGmoo62X&#43;rusaHr9kwTvDe4AFg7cwulPUPh0giBLNctE/Uz9iXthotj8OlSCeKpWQTeOClJhO&#43;Qota1q2iU1oDT&#43;wqGyRjP30w57wealo9JSU2VP&#43;BL1wmBEw6irjTJt8QdD80NILEGpJ1HvDeksK4bHJ/E/BRAiXaFGYAMckNQia5t7bVsy/Be3HsEibuBXFlX9KWPzv1U4HmjvUPZl7v5qUn0lGHrhK0AQggXVr2o6dYLInXWokoWlLbigt2Jl8GEcP5n00fysbOFiWZPVRHsltFJsd5nsw&#43;aZb2ov/75ORJsT7sXejhy2IOd8wmMpirAkQevAvJ1RSQpaA&#43;hywrTG6eKUf9qsQTJYYqBMFlqd3ZvnKcvuv&#43;1X55kcl0KRSDzeiWZTvkcoPVwUgRUdC8VmLZmZrQNaZQ&#43;lwq3fmQYgJTQ00w1SbZ6MB2Gpfqm83Xw3/wKYXDSZhkhTmyh6MdWMXfhvy7UI1ry0h3IGATch1Eq/GfwXuP/3ez039sQ2sPnJ6J3RRzU9VvvLvEm8WgVBnY6gOtcnq00XS3GwOFsdQHTPDFEIwAGvsSzzKHdU9/do/Bm9qx8ZTF&#43;6TqoDNpowEhQ0Enirb1WYDPbKIDW3w6UrKHjN0bbOfrPagmMJ/I3OqpnM9iz9&#43;MgxtK3gg3r5rH3nz3MDB9j&#43;9xdUrkJcMyKThzfpMEr6RHtlNPVYgol3Z2mIvjZvJghytc82Ql8DtQyQvydfIarxWy7LiMyl5V1rQKY4OM6zys394VdeaDPbkfD3MoatXMbP0bGXTGKLRY&#43;GDWMggeY/3ARirSrSE8KLNzvBkPrbJEcPSxI7A8g1F8A/UnTd&#43;rtPtqSzKmuNOZJYsseNvFeoNzb2ouqwWMzEhydvzp9w8oV6L5MKD3259K6kEyRRtyi7jyUtxQOV5ZmwwtT3n5wpJJi8WueLdE2ABAl46VQdZ&#43;BxVgGJRzjldaZZ52SScoR61giKrTyJXB&#43;Zx7kriuatPYUMLCQTuzdVhiOLf9kQA4&#43;f1cWKtWECN3lG2caQ9lkUSNUsLydbjKV58668OFkaIVgKBMFbFbd4lS83MLDXb8yibv7CldnAbkYPYF4cZFycz0IFCYeJjDW2ofeJKE0/7HZ0Z9k1qYq5zwH5cFuEmC0ltJ4iO5xGMNfuLpIqTljL2TKO7iAtR1GulbgK7efI/nEAE7&#43;xWDfS4ln0lmS6SO636XRSXZ3ElAnTUkDA4lJ&#43;gq&#43;8x6n4hGsOgQhya9m5H7ZmLZ&#43;CGL5x4MLNYOzm7Mo5GYYRkqkHonWnGVeJ&#43;Koa60iRrdxpPJ9o2eXhLAcJxxxrlqPf1SyZmX6BhtSd4ooyEd5b0NFJIEztZbERrvZlRQb&#43;TszuQG1i3DBPIQv9lxm9UOf&#43;uF6&#43;DKNwp7DhxYIpGvEDBk8TIPiy4Zd6s0m9xZTmVyM3ml8O5hyRV7gyk6cYXsGD4GR&#43;Uov97D7zIJnZKSW5wSqS66TGqrRQblCwYZeIwFGc5ugn1ZAY0e5bNS0BUAmMJ7UQEPS9RRWqvE6aF9ay4r2xLZalHfKcTXq6Yxa1VR2&#43;bUl9BYJe3mSQSqBkmg1&#43;rpLXi3xeHAQff3XS/j/r/bH2TvcQ/fdxTA14yAgKUDp8itdwyR0Eo1pPNc/uPolDltJB5BnVMExvDhnWDB2JXRtl5vfw&#43;XHdXEN2q374aL3DugWcB9qTn8YsIC5srAWM68pGgTqXZhetbunaFQG4HJ950WgeJnPVXPX4OYXj599sfw4BHwWEf40W&#43;/p0wXFXwj04ORh1N4dAhGfeerS4M9hxp4i6Mpi/GPN13Ld20ef6UCKnhSyqrs&#43;zpvEHiJuaghx1pRXKUKn8qzvlkgUDwAxA1aTwVVhKj/V3EwIxUwdp6v0rMuXirgUTOLPu327sywToxVi7&#43;Nxte6jML3evOqCTHkn92pgCDx8I4i&#43;rGbWMlF7eeNXEag/nqHBdg0miVaf&#43;s08BamM/agzUQ1s&#43;k6jySStva6oGrzsPybbiJmZl/8fYtvqRNl8pCYwwF1yItx2WSdMAxQYi1DR7QLbuzwA5ukZl&#43;vPlZqzhBz7PyTEqiqHgA&#43;SvHYIEZ6DErJN072ivoXx/SyQDhJtWAicxfagiqG&#43;Il6NS6/xo4NVOlUvm/CvlQ9C46aDI4RSLh9exHekwoEJ&#43;7PSV1ctEkRzkz0BDGqAvfsW5M3FUtox6UyuJwKIzRZq5YGXeCsTfOj5JVH9u75fL1aDW7dkA8UzmJmEGEeb8Ao2nT7V9H0/U72m5cXS7/bPEDDGB&#43;pupmzBaXD4T68MruDhhgmBM8ch8507UG6D5gH1WP6L1wYXwComqPN3UbJi&#43;nmwiP9pv6kKw3QatoQbZSR7OJHGZBF3KQCCpB/CRZpyENL33NEzb6nCgjFoBQdkcAVTJfkGGkO4AcfR1QkbOHL2MAXecn2ODvbHEAS0IoBJbvsIv3aiWu3wesXIT6iSXMz8brT5pHeIeMkdPvDsbeBXmy7rHegFrtNiJTFQwFtk&#43;BXOGPAweWbAUaq&#43;EC3DXe5Ym2MIIgYMc69DYYBkb3kxaVK8JQ1XMhDLinQ38Z3mCcTXl1qi5msx4AwIz5tKRwXD4l3vxY8HDlOG8beHBemYqzIw4NbbXn3dN3Xi1au&#43;s0q67qLRQXD84g1/ekO/emEVD9S&#43;VfZdBxxyJ6ezFd3SD/DqQPgCb1D/Jzt/oLkm94YQewQWFX7TP5JuCdue/Yd5ku4mEw3L5Z&#43;hKlsoZRR&#43;yg4luRDSbk9r5EnXefQSkC8ph16qgSdT6qJP2BKcmDOWWlFyRGmm4onW09b7zMXMWiFFnnpFeRm9K3vYINoMUwnfLKtD4a&#43;SMHzXMK8Ltgk8GkvyH8ITS88YQ1BxWLQT&#43;8eeIbFrpCpXZh0eAxqhlXc/CzMT8Bxowv71sLLCU1/KRaWd5YYIsFOxHL6mIvXyxTs0&#43;JNU/ngaVwFHuu9KeTfOrqFvxyf9xgtOHds4mXqwwXMsVSm3w0j8pg4wkMLCw0X6JltxUGWyXt9yff4w7ayJFKvuiex77ByEVL/C3pAfG/mUGQLTcebETaWbTnNP6fwyU5pDqlMShZ2iEitIilYN0LfKkwizpwjkkjK8TMinrFGx1hiyxZGpjOkK8gpyPjPMx7wMNl&#43;884q53VieFfaMBHdrwRhYUDz1XXymkWRIiavFDajPSmfgNtuYab&#43;pB9BMAZjfzGB3bf&#43;87L6cGYnQcocPvrNyenb63BR/bU6dgBhOtJnufBrXfVGYDFhT/dGP1oEXaKucoRDIbcCGbRiLhXaNWC1/DfHl98JBMFAMl6d/pZYbvqht6iSHLW9L/WdEEqZKNM4Gq9eSsZ3oIoTnZYaP5ILekgpbn2wBUI0kCwuXjaD8C&#43;e7Xw1IVpLM6YZE3&#43;C/1mXtYhtPiPgJ5M8&#43;IzZDNliHsY1YICahpxli7UKQJZ8DdGfgM/RQHOAhybxzdkzULU8TDu&#43;1nEFwA9IAr5OFUp4XX270RZ9Rr/cm8nv3l6tHQhB36vYuPJn7pkKv81zka8&#43;FoPgJ0E3u&#43;zBTlLKK7NzZkv9EQ30xJCZe2xhX4bHWmaDg15H5A9QgPD7o8P/TuIwmLlu&#43;arrPEzzHSsuZi7Pnru243FLIS4EoyyTzdBLT17PYk63aJsHUhowxpGQanUPMA6qNDU2aBE6HjU2Rnnm8WkRbud4LAzpStCkFeL1AywVqIjhl2ajMGUrltJhPOrTYg8Dd6fCBd012PLWmZSg/FlZ&#43;G/IfWq5ekzZIHcke8wd1d8GBEPfYj9dzWWL0tUSqsB8kyGGq0yIjtdvqcC/rfqSzlzO71fpsUXXYUKjysx8EUl4KgD11DiHOi75zCxlyj6lKPg8vy7ZEqa0hKyjxAPD0VTiXdXDjpPaPBJtT&#43;D/aQVppoZ68PruSsAcjEXxvIK1nMzgghswDy4T9lWIz5/Tr8Z0lO7pbWVLZMgwsYhKQBjmNv3MLfujfKuuvLJMApwuZG&#43;6e&#43;RkE1ok80HaIyoUwqJ5wQ1yuuZkj0IekoBV0prg8hjlhgrI/TEVxy3U2eFoAHaA6JYqgTOSm0FgfGDTK7SMqggdWog7l029iA9l9/D6fnkVYSR6Kr9wfOTzIaYx6dvgcUvjqGX&#43;zdf933thDf0CKAKDQL6VO37rKxnBHfq7gqFAGk&#43;Rsxy3FyMMtk9MQvalo/KrUtisYEjG&#43;u1/8ZDS4mLFVyiqi84a4/xU/rBHUkmXvesbZlmXU0mSeSi8sqsizCt4/s8MZ1GkMNcNLVV/i0Rhf0cTXl2pLDSnqmGvo1VldoH8//zYMeAL6eruZy&#43;XUuf9RuKBHippyzG6b4uKVL88OrSocjj0SdyO4L8F5BylW83lPgdruF4zAYnVvtWHONly06HP0&#43;RETdGmJdYQPQDcYJQeux1ELsfr1MuIm9czivijVkffTNcUFaJBsEywB38YZeHF0nHRphTjPtRtMG4i/K/V6MgiwQdrUz3jnXs5J59JSUex&#43;lGlo1fmCqKoiU4XLmAccxc9Tu9ZyY5c9qzzJDFBFGtrySbloxsyGMatVff&#43;uL&#43;T2NsvgYzn1HI7xpSn5JBmW0U2x/pwCmHody8M15miq6Zh0dLrBvHMzJxBDmbQQryTEHMTRxDgeb24ct1VtXfv&#43;45//peUAPbDrcHltpItKatAxMDHswTBFhE7GCXHAQbJ1jV1ZgyTQu/U58kx90FSkIntti5TOroqrsS0Ajeq/TbyqrDywSovUn1P7W38wpsScNw3w4Unv7LxuTlGuOpeyV7HZakQ6FV8nDFz9wl9/VNarMGwdIdAvYm5m1ThlnO4tImhLq3ONrwk4oz/vlXpHNb9goNafZTPXp4pA31gwUZpgBOHdrw6RTgKGE2/98R48wYaBV6CQzmeATowGVG6/tBsPPlSX7OSGXkbP8GeJxnU/R0/AWd9rTUAAre5L7CvhIb/HHKasqXP13I4wXS7Q1A1bXIoqgFjofV0k11I34gjfmk2pvSd9/W3U1k&#43;d8dMnvw&#43;WhlMIhqMJ3npv1zkrjw/DrdUJ&#43;tvz1AssEj2ANpgoh0JH1FrNMrX4JMP270F11UCS0oQscsafXbexoD8j0WoCW1bqQez8peM6lpM1&#43;1y3dFEdA5WUvAXhQkfDGx0fGOLeMieSGUrDHuTe1IEX6iqvE8qYwZmFJbNO0hQPkMHSBwDPpxIv9OH&#43;MVDaZewbstwfpPW5e/LjbdU3P6nfK3pSE&#43;ujks&#43;iODxZo657eGcd&#43;2vPoy1yOVTcI8SffQ0plu3vhQpauNFgaJfbLxLfHKTTRB01F8jTVWFmTf5JEJnO/x5lZwyZQkgCzXN4GUfUznOqCvJJ&#43;rPz4weY7txHSB0NM6YBB7mRz/UDpejwyYutOVkeA2wFRgeGvWB2H0uPYlsefzcxitUJdsoQOo6nPPRoG0&#43;otlqFEn"></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>多商户花卉平台小程序功能架构与设计说明</h1>
+        
+        <p>创建于：2025-09-22 09:05:41</p>
+        <p>标签：
+            
+            
+            <span class="tag">图片笔记</span>
+            
+            
+            
+            <span class="tag">小程序开发</span>
+            
+            
+            
+            <span class="tag">tma copilot</span>
+            
+            
+            
+            <span class="tag">多商户分账系统</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            
+            <div class="attachment">
+                <div><img class="zoomable" onclick="zoomImage(this)" loading="eager" width="64" height="64"
+                          src="files/getnotes_img_1a342809c00149c0NgdBtLub.png" alt="image_picker_4A4BB559-1548-4779-9EE8-0D734358AF2F-49298-000003F8AE13BA22.png"/>
+                    
+                    <span class="image-title">image_picker_4A4BB559-1548-4779-9EE8-0D734358AF2F-49298-000003F8AE13BA22.png</span>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        
+        <p><h3>🎯 项目背景概述</h3>
+
+<ul>
+<li>小程序初期目标：为线下交易提供收费渠道，支持多商户共用平台，实现交易数据统计与分账功能。</li>
+<li>核心需求：分账系统、会员体系，后期需扩展分销体系及营销衍生功能。</li>
+</ul>
+
+<h3>🏗️ 核心功能架构</h3>
+
+<p>基于多商户花卉平台需求，核心功能围绕<strong>花卉多商户平台</strong>构建，包含以下关键模块：
+- <strong>资金流分账</strong>：支持按规则分账（如按比例/固定金额）、联合营销分账计算、多级分销分账、资金冻结与解冻机制
+- <strong>会员体系</strong>：含共享会员池、联合营销分润、会员等级权益（专属客服/优先购买权）、生日礼包等
+- <strong>交易分账引擎</strong>：支持自动分账规则配置、手续费梯度设置、商户线下核销功能
+- <strong>商户管理</strong>：提供商户入驻系统、资质审核、多维度数据看板（交易数据/会员数据）
+- <strong>营销工具</strong>：含拉新返佣机制、积分兑换商城、拼团/秒杀工具、优惠券系统</p>
+
+<h3>🔑 关键设计解析</h3>
+
+<h4>1. 分账系统-防纠纷设计</h4>
+
+<ul>
+<li><strong>核心逻辑</strong>：平台抽成5%（示例），剩余部分分配给商户；跨店购买时按商品归属分账</li>
+<li><strong>安全机制</strong>：资金冻结7天（示例），异常交易上链存证并触发人工审核</li>
+<li><strong>伪代码示例</strong>：
+<code>python
+def split_payment(order):
+try:
+    platform_fee = order.amount * 0.05  # 平台抽成
+    seller_share = order.amount - platform_fee
+    if order.is_cross_shop:  # 跨店购买情况
+        for item in order.items:
+            allocate_to = item.shop_id
+            transfer(allocate_to, item.price*0.95)  # 商户得95%
+    hold_funds(platform_fee, 7)  # 资金冻结7天
+except Exception as e:
+    log_to_blockchain(e)  # 关键操作上链存证
+    trigger_manual_review()
+</code>
+#### 2. 会员体系-商户激励
+| 激励维度 | 设计要点 | 商户收益案例 |
+|&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&ndash;|
+| 贡献值 | 根据带来新会员数量计算 | 每邀请10个VIP送首页广告位1天 |
+| 活跃度 | 会员消费频次加权 | 周活TOP3商户免抽成1周 |
+| 粘性分 | 会员留存率挂钩 | 年度粘性王获得平台代运营服务 |
+#### 3. 营销功能-冲突预防
+- <strong>库存冲突</strong>：预扣库存+15分钟支付时限
+- <strong>价格冲突</strong>：设置营销黑名单期（如商户A秒杀时，同品类商户B禁止同时促销）
+- <strong>权益叠加</strong>：开发优惠计算沙盒模拟器（提前测试复杂优惠组合逻辑）
+### 📊 实施阶段建议
+#### 1. MVP版本聚焦
+- 优先上线：基础分账功能+通用积分体系，3周内跑通交易闭环
+- 过渡方案：初期使用Excel手工对账验证模型可行性
+#### 2. 扩展功能路线图
+- 二期规划：完善分销体系、增加多维度营销工具（如拼团/直播带货）
+- 长期目标：构建商户生态联盟，实现跨平台会员互通</li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

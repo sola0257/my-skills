@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝小程序商城商品上架流程与思路记录</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="4nnFsIBoaFTQVIPvRmav4mjqt6mpKs0BY4g2eIJ9kkDMAIXsMh8jCzNdeZT9hbd5CoFTli8e7qr33EpzuMqXHE0ewdh001dfRy3FmDnx8rl8&#43;M9MrPGK7cXccLnwrNO7n416ZdOz4QOQidh0O4k4VKiyVVlgHOkeKCUkoQ/9ybb0ONNH2B8Y7nq1IG7tkUWTNy1AtFWg7VnDx6&#43;ko5cT/5zjvyj1D0iRfiEU1ubti62oj8FxH31iWxkGFqpcMOAS1GKrK6ZyVjBJ0jFiWM69&#43;RXaaroNR2mKEaB8xD4vxWKun2tkcRVWRJgy1NjWHee7gLGjZBGl/sGTK8FZRbpTSuw9LiuYT8n6i&#43;PcHOFXMDD1/tWrxdItRnljyl4tyFJoUAT833YucYBJR69zz99Ty1I&#43;EkJLoZHehpT4JFlRI4KBmAx78edPnNK/PIxLxeIBS9lnWZzojDpdHSYSkJI&#43;FZP9OsWGUUMTFjb273Wyj2kTS9xMPe5vLLK&#43;LZxfgHAfpiEJdDLm2SVt2930wAYtmm/Tu4LzuKTdNk6rkQo9yEOJgB6hYkpcQRV2MAq4J&#43;0VvKXVbIBrFETIAWV303N2e1pkg748o5Qk/YdOEdTBoFBpEJSLrxWtaM7UtMJt63RdfFm9Y0upCg7eUCo&#43;eMlX/pHVFPqO&#43;YtfdXZbxUaY3x3Vpi2n5MngMC&#43;KFYjGU1vnJ&#43;DEqnikjBs9kT2LJ7Y39Zzy6ph4yUCkfnFU0sDcTcxZ/p7Zp/t/eELE4fhnfxg5&#43;9uKDyaWPfyj6Q&#43;OKTHgTjkAQ2zEFNjXDTJ0X/dtvbyN/VhQ9vb&#43;NGhi7pJeKJYvysIsC7tmq8Blv7JmXDSkexBYeDti2zWRsrZ/RZCr0f37LbdOGzcw3kGzrp2x4Y6AvjcYQ6rDetOC6vw08UPDPI0tZcp0AOS/p/zNjnKBrfiyCnDfsgmJL&#43;SmpDtbN4Erkt9CkMqUvksU/dzDu20h//3WV5nGVgvaLjtDfvEVPtp3DnQg/ozqjqTuSYHuy1&#43;cRylTRdvSkfyk/Zf3eIUVYl/AAH31Ed1Bnpqhyl20qSwNGLxboMGSmfkL7YDsBkikm3x46w6KbhefuJArceWa5ntRqf1nxed9wvAJdQjDAjkStiM/4veX0gextbI0ZrMsMpfYRcEZn9jkoRlIgM6eb60n7Mxfpwl2nv7uWpkYeuvoCQzvTfcd&#43;4cGdQbmI&#43;Sm2dKYUj&#43;HKBXOGng&#43;6auTMQGwmjIRfAHxycOCKnaYnWn3yLQoYdfqL2OrlDBVwplUhyaESKA4zHAtBIC7/FkBoWZIAIhaPVgHDF3HnorfXJxmnJ9El0Nji7qsWCdfnOFj2sX7YE4IDpfu2u&#43;vc/WGED4Vx0DFBHibACZ6iHCe1hyt2Pm54SEAD28n3yOAnFqqMALmID8hTuLGB84JCPoyveksFACKF1PE5V/YVuveQynkLRzhqxSZQQ9P4x63RwvJimM4POQrodfa112tJ/XsDFMePLq2YxU7YHsYfhYC5UDsSosd75Nk5slc0R&#43;06/90hen75sWF8/vGkwsGq8H3CEp7PoGBb6HOEvfZDauHvE14u5CCHNZy/82m05CAXWp3B5o6t8GO2Yp1LZPJ4SaTFIkzlu4RxlH1XHYOhYG8pb5ghKK5&#43;oTEgvVsAT6T07nTg20mVZbphNikVLu9ewrjiroywRMKTIIZVTDdGfvvBvkvQjBOTnFNVtKaMqEFyqPy7lgk3V/SAky4Z0et&#43;SmduaBjglRt4R2QTPipmX279aKDpQ3pZewaNTsH8/2fysUMGT8z5g64DbFjGOmhpzQ3EHNfq0nm2TxMqN1Tar8/IeKxZ//AqzQ3KpPGKTy/QBX22kp&#43;RG/NNu4U8Cm7kpypX1ggkUE3nv7E1JAhoddiGqobMhUFCYkaQO7gsR9laponGef7AQQrIJf1/M3rv3/IltylBkseM1DgEFuWIFfJVaKS0pkpliXrWmH9wqeCIA6kjZ2VfeWXHAwSEPzHKGW7Sx7ZgGWm2LmaStcSwDioK0GKSsKovsbXjJdIf7TniwzgbyBekBeynN9j98jQUX2hKja2gfwCgrilmzVPa7E2CDin6BVNI/yGGY6eB1q/ZlfTbGy1m8BI9y/lOtQo4TuaPIm9X4jffxN4a7eoly9tE8bHCh5hvLkrYOLwwYZa7b5XkJ4PJwYDiL89snlszjUA/kmkAlbFEHZnBwENCF6/AUS1L2WFfEZxO5io7TM9ok4ZZqgSWGX8v80MLtXboY6iT0pm&#43;uVZz1ZnV68P/OAwsYmdIxLoeqjSGSjErDmcPgWWlsKjrkb90aSemVSMoGqGAKjVVM0CT3YNxTC3qh9oq&#43;pGwAYq6fhHBCUEOXEK1Y3K3Pot8LOo/U7NjM4V1ky6BltRuXDgv6JBDu7PHYtxS3Zg76258mCN9YrX52L6erwEiZxdKHuzkFycYEL9gmzzpngBPkSc1av0qQTQuwHEUZPjrnzeMN97yXtNiHU2nVb1nHHJtPw//Umu/nS4JAVjhQlmV7fEJgKEilZ7DsDbfGPHZea8XchgAgzfYHj1G9a4&#43;Y&#43;P/yQS3kWSzcr2V4U9COSZXlZ9/RWNzZGDlioGDLtltSWZadJIshrbLPWVcrSfU/ArFPXwxU8SWnySFdZcjcAD/XQyRF/jl8dxExwoPkb7N00zg4fJHjzEdhaaVy594vK5ss&#43;&#43;vulnArZuupbDujohZsZc&#43;vmHZhLK9tvQ/3ZL5oe8aNZlucb0F5AeBKPwD7JlDCfd94H4u0gu/xJvLzBoi9xkdu6u7sYmfJW8tWfFQDvhCGMeSfT&#43;tjeAPGpkH4040U9JOL0KavEu9dkT4U28S6I/VT4YSOoW8RgmXaTzBzNYCTH2eejDDagKtP9NU7Vk3VOsThZNcHof&#43;PnNvizyihQ4ciRceAEi4D0SRwL5fcM/d3kw3HnyA7iFm2yKQU1K3mcOYRoBsxMK1mkNVC6BOIQqqDx9VBjO1KLE1s0I2EgKfJStpHL8tjXBC4MIj8vqUrYsKRObjL/CHg0p6C9iHKwt/Tg1bkRc5aBXrM3UCieGDCLB2Zh3Sk0yl3mJmUKfchTsyuzidZ3DSJpSSs0lSeMiDbMWFHjr6Rsl/G8r1FpA727sYDJFoMFC0GRYwyFqjtWrQWyY1zOfGRXZ5BqA7NRh/bLQydOPENDXQVb8DdhJ/qxSBHL&#43;krUxXlnrhxMZ9hWaNOLlu64OrO7i2d9dKlqJeBkbc4K9V3&#43;&#43;0YXfNTzptBjTDW60tC4emrAyKs9raLQLhdkLubDg8xKTJlSz6nNXPX1TVZf4WT11JOvi9hFsGDA/kAZvGqwGDRPvkcVjEmi79IjHqcRrVGf17ruOYQ97qlYNqenU8ySv2UmF6xt66V8TdF1HruYyiWMINXnVYTQzDJivGfdGapDOKpbN98PLxaY3gYsyemsRTmSmabqyYYZbjxLmlim9ED1vMHQp7QJLKqcma52&#43;qBlPgKp1QBcADoy8QU03zLpaEPBqVnuhqZOd8gApxE5jUeoMdo4cbQU5Tyl35qEjIdEwjcP2YIdrt/ukYZRJmNlEPkVKmfKPWvZlFInixbMEK&#43;aERTEIwQHngfEM115UQHruzlIZfQ20wzl7BTrSEfe1tZVO/pJTPBLC4xS3OJKZHeDA//VDAD74ckQ54oh6fUrjj3kBhbjGQm7bhjQSdxqkH/&#43;ZOhtRkpPzxqqZkQx3RdLmtYNXvrEkx/Lo5Y6KJun04oomwYD/RW/5AcvKVYRRrckBowPwCS4KyOWQJAHv0hiErutpCssvyF3LQzBwxT70GPbNTn1LO6AJwf0="></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>淘宝小程序商城商品上架流程与思路记录</h1>
+        
+        <p>创建于：2025-09-15 22:01:38</p>
+        <p>标签：
+            
+            
+            <span class="tag">录音笔记</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            <div class="attachment">
+                <audio controls>
+                    <source src="files/notesaudio_1a32071080085214q5eXV28O.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+            </div>
+            
+            
+        </div>
+        
+        <p><p>刚才我在淘宝上搜索，发现有小程序商城代理可以帮忙上架商品。我和他们聊了几句，他们是按商品数量计费，每个商品三块钱。我说我没有产品清单，他们表示之前有上过类似的产品，可以用他们原来上的那种方式来操作。他还提醒我，可以直接搜索一下当前市面上有哪些绿植花卉相关的园艺产品比较热销。这样我就能把这些热销产品作为第一批上架的清单，并且找到每个产品的卖点。</p>
+
+<p>因为这个项目比较特殊，需要为每个产品展示适用场景、养护知识或者植物介绍，这样才能算是科普推广的一部分。我的计划是先确定产品名称，然后利用网络收集每个产品的相关信息，包括上述这些内容。最终，我希望能形成一个工作流，用智能体的形式帮我生成一份可以批量上传商品的平台认可的 Ecco 模板。现在稍微有点思路，赶快记下来。</p>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

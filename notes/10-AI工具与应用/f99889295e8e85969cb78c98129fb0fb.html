@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topview AI：基于Sora 2模型的爆款短视频生成工具深度解析</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="9s0zyshL5jFDlqMu4eMCU9rjO/VW45eKH0rhxbco0DcOMuJAbYSGHIkS2KUgV3G2DWZZZFYyLNbIsys5Y0DVoaI6iV1bqfch8W5v4MLBrqDzbFfH&#43;DStYIoarDRdK3yiHdtgmHoDgsF3w&#43;ToPGqjPqJGkIU1W0Bz27cLi4tylrFUHXSuuMeY4CKTzzP9NYoOtpozCd4uoV5Fl3UsVqtyrpi2SW00HbVr71J8zr7J0&#43;F/hGxqw63z9NqLgq6X8G/rJP4bFi04RjjkQ3yjVYpC1ePoMTRn64NzxVxGtujmSxd5yGIup3mFGu2dsVwh0gt2HYz7UJ1LBrXa90V68pkx3YtKPiX2L/WnAhXqWn&#43;3tTAYkT9Ns5EAdZe7eM1am8ZbDazeBDkGXGY&#43;sCi/mdJ7uVNyQ3gPaOD&#43;htLaMxvwzRer9yU1mgztVsFcDGa/O&#43;Ugdg7rfBKjcrS/HHEK0oGg37nGKgi1j4c1UmDtoBjPDjbVkjynjfo1OfUeWfpgZMbTxi&#43;zqaT/l3Uc29lCVN/n7DBcgfbvHCVcaHjyFqSaiOgN55AfosTEmUizEDAleAUhmhOhzuBNfzfZ6nzZpVEuNJXSDEcxxPauDIt3h7U9sJ7NxD5qEcvwXH1UoAP1&#43;Vcu1dLvpjZMjoKgOgasHMgC4x0YK2t8OQC0Qh9Dc/gpbNf/WpzjEn/NLjDhs/vIYy/osGQg6/ijsRfraRiUd1n6jzN0WKcgQ3COmJ3LuatBBZzaeK/nHcT5yKqyhs8mz9iZQwHsGS3jLYmutEBtHGQzWkYj3o9krGBchepHIIlDGjzZP6RPxoP9MWBgWdY&#43;oAKubiSF2Oeds&#43;DMRm6AOqri8HmwFWZJXjX4jWHWI8yjSxSG3goHo4FDNHo6O66tEIBl/o/mQQK28LT9jU9TA640EDgpA0AYOBHKEaGKeGlXynUcQNgBSGgN/HeJktrlC87V1JWdL8XKn2JuoCjb7KfphQvMVuPZcG1xHFDvYBAcJtTNILmGEwkpdPg1OS69&#43;os4TKPMWSaYBTCSuwZ18xH8VDAiPnWGiUHLB84N1c1NxQFJtEfYybdYkCW3n3qh2sWTouFeN18YB1IowuGvJXpYG758RP8NFTUeTr6DBDTsZmOf8uLcrBw6OZElFLEN9jYt1zRXgEPwsu5WH0048EHPawoIzkY7gW2QTEGDqWu1&#43;Vlqx0NoG7kgCzjYJJypS44U6M/W&#43;9lsWPTOlyzfgaEMCuv6nnXYrg5N0S1cFJirxTve1iMVlY2EWMUS0RvKX1f1g7OwLqiDPNiKOefs6WFyxnXt36xcmvk0BUdQfgI1hUpjOdfZ4&#43;flqRgKpWyjdWjK0soVQshqPMfXGibt13Su9c9q3MJ0pCEkyEth2E7IGRi4vQ/dC6AYAmt500o3HM9J1gvBlNfObUAjj2ublpG4XQpwd6zoe67TLD9&#43;C7jeBesZxolchbZTVult4g25FPGe6eBH5Uj55g0UIUa5/QANPaZfuFcJN/og7FyX3zbCLpEuHeVgcJ/qYVEgGTj63FlOBhrz5qg8S6W4C0d0OjF0TugJGftFs&#43;2sdtGXjk0NXkl/YVK1s7f89BIaQpLQe/h2kgBsFrwDpjSjl&#43;QoJk1wfh7A16hQoi0TFKTEe5&#43;OsYyd&#43;SbI2tUqtCFusSCkG9/kalJzsMUXpt/zriDUuSAI4J17vmR9H3liUKWSMVReS5bTLh2PIDxpcix5wOf4Lw/MimEBNWaF9k8yHXTK90AohlcjvPPYteAp1mXznLW42oMe7QunJuPeidZTdGskQEs4RQFT5JXTIl1loBsunTAUFb2FDvm554GRMPdIws6BDbP3/HFlUV/r8EgAlK2Gh1txr&#43;6Y5P0mumWLMj&#43;TGmRVy90bgjRilP1NcsVMLtZMiPA/wnFwAiKBl&#43;f1j5eTeq8c2W34ugNlaEZ4h/ntbU4pbQD67Sg40HF5c3PeSxQJ5zYIeYTFAaYqeVFwZNnDAw0w8TuGpNtGRootIc&#43;musZ0iGFLuGnmVo3FdPKNBEDXvHKdwhuYTnOJpiheMwzBBBb0c&#43;273IXIZ6iYQZln9WROGFzRWVaP2u8S6VH9mSMjZnZugJFuOWwnpWCpLyUyLViUZ9&#43;oOFRUM07rqKOSx2Mr3pg0nyhfC/BesRloJie4&#43;DbJAnxWxdI5WCZRb23Q3z9bbBm&#43;7R3PeNHVjS6AnXKCGx9fn0dQa2z1sqO4vPEELjtNw5gQsr5hJbnSSrrBijDJn5nkxQkcl4OYVgJXicmRuZEfO2sfV9b5ERsRWxifs2Jr&#43;XXiFTEx1KWIRCI57V0FvwoD6/4YnaRnb9Y9kmYttkHra2r6F6r5Dqydj9Hfgv1IQ&#43;qB2im25x0AvjomVqZAsNUN6SEk26s5yVc34AGYd8KG0yEpIen1RVCCtjLYW2d&#43;cxZBL2vqz8niODpVM0fdYMreghCD/aUi5isUEFpq9MgS0aY/u995zCw58/UVN3ox/x78ckgkxV3vfn4i31TEPwcceQI5zXAn0DuqOCdh8U8aLX&#43;Wo69RUY42bhpPTpeDaH5fsXfm/z1T1jYxZRZcCRzDb1e7oKoSUCr/&#43;qcIQvWvjWYK1IWugVap2eQGQ3Ud1aix6E1LOVSGlH4p8qw5wb0t0Vemn44Zzl2iWAuq4UBsA7OvFgE1xaOUVuKl06BkzHGD9jmbpRCHirGBHdfQ8TH/4CUbc1kKj&#43;iAO761ofsNaZ7rvSbyE0E7GtrEwcCn8Mfjr6m1KlBdySaVOIEzWIxE&#43;yXYQsxCGk06xKt28FQz1Y7Caji6ykRyS1sTN7AssX2G9ADyfSvEB36aUEpoFcvEQ4UmrVIdYzljrvfbNo0cqur88qLjvW9sZZLUKBc/gKqP1aQw&#43;A&#43;YWdfsiE2v6Cjnd&#43;ZBnlFxjY6fvV3JuGl&#43;rwNQOrZx41Nk2RUAAjWm2Bu8oL9n56xgOI5ICRtshYEVJBP3V7bNvYybhwi2FVYLt7yK69SB9zzn1qzXi76Mu/rZ&#43;FRWIGKirQVNX7AsktHZ/GC2MXpDVC&#43;evS&#43;YpG/M9Bi&#43;yMts62WceGF4ipiurhRwQZQHzjZ8kNOjeXQCsZS172VjZLRWktWKp31IDKwy/lS8PRf3Wul2AZry0N40q7eTT&#43;BAS8rbf0NrsY1E4XLbeVba&#43;wzZ6iWnO2W41RR/dBSZ9mOe&#43;gFzhpGbQMIA3axMLSpgk0AJNGsaEEwZeg4fAG7aq5Vg0HCIDxQbc2jUSNcxN1NcdVBWu&#43;kYP6TUG7rRyvjL9jGGTZSuAbE3hv9yptoVMLJpUh4Xckxvf5Lh7pWkiX8B6XJAN4QBqJ&#43;Ffsk3pbuRPBc/z89q&#43;gy7wHb7HSoDyPi3a3E8OtlpqJse10eO79sQlsGkwkq3Xwm&#43;VxpyFB5Wtc0NIMpwth55MOY4gsVA1GwfLSgk1RsaCK3TnXnxSLrt&#43;Pd3CNSqfLCQ9lU99AVurzmzvlMKbohxQpL7fkKgOgG6IQB&#43;V9sHWPsJKxLhkYUl5k&#43;fTRfzT5IT73g&#43;MNF9tLbL/6ITaefKEh2rzUmT3nNXd5h665as3fjE&#43;4nRScCB5J&#43;6SycL5oTcatYV/eFUfKoCQ25JZSncTy7AFcHLuagFWV2dplfRI3p0SDDX3e2ycRsFwGu9klnP8yESVTkDVCvYaa9I6q3&#43;8As/yfhQEeRMjw&#43;ph&#43;iNm23Qx8PlxUSlzD8xHKj8o3k0vLxLkFIJmcIZwJoT&#43;cW9bTkc6TIMccj5JIdkU5/mS4dvcCVhE5m7f8zWFWSlCH32mybHGEhtyjjFHE4pHkETEiFPl2UTNuo0o0EGXM2LPVaCH6/P6baxpxZ/1cj5VJF94NW7/2OZqVd9Oip3DEfFhFLOFyFAGA1qhXMvPGXMnK63r8OJQPZuDYnibkxS84aCd8NtV9RIxyseuKUQ4R0poKaYdLT1j&#43;TwgwS4EtIE7tRK3HJB534eqbSbCDR3BDY86Y8DAHEN26N&#43;WVYUs7nG9bZrQylGsW2b/4mt3pzzsvrCex1O8/1fbPk9bbIzxeMCN8oiR254nptPIGdSrH6k&#43;s76q4Ii9Vd&#43;0QeeGTqTcuFTQr7DoVR9sw9Uv&#43;fxevvJ5wtwhHh4X9RcnpYAFBdeIee/050wlPFkIkY585iy7x1xjUauFFFG4lUBU55bXkG6zag2PgjbB3MNT/foUlTtETmxLFrquUjOgECDDzCbAEUDMuR1lVH3oN8K2ogsIYpa8TKzqydFPi966Hn9AXii&#43;qauwz9BL1HXA8YFLEFQQ86ldpb0LcJM&#43;0u9yrxYwY3m9eatKrciKXHVlfDU5jdZqiyXmjy&#43;9VcwEAm4YlSDijVLV0pTblRDw3S7hRgE5gLk4CYwVI1amiKLkSRUosWJzZCtI6p0FZ4sWbKNLkJmOCdZg0ClBLzV/SyL&#43;XSu1QdfJsjdkVGI7tm9&#43;8Hoc3cByRFrCSJY/uIwKyZIJxLdk5Qd/086VblohdsIPyhCIXMnAQdQUCvbJJ&#43;PYcgCYUsSBjlbOcUnVYhLkWnvMXjaxs6NY8I7nu0xzPsARFTvJbbYfxlDdLdfLZsUNOdkq6CVcsCB0bSPs53R/dx67hEelvZ31bLoxF9dia0WbMgDvbfe4SqBnfhJ21RzilFfknoL5JYbws0QwHN5RZn1xjzVjArVN7C8e/vXFaA3S9LlEK8OEKyWP0MTUyp5bZMbEkenoUxbf0xe7HXKAcVoYcYj/brKc5aETHnNEdubZnAmZBUOk7cG7gBet16a8L9yl3j6dG5O5YNOaTvpq2woygbRDfB1m3McEo0gqT7oP8iaCRpI2Fb&#43;PtuOnPDbacrSFdCz4bqmFSJ1we3Ssp&#43;aTDfNvZCKJhazHtUp81kchvviwK0LgG4Cku&#43;s3ZnwrjLNBVbU5DVEwSspuo1wO1wXVEOkcD3XupwG/shOnR/VK1TdOvEvUXb4jINDoPFrCGd1GRO0Ig9bJWtx6/xwseKYZ4KtKAZ62R4lrSpczwtLgV0sarr6mhAY4UFwQggqcrbjO&#43;&#43;Vtr1wNmPlukZu7e&#43;oU1YWq70/8lPHLgwlhVPCtGssPpfkE8K/bN9VY7a&#43;57Oni8SCXT1nWE624Yxk5pwWleKiVHLqZ7yIfj2XoNycyRTrRoTYtz9VZgi39nwtQmc67VMfniRoL8E8NVRIB8ORihlaU&#43;9949GkBqQ6L47YN6MyeBLaUO&#43;BebO4P3f7ymz40Ulm/51GcpUbeV5aPQAGk91Nex&#43;VgwxfKvndlfXGl1yvbPi4x6ck9pfbSua/eHHbJQYbc7KX9dPs1WtQ7FAF9ExcC/FbYiNPeMtydalDEIuMU85d/WM6QqXWwlvnWUD5HnOiy69WZ/jUh9VdPpcVHaFxGpdqoj6Y0KLl2B/bvmQVguXmbkkEJ2BnUGsstPIogQJQWyR67&#43;kDqd9gJT4nRrB1ooP3nur1KtsavPd259qdGBQ2d1mIaz&#43;vaHvEBdPut8SRdgbpToIX/SBp&#43;I5leLDlCvxq&#43;nkTMh8MGZ06jX41alrq0PhhkTpiU5&#43;zj3c33Ia7uDry3IFfjMIvGp7mk/9GcqICxcijFn/Dr7o5tu5OhaW1PgaVtHEHuYci&#43;2fzl7DQ4896VWDZy7pR344pC4QKcD9lVSPvOvpeUvwv8FDzV2IRPNAUW7aApzAH7ugIH7&#43;5XOlU4hC21AfAE6PjU2kcRfm/EBxe8eD3/yd5bFs2sRFS8zEDIWj8Mxm&#43;L&#43;FGoiSAkI9df2zX6uD74rwUNphPuHQ/hWNgnkgnscjEc8MFydpO&#43;C&#43;pf39FSzLBS5RnKj4AlwpFf&#43;AhTjRnyyT4e6HD4srtVdmtLjozAMMSfNQgOT5vUArAn8ZW2D6LGF1cDX5L9k6qb076L0BdePnWXOlV7zvnEU4cxD/zOt6lz68FjoAxVM82kSKQqnWha7VR7yF4mYHt7ddiZIutG7kaSxNM&#43;7IvRl5wiRb2PTK0sFZe0Lp/ZZtNxb3xjo8quy5b9KEvBPsHKHewljsGO48yjF5dABQQx4mI2xymo9lBsNiLZ5GCv15qG1kXTV91dvEEnyUDWdmwJ80yKANVxlCDlaueqHM8X54lrKH7HzJuU5ecl0etoDwYupP7kVSwVR/CKEz26vW0REkPx6QKCtIE70PfZ7k2mj4tRZBvyeShqPRnnBKSSKVtx&#43;wdN/0W7DKqyKMqtTz4DZc6KoS6LbGsSHx9T7DgB2eo0Q6fvY0&#43;c8r4AFIECSP1IzP0t6ZOSqzQOT3Mnc/3jOMAiunYu9w17NiEDemciXzdRB8AlN8TTFnXeKLFjOQ2E7xCA9E3PVtwNmxJ5z2CpCf19Ad5IBaE2dSnMp5bvYG3X6vtCCVmq4CXDqSHoSAMroeqR5F6t/&#43;yodHGqwHUd98KSgTEsObIV1wNBx2SIw1pWzyb&#43;gpx91p6zz27cXtCZOjrZoQW5arUZoCjKi3acxCEQjvyf6OesPGvUnXorfq2Qhbwya/zOQSrNtHrY6LXW3awRVoj3eJ1bNa7xnqJXyuLOXi4nkvK6cgiSMseLokF2Ir1re5&#43;RBhZmYBsLIc2atgzUH1NZPbjsaPrWJGvmzauhPRPfPgPU5w2cS2Qpl7WjgtDCCEbBiMaN11EiYgu8srAcTlfxzBnnytCZ6c/ENTmzH4NBBpxj0j3kv9HuzVPlzHDQiyCClfjKlCQ&#43;mShSKt/fWzMoJkSScL5PR8qLHtO&#43;YG0MjY58o2fi2dap9JNVNCFxrr0r8atnDwpI2Xs6doqSTWcfUtHbZiLbJieTnFEmVQAte9GBBy0rtvlGej9Kt5hqPJYF/1bit96ivEZfBpovUaEfkRBRx8dRhJpXrU3QNS&#43;IMPGDLkfKb4ONrK/ZZY3l7&#43;PtgDPDFUmPoZRLI4QjZ7q4G7DeC6sy5wxuWc8/&#43;DtvCkKt&#43;gc9KBkoWTeJe9crFz6oCPg3rNyS21dXUMfe8U2HGjUfeOJBZKZZ0hqTb/HKuOKzrqum22BNNufu2Qoj/pC9p5RH1wi6N9U9SzMb9OxtVQfIIkYw91vxI42i6Id7nKNZ0&#43;JMflw2DiEYxOAEQRNpZ10/kyvRuWuMIHGS9yQ5BdmcN6ixZrfc6aeALGTLyZHuQsVbsKV&#43;by2DgXVSvHZj5XZHT82Qaa3dfX&#43;yya6LmolTQ4gL0fnlWQOQw3qyqAY8594DXphj4luf541W9/s&#43;Bm5WgGmm7FcNN4Oyy8AUpw8uzTybPlPIgbyN1sPpotlZ8rZCy3lMB39NcYgTUB401gOD&#43;8R7L7sPkKkzXkTbLs9A1CFyobcWPaFhCkSGYj4aUNOAVyXOp4JqTODgfRrW1oghX32kXV4oU2oXke2uJPEywokZZItQCk0uX9egl8ZwncewSNb924yDTrPlqTImZjIaulC2t/E4/kDVrFHDYKHYNdYuTRxjaCsho413N6lgruiJhU2f1DuYqaXinddDLUjoNRXNDKpZ0glnpRy81auXWa6fI1FbfHGgqrw42nRvfwEoIZ2/GUfdfLKpPKY1271cXQvBPR3&#43;0AsEXJCFzLd1ozGNsLHfEtYB2UhK6zhsZs085v31ncY28sLswDjE6fUKkDY&#43;IUmOVWnWLl9/LVFSTJrLPPt5Y5EfoMe1ZaiuSm5iB30tN7IduReBWHi69MbSvir66WbdpcbDTVm9wlNSGuAmdehugKFtoFU&#43;lluyhW8OHzQ4OUl3snBjkFsEujC/6GFx&#43;b3uml8zinIQfMujI4W2VKfzKGhlJvEelC98uZqypNtw0nam5zqzxQUxmDkCX8o9hNkkbcZO6svQ6QBnmB9KWMDawgwbJFQA7inSZ7fwy7R1&#43;iIzjUFeLzJl1HObK7wfoi0yieNVXb3oRCJdxEjOuJ1ANb67vYTFVNOXeivn&#43;t5oSzxKnrHM4uo6jAtX8hOl6/RlhyOspqvgk1veFSd1dnhYf1tKoV6N8JLDNN&#43;M6e87k0XHa0CKC1gutRlBwaXUyJsf1STZuM1ZM6zJTfSX51X8FmY6w/6Yf&#43;dgHPvHJjOHPp31sRHT5gjjPj0wp9kc55xb/XUBe8f1gzM9ophumEnNKTnc1EQ/mu0FCsBH4MhOdS8&#43;zCfWbxWibfyRIjNLigmHkIQ0nuX2WQjyTYuF2Vhuo00VTzWlmLIpfESvPKotTb9Q14kGjHIUy19jvL&#43;SG6BqRBho3CLuT2N12U7lY4OsHFyyyqttVY4iuianxQt5TR4sMMXPdMCCsj/rxcuud4BSeWe9W0dKKICuMrh1/ijcyFgQ3DtCPkxLEaU&#43;WAhvp0SCr0EFcTWdcdX2cMfpZ&#43;RLfF1uho2MUv5Xm4CBr49qCuh7EKN3iWOspcqbHiOcUq5l4EKii8kY0Lq&#43;dMKWNSbde37YI6dLT6eF&#43;MR10pu8mpuSeJ2zTE8i8ZYpv3GfMp5EjnGaJ2PGy6y5Hwnr2uki6u7eLme/axsPNk&#43;WkkJI7E6mMUgOCFWNW9/7EO&#43;fG98c&#43;TYl6mmvLi4vZleuhAdrEt3PBeT1GV8KgzisxYhXGWksIaKnRuM4wncRpv2XbLpOGWjL81bkMOhsJPowmDOqY9XSX9yArzQkHXbsuMGS2g07i7viYIO&#43;Zrh9HETuIzelAR57ix7lQrQbXWzFHuXpy3nkg6re0rQp/iMiDfxG7I98eV1tXr2ReX8oNf3BJiWVsSFXIeMXZNKW1/X86nW5CtV89y&#43;3omFXhGP0XKHLiS6Rfa9Q05liN3YcySSWKH07yT8fVe9rkbOOB&#43;krEvr2WpwOrOj262RJPzcw7wIAxN5ZAdyy/pW113M6wdBMLDviVkK6/mhs/jGjCzkDjLN/bYOm0cPwezETcxuJcjxG3E840QkBL/cvpXvyA4uqrr6EvoLtxn2m3aYxjc&#43;9B7KlWCIxmqag3jgh40LTDTx&#43;9Ho6bVX0Ht9B6jT/90VBgPfUHsLXnd16N53qoRr7JB6VSXGd4Y3ppK7BzRUlpca7ikph0MrmIoprrw&#43;d0ojOdu31thAjazUX1eIjkRD/ptVCjIkTDQ&#43;PUKXl&#43;2kDEa&#43;UW9DUunFlOuFso5PnllGvF9ex2ROhjY4nJPekVzFFgNhBtyViC2hiTVxiUwdCrxny2gTQJIvUDEND/4x99YFb6oP&#43;GD74wdsaAHIW42ipzQTj&#43;U6A3x0aRA5TRFSiNPWkwYGkQvNJLzt70wQ/uiVyxgreoCSKbmdu/4tLtxH4&#43;4GprbGV1agBVXxjcCTQ3Pt7TPtZV8Kk&#43;8UqxsI6JwSTlrPrBB/iyDCqZsjroPEOaMvmcWMkg2Dw81DzurvZMAosMLPRqOQh28DGXPDMZ3ZpM4/MCnKhqID&#43;mMLJwegtQW&#43;jnWp8A10OQnPcmS8s&#43;bCtzQTGS&#43;5vrkgLveXPgnM/qy8Ln3BqSAeuQ6ZIN92k/TrV8P49gGA&#43;Cp58k7e1pu&#43;&#43;Emwam8dwh&#43;K99PHSaEi5rfhPBaEyRjYiZ&#43;T696NcYcxK/LM2pOMKIHWIOS44oEGuBvEf8irM5J7wr5wmODOvHUsaXiWiGa7C/Za6gRTxWvxoXwp21pM5rkHZbSpsOdPPQJKsPbLbWp3n3Mx9n&#43;6P5epyk9RsKEPccFRpyV/c/m03qcUaMDQP&#43;fc9UvN4L21mF2dqNwdkqNHpzOKDGZVWvZ2MWSlLldSOGLEfPkfgfaNw5XGCEgGDwbAMrclmbUCGjKu7NFaItNPt5wEBVO&#43;u0lI9PDoFs3oM/ISdXyFYURP4qmTLLZeAVQOdoO9kAB0ccnOhU2EcO9NacRk2mLcfY4H6nh5qIvzST/A8DwRFdZsYey8PWzNCBVcTXll59fu0X3pm42TMD8gb09cFt&#43;4g2CDdn1KIqfu&#43;NmDIIea6fqmRqic9AHIbJdotilbTswhb0Q="></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>Topview AI：基于Sora 2模型的爆款短视频生成工具深度解析</h1>
+        
+        <p>创建于：2025-12-21 12:31:19</p>
+        <p>标签：
+            
+            
+            <span class="tag">AI链接笔记</span>
+            
+            
+            
+            <span class="tag">Topview AI</span>
+            
+            
+            
+            <span class="tag">Sora 2</span>
+            
+            
+            
+            <span class="tag">短视频生成</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            <div class="attachment">原文：<a href="https://youtu.be/-zzOIcEU1HA?si=W3fNoGlMBDr_gM6G" target="_blank">你也能做爆款短視頻！這款AI幫你3分鐘做一個</a></div>
+            
+            
+        </div>
+        
+        <p><h3><strong>🚀 核心产品概述（背景与定位）</strong></h3>
+
+<p><strong>产品定义</strong><br />
+Topview AI是一款面向品牌商、卖家和创作者的AI平台，基于OpenAI最新视频生成模型<strong>Sora 2</strong>开发，核心功能是快速制作与热门视频风格类似的短视頻广告。其解决的核心痛点是：传统广告制作需<strong>录棚、模特、剪辑</strong>等复杂流程，而Topview可实现“上传产品图片+参考爆款视频+简单提示”的一站式操作，<strong>几分钟内生成可用广告</strong>。</p>
+
+<p><strong>核心优势</strong><br />
+- <strong>低成本</strong>：相比传统广告制作费用大幅降低（原文描述为“九牛一毛”）。<br />
+- <strong>高效率</strong>：无需专业技能，24小时不间断生成，缩短从创意到发布的周期。<br />
+- <strong>易获取</strong>：无需科学上网，注册即可使用，无邀请码限制。</p>
+
+<h3><strong>🔍 核心功能解析：视频代理（核心技术）</strong></h3>
+
+<p><strong>功能定义</strong><br />
+视频代理是Topview的核心功能，专门用于将热门视频与用户品牌/产品结合，生成类似风格的短视頻。其工作原理包括：<br />
+1. <strong>分析爆款视频</strong>：提取节奏、镜头角度、构图、文案及情感元素。<br />
+2. <strong>融合产品信息</strong>：基于用户上传的产品照片，重建符合爆款风格的画面。<br />
+3. <strong>支持多平台</strong>：兼容抖音、Instagram、YouTube等平台的短视频格式。</p>
+
+<p><strong>使用限制</strong><br />
+- 参考视频长度<strong>不超过30秒</strong>。<br />
+- 当前仅支持<strong>上传1支参考视频</strong>。</p>
+
+<h3><strong>📝 操作流程详解（五步生成法）</strong></h3>
+
+<h4><strong>(一) 注册与进入功能界面</strong></h4>
+
+<ol>
+<li>通过官网注册免费账号（无需邀请码）。<br />
+</li>
+<li>进入Dashboard控制面板，选择“视频代理”功能。</li>
+</ol>
+
+<h4><strong>(二) 上传参考视频</strong></h4>
+
+<ol>
+<li>获取同领域爆款视频（可通过抖音创意中心等平台筛选，支持按地区、行业、日期筛选）。<br />
+</li>
+<li>下载并上传该视频至Topview（需符合30秒以内要求）。</li>
+</ol>
+
+<h4><strong>(三) 上传产品信息</strong></h4>
+
+<ol>
+<li>上传产品照片（支持实物、数字产品、品牌标志或概念图）。<br />
+</li>
+<li>可附加购物平台链接，选择视频格式（横屏/竖屏）。</li>
+</ol>
+
+<h4><strong>(四) 确认需求与生成</strong></h4>
+
+<ul>
+<li>AI自动分析后可能弹窗确认细节（如产品名称、目标用户、卖点、目标国家/语言）。<br />
+</li>
+<li>生成过程分为六步：分析产品→总结视频→脚本规划→故事线设计→生成视频，全程自动化。</li>
+</ul>
+
+<h4><strong>(五) 查看与修改成片</strong></h4>
+
+<ul>
+<li><strong>生成时间</strong>：约3分钟。<br />
+</li>
+<li><strong>自定义调整</strong>：支持修改色调、配音风格、字幕样式、场景顺序等。</li>
+</ul>
+
+<h3><strong>🎯 目标用户与应用场景</strong></h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">用户类型</th>
+<th align="left">核心应用场景</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>电商卖家</strong></td>
+<td align="left">快速制作产品推广视频，降低广告成本</td>
+</tr>
+
+<tr>
+<td align="left"><strong>营销人员</strong></td>
+<td align="left">无需团队即可批量生成多平台营销内容</td>
+</tr>
+
+<tr>
+<td align="left"><strong>内容创作者</strong></td>
+<td align="left">为个人网页或数字产品制作推荐视频</td>
+</tr>
+
+<tr>
+<td align="left">** Affiliate推广者**</td>
+<td align="left">通过推广亚马逊等平台产品赚取佣金</td>
+</tr>
+</tbody>
+</table>
+
+<h3><strong>💲 价格体系与福利</strong></h3>
+
+<h4><strong>(一) 套餐分类（四档）</strong></h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">套餐类型</th>
+<th align="left">核心权益</th>
+<th align="left">适用场景</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>免费版</strong></td>
+<td align="left">基础功能，积分有限，视频有水印</td>
+<td align="left">轻度试用</td>
+</tr>
+
+<tr>
+<td align="left"><strong>专业版</strong></td>
+<td align="left">更多积分，支持数字人生成、声音克隆，无水印，更大存储空间</td>
+<td align="left">个人或中小营销需求</td>
+</tr>
+
+<tr>
+<td align="left"><strong>商务版</strong></td>
+<td align="left">更高积分额度，优先渲染，更多头像和声音功能</td>
+<td align="left">高频内容产出需求</td>
+</tr>
+
+<tr>
+<td align="left"><strong>企业版</strong></td>
+<td align="left">团队协作功能，大规模定制化服务</td>
+<td align="left">企业级批量生产</td>
+</tr>
+</tbody>
+</table>
+
+<h4><strong>(二) 专属福利</strong></h4>
+
+<p>通过作者链接注册并使用邀请码<strong>BMCLLVTI</strong>，可享受月卡<strong>9折</strong>优惠。</p>
+
+<h3><strong>📌 补充细节</strong></h3>
+
+<ul>
+<li><strong>Sora 2的可访问性</strong>：直接使用Sora 2需科学上网，而Topview提供本地化访问渠道。<br />
+</li>
+<li><strong>非实物产品适配</strong>：支持数字产品推广，如课程、软件等，可制作官网推荐视频。<br />
+</li>
+<li><strong>技术差异化</strong>：并非简单复制视频风格，而是理解结构后结合品牌调性重建画面。</li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

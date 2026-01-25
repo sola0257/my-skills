@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI年终汇报效率工具全攻略：Gemini与Notebook LM实操指南</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="8/k1/kJKTxK/UZqXeatdWnM8iJ7Fm9eu41AfGRrLZRyB9OsCeq9j3Gj2OjwTp9ddNrTWhWfk3XupJ3CPqIh70UWCebbs&#43;W1QtVE05OoEW6JQnPV1e8dvep4cET0FpAcBZHu0k9fxPw6kNMJvgae7CO6qJM6/8hQ4jkrIJ99TVHwW7NiOJm61PFSw4pb9uSJ5G0RfrAqMBAgPp2Q5QBhnetFVA1WS6aEz7LwMtHtUxrSbMmltnbnVjoPIbSBXJFfKnveNSxDQmxq98E018mSaTQT5/VuLvB8SzGv2J7k4m5KLmDGMN0C&#43;8XF6JY/jYSGL64LqNTmVKEUwpwd1H5YIFAa5&#43;8WsIMY30W&#43;zKd&#43;p1kG8RFDHspA4b9Czoe7e84AIUcjdDt2lWy6iLiEpIMNXIFpo&#43;t7oFp3ZFePjQT1iNup2hkrjw7vNaz/P8xXlgpo4d46CN1p&#43;BlgMRSG1Q7UMwulU6Vrm5EpTPfE83&#43;jV1d148vwoMZo86UOHisGV/J6e3nf1tbNya1n13mT36k1vX&#43;CIKWC1xBB9uV/hlISMsGiOvILXh8n&#43;eP4NBNY&#43;/Kt/LkcQhIkLYOgtS1ihNDgJRrCZ6JAQQZ0sxYC2j8pGehRN63s21wigXJpRxTxP1V&#43;LQt10KsM6vU2ok8oy8CLS&#43;5mSeBN0DBMsY/Wz6f&#43;wOyxsMZup9jGd8UZZvy7yCjuwyVLDCPiLuJyObjkDrH02DxMs/ZFcAKXBHtKgSHEfaCMZ0g6fI9KS9qAWJko&#43;mdym1yby2XhSOS7gGuh8SoB4IjP939/0kP4nEq&#43;8gjcGUaQRfxj69dGl0vh9gIKC11mAnTLHOGUUCW5av4MxkeVBQ2u6wDEY7vUV/UsDe5Ncg6KfnSTI4/2PnyoubyMtDMb2ZduBIvrnbkDf7lgjdzHIMGlSlVEeyTTstzGk89SGiCrLDXaPft/U1p/BTESLpKCFr2k19bzvHKMaD6aXuimCAhONaffwGhugrZEkhD3DePXt5JJU0Qr2V6L7B6a2m548GF&#43;x&#43;1fJh5ISPnr3RcpKR4bJZwXyngSDPwamKh1owPJ6cSZgReax/wSJVr2ePRVi5o5MCK3QuTg76atoCU5CiZ6/bMQoCfTq7cr2ekb3bG5Igp9xqgwBJBiavQaGBQKvlzvr1jVHHL4i8JpQ&#43;iRVxIrbRA3cc7gDhnVqkl8XjPZy8lIs&#43;9JFfc1NHqVTFiCAoIREIrFfjEB2ZPETIveywytn2tGLtyz8XFxcYsKku/60hBMv5WmBnDLof/u0DX//CaYSwIhQFAqkrQhq&#43;1oHFKBkod1XLu/hc&#43;qG7XTYaGzcN1pcvjOb2FcF56n9oGrET6vd7E3AJii0BFVMdlg67Xvwo590Cnv4yh2lQIbe4PdZOdTU&#43;6/tHWrKW29W9T8Rdzmc3IVvuPLKCwUSB/ywTk54OxDx7iAWzkF/XtxUCdbaNmf1VL5Uc6WKAkP9uPqHFyvJCjhmJdVrZX89OhqaLX7WQIGQ/RX3KwPpCPHr2fnQvpliY0Yy8GzP3Fzxukr1heR&#43;4LvPM9QdNp0jMrkYhDP/C5PxQD0pIlW/9PP67T&#43;qz6GyTr6MM2/wspGjdlw2lH9GCr1mbT3ZGmDpAaSNV0q7g9vbHdCI0c40VW3pELegbBw8GxHcyYkztm5Yya2hUcB1LOZarUhts/GaoPaUTOgUxrejKKiOk3IrqebL9pDJGTDZhh3oKjliDePNuY&#43;zJkerz2tnl9yGEFM/w8zg2HHomkxASTbaQRVIKSKxG5&#43;UjIJUAwGnR9VseC7Pctl8w5qUPg7JwtD4wwsWsoLgf2zjqu/DVtlnvKijRm1UvW/QwvBPs4hNdB7goitT1iw6xXGe2&#43;2g3m&#43;bng7IyFFIfYzyh3S2NTbymvy011Hb1B9kbFy6DHM8Lqk2XumlshuqTjZ6RQBhSSF8nrlefoOtxO7Y1OMViiDKocYv4QcA2IbWc8TRAxeF8ibkVm4OA1HSfAFxTKBjTUD2NaMvhbVxSzyR/P8LmH8TPxf8bNvt6kRCJXyJS3tRRMmnypYI7qDypiFxYXZcqXl9PyJmvGpvEg1SXBxM&#43;8WeJk5gKIGNq6pcpn&#43;Al267ZCeW36PPlRliPOlMEt5vIebfOHfz9WwA66AeHK7X3qS48eu32Pp38TpITdZz/fdACFQR2JX7uZZIhOCmHJcWrjCPwo4JQXRB1//LbM7jPaAtmmkV2gHO4SwEhBpEnwS/R7ERGBljl&#43;KAUYFCe9uB0RYiEen&#43;Pf2/K2RQ95nHZ2Pg4pQwvLoFYXffQnWWosvI3iNy7rtBX2TiJLLbvMKDNj48nXPA6nUJJqfVEI0VPORRaRYv6Ti7Zdr1FCnSPL3zKyx8/ufAZ8DdEVifehIYovs2pI31Ko1WCJLVDDCxmluEY8JXFktng9YqyK8okY7zKA1cUJwuCy6Hz0mMS6np6qyQNW&#43;LnQderoUUKBuEHXvVt9/KUJxb0PxvpVbf24iheUCXM3MXtyejLsqr4TQeCgXAu9tPTU59hspbRCSoTan/sFS6bpHAezdsfC7D976SiTePMNbIJO7PAfTSZ&#43;NXgl8JLFIA&#43;p5KvGVBmjQqPelKhMesNibvdb6ZSiSqh2igT&#43;bla2rCrM1&#43;sElBSHTPdGKinXuiSbOuZ5FyFAx3BFxeEqj8f8oPgL3EOPYkB7/SpoUtozubuLtZ0Ee0U42SE9qQey&#43;oxpej4SFuFve7rohKlYpLcjP2fFlBjVp2iOmkpZG4Hbi0fOSzE1dDSqk4dqHwVp6Fo/u7CwzGJ940D/Vbeh5J&#43;FBU3fCNHyck7v2ilkfpoK9ZJkhCEIZNgvlqJAi1jWRlK/QD1C66bF3xthRDjSlhlkUP3uKza01WfqwUYGfyVx5ZXPi9zpmzIv2utwOgzmmYBdkSrvw&#43;JB0oXck8yBcZeb/RxcnnCgRu&#43;HH1uLXa0o2AoflAio37YXZIvP&#43;x841iIU03Y&#43;/VHRGrfIH14h/0zmGCaNm7RKPsnGBSb2iAMweMQwnxSaF1y/WHXPiO9ciG5qL4WyuromJm1TF&#43;AjO1zlflA73VbNBD/C&#43;fBx0EqsQjIGhF35QLUll0oW/g9y23GlWSHlFLiq3PrFxAt3F2oL3Br/fMYGk66VCH8iink1X8hUqy5GVGtAOafQjNJWpTDskoik/DmjPWrQ7VWWjZLoctdEyx&#43;DuK4xBkZ0bew0JRrtpyKrDyHi30LvYPPegqQfi&#43;r0Xm1At7AIY0AS9IbHyY8sleCMBKoSp2X6RNJ7KgKUXhrkrqdNPug2e1dV76yOfgtX57k2CbvMEsmubf/&#43;heVS6qyQ0bShkyEtSdQc3ftOuCcCINDCe&#43;PpZYg0uUCIzrJU/4rFoGEn478CieH&#43;vZtFzJBTOM9PeYTWSn4HWWnFAEwAVW7BJDe8zLU2CqlEnH&#43;IClBALoMUngB0Ada2a0mu/DGoEMGDxCh9aKUgrlyiYdf2lpkuxVAm3xLr4WEPXVPBlzZcyN7eE&#43;JcnrOWLmA64E5e&#43;Md6ypRWdJqP2uLvn06W3TpxZipk&#43;QGgEOBEfQlKdunYyqW7jbc0ong159FPB6d9eZFwxsPT&#43;3nAg&#43;IfYlrc408g/Lvv8zQAFLOHpQPjv&#43;ccdVQdWPLwWa9xrhtPQm2Ydpwe2M6CUgnKD&#43;Y6v40vC58xwLwM0o7Mwz2DlmXVa8pQ9u9jw6Q1&#43;KOzpnnICcgmUGZDSTXFBLAtA4ShmNm0sPUIHrh3UGgrFocbMXZ&#43;eVWdlyDo&#43;zuq/DAkLuA/sDrZiHHTOfxWmQqxVf2d9TVZ6bza6YAt8GXpJY89c5paPLOk6u10cE/jDHPdayuAtnKL1xHIhUKmRnufwhUSLyEg463OnQZCW&#43;lah2gJFnrn2fjWymM1Cpxnus7GI&#43;OlggYKVGt3zZfUHjgN6xEIAdQguVH4RL1&#43;&#43;y82ApchmlIukC18kgiQmhCtUov/nEXpFIQT5IcVYyHkZbl&#43;AUp3Jj52WfLZaNSnUu7Tl9PNTSxyo7U7aY9qyTh/HJfPlSetrNuPMhZlcnodKJjqRoXfT5TSGLHl1UKumN45HHNTXiNgT0CQ5XlJ7ZaOtKj9cejsEwoUl5RA6iLtTD8o9a009gYrbwfmjFNOWtF8DhUgupZKS9lVmgszkN/2HUuiSJeoXPZRlALly3ul2vQJNskKqMbdRcygsTMWemw8DGIR8fHCEF1Nm&#43;jZR/wYLwAImlsLpKF1fQ&#43;P&#43;&#43;VYBpFXe/sTizXrNOpubiHx&#43;993kg04Jv3ATRr8xGzAhdbdRM&#43;H1zdKEpcznKNtnkc5bTzqFJNhbkfvmb7xCoGpgk6gjVkTrh3GJcv9L06fviu&#43;zwbwx&#43;VIUh4UjAB2in/HvO5xGzyccjRfc9R2DdIkjndxaXlRU5QqamTPCqYcCeiV0UX/Ds9OIXYXNgrfdbNsjyHeRf&#43;sQMtbRN1t4106/f&#43;fcneP01q7p8xvc&#43;L2r7LaQgbtYPmGEpL6mAt3WwlfZlCAEZGqWHicqopb7Dl2OM6TLlA/nBi2yBDuNxH6eluaFEJXCsAMNShIl2EzIp7xBvhPZh6SoDVjKkTgx7bObyJO3MR6Q7Bbg0o11FmPrafZb/e9lI5EsA6hgj8/FAWj/UhLo5IJsXpcwzyxTacKhDoeXpdzGO9n6fYFh3QYVuqeeXf92M3ojPZMkbV1W4CwRjR2gF53ksyfXovnglzqMMViXEAiuyamhwVK8BqA&#43;lzun89Ucuqn0vbkR0m9vDZxrEaTw2&#43;HnaRqXfAUxHNZ1mSBzB0AElWjtTjpHXqrGI3EggStSOic2&#43;i&#43;fXabhrryr&#43;vZEtpijcD23KbyBVYCWX0KlXRG4Y8aZUVJ1RSg8e8hcgEpWyxTdWDSv67&#43;UVqJFkkRW0fJMg6&#43;8BX42ls6cwBU7kD5BRuRlTk3u5u4v8a887/izT5fH5/Slcu1BkqUN&#43;Q/ZiB6IorK2YII4H0hNTnB7x0ANAlYM7rQIhz4rSDMBk8Fxd9bKIw&#43;XMFT/aGSisYz672DntsHvI3Xehi8dZ5tWMqYUccacCX9qIXSzvWEIWODEnSPhY6u4updyjrMmcRnnD66Ctry3KtKwsS5a9MASmnx9vl8q0QGmfPw&#43;jFTE6JhbKdviSrGq/MzCgIM&#43;5bN&#43;40R/1gqzn6pYprpFJtjNGGo9fEROk3uqwkzYqwpbADcDv5de2Iqb6TjolevPPYqq2ya8WlxX5pMKLGo1O7&#43;1ZK/1sBSeZMv&#43;qJAcpYGuxeeTqOpVOjoCxc6amMHOp&#43;hayQOafnPfsUSZjgqWNhv8ORqNS91/ycSe2dJVjBaLhnsjGNvdytrYsAClUk0wH6w8lk0xnV1g8K6u/EIEc1tprEnzYqWUhe2tTvB4vlaP83pIu6BcAlXLW4fLjQdj&#43;6vLDrNdiq9IpLAtwTi&#43;W6n36qX786JawOCMKk4N168MlZawFHsw9dQw&#43;URaVmfmshkHUTK2HObp2W9YCUWBK&#43;QSbw8xAHLKuNhnoCzsFfHUoxuyuAJ2eNltQ5A5vr1KnHYr5jMgiMXnsAI7XQzh&#43;lwqOrOtpZbT8tbjs&#43;tw/tZ8nMvbzKEg2VVcs7Fh98oXyUU&#43;kJR9X&#43;1CyWsyr8HJ3cwhwHt0HJnn0j2B8Oh6hYjxUxSxFV7PctbZp2eJy31NbhFpgeNkiF5jEWTkCXvalP3Cjsw&#43;fZJiJOjD2G40q3NWpWZL0hR7kPNUN2I2Qyte&#43;9EQh8V01&#43;ykTBmA/OA7nG598YOIGtyZCEJkfenAptveI1MqeUmf&#43;lQnPjwTV8OVITdGs4a/bG3FsT5nzZW&#43;ZQ&#43;zBFzV0JR8uOLzDk9ttYvvmcYXZkot8ievRsLuuV2U93mtanXwnzQfFl8Vw7xC0VpqQejUOK2Rk7yLzvA6wvnKYxS55KSy98gbUDLLZLYxRVs3GH&#43;LkkhCxk&#43;N6uwcsPZo8Erx/FUFqy&#43;912rrxRmDQRT/0y4zxkGVRejkC8cK/plh&#43;9nBva9Zpu6sEj09JVlgDoJv0arHhgzbTX6MMuea3QczzQsvyWfKhw0MbNGGfbu6YDKrohWhxWD7Ddh8wkwlHTEuMpH89kUF7w9ARCrCDKHDlV4sjwZEqRHA40dBvpKBbjLk4Ej2PngylP5jF5dhmmuiuH7WhB9eOQZcCUFNukgpiW/sOisjtCl5HIRRitLiQHrs0vzW1Nh&#43;QNyxJ6laAtc5Kr8qhk32f2BNPfKSTS7v5Heqbhan0rAiHoC/IHf0&#43;pHdJBPO0GXJyw0gjvUDiYBNvnFokx3jjcuZLdKh88raaH6vRs5PodeXupCLYv1KSWi3QjjOAhn8PLDIoUIM&#43;v2blbhLYjLw3sAkyMkxRXfNC/hlSmgBKfuh5niI8xJgK8hXRn36O4zdiJJFkLmYFU2F0c54kMj3nWACsa68EuomrqabaSbxyEgGWfXHXDQGdUG6ZnmgT9V7Qod9C72mTCHr/ZbPXj4eX4/PWiBGUDIZtQexNUv2/ESfbtTipd6Cbzt8P&#43;f2iFJ/vhD33mGuuGnytf6wklQeUmhdf44JF/d0EQrqDjylcgR9vUgU69zAGKZrYw9FY85eIyvqbzTCBoZz&#43;DGnUAZJfazUipfZt2R37zH1Q4buQUeaJJ8krcpL1ZyEhGGxhrF42q&#43;sCRRDOEmBSBmWkcE662llc5kDvrBdf8W46ZMkJoU/EpAbQC1Dvc5U&#43;TQ7PtOrs83JsKjKs&#43;3zNlJu/Dj6EdZJKllcsWEtuAvT3uroIlyf5iIF6NSr7c61aEGPeRWOwd1x5PMZB96&#43;7&#43;JAnXKf/lsZ8ZDeQkKJhLc4NnEFV1d59NjgQudlNp5RCyScT0Idu/VNc2FIi&#43;8u8mQhvoB4inmHXTnYjYZFR3lJj3Hi&#43;eNsAPfMUG4NLZ7qAUbJ1Rdy0iSLyQyxiXnF6Pt6mRJer1cQrJPOrZoJoFTAzwKcjrwhqZYizWURMkfl00aUoEltxZVdbSmnzdzhpHCIAcfYwobNVHJ72ATCJqPFF2jZyG0ayRuxIDkSak4u/IDpkKNOHSNXiQkC1klL5M1cGYv0WtDs8bRbg7YuGt48YU2Gfhk&#43;c8TMCMWLHGwxHPyuS7XSM8n9F/AfIdcFxhVySZkIlTNs7USRTb9wyH0xz0B1JKPktEPYlWAm78zn4vJBwaKg6MIafEKuuYQLwTI8m0C4KLI83j5SGxUHw707jGchEWj5F1npU86EJb9StYfmGVP37YgRa/1eT9ET08qElZphAuUQLZHzZyTzoVThl&#43;6gMIUpsbNcTWA0YDxmcXZBvdy/0cPt00XG9xOn8vLDtpIICj&#43;Htx7uujTlBdOLLm57BxE1e/UezBF9Id98o62ko8i4ke/mxPPf7uhhgk9Y3WrNXSB5PKWv3T/LF0LKXXUGRzJhhX34Dz/SL1nMworqQwGN34INx7e6J0A&#43;PUh8/sZQIxqR3sGSG6ome&#43;xCa0f3ONBlYSTg4/IbkspAT1Ie7xneQH18lZRL8ywHuaAg685jFis4EByMEyAwolJN4aZTRQHyr6oX5G5HRVmGkSrKODznYPr2M7spBfasDkD&#43;d3m6NGtKwYUnBRvKO1ZeLVidxZLGhb8OGWSVPYS1eWmM7udOCWcQwlr2hqKhUCuXc7el4/P5AfWP6osAmptdohBZmMX1T4ko0Johv3CodnGgizNo6FVknx9Ci8Jk4OWa67Ie&#43;u2y0nL/zbg&#43;aApLgWsUNi0U5ZtFEqi3cx7nJQkiY9PFzqBe&#43;qkNbc7YEQd&#43;yKvCwsu2PZVsOtFHx5zVuEsUInBJED4otZwzLTxyng49qeEulJD/pQ7DEPTK1dcveT2E70Z1IxXESpEfiFVrpvb/ne195FZN48B7Vpow0EH8VHdZB77KUTjdPSE5bVondVxHtUd34CcjNB0LuoUsww6QkbkJ38Cb0xEuE5NsE6TPeGsiG7E5Ay9zOb2H7RI0Bg2lRe/IQc2lmdnBnkUatY95UzNXn9XtNcEK0O0aL35PiXP&#43;tHC4JwKtyL5TUNNh2k&#43;hzZbhnHb6feu9yo0th1J3FHcQP2avUpNfqi1vFtBwwN4ZcePg5vq4aT7nnq3V7v6w4LNwCe5lQO4c1V30TCsIfA2iNUTAai3cCLkFbQoNnmnNy8jVsewxkDGDcitJKgfNi5kg6Q8lt7ebQh/CBrWNAFbAF4WnwOHrjRyDA70AJrRulhFUDb40kNBMfP4Koeg=="></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>AI年终汇报效率工具全攻略：Gemini与Notebook LM实操指南</h1>
+        
+        <p>创建于：2025-12-26 22:20:13</p>
+        <p>标签：
+            
+            
+            <span class="tag">AI链接笔记</span>
+            
+            
+            
+            <span class="tag">AI简报工具</span>
+            
+            
+            
+            <span class="tag">Notebook LM教程</span>
+            
+            
+            
+            <span class="tag">Gemini实操指南</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            <div class="attachment">原文：<a href="https://youtu.be/vED2MOyWzjA?si=pUgV8PjofwKYPR-l" target="_blank">Gemini➕NotebookLM最強AI簡報工作流，6個隱藏技巧，做出精美簡報、資訊動表</a></div>
+            
+            
+        </div>
+        
+        <p><h3><strong>🚀 核心工具与应用场景（概述）</strong></h3>
+
+<p><strong>两大AI工具对比</strong>
+- <strong>Gemini</strong>：主打快速生成基础简报（5分钟 vs 人工2小时），支持Canvas模式制作动态数据图表。
+- <strong>Notebook LM</strong>：功能更全面，擅长文献速读、多风格简报生成、深度调研，视觉呈现更专业。</p>
+
+<h3><strong>📋 Gemini实操流程（基础工具）</strong></h3>
+
+<h4><strong>(一) 快速简报生成</strong></h4>
+
+<ol>
+<li><strong>操作步骤</strong>：进入Gemini界面 → 右下角选择&rdquo;思考型3.0 Pro工具&rdquo; → 打开Canvas → 输入提示词 → 等待生成（约5分钟）。</li>
+<li><strong>输出特点</strong>：简约风格，自动配备图表，适合基础数据呈现。</li>
+</ol>
+
+<h4><strong>(二) 动态数据图表制作</strong></h4>
+
+<ol>
+<li><strong>数据来源</strong>：需从Notebook LM获取整理好的数据集（如&rdquo;近5年最受欢迎AI工具排名&rdquo;）。</li>
+<li><strong>生成流程</strong>：复制数据 → 粘贴至Gemini Canvas → 输入图表提示词 → 生成动态条形图（保持排序一致性，无数据跳变问题）。</li>
+</ol>
+
+<h3><strong>📚 Notebook LM高级功能（核心工具）</strong></h3>
+
+<h4><strong>(一) 文献速读与信息提取</strong></h4>
+
+<ul>
+<li><strong>操作示例</strong>：上传YouTube视频链接（以&rdquo;AI做不露脸励志自我提升频道&rdquo;为例）→ 自动识别内容并生成大纲 → 点击&rdquo;资讯图&rdquo;按钮生成思维导图/柱状图 → 11分钟视频内容可视化呈现。</li>
+</ul>
+
+<h4><strong>(二) 多风格简报生成</strong></h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">风格类型</th>
+<th align="left">应用案例</th>
+<th align="left">关键特点</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>商务风</strong></td>
+<td align="left">通用工作汇报</td>
+<td align="left">浅黄主色调，专业排版，无乱码</td>
+</tr>
+
+<tr>
+<td align="left"><strong>动漫风</strong></td>
+<td align="left">&ldquo;2026搞钱赛道&rdquo;主题</td>
+<td align="left">哆啦A梦元素（大熊、小叮噹），情绪化标题设计（如&rdquo;賺錢好難&rdquo;泡泡字）</td>
+</tr>
+
+<tr>
+<td align="left"><strong>手稿质感风</strong></td>
+<td align="left">&ldquo;AI一人公司&rdquo;调研</td>
+<td align="left">复古手绘风，齿轮/大脑/灯泡等主题元素，强视觉符号</td>
+</tr>
+</tbody>
+</table>
+
+<h4><strong>(三) 深度调研与资料整合</strong></h4>
+
+<ol>
+<li><strong>功能路径</strong>：检索栏输入复杂主题（如&rdquo;如何用AI打造一人公司&rdquo;）→ 启用&rdquo;深度思考功能&rdquo; → 自动搜集资料来源（示例中获取17个来源）→ 勾选并汇入 → 生成专业简报。</li>
+<li><strong>输出优势</strong>：从0到1完成资料收集+整理+可视化，支持学术报告级内容深度。</li>
+</ol>
+
+<h3><strong>🎨 简报优化与进阶技巧</strong></h3>
+
+<h4><strong>(一) 二次编辑方案</strong></h4>
+
+<ul>
+<li><strong>工具需求</strong>：Canva（需付费功能）。</li>
+<li><strong>操作步骤</strong>：上传Notebook LM生成的简报封面 → 用&rdquo;brush功能&rdquo;涂抹需修改元素（如标题）→ 插入新文字并调整字体/颜色/位置。</li>
+</ul>
+
+<h4><strong>(二) 长简报制作策略</strong></h4>
+
+<ol>
+<li><strong>分段生成法</strong>：将大纲拆分为上下两部分 → 分别生成简报 → 上传上半部分作为格式参考 → 确保下半部分保持字体/色彩/排版一致性。</li>
+<li><strong>应用效果</strong>：生成30+页专业简报，视觉风格统一度接近人工设计。</li>
+</ol>
+
+<h3><strong>📝 补充细节</strong></h3>
+
+<ul>
+<li><strong>提示词获取</strong>：扫描视频二维码，输入关键词&rdquo;簡報&rdquo;可免费领取完整版提示词。</li>
+<li><strong>工具定位</strong>：AI工具核心价值在于解放机械性工作（如资料整理、排版设计），而非替代人类创意。</li>
+<li><strong>功能局限</strong>：Notebook LM生成的简报多为图片/不可编辑格式，需借助第三方工具修改；Gemini视觉效果弱于Notebook LM。</li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>

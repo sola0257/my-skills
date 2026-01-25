@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google NotebookLM全解析：AI驱动的高效资料管理与知识萃取工具</title>
+    <link rel="stylesheet" href="files/style.css">
+    <script src="files/script.js"></script>
+</head>
+<body>
+<div id="jsonData" style="display:none;" data-json="eGRlV65gFzwl22RAdEXcb3pEXE7dkszcVeCZoWfD/bEYK&#43;DuJORbQIiA/ynbX4ZWwJ/1J9G0YOddb1tgH9/yoBuEIEV9UTLE0f0ch&#43;OKCQSENbiuSSaGjpR1VQJwxN5ySaYjG6S6f6l5BbnfPn/83rJ4XDzLJ2mrPXlkN9NYPSeXR7b2RHs/3ooxq6YRW/4iL4RBsf/H6Aht1IJMSjTmGFxcefUKhtUy1vSuzRfFiAfGOBJJB7Gfio0sfIkHWfrZX6RBhyaY2&#43;RuAGE156c3SwzNUmpMeXTF8oE4C1RxZ0ynwl7Tq1KkJoFQWdnTHzQPz7Px8teJylimdtAo&#43;FPvSyd3EavpNNtGg8R8QC9zZZ5fkHhkK9HMvoGxU6CI5Accstsho3zsr4hnhh&#43;LpQAyKdkwfl6TPjX6ZAHwJIL6ljIcoDDYeY4cyGDgsu51eyNbOpAU8sXqATxUJCB8EJI6/qlVr5fJ0gpdnPXSXe2W8YflXz8RKuEbEb5s5eky2FwIbgEuIBE7A8/TVcpbCNm8&#43;xjzgyrzk/zOLD&#43;DpcZEzRdOTVQz/qHMFpalVcFboGIXnZta12ADiFDilDFKSAdkCzUuJrDG3ALUENJ/&#43;cVt&#43;ZgDxggEDhb8up5qqdz8cWwFnpH9O1Rv976yrUhzuipFQiTgF5hwaWQ/wrGyMTflDgsvAJA5cQ9DgT8L/Arbk/XtbLMkqU9Z3q5VLmAHHwkXq&#43;0ffRmOiekQuWTQAYjAVpFg37UMDeTc6s9LclMd3ifddRruMYXVqrIcJjdnJtv4OvY5Z&#43;Scki1Xk8/lkv3IQ&#43;iHhoAe&#43;mfF6JxfclrLgd2A4YiV09C&#43;Z8FvPRovvvKJt23IO7N0jXzzD4xWAypnPQRN9Ia0xaL41liX8Vcf4hsyOeqlFccz1pzwWRoZjH73lT2un16k/FpJtrW&#43;nR2bOnBnnRpkGvrUhUTAQzT/Dh6P48uzhJTMN/c1ehoSOcwH3bLFhvW9/tH&#43;P5OZAt5NrXgdkAM31gOiZIDtJ6qlK5KLAMjlTWQcuU2cT/riN4CpT9Ax7XIJkDOwkqa4egQIeU&#43;HT4KQOnst0weoK24JrzPzjxlgYcqWlfS12wLvD75PkhXFdLNCAJUq7RTIe7&#43;Wuqyg4RjSxAJ5/fC6Gq9eENrInHhXHtoJLcxmUrHybT2WKdXwX4g2hvO3wXd4paW1fmWwQo9OqUjzTc9wCn5yA2URojOivLMp2EYhnwdwxUvOwA&#43;4fiHjL3s3NeNnKeSx90blv9sS3R9CmiSTl1Lcpgfbamr1hxMcd3IitWkK1r3&#43;werwZG6q3Ug6LN2oIhXpBItUpkjweARuoeny8x/mUELOSniPhMC6R4PTMJz5US4KG&#43;6X9pLNIymBvI6xP8Ii&#43;EHZ6XnOkMe0eW9/J1FU57Gt6Mgeuz/P4qOzNB5FrjNO/vXWc&#43;Tnadrhn0XJe3tv1JGubBR9YNL7ZMLQTi3&#43;SQrjMSpjKME9EMlAkZrD2jp/wSEfZ0nITMnf1K6PmyWaw7cGBAV91sM3AkDOfHKiTu6QIFTOBrmdG26sh/E/Ruv7wNiRBApmI2IlO95GAhJQLGiz3&#43;Rjn32GaTZXuUDPlJXESvi9vILyh2dEKWohBC/7aQAj2JyJoKUtHMT2ook3sPKLIhn4mHZOIqzYHkEvc2bMFOjngqegxRRxv7k3YFp&#43;tEx7cxV3pTyvvBwLoYSJiR3IvpGXYmtacbae5SKJ5K/8OEr5oLRLmEjU2ruMRjVv2zQnEPoIqlLfq9QN8QyJLaSgd8qQbJYdx6VWnlGRh&#43;647mN/YSRI/l4aK0PVX689TWBIKvnKXs3tKpSEvEy8/&#43;ylE4RPxVn7xRXKglkg2sfQzcnYqA7zi4Fyky2mjJb/4WIk2h0N3KUQktfhsDD61zQ4Iok1l4lpoFi0gw4Q&#43;Ml1MQfhxiyGZV06reG95aIsGL9BTTy5&#43;MuP9tS8NjdEe0wpCEaIqxofk7V/4pWOG4od8Z8bREUiKeJgXmCAenTMqAtGdv&#43;nHo&#43;rMYfN5TsO0dP9FnXhqHZ8SfQ4v7e3OLjDkCtiIW9fj5zyF&#43;IPEo&#43;NOsYr4os85GfI/oqKpVkM/XZEjZdMpWU7uzFVzHfnBVcpLlOdElubNOuQTZl5SS4OjrSWY76IFbU7xvP6we1uV9fjplrXehbWSv5XZVo2EZ8X&#43;R1cHr6l8w3uIxQBOWx0ScSLh74nr4NsbDmJldY2vUxY/XenRL1200mF6t2ClUUWy4bt8JuvZULTFcj3CjT0nJb2c70ptHYVjqmUxpn1dHaWU6yAmq/J&#43;ReiLFhXbcbcIZBrgUU1WmuUq8SLSLzPsffALDQdNLp9pZp9UPMHiDsZ9c/YH6V6xA2SSbp7jpASOK1TlgEygde169Fyr/4xeRkhcrYa4rzA7fi4wzEIHr5MAMiPDXgyZhUV6QRYYiV9MIJSC08hXMMHZkocQDzP8Rq877CbZo5YEM5U/Ds4Yb/X6kyw33mn2YZE&#43;OeRGuddyEUHShzc1mppZcG8ppAE5JWCDpxZMuY4YNjvHyOAIxFrYbQltLybpZ8BLqL6ZJk2bTAfC8WX6a0LPxsUbTTFgeMNKcuJcdJ7qXv2jysmCpc2QY3N5wDC0lTY0Gm&#43;CWnOc/&#43;V3RzJy1Zw5MolimFna7bO&#43;x6k0peGpbToEehfNd/EpLQIfTdaUc&#43;98iRzai7Xjfm0Gl6APvduHnjFtbNXv0C9cgBaXB4I6D8HspUqlLrq6/uUjwPs2XhqgLCSGnNW62/7jVGlK39n5PBq&#43;YTddJkroEMj/OgB4Ngd74EzJaT3c24AzbuZOOzycOEpswlIBekI0qCilNGjtzX/B5gTQoff3nlHwrHnVqq5M0IjIVMSVzlDEM/6S3nFxXXwyP&#43;45Njtg9JUNAJVvFJSgv&#43;2PV/VmC&#43;0JENVi0Btf9Lm6PcbDRlKFHXuEG9fwRtdil7sNlhVsaBGUPaGBf0thtiRjAUhZtbaBImcy4ZumizGgfxGUW6vKbNyyXc8xtSVU6ngA2PqyMo41Qg8m73wlNOqwAmgcnP3kaPTElHdEoBAjUIA3oxEd3eZQMtY79FlettyByGf7s8SrMGqGb0XikKEgaWy/16&#43;QW6WOFp8HLUP/SC1gLnW0hfvlTRYUjfpDB/kv40zCS7ztLWNKhm1KQpbmQE2oencbDdWu4uCGwa4aoIIbXlXNxkV9qnwLJeymp0Y9mk8/JfvMiOKMFNOJIw/m0IruO7dw9ft0c1bmdELmmXmZH8F5C8Szjc4lXLcKStESuiuHxkSmorKDP7jz3qYVxkU3ghuDkqPaTcdCy1loF9DMxWpQgbJcfmSp8qWgtDGJGdfSyJVhB5cx6vlVAmuiLS1fmdsZ2X&#43;fDfHXhUN4gWPPxYotHV&#43;hZLFLgfPPD68fMyAKN2ByntpkTNYrKuOr/IzfPlOx0wMwg7leG40uMgNieB0Cbusgo6HmdtmRD5fFbCd3qcEWenBaOuD7y44EKy&#43;Ump6ev6S3t4&#43;JieM91vKzS6c0axVtmTgRc7aRrSj2CqelhYZMjOSzu3G2xUZNz3vlPt9s71IJsVgxH1zFHdJWJZ082TJ4bl7WT6h8&#43;y4fwphWLAOgGTY512njxXhjedGKQK7gofPf9xyR8u3b7w3ZYroKuIUz9GqADyrMQcudMMuPH/gsuSEbiMswAdGpu//pOhMUC3v4UX071gL49E6XnyBXFxp5KR7Fo5ttU78&#43;HxQV&#43;liM1PJvOUfNlPus5lu6HFKOaszT8MkqEMSq2SJi98J8tiWh4tOtOBkhUyx8PtL/w6GfUK9TZ72BrqUzTG34YAfs7zDzqFKeu5Xmec2v8g9l6G4ByT2S0bPLNSbRIyzaTbyd9MQEp5PYkq61tivxuyQEMfUDrY2TPKpZlvhfWoTSbBryCUPk7dkYHC7R2RDfBxaeQ79sHEGEfIhjZfEsUqHbYfBIlUevjU5WMtw9S2VK0lPw4jEb34wLLXE413zA9N1PqWhMzbo7T9iizvY/&#43;/UI5lYEPZ49oBNoDAVZ/K1qtxPPvu5qRDoGcPyoPPvGxv4rv7Q5E7tQpsusm59hFVifTOqU5nL/Q745yrycWu/8ajjFvcpAizAMRdVgUx26Nfz0xlMVUEywxsUyLKMnsY9rIWHI/HXMVkCJ/99HtUyiA8r291aRZ9LQqNLsNqC8QSI9Pj/T&#43;hEp6E1HHCYsT7HFU3lvREx6a6FGlycl&#43;iU9pXlt6lZnBrzfj2X5raG2oRDyijyW&#43;xHn5pYCI4dd9SDdmw55bD/xsdznxCirw0bKCiLpe/VozZQHnSbhbB1IHWqFVlWyqWSO9xihEFOOMdM/orqrBhr4lwKEMaB61y68f7xsnYIM8qjTBgYzZ3ruqfv/ik6OwEIvWALUP/LFjVFRb78RcpmFu4SkemDDb48cA6GHbUmYFbct83is7yyMr6htjJlIRMvg2vBGteku8pujVsblbvBaDnUNxOmYzg31DQkyE&#43;3&#43;aXKi07PEWPgtGQ2EiZETigB/xODYvpJHzn27vpob52qJv1oEU9U0gTlx7DNO4uFV0xHdvlpoJMiX5yJVm&#43;WJ6XE//MzS3gm&#43;g6QLIrTubBxJLbGj//T4vYpnhmCxLrU1Vkv02VID0x4zFHeVqMveytUBD9hCDNN47r1tN3/VrpybMBxod8gHUjDpMBcPW7ToJ8qvhKXgogDmQHBygLI8t/kg4JRdFMLt9E0UcFtJvxdRZtxcYfB8dLQSqeHU6zQDwPmjZ5CbXdS11GkooOU/nitTmOOrRhq5Bssa8DYPrRWwtHc5XGT5rgBbv1vbDAUYJw8qoUgFAXFIwJX1GGjmcjaGJ9UeDIbhXqpXlb4Z5PHtGBRx64rJo7PNprRe8pAn4Ul3aqhE8fXsca49Jy8rA2Jgvb8QSfsVfpLX3AYP4xKrKF3hFvGWY&#43;Yxt/ceEqwoI3f&#43;aQWbB3H0Jix7QaRy9FB&#43;Ybxszkhzx616DdfdItJTIUIKbC8k&#43;SaiLvsnRF04LpI5cpiniRerYnrj2qCmUnJ9MYEitqeuAgK2puSXoduj3YKyapPaeBzvs6iria1Da3OHFqekgrFnsds&#43;mDqnwj0mY27hJm8hKBQahTqfiGNFXhwJ/7AQOvX6tQE07mpp059XuQknESTXV6bbmzhblTuc0&#43;6XcT8McAjrKn2hzrXK3fFkjTsQdc0pu4&#43;4Hty5L4jAxe/vZk6ibSKcfxcZDY49vOiZmes7pyI5oKhhwe7eYUpPuSCQFGy9LDjrNgIlwaQG5kIBL3lnJdkakNKoZnNSTsJJWvFxuC/lBZ3ZuUeucpsVSL80ybS3Tm3biXXB&#43;uGVHn2IDzveNEcJG4OydrYMUw5oYBI&#43;Fof7BiI7uvYsxscX56iFHxLdwf&#43;j1MfEdD&#43;7m4WkHWjdFydD2cp4yJxS5r2bg6HbZkwchR4w00hYDudNH0VjJv507R/awy2LECYlGpFStDmI8VkP4tlKQvbczzopgVWB6Z2EBSTlQ4Bj6qjId/fs9DMaL9zc23NH8siL5P3C&#43;Wgl&#43;pOreiUQWjBZsJSynotR0ue6rcDOBBQJsiQTuFWCub7/krUKGxHqTPHxuSYLZ2Jff5OkgX0aDd2Mz4VcCIUVKOIc9ZVgRXpuYU9LfwQyFXxDOiGR4D1jMLPGhr7ftvvZM/wEMIawnJZZ4tgKh/NCLGd1sH8OFzrGbog&#43;4ZEZygoL0k&#43;7yKqCnSxy6fvV8b1ySkA0uqqH4POlQoW0b8IIdGDSZj0U4KT8EMVKzjLiCZS3P7kAmPSE1vXGtJGBPtJIcWlkFpJBRVyOzOoC0uYxMd9LfUqz5oJa6XI6tHc5VbI3/K8qV6VYMsheFZa412biTWhRLs&#43;kxUpx0J8K4DpE0V5k7EUThaP3&#43;otZJU94LAsRwAZZyt&#43;99nPmkJayckwmCRcRAYLrqJkIVlLhoLNkdu2valULjYZCHZjCNmMfHr0whw5FFHKd4Nd8h8FiugL8CawNPLLIj9GDGUBvpCuUVaGDlWyuM9ubD2I2mE2vS3gx3lJw3AP5jN/vb4aJS9RMJBV5KdNDEzwrraC7H0ulj&#43;e0MO6i6G5QtsvN1nfF7v1HNQDMRlNvVyE4oVViHbEK9o9cdjDvH69SxoxWDmYHtI3gv6tR3PNzuqSLL2SCr1UNZ3W44KKgcy/GB2C3H0JFxAcxEb0rdaU3lkoS7PFm9QIVzReGnm//qVCo60tVAPg5x82WxqVmCMAYftqDqBBWRjWTrLpJQpkQHWeQQK7b1OHe9XZ4Re1tmnA1OBcZ1RpCdaI7z6WhQDDANXllIBRtmhONrkSNRyIpc0b27TmShyXQZCiopQSxpJibb1W3q/hJedGzMD1PWM70MUeDerhtXMWT8zgu9IomDktuGCNOe&#43;nQ8/XlH3gm3iDd8dAhar8G7utN/nWI9ohXUNf/rhxSYvcHmA1HQXuAHvN6jaTmGHdHBiOnDFJmieuhkzkQ&#43;WxBmiWWlq2b&#43;iJcYTQt6f&#43;8gKcsJtoJ9gA8sSSmy2trkUjM&#43;UlplK8YwG9Rfhy5rITpEPOPcAQ3fmdlI&#43;kbFBDa9YF4K2rdrZZtfbdY85zKu/MXnuU7tp1QV2KN05&#43;x4A9mx8y1PqyU8Ks2aANF3pVKmo2DPSlHLQXUIz5SNjXylrpD&#43;xOOgKlKYoGo5LapYLOMS9zUhfm4jlsvZ8z9pR3TOkCL077VamNQXA7pYjGAg7aMXz0H3wH0vkD4xKTP/tpqB47j1E0&#43;TMymRkkbD/fpg3WUL6Rj&#43;AEC6EL3MNesTSML4b1RIIvBz2gMFnXtl/jAyWGsPncD81VJ/WvtRbpb41AbU9NMPjv&#43;iRCefwn3cyqTijoDxmcO/HZay0VHn9GKvOf/LyYuDXoOvGEwTCP55AuwMHN2frTwCklGKcBjH6JaR/Lv8ar4NWPdAoF95OevwQj0Piz1T9SWRta2aGnC5tsj93lcr61QgAtUMqRNcFGOETfsMKDZACYTFdmknKx16egaBuCtj4fx4krnMqqU&#43;Oi1Jb7ybOIoRaFM2J1tFhaLS0cnf0UnrYz3RQoQW0ho0HvEocogPah0/QgClC8WE/dD4wbKwmD6CtVnKpggxzgtQ0nk132kbTizxAuHJuqdXI3SEUcwyIAU/qdrjBgAHiCGLtrK8pMlGzKxdIax43B8MHL43kbczIGKcREI&#43;8Z6isrBUoK3QIHhUVbe/ocu95LasBwFBCjXxsFksnWCMsLK7ReO1dADcyW/rUnvzS9Jq72dHzmEDwn0Nc6pZn8JM7rtk1L2GHU8RTKy11I6MBGRbc1USprhpnoUHYZzZzRG&#43;/qHIVtg6uhyrNDm6ssW9da43QOEFk271m8n66LFpoHcw7e&#43;hKcasGH3FO3Jx5N2NvtoGljtuzqkiKJ5wmTqt2Ogm7apf4j0NnVGeP3wFK2NXUJ1Lkbl3waRrKdEYaD0x9IPo9x3jDsLfkyq14KcuM3Cy4WczazGM5wrFly&#43;5jewVQsGRljWMWDsS/UuPo0XzS0aPRgpxlHAlAtNGGnRkTO/sbspNiwmzTuK0IBx5VHYYbHhAS/COo3a7otbbjjF2t39Y7PLg31ZTrxI7j6NQ8m9fh5L3des0wo4pXpp12kpIX8SLsabdk4HF3Js&#43;KzV0QM64vw/WbWj0xiNoM/1Os&#43;bE0zGPoRHqoy3EIjlg13CAe6U6n&#43;eGJIyMYeO19/bvY1Jxpj5e5rjritajCjuAxdvHUvA8e4cK&#43;uM47Awz95Hz3ORpRmCqgFTa7qldWkWEMt8/YeA&#43;xSopwyEZ8ZnF/dfvfCcEw&#43;ZZL/UK55uTYVDxBI30zyoQGWZgyYa2jRYuIr8PfF8sjhsSvDgx5h06n/PWLIqLWqPJynzo8tp&#43;5l4GQ0pUl0ISA7uqzn3r2j8n&#43;fW8ESaR1KKKhZwtdzdG/V4OHInqHKQUnei5lhSzPOr8oMHKlB8dFkjsWPnu5wpVlzbj9nMbR61KxhvJVk8XaWghumHMAFTRdQw1VoHsS3uY&#43;wgCIHA&#43;Fk9HhFzrIuIH1m9vIkMpzRpDurkWdktl2zVRaI9zh3w2hZIvuVgpwyBv7NfR1FNn1e&#43;UD8r/hScs0CDz3KfgoLPmPXW7hJOEU5rJi1kb3uOo&#43;uqYYU6EO5abJQ137MdOKsbu0znk0B7cR5o7DKZm0ULiyhZQzXpBSaox5nqx9GzMraLcITTVhLrUH4LUjAj5tyWdD5KE/yxhtH2E3IJI5zOzwRi834ssx5i&#43;ovJzV5961GeWqWiN6ji6qctPJrgTURQ8C/8OcD6owpnHX&#43;PRc3EjwXvpJ4HkqWRYWDlXRqVknHGgmpTXYGGiXxApRtJ9oPcAHipcYzT&#43;6yNakFKMlqQVMXpVI/dVa1xQtVkhrm9jg96V78vLACu&#43;jnNbHOqrfksF1snwATViuAE3vb06Rn/k29tdy4MDv43L2NhOCNXE46wTc0SXUX3oQeNl41CwlxHD/LvxAKGiSdiU&#43;CC5HeWowxJaz&#43;AM4movIv2d/ft47IlD1rRGyEyq1rkB0Igb/6VKxg7g81V1p6rqxN9smfsw3hRw&#43;zUi/pd7d4QFS9NMynl0tyQ&#43;jeCz5iZNtP&#43;1UEERw98HCYr0FDOO/wh9b0E&#43;NHI03bOwjwkNhVG6ay78pBMkiAHOXu1JU6bzlXbyXhWr&#43;Uv6MDUIPifhzgNnJeXJgCIE2qpTO2KW41jPoB1kmN2vI38akAtu90MFyYFtGQxUYn2JVVPWEt4OxS3iMbktsEiCgmv686FvAcK2cIqT3DNY1herEafXjbnirsfQDE8K&#43;IkXkuUyJpieCzNX&#43;zTubFJXuC4b3hwGNr1QxvrVBxuwKEgkwa3g3BJkTWLF04khQYpHqu/Iv7/ioVk/nYNsBL4hLJG2dwVjrn9PJRqG5mNJV8syeIbU6I34QCkZYwga9feHQrO4KIbXthZ0&#43;KePVb4k8TOj&#43;AhXYikRe&#43;lDRy8iQF6HjbKW3xDhDBX8t7WScwLNSjwkmf9tiSHEspf6JYFxMMLDmUyXyTc0i6TpDslik6nB4PCxWJ8l35qHIRxlbkNX9iNdloK/GxT&#43;cLsE4l74geXjDJHiF5&#43;kZFUpbgj/OHytB02FqHqG&#43;/EL8RpvbCtw&#43;XZCJlPvT/Z1&#43;iZ13n86VxA5Mxx2Q16pfghTK&#43;QynLesCTcTa01axm8aG0eB/FLITAtJ/kgKbzg4Y9azvsDPBfoc6AwpmaBY4UbcLkrmuvpPApwMUVDnyP8SM9&#43;EUqlsMYmJT4rfpd15ZGAWlqb5Bc6DarKpRRERFEe&#43;ZT5Kixumxl/rYRBut9m3Vf1JFIG0un3XgVzXPSMHgDnpEL&#43;KYnf8wr7SqJWFLmKJSdC0UsMYlMU2iw2WoDbhvCocOfnoydYReimtMtkZUYFS8R2hTTDAdmS9QZ&#43;QwMURMi9lm6sDyUuvmtywf46N2dEuxdi6CGfMkT1IISVJIEay&#43;v22M&#43;GkLlWP0HjTvt&#43;DMeyI87q5iqKeJAtqNF7J7TTmzIUaZCrAVMq&#43;qmefGDUE2nVbV2QisyF0OHtKqwCYBLenGdWgIC0&#43;3JkLM1LEW2xirbU&#43;KUcazATpleQSAlc7rqtCCD7qdclzlX4&#43;plB4qkLJkol4ZvW6XL98ZQ6P5u5vjqEcNFnORs1x1&#43;q0H0ziLsLcE2qMbs93dC1z3iQEj/y9IOdz92KgRnjQcoRSgOqWatNM9/6ZX/xnTEHjCH/wl5hjafE1FwzLJSEJ7JzhtRq7YLnK5sMMrv6wJNdAtuVELyK4XYaauMU2lA&#43;AUYo8E1AwQ3u9ZZkDD1s6qsF99GSbzVGWDiJWFOcDPHPOmaBNJCd9GroAX1grtiUnd9K4BUG08Y9TsBVQzh1MRRmrd&#43;qa7CWBMriuF8VwTYM1SmzjqGZr9BhZU6G0rX6PgEOt&#43;C12oRWZ681vMg6YjxNw5eNxxJ6UJeV4UhuzFmzj27c46VKG5ea1zCoxXOPAQqiLtJv8xuGaKAtVSGwJaLex041LOpOqgNH/0TUPJb0Pv6HC1NeVC1codKZHVzyqVZvhLrhdVjt6R9yxNbpeCZ/p8Vu857zrsJap27S4puRTN0kxpXvYLbmGA3O9s5zLgj4VjigO3oOQS80ZCU6oioHYVVSYCestvsw3o3i8tSzOTAil3SC6ZRD4E7diqZXAm&#43;LxXZeXPDb44qcTFUTi6T0mSmcL2hDUMA508lseEALwR5f77BRUgWoTd6S3NF52sf2KtLhsITTE4jXkxAVP0JvCTISzG8OUVu2Q4KJfImmeAMGu367JJwiROx0V/p7hUvVEi2juTHtcrvN82EdcDin5CQiyItGnSSqzV03&#43;xD&#43;gnsf0xsmiCjZPdFHiaL/znd1EUrCB7sd5IKLDStjeQ7hKDRKs9zvvZVgCRTBF/52/xPyxqbx0fOogxxFqMACY6yFyDzDVRle8wwFbgURgX&#43;XxdkQj6Euz2eiHiEGsg/6gSo2dH&#43;txbUjTHSyKYP5KiadWEj11dp5nu2Rpx2VAPipFQ&#43;EU4r5TK1p3D7VFamVo&#43;iIPn0EP1TswkJqWAb1I7nMfZlpmjr5TUueh9Ju&#43;dvHK1pOrgpGwkFHmba9AmG7WS1gZ1EHNop1jUQb0MaI6CoKZ4z0yID9&#43;lD&#43;SCYuHuaR4p/MQl8oGZKy0l7lilemtE/1ptQqC/UUzcrNUyX058viVv8Hd1o4FRT&#43;ROjYLOMEysr89VcETe/oivzq9ttaGuenQNJSA5i0n9N0HTw6RTZDknvffGqNTp/unmVlCVNS6a3N8lZQeOZDmAWRZ&#43;aRZv8Gd58A/D/9ZmBZA21&#43;7zVhp1JlxZ7DkbXIQdY5jkiW7d5FNEDlwnKNSDlfrYnmzSEBzKZNPbGetsr0CyIZbE434fCx7do64/0XbFhQIi5Wr&#43;4/lwEJZ2xOq1scdASjcRWUUS9FkfaA3J6gfsin8awf2e5TyxEaJcT2KgNoDpdUVFrKHhyIUnqnMbRJdWugCr/ND5lIFGhRpz5eHm1aD6pRV8mG5/KgxLFPtwVTWtPDVRb2zxgYp&#43;IpS0dBqFuKpgmC3zL5lZ3i&#43;0S9j7DQsHCPE1pegUQUtgfXBSGyWVjWXh4RUERHdWyhOU8Sy&#43;nmkIo8aQjaio9sVU4CA1vGF7qmbqkoh6wFj5o0y5HXt2E72k6h63HcOK/DD6y4xs7VHcN0RbVPx7B1p2Q3SwtEY/tqSNNW1DWblAD1k8M2M99M&#43;T78zAZqKCDBni4BGmTMs714Nf8Oo4XIniOFFYZ6mWgjBpIRirtwOppV14/&#43;beqH7D2b2hmVyaV&#43;p9cGyM7yCDnnpG8ATTfh9MmrFsSmkD69onBkqY4i8p3cnOTtNoP1WdHwXCoiEAQ/u3xGWJ2bDYNXhbuGPEQgf1RBnZhxW1zieG5JrF2t9bFHzwUp0jhvxy7FBBDE1oHTg56vVwsMbDZ5zRcnoNspjyzyxmKsYstBXRa4DZ2YMOmNDlB7xtObaPFPfH/kARvlAgR4EQylsyV4LNDAzuuG0P7KNwa/3AtOIUlSTQex7Pkn/vPzWb6wYQYNSNF63z5PPNKvBWyDGyqKOwqcXccZls347d8K0whejsiOQRW0Mewbd10F4wFUfhlp2yQtpUKJK1W/pripHvba&#43;jcEtZCsJou8KwaxD&#43;Vey8AWecKynnjlp9QkFpDoQip4pQ/7H2aNDxDEiH&#43;BfrDWyrtf6eQ1KGy8k4cNgMy&#43;yU/99qCPMtn89dzqwkCm/gurl05muB0tV8sWMfFlK99j6odgJCwRzxI4pnZru0Wp5sLXC27v3mR&#43;USwvnu3ykChBm6yGg89399IwmVgv5D3OI0rXyX8hryabwF/Zy2md&#43;8ytpSa/PeFpdn8C&#43;6sj7pjTKRMENcjh3cUHVAje2ivnIxQ2T4WFrGVvS9qw9fC58w8ul2hor4XV/9AX/mGwTjdAM1h0XQZN732LH3M4IQ1T/VV3qa0XObdcIB3QTFmR15nRESZmVQ5kcFIpX27UWEQ/INdnTZt0pq1qNWdJiGF78dQkQEmkUeVUfLGM0HyClbSogWJ73XgDgR7eyzjEVAJQvNoYY&#43;upta7JJpT/NGXYu8ZycPLcJVXSxQ="></div>
+<div class="note-container">
+
+    <div class="note">
+        
+        <h1>Google NotebookLM全解析：AI驱动的高效资料管理与知识萃取工具</h1>
+        
+        <p>创建于：2025-12-21 19:50:46</p>
+        <p>标签：
+            
+            
+            <span class="tag">AI链接笔记</span>
+            
+            
+            
+            <span class="tag">Google NotebookLM</span>
+            
+            
+            
+            <span class="tag">AI资料整理工具</span>
+            
+            
+            
+            <span class="tag">RAG技术应用</span>
+            
+            
+        </p>
+        <hr>
+        
+        <div>
+            
+            
+            <div class="attachment">原文：<a href="https://youtu.be/zgWerTIynVA?si=lakutvzRwTTA80EJ" target="_blank">NotebookLM 完整教學！93%的人還不知道的8個隱藏用法，完勝ChatGPT| 分析報告 | 會議記錄 | 自動生成Podcast、教學影片</a></div>
+            
+            
+        </div>
+        
+        <p><h3><strong>🔍 工具核心概述（基础介绍）</strong></h3>
+
+<p><strong>NotebookLM定位</strong><br />
+- <strong>产品属性</strong>：Google旗下<strong>AI驱动的资料处理工具</strong>，非通用大语言模型（区别于ChatGPT/Gemini）。<br />
+- <strong>核心价值</strong>：专为<strong>大规模资料整理</strong>设计，解决会议笔记杂乱、文献学习低效等痛点，<strong>免费可用</strong>（提供付费升级选项）。<br />
+- <strong>目标用户</strong>：学生、教师、上班族等需处理大量信息的群体。</p>
+
+<h3><strong>💡 核心技术原理（底层逻辑）</strong></h3>
+
+<h4><strong>RAG架构解析</strong></h4>
+
+<ul>
+<li><strong>定义</strong>：Retrieval-Augmented Generation（检索增强生成），一种让AI在回答时<strong>引用外部资料</strong>的技术框架。<br />
+</li>
+<li><strong>工作流程</strong>：<br />
+
+
+<ol>
+<li>将用户上传资料拆解为<strong>索引片段</strong>；<br />
+</li>
+<li>用户提问时，系统匹配<strong>高度相关的资料片段</strong>；<br />
+</li>
+<li>结合问题与资料生成回答，并标注<strong>来源出处</strong>，大幅降低AI“幻觉”（虚构信息）风险。<br />
+</li>
+</ol></li>
+<li><strong>典型案例</strong>：若未提供“日本大阪旅游”相关资料，提问时AI会明确表示“无相关信息”，而非虚构内容。</li>
+</ul>
+
+<h3><strong>📊 基础功能与操作（使用入门）</strong></h3>
+
+<h4><strong>(一) 核心能力参数</strong></h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">功能项</th>
+<th align="left">免费版</th>
+<th align="left">付费版</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><strong>资料容量</strong></td>
+<td align="left">单笔记本<strong>50个来源文件</strong></td>
+<td align="left">单笔记本<strong>300个来源文件</strong></td>
+<td align="left">支持PDF、Google文档、YouTube视频（需公开且有字幕）、音档等多格式</td>
+</tr>
+
+<tr>
+<td align="left"><strong>文本处理量</strong></td>
+<td align="left">最高<strong>50万字</strong></td>
+<td align="left">更高容量</td>
+<td align="left">-</td>
+</tr>
+
+<tr>
+<td align="left"><strong>时间序列整理</strong></td>
+<td align="left">✅ 支持按时间排序事件/进度</td>
+<td align="left">✅ 高级排序功能</td>
+<td align="left">适用于历史发展、公司沿革、项目进度等场景</td>
+</tr>
+</tbody>
+</table>
+
+<h4><strong>(二) 基础操作步骤</strong></h4>
+
+<ol>
+<li><strong>新建笔记本</strong>：访问Google搜索“NotebookLM”→登录Google账户→创建新笔记本（按项目/主题分类）。<br />
+</li>
+<li><strong>上传资料</strong>：支持电脑端直接上传文件，或手机端通过“分享”功能导入录音/视频。<br />
+</li>
+<li><strong>生成摘要</strong>：系统自动提取资料重点；若新增资料后摘要未更新，可右键“重新整理所有来源”。<br />
+</li>
+<li><strong>保存关键内容</strong>：对优质回答点击“储存至记事”（默认对话不保存）。</li>
+</ol>
+
+<h3><strong>🚀 八大应用场景与功能特色（深度应用）</strong></h3>
+
+<h4><strong>(一) 学生/教师：考试与教案整理</strong></h4>
+
+<ul>
+<li><strong>应用</strong>：整合考试资料（IPAS AI证照考题、PDF讲义、YouTube教学视频等）生成重点摘要。<br />
+</li>
+<li><strong>进阶功能</strong>：<br />
+
+
+<ul>
+<li><strong>学习卡</strong>：随机抽取资料知识点生成复习题，支持勾选特定资料来源缩小范围。<br />
+</li>
+<li><strong>测验工具</strong>：自动生成考卷，可用于自我检测或教师出题。<br />
+</li>
+</ul></li>
+<li><strong>注意事项</strong>：YouTube视频需有字幕且公开，新发布（3天内）视频可能无法解析。</li>
+</ul>
+
+<h4><strong>(二) 长文/长视频：快速提炼核心信息</strong></h4>
+
+<ul>
+<li><strong>价值</strong>：将万字文献、1小时以上视频浓缩为结构化摘要，避免信息过载。<br />
+</li>
+<li><strong>使用技巧</strong>：若摘要仅截取原文引言，可指令“研讀整篇文件，忽略前面的引言或摘要，重新生成重点”。</li>
+</ul>
+
+<h4><strong>(三) 语音摘要：通勤场景知识吸收</strong></h4>
+
+<ul>
+<li><strong>功能</strong>：将笔记本重点浓缩为<strong>语音文件</strong>，支持调整长度、语言及主持人风格。<br />
+</li>
+<li><strong>应用场景</strong>：上下班途中收听，如学习N8N自动化工具时生成语音版教程。</li>
+</ul>
+
+<h4><strong>(四) 上班族：会议记录智能处理</strong></h4>
+
+<ul>
+<li><strong>手机端操作</strong>：下载NotebookLM→会议时开启录音→结束后分享至NotebookLM→自动生成带日期和主题的会议摘要。<br />
+</li>
+<li><strong>电脑端扩展</strong>：上传历史会议文件，综合分析后提问“会议决议事项”“项目进度”等细节。<br />
+</li>
+<li><strong>隐私提示</strong>：敏感会议建议使用本地AI模型（如后续推荐工具），避免数据上传风险。</li>
+</ul>
+
+<h4><strong>(五) 思维导图：主题研究与创意激发</strong></h4>
+
+<ul>
+<li><strong>功能</strong>：输入资料后生成心智图，按主题大类分区，支持点击展开子议题。<br />
+</li>
+<li><strong>应用</strong>：分析“新世代饮食养生趋势”等议题，延伸研究方向并记录灵感至记事。</li>
+</ul>
+
+<h4><strong>(六) 视频生成：内容创作自动化</strong></h4>
+
+<ul>
+<li><strong>特色</strong>：将资料转为<strong>风格化视频</strong>（如动漫风、专业风），含AI主持人旁白与配图。<br />
+</li>
+<li><strong>创作价值</strong>：适合制作YouTube素材（无需露脸），支持下载视频文件。<br />
+</li>
+<li><strong>未来功能</strong>：国外版已支持“实时打断主持人提问”，台湾地区待更新。</li>
+</ul>
+
+<h4><strong>(七) 个性化知识管理：注入“人类洞察”</strong></h4>
+
+<ul>
+<li><strong>方法</strong>：将个人灵感、补充观点通过“新增记事”加入笔记本，形成融合AI整理与人类思考的<strong>高浓度知识库</strong>。<br />
+</li>
+<li><strong>场景</strong>：适合频繁产生想法的用户，持续迭代某一主题的研究记录。</li>
+</ul>
+
+<h4><strong>(八) 多语言报告生成：跨场景输出</strong></h4>
+
+<ul>
+<li><strong>支持语言</strong>：超过<strong>80种</strong>，含中文、英文、日文、韩文等。<br />
+</li>
+<li><strong>应用场景</strong>：生成学习指南、商业竞争分析、产品说明书等，可分享给团队成员（付费版支持权限设置）。</li>
+</ul>
+
+<h3><strong>⚠️ 注意事项与优化技巧</strong></h3>
+
+<ul>
+<li><strong>资料格式限制</strong>：<br />
+
+
+<ul>
+<li>YouTube视频需<strong>公开且有字幕</strong>，无字幕或私有视频无法解析；<br />
+</li>
+<li>录音文件建议清晰录制，避免背景噪音影响转写 accuracy。<br />
+</li>
+</ul></li>
+<li><strong>摘要精度提升</strong>：<br />
+
+
+<ul>
+<li>指令需明确，如“用表格对比模型差异”“按时间顺序整理事件”；<br />
+</li>
+<li>若摘要重复原文引言，可要求“忽略引言，研讀全文后生成重点”。<br />
+</li>
+</ul></li>
+<li><strong>隐私保护</strong>：公司机密资料建议使用本地离线AI工具（如后续推荐的免上传模型）。</li>
+</ul>
+
+<h3><strong>📝 补充细节</strong></h3>
+
+<ul>
+<li><strong>付费版优势</strong>：除更大资料容量外，支持分享权限管理（如仅允许查看对话，不允许浏览原始文件）。<br />
+</li>
+<li><strong>学习卡灵活性</strong>：可勾选部分资料来源生成针对性复习题，适合分章节备考。<br />
+</li>
+<li><strong>手机端特色</strong>：最新版本支持<strong>语音实时上传</strong>，会议中无需手动记录，专注听讲即可。</li>
+</ul>
+</p>
+        
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initDetailPage);
+</script>
+</body>
+</html>
