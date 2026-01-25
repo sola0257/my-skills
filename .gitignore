@@ -1,0 +1,57 @@
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 临时文件
+.tmp/
+*/tmp/
+*/.tmp/
+*.tmp
+*.temp
+
+# 测试文件
+tests/
+*/tests/
+test_*.py
+test_*.png
+test_*.jpg
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# 环境变量和敏感信息
+.env
+.env.local
+*.key
+*credentials*
+*secret*
+*api_key*
+
+# 日志文件
+*.log
+logs/
+
+# 缓存
+*.cache
+.cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 编辑器备份文件
+*~
+*.swp
+*.swo
+*.bak
+
+# 输出文件（根据需要调整）
+output/
+outputs/
