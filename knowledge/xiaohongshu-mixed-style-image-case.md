@@ -1,9 +1,10 @@
-# 小红书混合风格配图生成案例
+# 小红书混合风格配图生成案例（标准案例）
 
-**案例日期**：2026-01-29
+**案例日期**：2026-01-30
 **案例主题**：多肉养护教程
 **配图数量**：15张（1封面 + 14正文）
-**核心策略**：根据内容类型混用三种风格
+**核心策略**：根据内容类型混用三种风格 + 真实感图片使用 Gemini 直接添加文字
+**案例状态**：✅ **标准案例** - 可作为小红书和公众号图文格式的配图参考
 
 ---
 
@@ -46,34 +47,36 @@
 ### 封面（1张）
 - **cover.png** - dreamy-photo
 - 内容：多肉植物场景，展示健康和问题状态
-- 文字：无
+- 文字：由用户手动添加标题
 
 ### 真实感图片（9张）- dreamy-photo
-1. **01_我的多肉小花园.png** - 场景展示
-2. **03_叶片积水要注意.png** - 细节特写（浇水过多）
-3. **04_这就是烂根的样子.png** - 细节特写（烂根问题）
-4. **06_南向阳台最适合.png** - 场景展示（充足光照）
-5. **07_徒长就是缺光照.png** - 场景展示（光照不足）
-6. **08_晒足太阳就紧凑.png** - 场景展示（健康状态）
-7. **10_园土容易积水.png** - 问题展示（积水问题）
-8. **12_养好多肉的成就感.png** - 场景展示（养护成果）
-9. **14_欢迎评论区交流.png** - 场景展示（互动氛围）
+使用 Gemini 模型生成，文字直接叠加在图片上：
+
+1. **01_我的多肉小花园_真实图.png** - 场景展示，文字位置：左下角
+2. **03_叶片积水要注意_真实图.png** - 细节特写（浇水过多），文字位置：右上角
+3. **04_这就是烂根的样子_真实图.png** - 细节特写（烂根问题），文字位置：左上角
+4. **06_南向阳台最适合_真实图.png** - 场景展示（充足光照），文字位置：右下角
+5. **07_徒长就是缺光照_真实图.png** - 场景展示（光照不足），文字位置：右上角
+6. **08_晒足太阳就紧凑_真实图.png** - 场景展示（健康状态），文字位置：右上角
+7. **10_园土容易积水_真实图.png** - 问题展示（积水问题），文字位置：左上角
+8. **12_养好多肉的成就感_真实图.png** - 场景展示（养护成果），文字位置：下方居中
+9. **14_欢迎评论区交流_真实图.png** - 场景展示（互动氛围），文字位置：右下角
 
 **文字处理**：
-- 图片中无文字
-- 文件名中的中文是具体的、可直接添加到图片上的文字建议
-- 示例："叶片积水要注意" - 可以直接作为图片标注使用
+- 使用 Gemini 模型在生成时直接添加文字
+- 文字风格：自然手写风格，柔和的奶油色或淡玫瑰色
+- 文字融入图片，不突兀，像是自然添加到生活照片上
 
 ### 信息图（3张）- infographic-sketch
-1. **02_健康对比.png** - 对比图
+1. **02_健康对比_信息图.png** - 健康对比图
    - 含中文："健康多肉" vs "徒长多肉"
    - 标注："叶片紧凑""颜色饱满" vs "茎部拉长""叶片稀疏"
 
-2. **09_土壤对比.png** - 对比图
+2. **09_土壤对比_信息图.png** - 土壤对比图
    - 含中文："三种土壤对比"
    - 标注："园土-易积水""泥炭土-保水性好""颗粒土-透气排水"
 
-3. **13_三要素总结.png** - 总结图
+3. **13_三要素总结_信息图.png** - 三要素总结图
    - 含中文："多肉养护三要素"
    - 标注："控水-7-10天一次""光照-每天4小时+""透气土-泥炭+颗粒"
 
@@ -83,11 +86,11 @@
 - 文字必须清晰、锐利、易读
 
 ### 手绘教程（2张）- cozy-sketch
-1. **05_正确浇水.png** - 步骤图
+1. **05_正确浇水_手绘图.png** - 正确浇水步骤图
    - 含中文："正确浇水方式"
    - 标注："浇在土壤上""避免浇到叶片""土干透再浇"
 
-2. **11_配土方法.png** - 步骤图
+2. **11_配土方法_手绘图.png** - 配土方法步骤图
    - 含中文："配土方法"
    - 标注："泥炭土40%""颗粒土60%""1.准备材料 2.混合均匀 3.装盆使用"
 
@@ -100,7 +103,7 @@
 
 ## 🎯 Prompt 模板
 
-### dreamy-photo 模板（真实感）
+### dreamy-photo 模板（真实感 + 文字叠加）
 ```
 A 3:4 photograph in dreamy realistic style.
 Scene: [具体场景描述], authentic home environment, lived-in atmosphere.
@@ -110,8 +113,17 @@ Mood: [情绪关键词], cozy, inviting.
 Color palette: Muted Morandi colors, desaturated tones, cream and sage.
 Color control: Use dusty coral instead of red, muted rose instead of pink, soft terracotta for warm accents.
 Style: Realistic lifestyle photography, soft focus, film-like quality, NOT product photography.
-NO TEXT. NO WORDS. NO LETTERS. NO PEOPLE. NO STUDIO LIGHTING.
+Text overlay: Add Chinese text "[具体中文文字]" in a natural handwritten style, positioned in the [位置], using a soft cream or dusty rose color that complements the image. The text should look like it was naturally added to a lifestyle photo, not like a graphic design element.
+Image size: 1080x1440 pixels (3:4 vertical format).
+NO ENGLISH TEXT. NO PEOPLE. NO STUDIO LIGHTING.
 ```
+
+**文字位置选项**：
+- `upper left corner` - 左上角
+- `upper right corner` - 右上角
+- `lower left corner` - 左下角
+- `lower right corner` - 右下角
+- `lower center` - 下方居中
 
 ### infographic-sketch 模板（信息图）
 ```
@@ -154,17 +166,34 @@ NO ENGLISH TEXT. NO PEOPLE FACES.
 - **总结图** → infographic-sketch（信息整合）
 
 ### 2. 文字处理规则
-- **真实感图片**：
-  - 图片中无文字
-  - 文件名提供具体的、可操作的文字建议
-  - 格式：`序号_具体文字建议.png`
-  - 示例：`03_叶片积水要注意.png`
 
-- **信息图/教程**：
-  - 图片中直接包含中文
-  - 使用清晰的手写风格字体
-  - 必须在 prompt 中明确指定中文内容
-  - 必须强调：`Chinese text must use clear, legible handwritten style font`
+#### 真实感图片（dreamy-photo）
+- **生成方式**：使用 Gemini 模型，在 prompt 中添加文字叠加指令
+- **文字样式**：自然手写风格，柔和的奶油色或淡玫瑰色
+- **文字位置**：根据图片构图合理安排（左上/右上/左下/右下/居中）
+- **命名格式**：`序号_图片上的文字_真实图.png`（如 `01_我的多肉小花园_真实图.png`）
+- **说明**：文件名中的中文说明必须与图片上叠加的文字内容一致
+- **Prompt 示例**：
+  ```
+  Text overlay: Add Chinese text "叶片积水要注意" in a natural handwritten style,
+  positioned in the upper right corner, using a soft cream or dusty rose color that
+  complements the image. The text should look like it was naturally added to a
+  lifestyle photo, not like a graphic design element.
+  ```
+
+#### 信息图（infographic-sketch）
+- **生成方式**：使用 Gemini 模型，在 prompt 中直接包含中文内容
+- **文字样式**：清晰的手写风格字体（类似马克笔或毛笔字）
+- **文字要求**：必须清晰、锐利、易读
+- **命名格式**：`序号_内容描述_信息图.png`（如 `02_健康对比_信息图.png`）
+- **说明**：文件名中的中文说明是图片内容的简短描述
+
+#### 手绘教程（cozy-sketch）
+- **生成方式**：使用 Gemini 模型，在 prompt 中直接包含中文内容
+- **文字样式**：清晰的手写风格字体
+- **文字要求**：必须清晰、锐利、易读
+- **命名格式**：`序号_内容描述_手绘图.png`（如 `05_正确浇水_手绘图.png`）
+- **说明**：文件名中的中文说明是图片内容的简短描述
 
 ### 3. 中文字体标准
 - **可接受的字体效果**：
@@ -213,8 +242,14 @@ NO ENGLISH TEXT. NO PEOPLE FACES.
 
 ## 🔄 可复用性
 
+### 适用平台
+此配图方案适用于：
+- ✅ **小红书**：12-15张配图（1封面 + 11-14正文）
+- ✅ **公众号图文格式**：6张配图（1封面 + 5正文）
+- 两者都是3:4竖版，可使用相同的风格和文字处理方案
+
 ### 适用场景
-此配图方案适用于以下类型的小红书内容：
+此配图方案适用于以下类型的内容：
 - 教程类（养护、DIY、技巧）
 - 避坑类（对比、问题解决）
 - 科普类（知识点、原理说明）
