@@ -1,0 +1,1 @@
+/Users/dj/.claude/hooks/skill-activation-hook.js

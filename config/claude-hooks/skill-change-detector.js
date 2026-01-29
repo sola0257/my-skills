@@ -1,0 +1,1 @@
+/Users/dj/.claude/hooks/skill-change-detector.js

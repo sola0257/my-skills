@@ -1,11 +1,11 @@
 ---
 name: xiaohongshu-content-generator
-description: "Generate Xiaohongshu (Little Red Book) content. v7.0信任型升级版：客观真实的内容策略，建立长期信任。支持双标题系统、违禁词检查、自动封面排版、账号阶段感知、推荐发布时间。"
+description: "Generate Xiaohongshu (Little Red Book) content. v7.1配图优化版：12-15张3:4竖版配图，支持中文文字说明命名。信任型内容策略，建立长期信任。"
 license: MIT
-version: "7.0"
+version: "7.1"
 ---
 
-# 小红书图文内容一键生成器 v7.0（信任型升级版）
+# 小红书图文内容一键生成器 v7.1（配图优化版）
 
 ## 🚨 静默执行协议
 
@@ -143,41 +143,42 @@ version: "7.0"
 
 ### 5. **信任型配图策略**
 
-#### 图片风格要求
+#### [必需] 配图基本要求
 
-**三大核心：**
+**数量**：12-15张（封面1张 + 正文11-14张）
+**尺寸**：1080x1440像素（3:4竖版，小红书推荐）
+**命名**：`序号_建议文字说明.png`（如：`01_浇水过多易烂根.png`）
+**类型**：对比图、步骤图、细节图
 
-1. **真实感强化**
-   - 避免过度美化
-   - 展示真实使用场景
-   - 包含一些"不完美"细节
+⚠️ **强制执行**：
+- 配图数量不得少于12张
+- 配图尺寸必须为3:4竖版
+- 文字说明必须简洁（5-8个字）
 
-2. **专业感提升**
-   - 清晰的技术细节图
-   - 对比展示图
-   - 步骤分解图
+**检查点**：
+- [ ] 配图数量达到12-15张
+- [ ] 所有配图尺寸为1080x1440
+- [ ] 文件命名包含建议文字说明
+- [ ] 包含对比图、步骤图、细节图
 
-3. **客观性体现**
-   - 优缺点对比图
-   - 前后效果对比
-   - 不同方案对比
+#### [必需] 图片生成 Prompt 规则
 
-#### 配图生成 Prompt 升级
+**强制要求**：
+- 尺寸：`3:4 vertical format` 或 `1080x1440 pixels`
+- 文字：`NO TEXT, NO WORDS, NO LETTERS`（默认无文字）
+- 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）
 
-✅ **信任型 Prompt 示例：**
-```
-A realistic home gardening scene showing both success and failure,
-with some plant leaves yellowing and others thriving,
-natural morning light, lived-in atmosphere,
-documentary photography style, authentic home environment,
-muted Morandi color palette, NO TEXT, NO WORDS.
-```
+**风格选择**（根据内容类型）：
+1. **真实感风格**（默认）- 养护教程、对比展示、步骤说明
+2. **绘画风格** - 概念说明、抽象概念、艺术表达
+3. **混合风格** - 需要标注重点时
 
-❌ **避免的 Prompt：**
-```
-Perfect plant arrangement, vibrant colors,
-bright studio lighting, product photography style
-```
+**色彩要求**：
+- 低饱和度、Morandi 色系
+- 避免高饱和度（`bright`, `vivid`, `neon`）
+- 使用替代词（`dusty coral` 代替 `red`，`muted rose` 代替 `pink`）
+
+**详细指南**：参考 `knowledge/image-prompt-guide.md`（包含完整的 prompt 模板、示例、风格选择规则）
 
 ---
 

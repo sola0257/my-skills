@@ -6,22 +6,28 @@ import sys
 import requests
 import base64
 import re
-from cover_generator import CoverGenerator
 
 # API 配置
 YUNWU_API_URL = "https://yunwu.ai/v1/chat/completions"
 YUNWU_API_KEY = "sk-UqMsXIWjukWom3cHPkbf5xBqYrnEJHz3J7cdQQNhkFg974X5"
 YUNWU_MODEL = "gemini-3-pro-image-preview"
 
-def generate_image_yunwu(prompt, output_path):
-    """使用云雾 API 生成图片"""
+def generate_image_yunwu(prompt, output_path, aspect_ratio="3:4"):
+    """使用云雾 API 生成图片
+
+    Args:
+        prompt: 图片生成提示词
+        output_path: 输出路径
+        aspect_ratio: 图片比例，默认3:4（小红书竖版）
+    """
     headers = {
         "Authorization": f"Bearer {YUNWU_API_KEY}",
         "Content-Type": "application/json"
     }
-    
-    # 强制添加中文约束和清晰度要求
-    full_prompt = f"{prompt}\n\nCRITICAL: Use ONLY Chinese characters for ALL text - must be CLEAR and LEGIBLE - Text must NOT be distorted or blurry."
+
+    # 添加尺寸约束
+    size_hint = "Image size: 1080x1440 pixels (3:4 vertical format for Xiaohongshu)." if aspect_ratio == "3:4" else ""
+    full_prompt = f"{prompt}\n\n{size_hint}\n\nCRITICAL: NO TEXT, NO WORDS, NO LETTERS in the image."
 
     payload = {
         "model": YUNWU_MODEL,
@@ -69,48 +75,32 @@ def main():
 
     # 解析数据
     base_dir = data.get("base_dir")
-    visual_title = data.get("visual_title")
-    search_title = data.get("search_title") # 副标题用搜索标题
     prompts = data.get("prompts", {})
-    
+    image_labels = data.get("image_labels", {})  # 中文文字说明
+
     if not base_dir:
         print("❌ base_dir is required")
         sys.exit(1)
-        
+
     os.makedirs(base_dir, exist_ok=True)
-    
-    # 1. 生成封面底图
+
+    # 1. 生成封面（只生成底图，不叠加文字）
     cover_prompt = prompts.get("cover")
     if cover_prompt:
-        base_cover_path = os.path.join(base_dir, "cover_base.png")
-        if generate_image_yunwu(cover_prompt, base_cover_path):
-            # 2. 合成封面 (调用 CoverGenerator)
-            print("🎨 Composing cover with text...")
-            generator = CoverGenerator()
-            final_cover_path = os.path.join(base_dir, "cover_final.png")
-            
-            success = generator.generate(
-                base_image_path=base_cover_path,
-                title=visual_title,
-                subtitle=search_title, # 使用长尾关键词作为副标题
-                output_path=final_cover_path,
-                layout_type="auto"
-            )
-            
-            if success:
-                print(f"✅ Final cover created: {final_cover_path}")
-                # 能够成功合成后，可以选择删除底图，或者保留作为备份
-                # os.remove(base_cover_path) 
-            else:
-                print("❌ Cover composition failed")
-    
-    # 3. 生成其他配图
+        cover_path = os.path.join(base_dir, "cover.png")
+        generate_image_yunwu(cover_prompt, cover_path, aspect_ratio="3:4")
+
+    # 2. 生成配图（支持中文标签命名）
     for key, prompt in prompts.items():
         if key == "cover":
             continue
-        
-        output_path = os.path.join(base_dir, f"{key}.png")
-        generate_image_yunwu(prompt, output_path)
+
+        # 构建文件名：序号_中文标签.png
+        label = image_labels.get(key, "")
+        filename = f"{key}_{label}.png" if label else f"{key}.png"
+
+        output_path = os.path.join(base_dir, filename)
+        generate_image_yunwu(prompt, output_path, aspect_ratio="3:4")
 
     print("\n🎉 All tasks completed!")
 
