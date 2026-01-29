@@ -69,7 +69,7 @@
 
 ## 🎯 解决方案
 
-### 方案 A: 专注 Claude Code（推荐）
+### 方案 A: 专注 Claude Code（(推荐)
 
 **优势**:
 - ✅ Claude Code hooks 已完全部署且可用

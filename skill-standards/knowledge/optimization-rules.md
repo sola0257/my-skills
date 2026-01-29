@@ -247,7 +247,7 @@ def check_token_optimization(content):
 
 ### 引用格式标准
 ```markdown
-# 同目录引用（推荐）
+# 同目录引用（(推荐)
 [文件名](knowledge/filename.md)
 
 # 跨 Skill 引用（必须使用绝对路径）
