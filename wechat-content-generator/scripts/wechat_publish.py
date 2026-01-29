@@ -191,7 +191,7 @@ def extract_summary(markdown_content):
         markdown_content: Markdown内容
 
     Returns:
-        摘要文本
+        摘要文本（≤25字）
     """
     # 查找引用块（> 开头的行）
     quote_pattern = r'^>\s*(.+)$'
@@ -199,9 +199,9 @@ def extract_summary(markdown_content):
 
     if match:
         summary = match.group(1).strip()
-        # 限制120字符
-        if len(summary) > 120:
-            summary = summary[:117] + "..."
+        # 限制25字（微信转发卡片显示要求）
+        if len(summary) > 25:
+            summary = summary[:22] + "..."
         return summary
 
     # 如果没有引用块，提取第一段
@@ -212,8 +212,8 @@ def extract_summary(markdown_content):
             # 移除Markdown格式
             p = re.sub(r'\*\*(.+?)\*\*', r'\1', p)
             p = re.sub(r'\*(.+?)\*', r'\1', p)
-            if len(p) > 120:
-                p = p[:117] + "..."
+            if len(p) > 25:
+                p = p[:22] + "..."
             return p
 
     return ""
