@@ -1,0 +1,61 @@
+{
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  },
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "sk-7dxTR15blhMNdMeKr8enrDSOCJvkkDPi3REa2RAa58yrQKGp",
+    "ANTHROPIC_BASE_URL": "https://deeprouter.top",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5-20251001-thinking",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-sonnet-4-5-20250929-thinking",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-5-20250929-thinking",
+    "ANTHROPIC_MODEL": "claude-sonnet-4-5-20250929-thinking",
+    "ANTHROPIC_REASONING_MODEL": "claude-sonnet-4-5-20250929-thinking"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "node ~/.claude/hooks/quality-evaluator-hook.js",
+            "type": "command"
+          }
+        ],
+        "matcher": "xiaohongshu-content-generator|wechat-content-generator|video-script-generator"
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "node ~/.claude/hooks/continuous-learning-hook.js",
+            "statusMessage": "保存学习数据",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "async": true,
+            "command": "node ~/.claude/hooks/skill-change-detector.js",
+            "statusMessage": "检测 Skills 更新",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "node ~/.claude/hooks/skill-activation-hook.js",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  }
+}
