@@ -158,12 +158,12 @@ AI 在执行 Skill 时可能会：
 ```markdown
 ## 内容生成强制规则
 
-### 规则：深度内容必须进行网络搜索
+### 规则1：深度内容必须进行网络搜索
 
 **适用范围**：
-- wechat-content-generator
-- xiaohongshu-content-generator
-- video-script-generator
+- `wechat-content-generator`
+- `xiaohongshu-content-generator`
+- `video-script-generator`
 - 所有内容生成类 Skills
 
 **触发条件**：
@@ -174,17 +174,18 @@ AI 在执行 Skill 时可能会：
 - 专业知识分享
 
 **执行流程**：
-1. 识别内容类型
+1. 识别内容类型和字数预期
 2. 判断是否需要网络搜索
-3. 如果需要，必须先执行 WebSearch
-4. 整合网络和本地知识
-5. 生成内容
-6. 归档新知识到本地库
+3. 如果需要，必须先执行 WebSearch 获取权威知识
+4. 搜索本地知识库
+5. 整合网络和本地知识
+6. 生成内容
+7. 归档新知识到本地知识库
 
 **违反此规则的后果**：
-- 内容质量不达标
-- 缺少权威来源
-- 知识库无法扩充
+- 内容质量不达标（缺少权威来源）
+- 知识库无法扩充（无法持续积累）
+- 可能包含过时信息（未获取最新知识）
 ```
 
 #### 2. 添加执行前检查规则
