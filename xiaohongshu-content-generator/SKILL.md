@@ -168,20 +168,7 @@ version: "7.1"
 - 文字：`NO TEXT, NO WORDS, NO LETTERS`（默认无文字）
 - 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）
 
-**风格选择**（根据内容类型）：
-- **可混用风格**：一篇笔记内可使用多种风格，根据内容类型选择
-  1. **真实感风格**（dreamy-photo）- 场景展示、细节特写
-  2. **手绘教程风格**（cozy-sketch）- 步骤说明、方法演示
-  3. **信息图风格**（infographic-sketch）- 对比展示、知识科普
-- **封面风格**：按照通篇主题选择
-- **正文配图**：按照对应段落内容类型选择
-
-**色彩要求**：
-- 低饱和度、Morandi 色系
-- 避免高饱和度（`bright`, `vivid`, `neon`）
-- 使用替代词（`dusty coral` 代替 `red`，`muted rose` 代替 `pink`）
-
-**详细指南**：参考 `knowledge/image-prompt-guide.md`（包含完整的 prompt 模板、示例、风格选择规则）
+**详细指南**：参考 `knowledge/image-prompt-guide.md`（包含完整的 prompt 模板、示例、风格选择规则、色彩要求）
 
 ---
 
