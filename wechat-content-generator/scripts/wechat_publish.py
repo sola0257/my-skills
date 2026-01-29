@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-微信公众号内容推送脚本 v2.0
+微信公众号内容推送脚本 v3.0
 功能：将Markdown文档转换为HTML并推送到公众号草稿箱
+
+v3.0 更新 (2026-01-30):
+- 图片处理策略优化：
+  * 封面图：使用图床（API 数据库字段限制）
+  * 正文图片：优先 Base64 嵌入（≤2MB），过大则用图床
+- 优势：减少外部依赖，提高推送可靠性
 """
 
 import os
@@ -10,6 +16,7 @@ import sys
 import json
 import requests
 import re
+import base64
 from datetime import datetime
 from pathlib import Path
 
@@ -22,14 +29,73 @@ SERVICE_API_KEY = "xhs_1a04cc8001bc87b37cc032bdde2517b0"
 SUBSCRIPTION_APPID = "wxfb77628a184ae198"  # 静待花开 慢养四季（订阅号）
 SERVICE_APPID = "wx86ea292c58e761ad"  # 慢养四季（服务号）
 
-# ImgBB图床配置
+# ImgBB图床配置（备用方案）
 IMGBB_API_KEY = "392e09c3d61043f9de6371365696ee56"
 IMGBB_UPLOAD_URL = "https://api.imgbb.com/1/upload"
+
+# 图片大小阈值（2MB）
+MAX_BASE64_SIZE = 2 * 1024 * 1024  # 2MB
+
+
+def get_image_mime_type(image_path):
+    """
+    根据文件扩展名获取MIME类型
+
+    Args:
+        image_path: 图片文件路径
+
+    Returns:
+        MIME类型字符串
+    """
+    ext = os.path.splitext(image_path)[1].lower()
+    mime_types = {
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.png': 'image/png',
+        '.gif': 'image/gif',
+        '.webp': 'image/webp'
+    }
+    return mime_types.get(ext, 'image/jpeg')
+
+
+def image_to_base64_data_uri(image_path):
+    """
+    将图片转换为 Base64 Data URI
+
+    Args:
+        image_path: 图片文件路径
+
+    Returns:
+        Base64 Data URI 字符串，失败返回 None
+    """
+    try:
+        with open(image_path, 'rb') as f:
+            image_data = f.read()
+
+        # 获取文件大小
+        file_size = len(image_data)
+
+        # 如果文件过大，返回 None（将使用图床）
+        if file_size > MAX_BASE64_SIZE:
+            print(f"⚠️  图片过大 ({file_size / 1024 / 1024:.2f}MB)，将使用图床: {os.path.basename(image_path)}")
+            return None
+
+        # 转换为 Base64
+        image_base64 = base64.b64encode(image_data).decode('utf-8')
+        mime_type = get_image_mime_type(image_path)
+        data_uri = f"data:{mime_type};base64,{image_base64}"
+
+        print(f"✅ Base64 嵌入成功 ({file_size / 1024:.1f}KB): {os.path.basename(image_path)}")
+        return data_uri
+
+    except Exception as e:
+        print(f"❌ Base64 转换失败: {e}")
+        return None
 
 
 def upload_image_to_imgbb(image_path):
     """
-    上传图片到ImgBB图床
+    上传图片到ImgBB图床（备用方案）
 
     Args:
         image_path: 图片文件路径
@@ -41,7 +107,6 @@ def upload_image_to_imgbb(image_path):
         with open(image_path, 'rb') as f:
             image_data = f.read()
 
-        import base64
         image_base64 = base64.b64encode(image_data).decode('utf-8')
 
         response = requests.post(
@@ -56,20 +121,24 @@ def upload_image_to_imgbb(image_path):
         result = response.json()
         if result.get('success'):
             url = result['data']['url']
-            print(f"✅ 图片上传成功: {os.path.basename(image_path)}")
+            print(f"✅ 图床上传成功: {os.path.basename(image_path)}")
             return url
         else:
-            print(f"❌ 图片上传失败: {result.get('error', {}).get('message', '未知错误')}")
+            print(f"❌ 图床上传失败: {result.get('error', {}).get('message', '未知错误')}")
             return None
 
     except Exception as e:
-        print(f"❌ 图片上传异常: {e}")
+        print(f"❌ 图床上传异常: {e}")
         return None
 
 
 def process_markdown_images(markdown_content, image_folder):
     """
-    处理Markdown中的图片：上传到图床并替换链接
+    处理Markdown中的图片
+
+    策略（v3.0 优化）：
+    1. 封面图：必须使用图床（API 数据库字段有长度限制）
+    2. 正文图片：优先 Base64 嵌入（≤2MB），过大则用图床
 
     Args:
         markdown_content: Markdown内容
@@ -89,21 +158,27 @@ def process_markdown_images(markdown_content, image_folder):
         image_path = os.path.join(image_folder, image_file)
 
         if os.path.exists(image_path):
-            # 上传图片
-            image_url = upload_image_to_imgbb(image_path)
+            # 第一张图是封面，必须使用图床（API 限制）
+            if i == 0:
+                print(f"📸 封面图使用图床: {os.path.basename(image_path)}")
+                image_uri = upload_image_to_imgbb(image_path)
+                if image_uri:
+                    cover_image_url = image_uri
+            else:
+                # 正文图片：尝试 Base64，失败则用图床
+                image_uri = image_to_base64_data_uri(image_path)
+                if not image_uri:
+                    print(f"📤 使用图床备用方案: {os.path.basename(image_path)}")
+                    image_uri = upload_image_to_imgbb(image_path)
 
-            if image_url:
+            if image_uri:
                 # 替换图片链接
                 processed_content = processed_content.replace(
                     f'![{alt_text}]({image_file})',
-                    f'![{alt_text}]({image_url})'
+                    f'![{alt_text}]({image_uri})'
                 )
-
-                # 第一张图作为封面
-                if i == 0 and not cover_image_url:
-                    cover_image_url = image_url
         else:
-            print(f"⚠️ 图片文件不存在: {image_path}")
+            print(f"⚠️  图片文件不存在: {image_path}")
 
     return processed_content, cover_image_url
 
@@ -152,7 +227,7 @@ def push_to_wechat_draft(title, content, summary, cover_image, account_type='sub
         title: 文章标题
         content: Markdown内容
         summary: 文章摘要
-        cover_image: 封面图URL
+        cover_image: 封面图URL或Data URI
         account_type: 账号类型 ('subscription' 或 'service')
 
     Returns:
@@ -240,10 +315,11 @@ def main(markdown_file, account_type='subscription'):
 
     # 处理图片
     print("🖼️  处理图片...")
+    print("📋 策略: 封面用图床 + 正文用Base64（≤2MB）\n")
     processed_content, cover_image = process_markdown_images(markdown_content, image_folder)
 
     # 提取摘要
-    print("📝 提取摘要...")
+    print("\n📝 提取摘要...")
     summary = extract_summary(markdown_content)
     print(f"   摘要: {summary}")
 
