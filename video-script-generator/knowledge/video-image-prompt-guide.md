@@ -1,8 +1,17 @@
-# 视频脚本配图生成指南 v1.0
+# 视频脚本配图生成指南 v2.0
 
-**版本**：v1.0
+**版本**：v2.0
 **创建日期**：2026-01-29
+**最后更新**：2026-01-29
 **用途**：为视频脚本生成提供详细的配图规范和 prompt 模板
+
+> 💡 **新增**：查看 [成功案例库](../../knowledge/image-generation-successful-cases.md) 获取经过验证的 prompt 模板（优先参考视频脚本平台案例）
+>
+> 🎉 **v2.0 重大更新**：
+> - 新增视频配图审美调性章节
+> - 新增颜色控制规则（参考微信和小红书规范）
+> - 新增真实感强制要求
+> - 新增健康与真实的平衡指导
 
 ---
 
@@ -55,6 +64,99 @@
 **默认**：如果用户未指定平台，生成3:4竖版（适配小红书/视频号）
 
 **多平台**：如果需要全平台发布，优先生成9:16竖版（可裁剪为3:4）
+
+---
+
+## 🎨 视频配图审美调性（核心约束）
+
+> ⚠️ **这是所有配图生成的前置约束，必须优先于其他规则执行！**
+
+### 真实感强制要求
+
+**视频配图追求的是真实、自然、有生活气息**，而非完美的产品展示图。
+
+#### ✅ 必须包含的约束词
+
+**每个 Prompt 必须包含以下真实感约束之一：**
+
+```
+# 真实感约束（选择1-2个添加到每个 Prompt）
+- "authentic home environment"
+- "lived-in atmosphere"
+- "natural imperfections"
+- "realistic indoor lighting"
+- "lifestyle photography feel"
+- "not a studio shot"
+```
+
+**每个 Prompt 必须包含以下颜色约束：**
+
+```
+# 颜色约束（必须添加）
+- "desaturated color palette"
+- "muted tones throughout"
+- "low saturation, natural aesthetic"
+- "Morandi color scheme"
+```
+
+### 🎨 颜色控制规则（必须严格遵守）
+
+#### ✅ 正确的颜色表达
+
+| 原始颜色 | 视频配图替换词 | 说明 |
+|---------|---------------|------|
+| 红色 | `dusty coral`, `muted rose`, `terracotta red` | 避免正红色 |
+| 粉色 | `blush pink`, `dusty pink`, `muted salmon` | 避免荧光粉 |
+| 橙色 | `burnt sienna`, `muted peach`, `soft terracotta` | 避免鲜橙色 |
+| 黄色 | `cream yellow`, `muted gold`, `soft honey` | 避免亮黄色 |
+| 绿色 | `sage green`, `eucalyptus`, `muted olive` | 避免荧光绿 |
+
+#### ❌ 禁止的颜色表达
+
+```
+禁止词汇（会导致高饱和度/假感）：
+- bright red, vivid red, pure red
+- hot pink, neon pink, fuchsia
+- bright orange, vivid yellow
+- neon green, lime green
+- any "bright", "vivid", "neon", "pure" color descriptors
+```
+
+### 📸 健康与真实的平衡
+
+**关键原则**：真实感 ≠ 不健康，避免完美 ≠ 要有缺陷
+
+#### ✅ 正确的描述
+
+```
+# 植物/物品描述
+- "healthy [object] with natural growth pattern"
+- "vibrant but not artificial"
+- "natural bloom with organic arrangement"
+- "realistic but well-maintained"
+```
+
+#### ❌ 避免的描述
+
+```
+# 导致过于完美
+- "elegant", "perfect", "flawless"
+- "multiple perfect blooms"
+
+# 导致不健康外观
+- "natural imperfections", "aging", "wilted"
+- "NOT perfect specimen"
+```
+
+### 🚫 强制排除项
+
+**每个 Prompt 必须包含以下排除项：**
+
+```
+NO TEXT. NO WORDS. NO LETTERS. NO PEOPLE.
+NO STUDIO LIGHTING. NO BRIGHT COLORS.
+NOT product photography. NOT artificially perfect.
+```
 
 ---
 
