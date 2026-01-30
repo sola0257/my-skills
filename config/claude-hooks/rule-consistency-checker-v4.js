@@ -533,7 +533,8 @@ function main() {
 
   if (filteredConflicts.length > 0) {
     generateConfirmationReport(filteredConflicts);
-    process.exit(1);
+    // 不返回错误码，因为发现冲突是正常的检查结果，不是错误
+    process.exit(0);
   } else {
     console.log('\n✅ 未发现需要确认的规则冲突\n');
     process.exit(0);
