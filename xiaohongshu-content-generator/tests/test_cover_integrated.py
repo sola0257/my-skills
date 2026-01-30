@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+import requests
+import base64
+import os
+import re
+
+def generate_image_yunwu(prompt: str, output_path: str):
+    """使用云雾 API 生成图片"""
+    url = "https://yunwu.ai/v1/chat/completions"
+
+    headers = {
+        "Authorization": "Bearer sk-UqMsXIWjukWom3cHPkbf5xBqYrnEJHz3J7cdQQNhkFg974X5",
+        "Content-Type": "application/json"
+    }
+
+    payload = {
+        "model": "gemini-3-pro-image-preview",
+        "messages": [
+            {"role": "user", "content": prompt}
+        ]
+    }
+
+    try:
+        print(f"🎨 生成图片中...")
+        response = requests.post(url, headers=headers, json=payload, timeout=120)
+        response.raise_for_status()
+
+        result = response.json()
+        content = result["choices"][0]["message"]["content"]
+
+        match = re.search(r"data:image/\w+;base64,([^)]+)", content)
+        if not match:
+            print("❌ 未能在响应中找到图片数据")
+            return False
+
+        image_data = match.group(1)
+
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with open(output_path, "wb") as f:
+            f.write(base64.b64decode(image_data))
+
+        print(f"✅ 图片已保存: {os.path.basename(output_path)}")
+        return True
+
+    except Exception as e:
+        print(f"❌ 图片生成失败: {e}")
+        return False
+
+# 优化后的封面图 prompt - 文字与画面融合
+cover_prompt = """A 3:4 photograph in dreamy realistic style with integrated Chinese text.
+Scene: Bright living room corner with various green plants on wooden shelves and floor, spring sunlight streaming through sheer curtains.
+Lighting: Soft natural light, warm golden hour glow, gentle shadows.
+Details: Mix of pothos, monstera, and small succulents in ceramic pots, wooden furniture, cream walls, cozy atmosphere.
+Mood: Fresh, peaceful, spring renewal, natural living.
+Color palette: Muted Morandi colors, low saturation, cream, sage green, warm wood tones.
+Style: Realistic photography with soft focus, film-like quality, Instagram aesthetic.
+Text integration: "绿植这样摆 家秒变春天" in elegant Chinese calligraphy or serif font, naturally integrated into the composition. Text should have soft edges, subtle transparency (80-90% opacity), and color that harmonizes with the image palette (cream, sage, or muted earth tones). Position text where it feels organic to the scene, with gentle spacing and flow. The text should feel like part of the dreamy atmosphere, not a graphic overlay."""
+
+output_path = "/Users/dj/Documents/slowseasons AI工厂/内容发布/发布记录/2026/小红书/2026-01-13_春日居家绿植装饰/春日居家绿植装饰_封面_v3.png"
+
+print("📸 生成优化后的封面图（文字融合版）...")
+generate_image_yunwu(cover_prompt, output_path)
+print("\n✅ 测试完成！")

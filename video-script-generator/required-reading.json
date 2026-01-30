@@ -1,0 +1,17 @@
+{
+  "skill": "video-script-generator",
+  "required_before_execution": [
+    {
+      "file": "knowledge/video-image-prompt-guide.md",
+      "reason": "视频配图规范"
+    },
+    {
+      "file": "../_global_config/content-value-checklist.md",
+      "reason": "内容价值自检"
+    },
+    {
+      "file": "../_global_config/unified-content-workflow.md",
+      "reason": "统一内容生成工作流"
+    }
+  ]
+}

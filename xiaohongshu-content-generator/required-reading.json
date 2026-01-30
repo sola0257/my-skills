@@ -1,0 +1,21 @@
+{
+  "skill": "xiaohongshu-content-generator",
+  "required_before_execution": [
+    {
+      "file": "knowledge/image-prompt-guide.md",
+      "reason": "配图规范和风格选择"
+    },
+    {
+      "file": "knowledge/xiaohongshu-mixed-style-image-case.md",
+      "reason": "成功案例参考"
+    },
+    {
+      "file": "../_global_config/content-value-checklist.md",
+      "reason": "内容价值自检"
+    },
+    {
+      "file": "../_global_config/unified-content-workflow.md",
+      "reason": "统一内容生成工作流"
+    }
+  ]
+}

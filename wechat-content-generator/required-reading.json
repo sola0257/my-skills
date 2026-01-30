@@ -1,0 +1,17 @@
+{
+  "skill": "wechat-content-generator",
+  "required_before_execution": [
+    {
+      "file": "knowledge/wechat-image-prompt-guide.md",
+      "reason": "微信配图规范"
+    },
+    {
+      "file": "../_global_config/content-value-checklist.md",
+      "reason": "内容价值自检"
+    },
+    {
+      "file": "../_global_config/unified-content-workflow.md",
+      "reason": "统一内容生成工作流"
+    }
+  ]
+}
