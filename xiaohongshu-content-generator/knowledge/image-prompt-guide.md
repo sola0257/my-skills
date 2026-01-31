@@ -1,9 +1,68 @@
-# 小红书配图生成指南 v4.2
+# 小红书配图生成指南 v4.3
 
 > 本文档是小红书配图生成的**唯一规范**，定义工具选择、风格模板和 Prompt 结构。
 > **核心原则**（v4.1更新）：可混用风格，根据内容类型（对比图、步骤图、细节图、场景图）选择最适合的风格。封面按通篇风格，正文按段落内容。
 >
-> 💡 **新增**：查看 [成功案例库](../../knowledge/image-generation-successful-cases.md) 获取经过验证的 prompt 模板（优先参考小红书平台案例）
+> 💡 **新增**：查看 [成功案例库](../../knowledge/xiaohongshu-mixed-style-image-case.md) 获取经过验证的 prompt 模板（优先参考小红书平台案例）
+
+---
+
+## 🚨 强制执行流程（必须按顺序执行）
+
+**每次生成配图 prompt 时，必须按照以下顺序执行，不得跳过或改变顺序**：
+
+### Step 1: 读取正面案例库（强制）
+```
+路径：/Users/dj/Desktop/小静的skills/knowledge/xiaohongshu-mixed-style-image-case.md
+目的：学习正确的 prompt 结构和写法
+重点关注：
+- 文字叠加的 prompt 写法（Text overlay 指令）
+- 中文内容的处理方式
+- 命名规范
+- 风格选择逻辑
+```
+
+### Step 2: 读取反面案例库（强制）
+```
+路径：/Users/dj/Desktop/小静的skills/knowledge/image-generation-cases/anti-patterns.md
+目的：了解坚决不要生成的错误效果
+重点关注：
+- 英文标注问题
+- AI感太重的问题
+- 逻辑错误的问题
+- 家居风格破旧的问题
+```
+
+### Step 3: 读取封面设计分类指南（强制，如果生成封面）
+```
+路径：/Users/dj/Desktop/小静的skills/xiaohongshu-content-generator/knowledge/cover-design-guide.md
+目的：根据内容类型选择合适的封面结构
+重点关注：
+- 5种封面类型（新手求生、懒人省心、颜值正义、稀有猎奇、统一风格）
+- 封面类型选择决策树
+- 每种类型的 prompt 模板
+```
+
+### Step 4: 生成 prompt（按照模板）
+```
+- 封面：根据内容类型选择对应的封面类型和模板
+- 正文：根据内容类型选择对应的风格模板
+确保包含所有强制约束
+```
+
+### Step 5: 执行检查清单（强制）
+```
+使用本文档中的"Prompt 生成检查清单"（15项）
+逐一检查每个 prompt
+发现问题立即修正
+```
+
+**⚠️ 重要**：
+- 这个流程是**强制的**，不是可选的
+- 必须按照 Step 1 → Step 2 → Step 3 → Step 4 → Step 5 的顺序执行
+- 不得跳过任何一步
+- 不得改变执行顺序
+- 如果跳过任何一步，生成的 prompt 将不符合规范
 
 ---
 
@@ -57,6 +116,7 @@
 - "realistic indoor lighting"
 - "lifestyle photography feel"
 - "not a studio shot"
+- "NOT overly stylized AI art"
 ```
 
 **每个 Prompt 必须包含以下颜色约束：**
@@ -67,6 +127,26 @@
 - "muted tones throughout"
 - "low saturation, high-end aesthetic"
 - "Morandi color scheme"
+```
+
+**每个 Prompt 必须包含现代家居风格约束：**
+
+```
+# 现代家居风格约束（必须添加）
+- "modern home aesthetic"
+- "clean and well-maintained interior"
+- "NOT old or worn-out interior"
+- "contemporary living space"
+```
+
+**每个 Prompt 必须确保逻辑合理性：**
+
+```
+# 逻辑合理性约束（必须检查）
+- 如果展示植物的某个部分（如根、叶），植物本体必须可见
+- 内容必须与主题直接相关
+- 场景细节必须合理（如地板无异常脚印、家具摆放合理）
+- 对比图的对比点必须清晰、准确
 ```
 
 ### 🚫 反例 Prompt（必须避免）
@@ -132,11 +212,38 @@ NO TEXT. NO WORDS. NO PEOPLE.
 
 每个 Prompt 生成后，必须检查：
 
+**基础约束**：
 - [ ] 是否包含饱和度控制词（`muted`, `desaturated`, `dusty`）？
 - [ ] 是否避免了禁止词汇（`bright`, `vivid`, `neon`）？
 - [ ] 是否包含真实感约束（`lived-in`, `natural light`）？
 - [ ] 是否有生活化场景（不是纯白背景/棚拍）？
 - [ ] 红色系是否使用替代词（`dusty coral`, `terracotta`）？
+
+**强制约束**：
+- [ ] **是否包含 `NO ENGLISH TEXT` 约束？**（强制）
+- [ ] **是否包含 `NO PEOPLE` 约束？**（如果不需要人物）
+- [ ] **是否包含 `NO STUDIO LIGHTING` 约束？**（真实感要求）
+- [ ] **是否包含现代家居风格约束？**（`modern home aesthetic`, `clean and well-maintained interior`, `NOT old or worn-out interior`）
+- [ ] **是否包含 `NOT overly stylized AI art` 约束？**（减少AI感）
+
+**内容逻辑**：
+- [ ] **信息图/手绘图的中文内容是否直接写在 prompt 中？**（不能只写英文描述）
+- [ ] **内容是否与主题直接相关？**（如"光照管理"必须展示植物与光照的关系）
+- [ ] **如果展示植物的某个部分（如根、叶），植物本体是否可见？**（避免只看到局部）
+- [ ] **对比图的对比点是否准确？**（如"风格搭配"不是"位置选择"）
+- [ ] **场景细节是否合理？**（如地板无异常脚印、家具摆放合理）
+
+**命名规范**：
+- [ ] **文件命名是否符合规范？**（`序号_中文说明_风格标识.png`）
+
+**⚠️ 特别注意**：
+- 信息图和手绘图的 prompt 中，描述对比内容时，应使用简洁英文或直接用中文
+- 例如：`Left side: 多种颜色的花挤在一起，杂乱无章` 而不是 `Left side: Too many different colorful flowers crowded together`
+- **不要限制"多种颜色的花"这种描述**，因为对比图需要表现杂乱感，这是合理的
+
+**反面案例参考**：
+- 详见：`/Users/dj/Desktop/小静的skills/knowledge/image-generation-cases/anti-patterns.md`
+- 包含坚决不要生成的错误效果示例
 
 ---
 
@@ -252,7 +359,7 @@ def select_tool(topic_title):
 - 莫兰迪色系、低饱和度
 - 有温度的生活场景
 
-**Prompt 模板**：
+**Prompt 模板（无文字版本）**：
 ```
 A 3:4 photograph in dreamy realistic style.
 Scene: [具体场景描述], authentic home environment, lived-in atmosphere.
@@ -262,8 +369,42 @@ Mood: [情绪关键词], cozy, inviting.
 Color palette: Muted Morandi colors, desaturated tones, cream and sage.
 Color control: Use dusty coral instead of red, muted rose instead of pink, soft terracotta for warm accents.
 Style: Realistic lifestyle photography, soft focus, film-like quality, NOT product photography.
-NO TEXT. NO WORDS. NO LETTERS. NO PEOPLE. NO STUDIO LIGHTING.
+Image size: 1080x1440 pixels (3:4 vertical format).
+NO TEXT. NO WORDS. NO LETTERS. NO ENGLISH TEXT. NO PEOPLE. NO STUDIO LIGHTING.
 ```
+
+**Prompt 模板（文字叠加版本）**：
+```
+A 3:4 photograph in dreamy realistic style.
+Scene: [具体场景描述], authentic home environment, lived-in atmosphere.
+Lighting: Soft natural window light, warm golden hour glow, gentle shadows.
+Details: [场景细节元素]
+Mood: [情绪关键词], cozy, inviting.
+Color palette: Muted Morandi colors, desaturated tones, cream and sage.
+Color control: Use dusty coral instead of red, muted rose instead of pink, soft terracotta for warm accents.
+Style: Realistic lifestyle photography, soft focus, film-like quality, NOT product photography.
+Text overlay: Add Chinese text "[具体中文文字]" in a natural handwritten style, positioned in the [位置], using a soft cream or dusty rose color that complements the image. The text should look like it was naturally added to a lifestyle photo, not like a graphic design element.
+Image size: 1080x1440 pixels (3:4 vertical format).
+NO ENGLISH TEXT. NO PEOPLE. NO STUDIO LIGHTING.
+```
+
+**⚠️ 强制约束（每个 prompt 必须包含）**：
+- `NO ENGLISH TEXT` - 禁止任何英文文字
+- `NO PEOPLE` - 禁止人物（如果不需要人物）
+- `NO STUDIO LIGHTING` - 禁止棚拍光线
+
+**文字位置选项**：
+- `upper left corner` - 左上角
+- `upper right corner` - 右上角
+- `lower left corner` - 左下角
+- `lower right corner` - 右下角
+- `lower center` - 下方居中
+
+**文字处理规则**：
+- 使用 Gemini 模型在生成时直接添加文字
+- 文字风格：自然手写风格，柔和的奶油色或淡玫瑰色
+- 文字融入图片，不突兀，像是自然添加到生活照片上
+- 命名格式：`序号_图片上的文字_真实图.png`（中文说明必须与图片上叠加的文字内容一致）
 
 ---
 
@@ -281,12 +422,26 @@ NO TEXT. NO WORDS. NO LETTERS. NO PEOPLE. NO STUDIO LIGHTING.
 ```
 A 3:4 illustration in hand-drawn sketch style.
 Subject: [主题内容]
+Title: "[中文标题]" in clear handwritten Chinese font.
 Details: Pencil line drawings with soft watercolor washes, notebook paper texture.
 Elements: [具体元素]
-Annotations: Include simple Chinese text labels for key points.
+Annotations: Include Chinese text "[具体说明]" in neat handwriting.
 Color palette: Muted beige, dusty rose, sage green watercolor accents.
-Style: Cozy sketchbook aesthetic, natural imperfect lines.
+Style: Cozy sketchbook aesthetic, educational, natural imperfect lines.
+Chinese text must use clear, legible handwritten style font similar to marker or brush pen writing.
+NO ENGLISH TEXT. NO PEOPLE FACES.
 ```
+
+**⚠️ 强制约束（每个 prompt 必须包含）**：
+- `NO ENGLISH TEXT` - 禁止任何英文文字
+- `Chinese text must use clear, legible handwritten style font` - 中文必须清晰可读
+- **重要**：prompt 中的场景描述也应尽量使用中文或简洁英文，避免复杂英文描述
+
+**文字处理规则**：
+- 图片中直接包含中文说明
+- 使用清晰的手写风格字体（类似马克笔或毛笔字）
+- 文字必须清晰、锐利、易读
+- 命名格式：`序号_内容描述_手绘图.png`（中文说明是图片内容的简短描述）
 
 ---
 
@@ -304,13 +459,27 @@ Style: Cozy sketchbook aesthetic, natural imperfect lines.
 ```
 A 3:4 infographic in hand-drawn sketchnote style.
 Topic: [知识主题]
+Title at top: "[中文标题]" in clear bold handwritten Chinese font.
 Structure: [信息结构描述]
 Visual elements: Icons, simple diagrams, arrows, bullet points.
-Text: Include Chinese labels and brief explanations.
+Text: Include Chinese labels "[具体中文内容]" in clear handwriting.
 Background: Lined notebook paper or clean white.
 Color palette: Functional colors for categorization, yellow highlighter accents, red pen circles.
 Style: Educational sketchnote aesthetic.
+Chinese text must use clear, legible handwritten style font similar to marker or brush pen writing.
+NO ENGLISH TEXT.
 ```
+
+**⚠️ 强制约束（每个 prompt 必须包含）**：
+- `NO ENGLISH TEXT` - 禁止任何英文文字
+- `Chinese text must use clear, legible handwritten style font` - 中文必须清晰可读
+- **重要**：prompt 中描述对比内容时，应使用简洁英文或直接用中文，避免复杂英文句子
+
+**文字处理规则**：
+- 图片中直接包含中文标注
+- 使用清晰的手写风格字体（类似马克笔或毛笔字）
+- 文字必须清晰、锐利、易读
+- 命名格式：`序号_内容描述_信息图.png`（中文说明是图片内容的简短描述）
 
 ---
 
@@ -582,5 +751,117 @@ prompt_3 = f"{base_prompt}, close-up view --seed {seed} --v 6.1 --ar 3:4"
 
 ---
 
+## 📝 第六部分：文字处理完整规范（v4.3新增）
+
+### 核心原则
+
+**根据风格类型选择文字处理方式**：
+- **真实感图片（dreamy-photo）**：使用 Gemini 在生成时直接叠加文字
+- **信息图（infographic-sketch）**：在 prompt 中包含中文内容，生成时直接渲染
+- **手绘教程（cozy-sketch）**：在 prompt 中包含中文内容，生成时直接渲染
+
+### 真实感图片的文字叠加（dreamy-photo）
+
+**生成方式**：使用 Gemini 模型，在 prompt 中添加 `Text overlay` 指令
+
+**Prompt 示例**：
+```
+Text overlay: Add Chinese text "叶片积水要注意" in a natural handwritten style,
+positioned in the upper right corner, using a soft cream or dusty rose color that
+complements the image. The text should look like it was naturally added to a
+lifestyle photo, not like a graphic design element.
+```
+
+**文字样式要求**：
+- 自然手写风格
+- 柔和的奶油色或淡玫瑰色
+- 文字融入图片，不突兀
+- 像是自然添加到生活照片上
+
+**文字位置选项**：
+| 英文表达 | 中文说明 |
+|---------|---------|
+| `upper left corner` | 左上角 |
+| `upper right corner` | 右上角 |
+| `lower left corner` | 左下角 |
+| `lower right corner` | 右下角 |
+| `lower center` | 下方居中 |
+
+**命名规则**：
+- 格式：`序号_图片上的文字_真实图.png`
+- 示例：`01_我的多肉小花园_真实图.png`、`03_叶片积水要注意_真实图.png`
+- **重要**：文件名中的中文说明必须与图片上叠加的文字内容一致
+
+### 信息图的文字处理（infographic-sketch）
+
+**生成方式**：使用 Gemini 模型，在 prompt 中直接包含中文内容
+
+**Prompt 示例**：
+```
+A 3:4 infographic in hand-drawn sketchnote style.
+Topic: 三种土壤对比
+Title at top: "三种土壤对比" in clear bold handwritten Chinese font.
+Text: Include Chinese labels "园土-易积水" "泥炭土-保水性好" "颗粒土-透气排水" in clear handwriting.
+Chinese text must use clear, legible handwritten style font similar to marker or brush pen writing.
+```
+
+**文字样式要求**：
+- 清晰的手写风格字体（类似马克笔或毛笔字）
+- 笔画清晰、易读
+- 必须清晰、锐利、易读
+
+**命名规则**：
+- 格式：`序号_内容描述_信息图.png`
+- 示例：`02_健康对比_信息图.png`、`09_土壤对比_信息图.png`
+- 说明：文件名中的中文说明是图片内容的简短描述
+
+### 手绘教程的文字处理（cozy-sketch）
+
+**生成方式**：使用 Gemini 模型，在 prompt 中直接包含中文内容
+
+**Prompt 示例**：
+```
+A 3:4 illustration in hand-drawn sketch style.
+Subject: 正确浇水方式
+Title: "正确浇水方式" in clear handwritten Chinese font.
+Annotations: Include Chinese text "浇在土壤上" "避免浇到叶片" "土干透再浇" in neat handwriting.
+Chinese text must use clear, legible handwritten style font.
+```
+
+**文字样式要求**：
+- 清晰的手写风格字体
+- 笔画清晰、易读
+- 必须清晰、锐利、易读
+
+**命名规则**：
+- 格式：`序号_内容描述_手绘图.png`
+- 示例：`05_正确浇水_手绘图.png`、`11_配土方法_手绘图.png`
+- 说明：文件名中的中文说明是图片内容的简短描述
+
+### 中文字体标准
+
+**可接受的字体效果**：
+- 清晰的手写风格
+- 类似马克笔或毛笔字
+- 笔画清晰、易读
+- 参考案例库中的成功案例
+
+**需要避免的字体效果**：
+- 模糊不清
+- 笔画断裂
+- 过于潦草
+- 难以辨认
+
+### 完整案例参考
+
+详细的配图案例和 prompt 模板，请参考：
+- **标准案例库**：`/Users/dj/Desktop/小静的skills/knowledge/xiaohongshu-mixed-style-image-case.md`
+- 包含15张配图的完整案例
+- 包含真实感图片的文字叠加示例
+- 包含信息图和手绘图的中文处理示例
+
+---
+
+*v4.3 更新：2026-01-31 - 新增文字处理完整规范，整合案例库中的详细要求*
 *v4.1 更新：2026-01-29 - 更新风格策略，支持单篇笔记内混用风格，根据内容类型选择最适合的风格*
 *v4.0 更新：2026-01-14 - 整合工具选择决策树，统一 Gemini 和 Midjourney 模板*
