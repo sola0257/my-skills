@@ -1,4 +1,4 @@
-# 微信公众号配图生成指南 v1.3
+# 微信公众号配图生成指南 v2.0
 
 > ⚠️ **重要**：本文档是微信公众号配图的**唯一规范**。
 >
@@ -12,13 +12,41 @@
 
 | 格式 | 触发词 | 封面图比例 | 正文配图比例 | 配图数量 |
 |-----|-------|-----------|------------|---------|
-| **长文** (article) | "公众号长文"、"订阅号长文" | 2.35:1 (900×383px) | 16:9 (900×506px) | 1封面 + 3正文 |
+| **长文** (article) | "公众号长文"、"订阅号长文" | 2.35:1 (900×383px) | 16:9 (900×506px) | 1封面 + N正文（N=知识点数量） |
 | **图文** (card) | "公众号图文"、"订阅号图文" | 3:4 (1080×1440px) | 3:4 (1080×1440px) | 1封面 + 5正文 |
 
 > [!IMPORTANT]
 > **默认格式**：未指定时默认生成**长文**（横版）
 >
 > **图文格式**：使用小红书的 [image-prompt-guide.md](file:///Users/dj/Desktop/%E5%B0%8F%E9%9D%99%E7%9A%84skills/xiaohongshu-content-generator/knowledge/image-prompt-guide.md) 的 3:4 模板
+
+---
+
+## 🚨 封面页强制约束（长文格式）
+
+### 必须遵守的规则
+
+1. **比例约束**：
+   - ✅ 必须使用 `A 2.35:1 wide banner...`
+   - ❌ 禁止使用 `3:4`、`--ar 3:4`、任何竖版比例
+
+2. **文字约束**：
+   - ✅ 封面图**不添加标题文字**
+   - ✅ 必须包含 `NO TEXT. NO WORDS. NO LETTERS.`
+   - ❌ 禁止任何中文或英文文字标注
+
+3. **风格选择**：
+   - ✅ 根据文案整体内容匹配最合适的风格
+   - ✅ 参考"风格选择规则"部分
+
+4. **现代家居风格**：
+   - ✅ 必须包含 `modern home aesthetic`
+   - ✅ 必须包含 `clean and well-maintained interior`
+   - ❌ 禁止 `old or worn-out interior`
+
+5. **真实感优先**：
+   - ✅ 必须包含 `NOT overly stylized AI art`
+   - ✅ 必须包含 `authentic home environment`
 
 ---
 
@@ -102,23 +130,22 @@ NO TEXT. NO WORDS. NO LETTERS. NO PEOPLE. NO STUDIO LIGHTING.
 
 ### cozy-sketch 风格（教程类）
 
+> ⚠️ **注意**：封面图不添加文字标题，仅用于正文配图
+
 ```
 A 2.35:1 wide banner illustration in hand-drawn sketch style.
 Subject: [主题内容]
 Details: Pencil line drawings with soft watercolor washes, notebook paper texture.
 Elements: [具体元素]
 Composition: Wide horizontal layout, elements spread across the banner.
-Annotations: Include simple Chinese text labels for key points.
 Color palette: Muted beige, dusty rose, sage green watercolor accents.
 Style: Cozy sketchbook aesthetic, natural imperfect lines.
-
-CRITICAL REQUIREMENTS:
-- Use ONLY Chinese characters for ALL text - must be CLEAR and LEGIBLE
-- NO English letters or words anywhere
-- Text must NOT be distorted or blurry
+NO TEXT. NO WORDS. NO LETTERS.
 ```
 
 ### infographic-sketch 风格（科普类）
+
+> ⚠️ **注意**：封面图不添加文字标题，仅用于正文配图
 
 ```
 A 2.35:1 wide banner infographic in hand-drawn sketchnote style.
@@ -126,15 +153,10 @@ Topic: [知识主题]
 Structure: [信息结构描述]
 Composition: Wide horizontal layout, information flows left to right.
 Visual elements: Icons, simple diagrams, arrows, bullet points.
-Text: Include Chinese labels and brief explanations.
 Background: Lined notebook paper or clean white.
 Color palette: Functional colors for categorization, yellow highlighter accents, red pen circles.
 Style: Educational sketchnote aesthetic.
-
-CRITICAL REQUIREMENTS:
-- Use ONLY Chinese characters for ALL text - must be CLEAR and LEGIBLE
-- NO English letters or words anywhere
-- Text must NOT be distorted or blurry
+NO TEXT. NO WORDS. NO LETTERS.
 ```
 
 ### soft-botanical 风格（情感类）
@@ -250,8 +272,14 @@ NO TEXT. NO WORDS. NO LETTERS.
 ## 🎨 风格选择规则
 
 > [!IMPORTANT]
+> **风格混搭原则**：
+> - **封面图**：根据文案整体内容匹配最合适的风格
+> - **正文配图**：每张图根据对应段落内容选择最合适的风格
+> - **可以混搭**：同一篇文章的配图不要求统一风格，而是根据内容类型灵活选择
+> - **功能优先**：选择最能表达该段落内容的风格，而不是追求视觉统一
+>
 > **订阅号长文干货类内容，优先使用 dreamy-photo 真实感风格！**
-> 
+>
 > 真实的操作场景照片比手绘图更有说服力，读者更容易代入和学习。
 
 | 选题类型 | 风格 | 说明 |
@@ -270,6 +298,18 @@ NO TEXT. NO WORDS. NO LETTERS.
 2. **抽象概念类 → cozy-sketch / infographic-sketch**：需要图解说明的抽象知识
 3. **情感治愈类 → soft-botanical**：氛围感、情绪表达为主的内容
 
+### 风格混搭示例
+
+**示例文章**：《多肉养护完整指南》
+
+- **封面图**：dreamy-photo（整体是养护教程，用真实场景）
+- **第1段（浇水方法）**：dreamy-photo（真实浇水场景）
+- **第2段（土壤对比）**：infographic-sketch（对比图，需要标注）
+- **第3段（光照管理）**：dreamy-photo（真实光照场景）
+- **第4段（常见问题）**：cozy-sketch（问题图解，需要标注）
+
+**关键**：每张图根据该段落的内容特点选择最合适的风格，不强求统一。
+
 ---
 
 ## ⚙️ 技术参数
@@ -285,7 +325,7 @@ NO TEXT. NO WORDS. NO LETTERS.
 | **正文配图比例** | 16:9（在 prompt 中强调 `A 16:9 wide...`） |
 | **封面尺寸** | 900×383px |
 | **正文配图尺寸** | 900×506px |
-| **配图数量** | 1封面 + 3正文 |
+| **配图数量** | 1封面 + N正文（N=知识点数量，每个分段知识点配一张图） |
 
 ### 微信公众号特定参数（图文格式）
 
@@ -308,6 +348,8 @@ NO TEXT. NO WORDS. NO LETTERS.
 
 ---
 
-*v1.0 创建：2026-01-16 - 公众号专用横版配图规范*
-*v1.1 更新：2026-01-16 - 添加图文格式说明*
+*v2.0 更新：2026-01-31 - 重大更新：配图数量灵活化、封面强制约束、风格混搭支持*
+*v1.3 更新：2026-01-17 - 添加中文文字清晰度强制要求*
 *v1.2 更新：2026-01-17 - 添加中文文字清晰度强制要求*
+*v1.1 更新：2026-01-16 - 添加图文格式说明*
+*v1.0 创建：2026-01-16 - 公众号专用横版配图规范*
