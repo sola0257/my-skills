@@ -534,6 +534,7 @@ class IllustrationGenerator:
 STEP {step_info['step']}/5: {step_info['stage']}
 Stage description: {step_info['details']}
 Show this specific stage of the drawing process, not the final result.
+IMPORTANT: Based on the reference image, only add the elements for THIS step. Do not add elements from future steps.
 Text overlay: Add Chinese text "步骤{step_info['step']}：{step_info['title']}" in upper left corner, clear handwritten style, soft cream color.
 """
 
@@ -546,12 +547,15 @@ Text overlay: Add Chinese text "步骤{step_info['step']}：{step_info['title']}
 
             if success:
                 output_paths.append(str(output_path))
+                # 关键修复：将当前步骤的输出作为下一步的参考图
+                reference_image_path = str(output_path)
+                print(f"✅ 步骤 {step_info['step']} 完成，将作为下一步的参考图")
             else:
                 print(f"❌ 步骤 {step_info['step']} 生成失败")
 
         return output_paths
 
-    def generate_pencil_steps(self, subject, details="", output_dir=None):
+    def generate_pencil_steps(self, subject, details="", output_dir=None, reference_image_path=None):
         """
         生成彩铅步骤图（5个步骤）- 保留向后兼容
 
@@ -559,12 +563,13 @@ Text overlay: Add Chinese text "步骤{step_info['step']}：{step_info['title']}
             subject: 植物名称
             details: 细节描述
             output_dir: 输出目录
+            reference_image_path: 参考图片路径（定稿图）
 
         Returns:
             list: 输出文件路径列表
         """
         # 调用通用方法
-        return self.generate_style_steps("pencil_oriental", subject, details, "", output_dir)
+        return self.generate_style_steps("pencil_oriental", subject, details, "", output_dir, reference_image_path)
         steps = [
             {"step": 1, "title": "线稿", "stage": "Initial line drawing",
              "details": "Light pencil outline, basic shapes and contours only."},
