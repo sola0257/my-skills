@@ -1,10 +1,34 @@
-# 插画风格 Prompt 模板库 v1.0
+# 插画风格 Prompt 模板库 v2.0
 
-> **本文档包含**：10种插画风格的完整 Prompt 模板（5大风格 × 2种美感）+ 彩铅步骤图模板
+> **本文档包含**：10种插画风格的完整 Prompt 模板（5大风格 × 2种美感）+ 彩铅步骤图模板 + 4张系列图结构
 
 ---
 
 ## 📋 使用说明
+
+### 4张系列图结构（标准模式）
+
+**所有风格都遵循统一的4张系列图结构**：
+
+1. **局部特写（Close-up Detail）**
+   - 聚焦植物最美的局部（叶片、花朵、纹理）
+   - 展现细节之美
+   - 构图：紧凑，填满画面
+
+2. **中景视角（Mid-range View）**
+   - 展现植物的整体形态
+   - 保留部分环境（花盆、周边）
+   - 构图：平衡，主体突出
+
+3. **整体全景（Full Scene）**
+   - 完整展现植物+花盆+基础环境
+   - 真实还原照片内容
+   - 构图：完整，忠实原图
+
+4. **意境氛围（Atmospheric Mood）** ⭐
+   - 将植物置于想象的美丽环境中
+   - 创造诗意氛围，营造意境
+   - **关键**：统一融合的场景，不是前景+背景拼贴
 
 ### Prompt 结构
 
@@ -22,6 +46,23 @@
 - `{mood}` - 情绪关键词
 - `{user_preferences}` - 用户特殊要求
 
+### 意境氛围图的特殊要求 ⚠️
+
+**必须遵循的核心原则**（基于反面案例总结）：
+
+1. **参考图选择**：使用原始照片，不是已生成的水彩图
+2. **统一融合**：植物、花盆、环境一起绘制，不是分层
+3. **自然规律**：植物必须从花盆中自然生长
+4. **和谐环境**：环境元素与植物协调
+5. **饱满构图**：不是极简留白，而是有序的饱满构图
+
+**关键 Prompt 约束**：
+```
+IMPORTANT: This is NOT a foreground+background composition.
+The entire scene - plant, pot, and environment - should be painted
+together as ONE unified painting with harmonious integration.
+```
+
 ---
 
 ## 🌊 1. 清新水彩（Watercolor）
@@ -36,13 +77,21 @@
 - 笔触轻盈、水分充足
 - 类似中国工笔画的细腻
 
-**Prompt 模板**：
+**关键词说明**：
+- 东方特色：`jade green`, `plum blossom pink`, `ink wash influence`, `poetic restraint`
+- 技法：`wet-on-wet`, `transparent layers`, `soft bleeding edges`
+- 留白：`generous white space`, `breathing room`, `asymmetric balance`
+
+---
+
+#### 图1：局部特写（Close-up Detail）
+
 ```
-A 3:4 watercolor illustration in Oriental style.
-Subject: {subject}
-Composition: Generous white space, asymmetric balance, breathing room around subject.
+A 3:4 watercolor illustration in Oriental style - CLOSE-UP DETAIL.
+Subject: {subject} - focusing on the most beautiful detail (leaf texture, petal, rosette cluster)
+Composition: Tight crop, filling the frame, intimate view of plant details.
 Technique: Delicate wet-on-wet washes, soft color bleeding, transparent layers.
-Details: {details}, fine brush details on petals/leaves, natural water marks.
+Details: {details}, fine brush details showing texture, natural water marks, subtle color variations.
 Color palette: Muted jade green, soft plum, pale peach, dusty rose, cream white.
 Cultural elements: Inspired by Chinese gongbi painting, elegant restraint, poetic atmosphere.
 Mood: {mood}, serene, contemplative, understated elegance.
@@ -51,10 +100,83 @@ NO TEXT. NO WORDS. NO PEOPLE.
 Image size: 1080x1440 pixels (3:4 vertical format).
 ```
 
-**关键词说明**：
-- 东方特色：`jade green`, `plum blossom pink`, `ink wash influence`, `poetic restraint`
-- 技法：`wet-on-wet`, `transparent layers`, `soft bleeding edges`
-- 留白：`generous white space`, `breathing room`, `asymmetric balance`
+#### 图2：中景视角（Mid-range View）
+
+```
+A 3:4 watercolor illustration in Oriental style - MID-RANGE VIEW.
+Subject: {subject} - showing the overall plant form with some surrounding context
+Composition: Balanced composition, plant as main subject with partial pot visible, some breathing room.
+Technique: Delicate wet-on-wet washes, soft color bleeding, transparent layers.
+Details: {details}, capturing the plant's growth pattern and form, fine brush details.
+Color palette: Muted jade green, soft plum, pale peach, dusty rose, cream white.
+Cultural elements: Inspired by Chinese gongbi painting, elegant restraint, poetic atmosphere.
+Mood: {mood}, serene, contemplative, understated elegance.
+Paper texture: Cold-press watercolor paper, visible grain.
+NO TEXT. NO WORDS. NO PEOPLE.
+Image size: 1080x1440 pixels (3:4 vertical format).
+```
+
+#### 图3：整体全景（Full Scene）
+
+```
+A 3:4 watercolor illustration in Oriental style - FULL SCENE.
+Subject: {subject} - complete plant with pot and immediate surroundings
+Composition: Complete view, generous white space, asymmetric balance, breathing room around subject.
+Technique: Delicate wet-on-wet washes, soft color bleeding, transparent layers.
+Details: {details}, fine brush details on petals/leaves, natural water marks, showing the complete plant-pot unit.
+Color palette: Muted jade green, soft plum, pale peach, dusty rose, cream white.
+Cultural elements: Inspired by Chinese gongbi painting, elegant restraint, poetic atmosphere.
+Mood: {mood}, serene, contemplative, understated elegance.
+Paper texture: Cold-press watercolor paper, visible grain.
+NO TEXT. NO WORDS. NO PEOPLE.
+Image size: 1080x1440 pixels (3:4 vertical format).
+```
+
+#### 图4：意境氛围（Atmospheric Mood）⭐
+
+```
+A 3:4 watercolor illustration in Oriental style - ATMOSPHERIC MOOD.
+Subject: {subject} - placed within an imagined beautiful garden setting
+
+IMPORTANT: This is NOT a foreground+background composition.
+The entire scene - plant, pot, and environment - should be painted
+together as ONE unified watercolor painting with harmonious integration.
+
+Composition: The plant-pot unit is thoughtfully placed within a gentle garden atmosphere.
+The environment and plant are painted together, creating a cohesive whole.
+Soft transitions between elements, no harsh separation.
+Full composition with organized breathing room, NOT minimalist with excessive white space.
+
+Environment (integrated, not layered):
+- Soft garden atmosphere with muted, harmonious colors
+- Complementary elements: garden stones, soft moss, gentle foliage in background
+- Garden elements painted with the same watercolor technique as the plant
+- Everything flows together - plant, pot, ground, atmosphere - as one painting
+- Colors: muted earth tones, soft greens, gentle grays, cream
+
+Natural Logic (CRITICAL):
+- Plant MUST grow naturally from the pot
+- Plant and pot remain connected, no separation
+- Maintain botanical accuracy and natural growth patterns
+
+Technique: Unified watercolor approach throughout - wet-on-wet washes for all elements,
+soft edges everywhere, colors bleeding naturally between plant and environment.
+
+Details: {details}, maintaining specific plant characteristics while creating poetic atmosphere.
+
+Color palette: Muted jade green, soft plum, pale peach, dusty rose, cream white,
+gentle earth tones for environment.
+
+Cultural elements: Inspired by Chinese garden paintings, poetic atmosphere,
+harmonious integration of plant and environment.
+
+Mood: {mood}, serene, contemplative, poetic, unified beauty.
+
+Paper texture: Cold-press watercolor paper, visible grain throughout.
+
+NO TEXT. NO WORDS. NO PEOPLE.
+Image size: 1080x1440 pixels (3:4 vertical format).
+```
 
 ---
 
@@ -189,24 +311,89 @@ Image size: 1080x1440 pixels (3:4 vertical format).
 **风格代码**：`pencil_western`
 
 **视觉特点**：
-- 写实风格
-- 色彩饱满
-- 细节丰富
-- 光影明确
+- 写实风格、色彩饱满
+- 细节丰富、光影明确
+- **核心特征**：可见的彩铅笔触、纸张纹理、层层叠加的色彩
+- **手绘感**：不是照片转换，而是真实的手绘彩铅画
 
-**Prompt 模板**：
+**关键词说明**：
+- 彩铅特征：`visible pencil strokes`, `layered colored pencil marks`, `paper tooth texture`, `hand-drawn quality`
+- 技法：`burnishing technique`, `layering colors`, `cross-hatching`, `gradual color build-up`
+- 质感：`matte finish`, `slight paper grain`, `authentic colored pencil texture`
+
+---
+
+#### 图1：局部特写（Close-up Detail）
+
 ```
-A 3:4 colored pencil illustration in Western realistic style.
-Subject: {subject}
-Technique: Layered burnishing, rich color saturation, smooth blending.
-Texture: Polished finish, minimal paper grain, photorealistic rendering.
-Details: {details}, botanical accuracy, precise shading, clear light source.
-Composition: Full detailed rendering, centered subject, complete background.
-Color palette: Rich naturalistic colors - deep greens, vibrant florals, warm earth tones.
-Style: Hyperrealistic colored pencil art, botanical illustration tradition.
-Mood: {mood}, precise, vibrant, scientifically accurate yet artistic.
-Lighting: Clear directional light, defined shadows and highlights.
-NO TEXT. NO WORDS. NO PEOPLE.
+A 3:4 colored pencil illustration in Western realistic style - CLOSE-UP DETAIL.
+Subject: {subject} - extreme close-up of the most intricate detail (single petal, leaf vein pattern, flower center).
+Composition: Macro view, filling the entire frame, showing botanical details at intimate scale.
+Technique: HAND-DRAWN colored pencil with VISIBLE PENCIL STROKES. Layered burnishing technique, rich color saturation achieved through multiple layers, smooth blending with slight texture.
+Texture: IMPORTANT - This must look like REAL COLORED PENCIL ART, not a photo filter. Show paper tooth texture, visible pencil marks, hand-drawn quality with slight imperfections that prove it's hand-drawn.
+Details: {details}, botanical accuracy with artistic interpretation, precise shading showing form and volume, clear light source creating defined shadows and highlights.
+Color palette: Rich naturalistic colors - deep forest greens, vibrant flower tones, warm earth browns, subtle color transitions through layering.
+Style: Hyperrealistic botanical colored pencil illustration in the tradition of scientific botanical art, but with artistic soul. Think Ann Swan or Janie Gildow's colored pencil work.
+Mood: {mood}, precise yet warm, scientifically accurate yet emotionally engaging.
+Lighting: Clear directional natural light, defined cast shadows, subtle reflected light in shadow areas.
+Paper: White or cream drawing paper with visible texture.
+NO TEXT. NO WORDS. NO PEOPLE. NO PHOTO EFFECTS.
+Image size: 1080x1440 pixels (3:4 vertical format).
+```
+
+#### 图2：中景视角（Mid-range View）
+
+```
+A 3:4 colored pencil illustration in Western realistic style - MID-RANGE VIEW.
+Subject: {subject} - showing the plant's overall form and character, including stem/leaves and partial pot.
+Composition: Balanced composition with plant as focal point, some environmental context (pot edge, surface), comfortable breathing room around subject.
+Technique: HAND-DRAWN colored pencil with VISIBLE PENCIL STROKES. Layered color application, burnishing for smooth areas, cross-hatching for texture, gradual color build-up showing the artist's process.
+Texture: CRITICAL - Must show AUTHENTIC COLORED PENCIL TEXTURE. Visible pencil marks, paper grain showing through lighter areas, hand-drawn quality with natural variations in pressure and stroke direction.
+Details: {details}, complete botanical structure visible, careful attention to how leaves attach to stems, natural growth patterns, realistic color variations within the plant.
+Color palette: Full range of naturalistic plant colors - various greens from yellow-green to blue-green, flower colors with subtle tonal shifts, neutral pot tones, soft background hints.
+Style: Professional botanical colored pencil art - realistic but not photographic, showing the hand of the artist. Reference artists like Ann Swan, Janie Gildow, or Cathy Sheeter.
+Mood: {mood}, approachable yet detailed, inviting closer inspection.
+Lighting: Natural window light quality, soft shadows, gentle highlights on glossy leaves.
+Paper: Quality drawing paper with subtle texture visible.
+NO TEXT. NO WORDS. NO PEOPLE. NO PHOTO FILTERS.
+Image size: 1080x1440 pixels (3:4 vertical format).
+```
+
+#### 图3：整体全景（Full Scene）
+
+```
+A 3:4 colored pencil illustration in Western realistic style - FULL SCENE.
+Subject: {subject} - complete plant in pot with immediate surroundings, faithful to reference photo composition.
+Composition: Full view showing entire plant-pot unit, including base/surface, complete environmental context as seen in reference photo.
+Technique: HAND-DRAWN colored pencil throughout. Consistent pencil stroke quality across entire image, varying detail levels (more detail on plant, softer treatment of background), unified colored pencil aesthetic.
+Texture: ESSENTIAL - Every element must show COLORED PENCIL TEXTURE. Visible pencil strokes on plant, pot, and background. Paper texture visible. Hand-drawn quality obvious - this is NOT a photo with a filter applied.
+Details: {details}, complete botanical accuracy, pot material and texture rendered in colored pencil, surface/background suggested with looser strokes, spatial relationships clear.
+Color palette: Harmonious full-scene palette - plant colors dominant, pot in complementary or neutral tones, background soft and supportive (cream, pale gray, or subtle environmental colors).
+Style: Complete botanical colored pencil illustration showing the full subject in context. Think of gallery-quality botanical art that tells the complete story of the plant.
+Mood: {mood}, complete and satisfying, showing the plant's full presence and character.
+Lighting: Consistent natural lighting across the scene, shadows anchoring the pot to the surface, atmospheric perspective if background has depth.
+Paper: Consistent paper texture throughout.
+NO TEXT. NO WORDS. NO PEOPLE. PURE COLORED PENCIL ART.
+Image size: 1080x1440 pixels (3:4 vertical format).
+```
+
+#### 图4：意境氛围（Atmospheric Mood）
+
+```
+A 3:4 colored pencil illustration in Western realistic style - ATMOSPHERIC MOOD SCENE.
+Subject: {subject} - plant in pot placed within an imagined beautiful environment (garden corner, sunlit windowsill, botanical setting).
+Composition: Plant-pot unit integrated into a poetic setting, environmental elements supporting the mood, unified scene (NOT foreground plant pasted on background).
+Technique: ENTIRELY HAND-DRAWN IN COLORED PENCIL. The plant, pot, and environment are all rendered with the same colored pencil technique, creating a cohesive artistic vision. Varying levels of detail create depth - sharper focus on plant, softer atmospheric treatment of environment.
+Texture: CRITICAL - EVERYTHING must show COLORED PENCIL TEXTURE. The plant, pot, table, background elements - all rendered with visible pencil strokes. This creates artistic unity. NO photo elements, NO digital effects, PURE colored pencil art throughout.
+Details: {details}, plant rendered with botanical care, environment suggested with artistic freedom (soft foliage, dappled light, garden elements), natural integration where plant grows from pot which sits in environment.
+Color palette: Harmonious atmospheric palette - plant colors enhanced by complementary environmental tones, warm or cool color temperature supporting mood, subtle color echoes between plant and environment.
+Style: Artistic botanical colored pencil illustration with environmental storytelling. Think of colored pencil artists who create complete scenes, not just isolated specimens. The entire image should feel like one unified colored pencil artwork.
+Mood: {mood}, elevated and poetic, inviting the viewer into an idealized moment.
+Lighting: Beautiful natural light (golden hour glow, soft morning light, dappled shade), creating atmosphere and emotion, consistent light source affecting all elements.
+Environment: Garden setting, windowsill scene, botanical conservatory, or natural habitat - rendered in colored pencil with artistic interpretation.
+Paper: Consistent paper texture across the entire illustration.
+IMPORTANT: This is NOT a foreground+background composition. The entire scene - plant, pot, and environment - should be drawn together as ONE unified colored pencil artwork with harmonious integration.
+NO TEXT. NO WORDS. NO PEOPLE. COMPLETE COLORED PENCIL ILLUSTRATION.
 Image size: 1080x1440 pixels (3:4 vertical format).
 ```
 
@@ -510,4 +697,77 @@ Image size: 1080x1440 pixels (3:4 vertical format).
 
 ---
 
-**最后更新**：2026-01-31
+## 📝 4张系列图应用指南
+
+### 适用范围
+
+**所有风格都应遵循4张系列图结构**：
+- 清新水彩（东方/西方）
+- 水墨国画（东方/西方）
+- 细腻彩铅（东方/西方）
+- 质感油画（东方/西方）
+- 装饰彩绘（东方/西方）
+
+### 应用方法
+
+对于未在本文档中详细列出4张模板的风格，按照以下方法生成：
+
+1. **图1：局部特写**
+   - 基础模板 + `CLOSE-UP DETAIL`
+   - 构图：`Tight crop, filling the frame, intimate view`
+
+2. **图2：中景视角**
+   - 基础模板 + `MID-RANGE VIEW`
+   - 构图：`Balanced composition, plant as main subject with partial pot visible`
+
+3. **图3：整体全景**
+   - 基础模板 + `FULL SCENE`
+   - 构图：`Complete view, showing the complete plant-pot unit`
+
+4. **图4：意境氛围**
+   - 基础模板 + 意境氛围特殊约束（见下方）
+   - **必须添加**：统一融合约束
+
+### 意境氛围图的通用约束（所有风格）
+
+**必须在所有风格的第4张图中添加以下约束**：
+
+```
+IMPORTANT: This is NOT a foreground+background composition.
+The entire scene - plant, pot, and environment - should be painted/drawn
+together as ONE unified artwork with harmonious integration.
+
+Composition: The plant-pot unit is thoughtfully placed within a gentle
+[garden/natural] atmosphere. The environment and plant are [painted/drawn]
+together, creating a cohesive whole. Soft transitions between elements,
+no harsh separation. Full composition with organized breathing room,
+NOT minimalist with excessive white space.
+
+Environment (integrated, not layered):
+- Soft [garden/natural] atmosphere with muted, harmonious colors
+- Complementary elements appropriate to the style
+- Environment elements [painted/drawn] with the same technique as the plant
+- Everything flows together - plant, pot, ground, atmosphere - as one artwork
+
+Natural Logic (CRITICAL):
+- Plant MUST grow naturally from the pot
+- Plant and pot remain connected, no separation
+- Maintain botanical accuracy and natural growth patterns
+```
+
+### 关键检查清单
+
+生成意境氛围图前，必须确认：
+
+- [ ] 使用原始照片作为参考（不是已生成的插画）
+- [ ] Prompt 中包含"NOT foreground+background"约束
+- [ ] Prompt 中包含"unified artwork"描述
+- [ ] Prompt 中包含"Natural Logic"约束
+- [ ] 环境元素与植物风格协调
+- [ ] 构图饱满但有序，不是极简留白
+
+---
+
+**最后更新**：2026-02-01
+**版本**：v2.0
+**重要更新**：添加4张系列图结构，整合意境氛围图的核心原则

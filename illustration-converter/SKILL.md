@@ -329,6 +329,20 @@ version: "2.0"
 - `knowledge/style-model-mapping.md` - 风格-模型映射表
 - `knowledge/professional-painting-steps.md` - 各画种的学术标准步骤定义
 
+### 质量保证文档（v2.1 新增）
+- `knowledge/complete-optimization-record.md` - 完整优化记录（6轮优化历程）
+- `knowledge/anti-patterns-cases.md` - 反面案例库（5大核心问题）
+- `knowledge/user-aesthetic-preferences.md` - 用户审美习惯和要求
+- `knowledge/quick-reference-guide.md` - 快速参考指南（生成前检查清单）
+- `knowledge/cross-style-issue-analysis.md` - 跨画风问题分析
+- `knowledge/universal-optimization-log.md` - 通用优化应用日志
+
+**使用说明**：
+- 生成前：查阅 `quick-reference-guide.md` 检查 Prompt
+- 遇到问题：查阅 `anti-patterns-cases.md` 快速修复
+- 了解用户偏好：查阅 `user-aesthetic-preferences.md`
+- 完整优化历程：查阅 `complete-optimization-record.md`
+
 ### 全局配置
 - `~/.claude/CLAUDE.md` - API 配置（云雾端点、API Key）
 
@@ -365,6 +379,18 @@ OUTPUT_DIR = "/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/
 - ❌ 禁止同一风格使用不同模型（保证视觉一致性）
 - ❌ 禁止在 SKILL.md 中包含完整 Prompt（应放在 knowledge/）
 - ❌ 禁止用系列图作为步骤图的参考（必须用原始照片）
+
+---
+
+## 📝 更新规范
+
+**更新本 Skill 时，请遵循"渐进式披露"和"Skill 精简"原则**
+
+- SKILL.md：只包含核心工作流程和简要说明
+- knowledge/：包含详细内容、案例、分析
+- 通过引用而非复制来关联文档
+
+**详细更新规范**：`UPDATE-GUIDELINES.md`
 
 ---
 
@@ -406,6 +432,7 @@ OUTPUT_DIR = "/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/
 
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
+| v2.1 | 2026-02-02 | 通用优化版：(1) 基于金鱼草测试完成6轮优化；(2) 修复5大核心问题（风格特征、构图差异、画纸背景、植物逻辑、花朵密度）；(3) 通用优化应用到所有10种画风；(4) 创建完整的问题记录和反面案例库；(5) 提炼用户审美习惯文档 |
 | v2.0 | 2026-02-01 | 重大更新：(1) 重新设计工作流程，系列图和步骤图独立生成；(2) 步骤图统一使用原始照片作为参考；(3) 步骤图 prompt 通用化，适用于所有画风；(4) 简化用户决策流程 |
 | v1.5 | 2026-02-01 | 优化重新生成流程，不满意时返回 Step 3 而非 Step 1 |
 | v1.4 | 2026-02-01 | 修复 API Key 读取，从全局 .env 文件自动加载 |
@@ -413,4 +440,4 @@ OUTPUT_DIR = "/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/
 
 ---
 
-**最后更新**：2026-02-01
+**最后更新**：2026-02-02

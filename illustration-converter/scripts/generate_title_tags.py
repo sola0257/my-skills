@@ -9,16 +9,57 @@ import json
 import requests
 from typing import Dict, List, Tuple
 
+
+def load_env_file(env_path):
+    """
+    加载 .env 文件中的环境变量
+
+    Args:
+        env_path: .env 文件路径
+
+    Returns:
+        dict: 环境变量字典
+    """
+    env_vars = {}
+    if not os.path.exists(env_path):
+        return env_vars
+
+    with open(env_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            # 跳过注释和空行
+            if not line or line.startswith('#'):
+                continue
+            # 解析 KEY=VALUE 格式
+            if '=' in line:
+                key, value = line.split('=', 1)
+                env_vars[key.strip()] = value.strip()
+
+    return env_vars
+
+
 class TitleTagGenerator:
     """小红书标题和话题标签生成器"""
 
     def __init__(self):
         """初始化生成器"""
         self.api_base_url = "https://yunwu.ai/v1"
+
+        # 尝试从环境变量读取
         self.api_key = os.getenv("YUNWU_API_KEY")
 
+        # 如果环境变量没有，从全局 .env 文件读取
         if not self.api_key:
-            raise ValueError("未找到 YUNWU_API_KEY 环境变量")
+            global_env_path = "/Users/dj/Desktop/小静的skills/_global_config/.env"
+            env_vars = load_env_file(global_env_path)
+            self.api_key = env_vars.get("YUNWU_API_KEY")
+
+        if not self.api_key:
+            raise ValueError(
+                "未找到 API Key，请检查：\n"
+                "1. 环境变量 YUNWU_API_KEY\n"
+                "2. 全局配置文件 /Users/dj/Desktop/小静的skills/_global_config/.env"
+            )
 
     def generate_title_and_tags(
         self,

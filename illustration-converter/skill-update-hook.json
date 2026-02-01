@@ -1,0 +1,38 @@
+{
+  "name": "skill-update-guard",
+  "description": "Skill 更新守护 Hook - 确保遵循渐进式披露和 Skill 精简原则",
+  "version": "1.0",
+  "trigger": {
+    "type": "keyword_detection",
+    "keywords": [
+      "更新 SKILL.md",
+      "修改 SKILL.md",
+      "优化 Skill",
+      "更新 skill",
+      "添加到 SKILL.md",
+      "编辑 SKILL.md"
+    ],
+    "context": "user_message"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "action": "read_file",
+      "file": "UPDATE-GUIDELINES.md",
+      "description": "读取更新规范"
+    },
+    {
+      "step": 2,
+      "action": "remind",
+      "message": "⚠️ 检测到 Skill 更新操作\n\n请遵循以下原则：\n1. SKILL.md 保持精简（< 500 行）\n2. 详细内容放在 knowledge/\n3. 通过引用而非复制关联内容\n\n详细规范已读取：UPDATE-GUIDELINES.md\n\n请在更新前完成检查清单：\n- [ ] 这个内容是核心流程吗？\n- [ ] 是否会造成重复？\n- [ ] SKILL.md 是否保持精简？"
+    },
+    {
+      "step": 3,
+      "action": "post_update_check",
+      "command": "./check-skill-structure.sh",
+      "description": "更新完成后自动运行结构检查"
+    }
+  ],
+  "priority": "high",
+  "enabled": true
+}

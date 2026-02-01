@@ -307,44 +307,129 @@ class IllustrationGenerator:
         Returns:
             list: 输出文件路径列表
         """
-        # 4张系列图标准结构（v2.0）
+        # 4张系列图标准结构（v2.0 - 通用优化版）
+        # 针对不同风格的特殊强化
+        is_pencil = "pencil" in style_code
+        is_watercolor = "watercolor" in style_code
+        is_ink = "ink" in style_code
+        is_oil = "oil" in style_code
+        is_gouache = "gouache" in style_code
+
+        # 根据画风选择技法术语
+        if is_pencil:
+            technique_term = "drawn"
+            medium_specific = "COLORED PENCIL SPECIFIC: Show VISIBLE PENCIL STROKES. Paper texture must be evident. Hand-drawn quality with slight natural imperfections. Layered pencil marks creating rich color. This is NOT a photo - it's hand-drawn colored pencil art. CRITICAL: This is the artwork itself filling the entire frame, NOT a photograph of a drawing on paper. No paper edges, no background behind the artwork, no meta-composition."
+        elif is_watercolor:
+            technique_term = "painted"
+            medium_specific = "WATERCOLOR SPECIFIC: Show transparent washes, soft edges, water blooms, and natural color bleeding. Visible brushstrokes and paper texture. This is watercolor painting, not digital art. CRITICAL: This is the artwork itself filling the entire frame, NOT a photograph of a painting. No paper edges, no background behind the artwork."
+        elif is_ink:
+            technique_term = "painted"
+            medium_specific = "INK PAINTING SPECIFIC: Show ink gradations (墨分五色), expressive brushstrokes, and natural ink flow. This is traditional ink painting, not digital art. CRITICAL: This is the artwork itself filling the entire frame, NOT a photograph of a painting. No paper edges, no background behind the artwork."
+        elif is_oil:
+            technique_term = "painted"
+            medium_specific = "OIL PAINTING SPECIFIC: Show visible brushstrokes, impasto texture where appropriate, and rich color layering. This is oil painting, not digital art. CRITICAL: This is the artwork itself filling the entire frame, NOT a photograph of a painting. No canvas edges, no background behind the artwork."
+        elif is_gouache:
+            technique_term = "painted"
+            medium_specific = "GOUACHE SPECIFIC: Show opaque flat colors, clean edges, and matte finish. This is gouache painting, not digital art. CRITICAL: This is the artwork itself filling the entire frame, NOT a photograph of a painting. No paper edges, no background behind the artwork."
+        else:
+            technique_term = "painted/drawn"
+            medium_specific = ""
+
         compositions = [
             {
                 "name": "局部特写",
                 "description": "Close-up Detail",
-                "prompt_addition": "CLOSE-UP DETAIL. Tight crop, filling the frame, intimate view of plant details. Focus on the most beautiful detail (leaf texture, petal, rosette cluster). Show intricate details like veins, surface patterns, color gradations."
+                "prompt_addition": f"""EXTREME CLOSE-UP DETAIL - MACRO VIEW:
+- Show ONLY 2-3 individual flowers at extreme close range
+- Fill the ENTIRE frame with flower details - petals, stamens, texture
+- NO pot visible, NO stems below, NO leaves at bottom
+- This is a MACRO botanical study focusing on flower structure
+- Think: "looking through a magnifying glass at the flowers"
+- The flowers should be so close they fill the frame edge to edge
+
+CRITICAL: This is NOT a mid-range view. This is an extreme close-up where you can see petal veins and texture details.
+
+{medium_specific if medium_specific else "Show intricate details like veins, surface patterns, color gradations."}"""
             },
             {
                 "name": "中景视角",
                 "description": "Mid-range View",
-                "prompt_addition": "MID-RANGE VIEW. Balanced composition, plant as main subject with partial pot visible, some breathing room. Show the overall plant form with some surrounding context. Capture the plant's growth pattern and form."
+                "prompt_addition": f"""MID-RANGE VIEW - SHOW THE PLANT GROWING FROM POT:
+
+CRITICAL REQUIREMENT - PLANT CONTINUITY:
+- Show the COMPLETE plant growing naturally from the pot
+- You must see: flowers at top → stems in middle → leaves → pot (upper half)
+- This is ONE continuous plant, not separate elements
+- The plant EMERGES from the pot and grows upward naturally
+
+WHAT TO INCLUDE:
+- All the flowers and flower spikes (upper portion)
+- The stems and leaves connecting everything (middle portion)
+- The upper half of the pot showing where the plant grows from (lower portion)
+- The pot bottom and base are cropped out (not shown)
+
+COMPOSITION:
+- This is closer than "full scene" (which shows complete pot + base)
+- This is farther than "extreme close-up" (which shows only 2-3 flowers)
+- This shows most of the plant but crops out the pot bottom
+
+Think: "Show the plant growing from its pot, but crop out the pot bottom and base"
+
+BACKGROUND: Clean, simple, neutral
+
+{medium_specific if medium_specific else ""}"""
             },
             {
                 "name": "整体全景",
                 "description": "Full Scene",
-                "prompt_addition": "FULL SCENE. Complete view, showing the complete plant-pot unit with immediate surroundings. Faithful to the reference image, capturing the complete subject as it appears in reality."
+                "prompt_addition": f"""FULL SCENE - COMPLETE BOTANICAL DOCUMENTATION:
+- Show 100% of the plant from top to bottom
+- Show 100% of the pot from rim to base
+- Include the surface the pot sits on (table, ground, etc.)
+- This is the "specimen documentation" view - complete and comprehensive
+- Think: "botanical reference photo" showing the entire subject
+
+COMPOSITION STRATEGY: Step back to show everything - this is the widest view of the four images.
+
+CRITICAL DIFFERENCE from Mid-range:
+- Mid-range is closer, focusing on flowers, pot barely visible
+- Full Scene is farther back, showing complete plant-pot-surface unit
+
+{medium_specific if medium_specific else ""}"""
             },
             {
                 "name": "意境氛围",
                 "description": "Atmospheric Mood",
-                "prompt_addition": """ATMOSPHERIC MOOD. Place the plant within an imagined beautiful garden setting.
+                "prompt_addition": f"""ATMOSPHERIC MOOD - ARTISTIC INTERPRETATION:
+
+BOTANICAL ACCURACY (MOST IMPORTANT - APPLIES TO ALL STYLES):
+- The plant MUST maintain its exact characteristics from the reference photo
+- Flower shape, color, and structure must match the reference (e.g., if snapdragons, they must look like snapdragons)
+- Do NOT change the plant species or significantly alter its appearance
+- The artistic interpretation is in the ENVIRONMENT, not in changing the plant itself
+
+COMPOSITION:
+Place the plant-pot unit within an imagined beautiful garden setting, but the plant itself remains botanically accurate to the reference.
 
 IMPORTANT: This is NOT a foreground+background composition.
-The entire scene - plant, pot, and environment - should be painted/drawn together as ONE unified artwork with harmonious integration.
+The entire scene - plant, pot, and environment - should be {technique_term} together as ONE unified artwork with harmonious integration.
 
-Composition: The plant-pot unit is thoughtfully placed within a gentle garden atmosphere. The environment and plant are painted/drawn together, creating a cohesive whole. Soft transitions between elements, no harsh separation. Full composition with organized breathing room, NOT minimalist with excessive white space.
+The plant-pot unit is thoughtfully placed within a gentle garden atmosphere. The environment and plant are {technique_term} together, creating a cohesive whole. Soft transitions between elements, no harsh separation.
 
 Environment (integrated, not layered):
 - Soft garden atmosphere with muted, harmonious colors
 - Complementary elements: garden stones, soft moss, gentle foliage in background
-- Environment elements painted/drawn with the same technique as the plant
+- Environment elements {technique_term} with the same technique as the plant
 - Everything flows together - plant, pot, ground, atmosphere - as one artwork
 - Colors: muted earth tones, soft greens, gentle grays, cream
 
 Natural Logic (CRITICAL):
 - Plant MUST grow naturally from the pot
 - Plant and pot remain connected, no separation
-- Maintain botanical accuracy and natural growth patterns"""
+- Maintain botanical accuracy - the plant species and characteristics must match the reference photo
+- Only the environment is imagined, the plant itself is accurate
+
+{medium_specific if medium_specific else ""}"""
             }
         ]
 
@@ -794,10 +879,10 @@ Image size: 1080x1440 pixels (3:4 vertical format).
                 "technique": "Light to dark layering (从浅到深). Gentle pressure for base layers, gradual color building through multiple layers, soft blending for smooth transitions. Avoid heavy burnishing, maintain delicate Japanese aesthetic with soft finish."
             },
             "pencil_western": {
-                "artist": "Margaret Mee",
-                "style_keywords": "botanical illustration, scientific accuracy, photorealistic detail",
-                "composition": "Subject occupies 70-80% of frame, specimen-style with complete botanical precision",
-                "technique": "Light to dark layering (从浅到深 principle). Multiple layers building from lightest colors, gradual pressure increase, burnishing technique for smooth photorealistic finish. Heavy pressure in final layers to blend and create polished surface."
+                "artist": "Ann Swan, Janie Gildow (professional botanical colored pencil artists)",
+                "style_keywords": "HAND-DRAWN colored pencil art, visible pencil strokes, paper texture, layered technique, botanical accuracy with artistic soul",
+                "composition": "Subject occupies 70-80% of frame, botanical specimen style with complete details",
+                "technique": "CRITICAL - This must look like REAL COLORED PENCIL ART, not a photo filter. Light to dark layering (从浅到深). Multiple layers building from lightest colors, gradual pressure increase, burnishing technique for smooth areas while maintaining visible pencil texture. VISIBLE PENCIL STROKES throughout, paper tooth texture showing, hand-drawn quality with natural variations. Cross-hatching for texture, layered color application, authentic colored pencil marks. This is hand-drawn art, not digital manipulation."
             },
             "oil_oriental": {
                 "artist": "Classical oil painting with Eastern aesthetic",
