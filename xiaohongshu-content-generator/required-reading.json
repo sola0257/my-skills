@@ -2,59 +2,102 @@
   "skill": "xiaohongshu-content-generator",
   "required_before_execution": [
     {
-      "file": "../../knowledge/xiaohongshu-operation-manual.md",
-      "reason": "小红书运营规则和最佳实践",
-      "mandatory": true
+      "file": "knowledge/xiaohongshu-core-features.md",
+      "reason": "信任型双标题系统、标签规则(5+5)、配图策略",
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
     },
     {
-      "file": "knowledge/image-prompt-guide.md",
-      "reason": "配图规范和风格选择",
-      "mandatory": true
+      "file": "knowledge/xiaohongshu-platform-limits.md",
+      "reason": "平台限制(标题≤20字、正文≤1000字、配图12-15张)",
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
     },
     {
-      "file": "../../knowledge/xiaohongshu-mixed-style-image-case.md",
-      "reason": "成功案例参考",
-      "mandatory": true
-    },
-    {
-      "file": "../../knowledge/image-generation-cases/anti-patterns.md",
-      "reason": "配图反面案例,避免常见错误",
-      "mandatory": true
-    },
-    {
-      "file": "../../knowledge/content-anti-patterns-universal.md",
-      "reason": "内容创作反面案例,避免常见错误",
-      "mandatory": true
+      "file": "../_global_config/xiaohongshu-execution-standards.md",
+      "reason": "Emoji使用规范、人说话方式、日期准确性",
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
     },
     {
       "file": "../../knowledge/title-formulas-by-platform.md",
       "reason": "标题公式库(含小红书20字限制)",
-      "mandatory": true
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
     },
     {
       "file": "../../knowledge/content-structures-short-form.md",
       "reason": "短图文内容结构(含1000字限制)",
-      "mandatory": true
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
     },
     {
       "file": "../../knowledge/content-directions-universal.md",
       "reason": "内容方向指南(混搭玩法)",
-      "mandatory": true
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
     },
     {
       "file": "../../knowledge/interaction-templates-universal.md",
       "reason": "互动话术模板",
-      "mandatory": true
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
+    },
+    {
+      "file": "../../knowledge/content-anti-patterns-universal.md",
+      "reason": "内容创作反面案例,避免常见错误",
+      "mandatory": true,
+      "required_for_steps": [5],
+      "note": "生成文案时必读"
     },
     {
       "file": "../_global_config/content-value-checklist.md",
       "reason": "内容价值自检",
-      "mandatory": true
+      "mandatory": true,
+      "required_for_steps": [6],
+      "note": "价值自检时必读"
     },
     {
-      "file": "../_global_config/unified-content-workflow.md",
-      "reason": "统一内容生成工作流",
-      "mandatory": true
+      "file": "knowledge/product-matching-guide.md",
+      "reason": "账号阶段商品匹配策略",
+      "mandatory": true,
+      "required_for_steps": [8],
+      "note": "商品匹配时必读"
+    },
+    {
+      "file": "knowledge/image-prompt-guide.md",
+      "reason": "配图规范和风格选择",
+      "mandatory": true,
+      "required_for_steps": [9],
+      "note": "生成图片时必读"
+    },
+    {
+      "file": "../../knowledge/xiaohongshu-mixed-style-image-case.md",
+      "reason": "成功案例参考",
+      "mandatory": true,
+      "required_for_steps": [9],
+      "note": "生成图片时必读"
+    },
+    {
+      "file": "../../knowledge/image-generation-cases/anti-patterns.md",
+      "reason": "配图反面案例,避免常见错误",
+      "mandatory": true,
+      "required_for_steps": [9],
+      "note": "生成图片时必读"
+    },
+    {
+      "file": "../../knowledge/xiaohongshu-operation-manual.md",
+      "reason": "小红书运营规则和最佳实践(来源文档)",
+      "mandatory": false,
+      "required_for_steps": [],
+      "note": "仅当用户反复不认可生成内容时读取,作为规则来源参考"
     }
   ]
 }
