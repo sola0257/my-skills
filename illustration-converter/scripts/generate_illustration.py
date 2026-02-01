@@ -294,7 +294,7 @@ class IllustrationGenerator:
 
     def generate_series(self, style_code, subject, details="", mood="", output_dir=None, reference_image_path=None):
         """
-        生成4张系列插画（不同构图）
+        生成4张系列插画（标准模式：局部、中景、整体全景、意境氛围）
 
         Args:
             style_code: 风格代码
@@ -307,27 +307,44 @@ class IllustrationGenerator:
         Returns:
             list: 输出文件路径列表
         """
-        # 4种构图策略
+        # 4张系列图标准结构（v2.0）
         compositions = [
             {
-                "name": "全景",
-                "description": "Full view with environment",
-                "prompt_addition": "Wide composition showing the complete plant with surrounding environment, establishing context and atmosphere. Include subtle background elements like soil, pot, or natural setting."
+                "name": "局部特写",
+                "description": "Close-up Detail",
+                "prompt_addition": "CLOSE-UP DETAIL. Tight crop, filling the frame, intimate view of plant details. Focus on the most beautiful detail (leaf texture, petal, rosette cluster). Show intricate details like veins, surface patterns, color gradations."
             },
             {
-                "name": "中景",
-                "description": "Medium shot focusing on subject",
-                "prompt_addition": "Medium shot focusing on the main subject, showing overall form and key characteristics. Balanced composition with moderate detail."
+                "name": "中景视角",
+                "description": "Mid-range View",
+                "prompt_addition": "MID-RANGE VIEW. Balanced composition, plant as main subject with partial pot visible, some breathing room. Show the overall plant form with some surrounding context. Capture the plant's growth pattern and form."
             },
             {
-                "name": "特写",
-                "description": "Close-up of texture details",
-                "prompt_addition": "Extreme close-up of leaf/petal texture, showing intricate details like veins, surface patterns, color gradations. Fill most of the frame with detailed texture."
+                "name": "整体全景",
+                "description": "Full Scene",
+                "prompt_addition": "FULL SCENE. Complete view, showing the complete plant-pot unit with immediate surroundings. Faithful to the reference image, capturing the complete subject as it appears in reality."
             },
             {
-                "name": "意境",
-                "description": "Atmospheric mood shot",
-                "prompt_addition": "Atmospheric composition with generous white space, emphasizing mood and emotion. Minimal subject presence, maximum breathing room, poetic and contemplative."
+                "name": "意境氛围",
+                "description": "Atmospheric Mood",
+                "prompt_addition": """ATMOSPHERIC MOOD. Place the plant within an imagined beautiful garden setting.
+
+IMPORTANT: This is NOT a foreground+background composition.
+The entire scene - plant, pot, and environment - should be painted/drawn together as ONE unified artwork with harmonious integration.
+
+Composition: The plant-pot unit is thoughtfully placed within a gentle garden atmosphere. The environment and plant are painted/drawn together, creating a cohesive whole. Soft transitions between elements, no harsh separation. Full composition with organized breathing room, NOT minimalist with excessive white space.
+
+Environment (integrated, not layered):
+- Soft garden atmosphere with muted, harmonious colors
+- Complementary elements: garden stones, soft moss, gentle foliage in background
+- Environment elements painted/drawn with the same technique as the plant
+- Everything flows together - plant, pot, ground, atmosphere - as one artwork
+- Colors: muted earth tones, soft greens, gentle grays, cream
+
+Natural Logic (CRITICAL):
+- Plant MUST grow naturally from the pot
+- Plant and pot remain connected, no separation
+- Maintain botanical accuracy and natural growth patterns"""
             }
         ]
 
@@ -388,115 +405,115 @@ class IllustrationGenerator:
         Returns:
             list: 输出文件路径列表
         """
-        # 定义各风格的步骤
+        # 定义各风格的步骤（基于专业学术标准 - professional-painting-steps.md）
         style_steps = {
             "watercolor_oriental": [
-                {"step": 1, "title": "草稿", "stage": "Light pencil sketch",
-                 "details": "Gentle pencil outline, capturing basic composition and main forms."},
-                {"step": 2, "title": "第一层水彩", "stage": "First watercolor wash",
-                 "details": "Light, transparent wash establishing color zones and atmosphere."},
-                {"step": 3, "title": "叠加层次", "stage": "Layering colors",
-                 "details": "Building depth with multiple transparent layers, wet-on-wet technique."},
-                {"step": 4, "title": "细节刻画", "stage": "Detail refinement",
-                 "details": "Adding fine details, textures, and subtle color variations."},
-                {"step": 5, "title": "完成", "stage": "Final artwork",
-                 "details": f"{details if details else 'Completed watercolor illustration'}, with soft edges and breathing space."}
+                {"step": 1, "title": "铅笔稿", "stage": "Pencil Sketch",
+                 "details": "Light pencil outline on watercolor paper, capturing basic composition. Lines should be gentle, not too heavy, leaving space for watercolor."},
+                {"step": 2, "title": "第一遍淡彩", "stage": "First Light Wash",
+                 "details": "Light transparent wash establishing overall color zones and atmosphere. Use wet-on-wet technique with plenty of water."},
+                {"step": 3, "title": "第二遍中间色", "stage": "Second Layer - Mid Tones",
+                 "details": "Building depth with medium tones on dry base, wet-on-dry technique for control. Colors deeper than first layer but still transparent."},
+                {"step": 4, "title": "第三遍深色与细节", "stage": "Third Layer - Darks and Details",
+                 "details": "Adding darkest values and fine details with controlled brushwork. Maintain breathing space and Eastern aesthetic."},
+                {"step": 5, "title": "完成与调整", "stage": "Final Touches",
+                 "details": f"Final adjustments, highlights, and overall refinement. {details if details else 'Completed watercolor with soft edges and poetic atmosphere.'}"}
             ],
             "watercolor_western": [
-                {"step": 1, "title": "草稿", "stage": "Detailed sketch",
-                 "details": "Precise pencil drawing with clear contours and details."},
-                {"step": 2, "title": "第一层水彩", "stage": "Base wash",
-                 "details": "First layer of color, establishing light and shadow."},
-                {"step": 3, "title": "叠加层次", "stage": "Color building",
-                 "details": "Multiple layers for rich, saturated colors."},
-                {"step": 4, "title": "细节刻画", "stage": "Fine details",
-                 "details": "Botanical accuracy, veins, textures, highlights."},
-                {"step": 5, "title": "完成", "stage": "Finished piece",
-                 "details": f"{details if details else 'Completed botanical watercolor'}, vibrant and detailed."}
+                {"step": 1, "title": "精细铅笔稿", "stage": "Detailed Pencil Drawing",
+                 "details": "Precise pencil drawing with botanical accuracy and clear contours. Include all structural details."},
+                {"step": 2, "title": "底色铺设", "stage": "Base Wash",
+                 "details": "First color layer establishing light and shadow with controlled washes. Wet-on-dry technique for precision."},
+                {"step": 3, "title": "色彩叠加", "stage": "Color Building",
+                 "details": "Multiple layers building rich, saturated colors with precision. Botanical illustration tradition."},
+                {"step": 4, "title": "细节刻画", "stage": "Fine Details",
+                 "details": "Botanical precision - veins, textures, highlights with fine brushwork. Scientific accuracy meets artistic beauty."},
+                {"step": 5, "title": "完成", "stage": "Finished Piece",
+                 "details": f"Final refinement with vibrant colors and complete details. {details if details else 'Completed botanical watercolor.'}"}
             ],
             "ink_oriental": [
-                {"step": 1, "title": "构图", "stage": "Composition planning",
-                 "details": "Light sketch establishing placement and negative space."},
-                {"step": 2, "title": "墨稿", "stage": "Ink outline",
-                 "details": "Expressive brushstrokes defining main forms with varying ink tones."},
-                {"step": 3, "title": "淡彩", "stage": "Light color wash",
-                 "details": "Subtle color accents, maintaining ink dominance."},
-                {"step": 4, "title": "浓彩点睛", "stage": "Color accents",
-                 "details": "Strategic color placement for visual interest and depth."},
-                {"step": 5, "title": "完成", "stage": "Final artwork",
-                 "details": f"{details if details else 'Completed ink painting'}, with poetic simplicity and intentional空白."}
+                {"step": 1, "title": "白描", "stage": "Line Drawing - Baimiao",
+                 "details": "Ink outline with flowing lines, traditional Chinese line work. Use center-tip brush technique."},
+                {"step": 2, "title": "分染", "stage": "Color Separation - Fenran",
+                 "details": "Separating color zones with light washes, establishing base tones. Layer by layer approach."},
+                {"step": 3, "title": "罩染", "stage": "Glazing - Zhaoyan",
+                 "details": "Overall glazing to unify colors and create harmony. Thin and even application."},
+                {"step": 4, "title": "提染", "stage": "Highlighting - Tiyan",
+                 "details": "Highlighting key areas to enhance dimensionality. Strategic emphasis on focal points."},
+                {"step": 5, "title": "完成", "stage": "Final Artwork",
+                 "details": f"Final details and optional seal stamp in traditional style. {details if details else 'Completed gongbi painting.'}"}
             ],
             "pencil_oriental": [
-                {"step": 1, "title": "线稿", "stage": "Line drawing",
-                 "details": "Light pencil outline, basic shapes and contours only."},
-                {"step": 2, "title": "铺底色", "stage": "Base color layer",
-                 "details": "First layer of light color, establishing color zones."},
-                {"step": 3, "title": "深化色彩", "stage": "Color deepening",
-                 "details": "Adding layers, building color intensity, initial shading."},
-                {"step": 4, "title": "细节刻画", "stage": "Detail refinement",
-                 "details": "Adding fine details, textures, veins, subtle color variations."},
-                {"step": 5, "title": "完成", "stage": "Final artwork",
-                 "details": f"{details if details else 'Completed colored pencil illustration'}, polished and refined."}
+                {"step": 1, "title": "线稿", "stage": "Line Drawing",
+                 "details": "Light pencil outline with gentle strokes. Lines should be soft, not too heavy."},
+                {"step": 2, "title": "铺底色", "stage": "Base Color Layer",
+                 "details": "First light color layer with gentle pressure. Even application establishing color zones."},
+                {"step": 3, "title": "深化色彩", "stage": "Color Deepening",
+                 "details": "Building color intensity through multiple layers. Gradual deepening with soft transitions."},
+                {"step": 4, "title": "细节刻画", "stage": "Detail Refinement",
+                 "details": "Adding fine details, textures, and subtle color variations. Meticulous attention to transitions."},
+                {"step": 5, "title": "完成", "stage": "Final Artwork",
+                 "details": f"Final refinement with soft, delicate finish. {details if details else 'Completed with gentle, contemplative mood.'}"}
             ],
             "pencil_western": [
-                {"step": 1, "title": "线稿", "stage": "Detailed line work",
-                 "details": "Precise pencil drawing with botanical accuracy."},
-                {"step": 2, "title": "铺底色", "stage": "Base colors",
-                 "details": "Even color application, establishing local colors."},
-                {"step": 3, "title": "深化色彩", "stage": "Building values",
-                 "details": "Layering for depth, shadows, and dimensional form."},
-                {"step": 4, "title": "细节刻画", "stage": "Fine details",
-                 "details": "Intricate textures, highlights, botanical precision."},
-                {"step": 5, "title": "完成", "stage": "Finished illustration",
-                 "details": f"{details if details else 'Completed botanical illustration'}, rich and realistic."}
+                {"step": 1, "title": "精细线稿", "stage": "Detailed Line Work",
+                 "details": "Precise pencil drawing with botanical accuracy. Structural precision and complete details."},
+                {"step": 2, "title": "铺底色", "stage": "Base Colors",
+                 "details": "Even color application establishing local colors. Foundation for realistic rendering."},
+                {"step": 3, "title": "深化明暗", "stage": "Building Values",
+                 "details": "Layering for depth, shadows, and dimensional form. Strong contrast for three-dimensionality."},
+                {"step": 4, "title": "细节刻画", "stage": "Fine Details",
+                 "details": "Intricate textures, highlights, botanical precision. Photorealistic quality and texture expression."},
+                {"step": 5, "title": "完成", "stage": "Finished Illustration",
+                 "details": f"Photorealistic finish with rich details. {details if details else 'Completed botanical illustration.'}"}
             ],
             "oil_oriental": [
                 {"step": 1, "title": "底稿", "stage": "Underpainting",
-                 "details": "Tonal sketch establishing composition and values."},
-                {"step": 2, "title": "底色", "stage": "Base colors",
-                 "details": "Thin paint layer, establishing color harmony."},
-                {"step": 3, "title": "中间色", "stage": "Middle tones",
-                 "details": "Building form with medium-thick paint, soft brushwork."},
-                {"step": 4, "title": "高光与细节", "stage": "Highlights and details",
-                 "details": "Impasto highlights, subtle details, atmospheric depth."},
-                {"step": 5, "title": "完成", "stage": "Final painting",
-                 "details": f"{details if details else 'Completed oil painting'}, with poetic mood and soft edges."}
+                 "details": "Monochrome underpainting establishing values and composition. Thin application building structure."},
+                {"step": 2, "title": "底色", "stage": "Base Colors",
+                 "details": "Thin color layer establishing color harmony with soft tones. Transparent and gentle."},
+                {"step": 3, "title": "中间色", "stage": "Middle Tones",
+                 "details": "Medium-thick paint building form with gentle brushwork. Restrained strokes, soft colors."},
+                {"step": 4, "title": "高光与细节", "stage": "Highlights and Details",
+                 "details": "Impasto highlights and subtle details with atmospheric depth. Moderate impasto maintaining Eastern charm."},
+                {"step": 5, "title": "完成", "stage": "Final Painting",
+                 "details": f"Final refinement with poetic mood and soft edges. {details if details else 'Completed with contemplative atmosphere.'}"}
             ],
             "oil_western": [
-                {"step": 1, "title": "底稿", "stage": "Detailed underpainting",
-                 "details": "Precise tonal study, establishing light and shadow."},
-                {"step": 2, "title": "底色", "stage": "Color blocking",
-                 "details": "Bold color application, establishing composition."},
-                {"step": 3, "title": "中间色", "stage": "Form building",
-                 "details": "Thick paint application, dramatic brushstrokes."},
-                {"step": 4, "title": "高光", "stage": "Highlights and texture",
-                 "details": "Impasto highlights, rich textures, dramatic lighting."},
-                {"step": 5, "title": "完成", "stage": "Finished oil painting",
-                 "details": f"{details if details else 'Completed classical oil painting'}, with rich textures and depth."}
+                {"step": 1, "title": "底稿", "stage": "Detailed Underpainting",
+                 "details": "Precise tonal study establishing light and shadow. Strong contrast in values."},
+                {"step": 2, "title": "底色", "stage": "Color Blocking",
+                 "details": "Bold color application establishing composition. Rich colors with visible brushwork."},
+                {"step": 3, "title": "中间色", "stage": "Form Building",
+                 "details": "Thick paint application with dramatic brushstrokes. Heavy texture and expressive strokes."},
+                {"step": 4, "title": "高光", "stage": "Highlights and Texture",
+                 "details": "Impasto highlights, rich textures, dramatic lighting. Classical oil painting technique."},
+                {"step": 5, "title": "完成", "stage": "Finished Oil Painting",
+                 "details": f"Classical finish with rich textures and depth. {details if details else 'Completed in Dutch Golden Age style.'}"}
             ],
             "gouache_oriental": [
-                {"step": 1, "title": "线稿", "stage": "Line drawing",
-                 "details": "Clean outlines, decorative pattern planning."},
-                {"step": 2, "title": "平涂底色", "stage": "Flat base colors",
-                 "details": "Even color application, establishing color blocks."},
-                {"step": 3, "title": "叠加色彩", "stage": "Color layering",
-                 "details": "Adding secondary colors, pattern elements."},
-                {"step": 4, "title": "装饰细节", "stage": "Decorative details",
-                 "details": "Traditional patterns, ornamental elements, gold accents."},
-                {"step": 5, "title": "完成", "stage": "Final artwork",
-                 "details": f"{details if details else 'Completed decorative painting'}, with folk art charm."}
+                {"step": 1, "title": "线稿", "stage": "Line Drawing",
+                 "details": "Clean outlines with decorative pattern planning. Flowing lines with pattern sensibility."},
+                {"step": 2, "title": "平涂底色", "stage": "Flat Base Colors",
+                 "details": "Even opaque color application with clean edges. Establishing color blocks."},
+                {"step": 3, "title": "叠加色彩", "stage": "Color Layering",
+                 "details": "Adding secondary colors and pattern elements. Clear layers with decorative quality."},
+                {"step": 4, "title": "装饰细节", "stage": "Decorative Details",
+                 "details": "Traditional patterns, ornamental elements, possible gold accents. Folk art style."},
+                {"step": 5, "title": "完成", "stage": "Final Artwork",
+                 "details": f"Folk art charm with decorative finish. {details if details else 'Completed with pattern and ornamental quality.'}"}
             ],
             "gouache_western": [
-                {"step": 1, "title": "线稿", "stage": "Clean line work",
-                 "details": "Precise outlines, modern design planning."},
-                {"step": 2, "title": "平涂底色", "stage": "Flat color blocks",
-                 "details": "Bold, even color application, graphic quality."},
-                {"step": 3, "title": "叠加色彩", "stage": "Color additions",
-                 "details": "Secondary colors, creating visual interest."},
-                {"step": 4, "title": "装饰细节", "stage": "Design details",
-                 "details": "Modern patterns, geometric elements, clean edges."},
-                {"step": 5, "title": "完成", "stage": "Final illustration",
-                 "details": f"{details if details else 'Completed modern illustration'}, with graphic design appeal."}
+                {"step": 1, "title": "线稿", "stage": "Clean Line Work",
+                 "details": "Precise outlines with modern design planning. Strong design sensibility and clean lines."},
+                {"step": 2, "title": "平涂底色", "stage": "Flat Color Blocks",
+                 "details": "Bold even color application with graphic quality. Opaque with sharp edges."},
+                {"step": 3, "title": "叠加色彩", "stage": "Color Additions",
+                 "details": "Secondary colors creating visual interest. Design-forward with color contrast."},
+                {"step": 4, "title": "装饰细节", "stage": "Design Details",
+                 "details": "Modern patterns, geometric elements, clean edges. Mid-century modern style."},
+                {"step": 5, "title": "完成", "stage": "Final Illustration",
+                 "details": f"Graphic design appeal with modern illustration style. {details if details else 'Completed with contemporary aesthetic.'}"}
             ]
         }
 
@@ -522,6 +539,10 @@ class IllustrationGenerator:
 
         output_paths = []
 
+        # 保存原始参考图路径
+        original_reference = reference_image_path
+        current_reference = reference_image_path
+
         for step_info in steps:
             print(f"\n{'='*60}")
             print(f"📝 步骤 {step_info['step']}: {step_info['title']}")
@@ -529,12 +550,122 @@ class IllustrationGenerator:
 
             # 构建步骤 Prompt
             base_prompt = self._build_prompt(style_code, subject, details, mood)
-            step_prompt = f"""{base_prompt}
+
+            # 步骤1需要特别强调：精确复制参考图的构图
+            if step_info['step'] == 1:
+                # 获取画风的英文名称（用于 prompt）
+                style_type_map = {
+                    "watercolor_oriental": "watercolor",
+                    "watercolor_western": "watercolor",
+                    "ink_oriental": "Chinese ink painting",
+                    "ink_western": "ink painting",
+                    "pencil_oriental": "colored pencil",
+                    "pencil_western": "colored pencil",
+                    "oil_oriental": "oil painting",
+                    "oil_western": "oil painting",
+                    "gouache_oriental": "gouache",
+                    "gouache_western": "gouache",
+                }
+                style_type = style_type_map.get(style_code, "painting")
+
+                # 获取步骤1的具体要求（根据画种不同）
+                step1_requirements_map = {
+                    "watercolor_oriental": "ONLY light pencil lines - NO color, NO shading, NO wash",
+                    "watercolor_western": "ONLY light pencil lines - NO color, NO shading, NO wash",
+                    "ink_oriental": "ONLY light ink outlines - NO heavy ink, NO shading, NO color",
+                    "ink_western": "ONLY light ink outlines - NO heavy ink, NO shading, NO color",
+                    "pencil_oriental": "ONLY light line drawing - NO color, NO shading, NO blending",
+                    "pencil_western": "ONLY light line drawing - NO color, NO shading, NO blending",
+                    "oil_oriental": "ONLY charcoal or pencil sketch - NO paint, NO color, NO shading",
+                    "oil_western": "ONLY charcoal or pencil sketch - NO paint, NO color, NO shading",
+                    "gouache_oriental": "ONLY light line work - NO paint, NO color, NO shading",
+                    "gouache_western": "ONLY light line work - NO paint, NO color, NO shading",
+                }
+                step1_requirement = step1_requirements_map.get(style_code, "ONLY basic outlines - NO color, NO shading, NO rendering")
+
+                step_prompt = f"""CRITICAL: This is a step-by-step {style_type} tutorial based on the reference photo.
+
+ARTISTIC APPROACH:
+You are an artist creating a {style_type} artwork inspired by the reference photo:
+- Study the main subject ({subject}) carefully
+- Capture the essence and key features of the subject
+- Simplify or redesign the background to better showcase the subject
+- Adjust composition for artistic effect while keeping the subject recognizable
+- This is artistic interpretation, not photographic reproduction
+
+REFERENCE PHOTO GUIDANCE:
+- Main subject: {subject} - capture its form, structure, and character
+- Background: Simplify or redesign as needed - you don't need to copy every detail
+- Composition: Adjust to create a more artistic, balanced composition
+- Focus: Emphasize what makes the subject beautiful and interesting
+
+{base_prompt}
+
+STEP {step_info['step']}/5: {step_info['stage']}
+Stage description: {step_info['details']}
+
+CRITICAL REQUIREMENTS FOR THIS STEP:
+This is ONLY the first stage - {step_info['title']}:
+- {step1_requirement}
+- Just outlines and basic structure
+- Very light, delicate lines
+- Capture the main forms and composition
+- This is preparatory work for the painting/coloring that will come in later steps
+
+WHAT TO INCLUDE:
+- {subject} (main subject)
+- Simplified background elements if needed for composition
+- Basic spatial relationships
+
+WHAT TO AVOID:
+- NO color or paint of any kind
+- NO shading or tonal work
+- NO detailed rendering
+- This is just the foundation sketch/outline
+
+Text overlay: Add Chinese text "步骤{step_info['step']}：{step_info['title']}" in upper left corner, clear handwritten style, soft cream color.
+"""
+            # 步骤5（完成）需要特殊处理：基于步骤4，但要求达到完成图的效果
+            elif step_info['step'] == 5:
+                # 获取画风的英文名称
+                style_type_map = {
+                    "watercolor_oriental": "watercolor",
+                    "watercolor_western": "watercolor",
+                    "ink_oriental": "Chinese ink painting",
+                    "ink_western": "ink painting",
+                    "pencil_oriental": "colored pencil",
+                    "pencil_western": "colored pencil",
+                    "oil_oriental": "oil painting",
+                    "oil_western": "oil painting",
+                    "gouache_oriental": "gouache",
+                    "gouache_western": "gouache",
+                }
+                style_type = style_type_map.get(style_code, "artwork")
+
+                step_prompt = f"""{base_prompt}
+
+STEP {step_info['step']}/5: {step_info['stage']} - FINAL ARTWORK
+Stage description: {step_info['details']}
+
+CRITICAL INSTRUCTIONS FOR FINAL STEP:
+This is the natural completion of Step 4. Build upon what's already there:
+- Keep the same composition and subject structure from the reference (Step 4)
+- Add final refinements: brighten highlights, deepen shadows, enhance color saturation
+- Bring colors to FULL vibrancy - this is the finished artwork, not a study
+- Add final details: subtle texture, color accents, finishing touches
+- The result should feel like a polished, completed {style_type} with rich, saturated colors
+- Override "muted tones" - allow vibrant, lively colors appropriate for a finished piece
+
+Think of this as: "Take Step 4 and bring it to 100% completion with full color intensity"
+Text overlay: Add Chinese text "步骤{step_info['step']}：{step_info['title']}" in upper left corner, clear handwritten style, soft cream color.
+"""
+            else:
+                step_prompt = f"""{base_prompt}
 
 STEP {step_info['step']}/5: {step_info['stage']}
 Stage description: {step_info['details']}
 Show this specific stage of the drawing process, not the final result.
-IMPORTANT: Based on the reference image, only add the elements for THIS step. Do not add elements from future steps.
+IMPORTANT: Maintain the EXACT same composition and subject structure as the reference. Only add the painting elements for THIS step.
 Text overlay: Add Chinese text "步骤{step_info['step']}：{step_info['title']}" in upper left corner, clear handwritten style, soft cream color.
 """
 
@@ -542,13 +673,13 @@ Text overlay: Add Chinese text "步骤{step_info['step']}：{step_info['title']}
             filename = f"步骤{step_info['step']}_{step_info['title']}.png"
             output_path = output_dir / filename
 
-            # 生成图片
-            success = self.generate_single_image(step_prompt, str(output_path), reference_image_path=reference_image_path)
+            # 生成图片（所有步骤都使用当前参考图，保持连贯性）
+            success = self.generate_single_image(step_prompt, str(output_path), reference_image_path=current_reference)
 
             if success:
                 output_paths.append(str(output_path))
-                # 关键修复：将当前步骤的输出作为下一步的参考图
-                reference_image_path = str(output_path)
+                # 将当前步骤的输出作为下一步的参考图
+                current_reference = str(output_path)
                 print(f"✅ 步骤 {step_info['step']} 完成，将作为下一步的参考图")
             else:
                 print(f"❌ 步骤 {step_info['step']} 生成失败")
@@ -636,43 +767,61 @@ Image size: 1080x1440 pixels (3:4 vertical format).
         Returns:
             str: 完整 Prompt
         """
-        # 艺术家风格参考映射
+        # 艺术家风格参考映射（基于专业学术标准 - professional-painting-steps.md v2.0）
         artist_references = {
             "watercolor_oriental": {
                 "artist": "Qi Baishi (齐白石)",
                 "style_keywords": "Chinese freehand brushwork, expressive simplicity, poetic composition",
                 "composition": "Subject occupies 40-50% of frame with intentional negative space for visual breathing room",
-                "technique": "Delicate wet-on-wet washes, soft color bleeding, transparent layers, visible brushstrokes"
+                "technique": "Light to dark progression (从淡到深). Wet-on-wet washes for soft bleeding, transparent layering building depth gradually, visible brushstrokes with breathing space. Multiple transparent washes, each layer drying before next application."
             },
             "watercolor_western": {
                 "artist": "John Singer Sargent",
                 "style_keywords": "gestural brushwork, delicate layering, luminous washes, confident strokes",
                 "composition": "Subject occupies 60-70% of frame, dynamic composition with strong light-shadow contrast",
-                "technique": "Loose but precise brushwork, layered transparent washes, hand-painted texture"
+                "technique": "Light to dark progression. Wet-on-dry for controlled edges, multiple transparent layers building rich saturated colors, botanical precision with fine brushwork. Layered washes creating luminosity and depth."
             },
             "ink_oriental": {
-                "artist": "Bada Shanren (八大山人)",
-                "style_keywords": "minimalist ink, profound simplicity, Zen aesthetics, vast emptiness",
-                "composition": "Subject occupies 30-40% of frame, extreme minimalism with meaningful negative space",
-                "technique": "Economical brushstrokes, ink gradations, expressive freedom"
+                "artist": "Bada Shanren (八大山人) for Xieyi, Song Dynasty masters for Gongbi",
+                "style_keywords": "Gongbi: meticulous line work, layered染色. Xieyi: minimalist ink, expressive freedom, Zen aesthetics",
+                "composition": "Gongbi: 60-70% of frame. Xieyi: 30-40% of frame with extreme minimalism and meaningful negative space",
+                "technique": "Gongbi: Baimiao outline (白描), Fenran separation (分染 from edges inward), Zhaoyan glazing (罩染 transparent overall wash), Tiyan highlighting (提染). Xieyi: Ink gradations (墨分五色), expressive brushstrokes, color as accent not dominance, spontaneous yet controlled."
             },
             "pencil_oriental": {
-                "artist": "Margaret Mee",
-                "style_keywords": "botanical illustration, scientific accuracy, delicate shading",
+                "artist": "Japanese botanical illustration tradition",
+                "style_keywords": "botanical illustration, delicate shading, soft transitions, gentle aesthetic",
                 "composition": "Subject occupies 70-80% of frame, specimen-style with complete details",
-                "technique": "Fine pencil strokes, subtle layering, paper texture visible"
+                "technique": "Light to dark layering (从浅到深). Gentle pressure for base layers, gradual color building through multiple layers, soft blending for smooth transitions. Avoid heavy burnishing, maintain delicate Japanese aesthetic with soft finish."
+            },
+            "pencil_western": {
+                "artist": "Margaret Mee",
+                "style_keywords": "botanical illustration, scientific accuracy, photorealistic detail",
+                "composition": "Subject occupies 70-80% of frame, specimen-style with complete botanical precision",
+                "technique": "Light to dark layering (从浅到深 principle). Multiple layers building from lightest colors, gradual pressure increase, burnishing technique for smooth photorealistic finish. Heavy pressure in final layers to blend and create polished surface."
             },
             "oil_oriental": {
-                "artist": "Henri Fantin-Latour",
-                "style_keywords": "French Realism, floral still life, dramatic lighting, classical composition",
-                "composition": "Subject occupies 70-80% of frame, classical still life arrangement",
-                "technique": "Rich textures, visible brushstrokes, impasto effects, dramatic chiaroscuro"
+                "artist": "Classical oil painting with Eastern aesthetic",
+                "style_keywords": "poetic atmosphere, soft edges, subtle mood, restrained elegance",
+                "composition": "Subject occupies 70-80% of frame, classical arrangement with atmospheric depth",
+                "technique": "Dark to light progression (从暗到明). Monochrome underpainting establishing values, transparent glazing layers preserving underpainting, feathering edges for soft transitions. Each glaze layer must dry completely. Final transparent glaze unifying tones with poetic atmosphere."
+            },
+            "oil_western": {
+                "artist": "Dutch Golden Age masters (Rembrandt, Vermeer)",
+                "style_keywords": "dramatic lighting, rich textures, classical realism, chiaroscuro",
+                "composition": "Subject occupies 70-80% of frame, classical still life with dramatic lighting",
+                "technique": "Dark to light progression (从暗到明). Dark underpainting with strong value contrast, multiple transparent glazing layers, feathering edges to prevent harsh lines. Semi-opaque form building, thick impasto highlights creating texture. Final transparent glaze for depth and unity."
             },
             "gouache_oriental": {
-                "artist": "Dunhuang murals",
-                "style_keywords": "decorative patterns, flat colors, ornamental design",
+                "artist": "Chinese folk art and Japanese Meiji aesthetics",
+                "style_keywords": "decorative patterns, flat colors, ornamental design, folk art charm",
                 "composition": "Subject occupies 60-70% of frame, pattern-based layout",
-                "technique": "Flat color blocks, clear outlines, decorative elements"
+                "technique": "Wet-on-wet blending for soft backgrounds, opaque flat color application with clean edges (covering underlayers completely), thin glazing for depth, decorative details. High pigment concentration allowing opaque coverage."
+            },
+            "gouache_western": {
+                "artist": "Mid-century modern illustration",
+                "style_keywords": "graphic design appeal, bold colors, clean edges, modern aesthetic",
+                "composition": "Subject occupies 60-70% of frame, modern graphic layout",
+                "technique": "Wet-on-wet blending for atmospheric backgrounds, opaque color blocks with sharp edges (complete coverage of underlayers), scumbling with dry brush for broken texture allowing underlayer to show through. Combination of opaque and transparent techniques."
             }
         }
 
