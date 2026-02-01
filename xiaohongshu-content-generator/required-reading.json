@@ -2,20 +2,59 @@
   "skill": "xiaohongshu-content-generator",
   "required_before_execution": [
     {
-      "file": "knowledge/image-prompt-guide.md",
-      "reason": "配图规范和风格选择"
+      "file": "../../knowledge/xiaohongshu-operation-manual.md",
+      "reason": "小红书运营规则和最佳实践",
+      "mandatory": true
     },
     {
-      "file": "knowledge/xiaohongshu-mixed-style-image-case.md",
-      "reason": "成功案例参考"
+      "file": "knowledge/image-prompt-guide.md",
+      "reason": "配图规范和风格选择",
+      "mandatory": true
+    },
+    {
+      "file": "../../knowledge/xiaohongshu-mixed-style-image-case.md",
+      "reason": "成功案例参考",
+      "mandatory": true
+    },
+    {
+      "file": "../../knowledge/image-generation-cases/anti-patterns.md",
+      "reason": "配图反面案例,避免常见错误",
+      "mandatory": true
+    },
+    {
+      "file": "../../knowledge/content-anti-patterns-universal.md",
+      "reason": "内容创作反面案例,避免常见错误",
+      "mandatory": true
+    },
+    {
+      "file": "../../knowledge/title-formulas-by-platform.md",
+      "reason": "标题公式库(含小红书20字限制)",
+      "mandatory": true
+    },
+    {
+      "file": "../../knowledge/content-structures-short-form.md",
+      "reason": "短图文内容结构(含1000字限制)",
+      "mandatory": true
+    },
+    {
+      "file": "../../knowledge/content-directions-universal.md",
+      "reason": "内容方向指南(混搭玩法)",
+      "mandatory": true
+    },
+    {
+      "file": "../../knowledge/interaction-templates-universal.md",
+      "reason": "互动话术模板",
+      "mandatory": true
     },
     {
       "file": "../_global_config/content-value-checklist.md",
-      "reason": "内容价值自检"
+      "reason": "内容价值自检",
+      "mandatory": true
     },
     {
       "file": "../_global_config/unified-content-workflow.md",
-      "reason": "统一内容生成工作流"
+      "reason": "统一内容生成工作流",
+      "mandatory": true
     }
   ]
 }
