@@ -37,6 +37,9 @@
 | `oil_western` | 质感油画（西方） | `gemini-3-pro-image-preview` | 古典油画质感 | ⏳ 待测试 |
 | `gouache_oriental` | 装饰彩绘（东方） | `gemini-3-pro-image-preview` | 平涂效果、装饰性 | ⏳ 待测试 |
 | `gouache_western` | 装饰彩绘（西方） | `gemini-3-pro-image-preview` | 现代插画风格 | ⏳ 待测试 |
+| `gongbi_oriental` | 工笔花鸟画（东方） | `gemini-3-pro-image-preview` | 精细线条、工整设色 | ⏳ 待测试 |
+| `gongbi_western` | 工笔花鸟画（西方） | `gemini-3-pro-image-preview` | 工笔技法、西方构图 | ⏳ 待测试 |
+| `decorative_gongbi` | 现代装饰工笔画 | `gemini-3-pro-image-preview` | 现代感、装饰性强 | ⏳ 待测试 |
 
 ---
 
@@ -65,6 +68,9 @@ STYLE_MODEL_MAPPING = {
     "oil_western": "gemini-3-pro-image-preview",
     "gouache_oriental": "gemini-3-pro-image-preview",
     "gouache_western": "gemini-3-pro-image-preview",
+    "gongbi_oriental": "gemini-3-pro-image-preview",
+    "gongbi_western": "gemini-3-pro-image-preview",
+    "decorative_gongbi": "gemini-3-pro-image-preview",
 }
 
 def get_model_for_style(style_code):
@@ -143,6 +149,7 @@ def get_model_for_style(style_code):
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
 | v1.0 | 2026-01-31 | 初始版本，全部使用 Gemini（待测试验证） |
+| v2.0 | 2026-02-02 | 新增3个工笔画风格：工笔花鸟画（东方/西方）、现代装饰工笔画 |
 
 ---
 
