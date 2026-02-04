@@ -2,16 +2,53 @@
   "skill": "wechat-content-generator",
   "required_before_execution": [
     {
-      "file": "knowledge/wechat-image-prompt-guide.md",
-      "reason": "微信配图规范"
+      "file": "../../knowledge/follower-engagement-guide.md",
+      "reason": "粉丝数询问和鼓励语生成规则",
+      "mandatory": true,
+      "required_for_steps": [0],
+      "note": "Step 0 执行前必读"
     },
     {
-      "file": "../_global_config/content-value-checklist.md",
-      "reason": "内容价值自检"
+      "file": "../../knowledge/value-check-standards.md",
+      "reason": "价值自检的详细标准和判断方法",
+      "mandatory": true,
+      "required_for_steps": [6],
+      "note": "价值自检时必读"
+    },
+    {
+      "file": "../../knowledge/product-matching-strategy.md",
+      "reason": "商品匹配的查询优先策略和存储规则",
+      "mandatory": true,
+      "required_for_steps": [8],
+      "note": "商品匹配时必读"
+    },
+    {
+      "file": "../../knowledge/image-generation-dynamic-count.md",
+      "reason": "配图动态数量规则（长文格式）",
+      "mandatory": true,
+      "required_for_steps": [9],
+      "note": "生成配图时必读"
+    },
+    {
+      "file": "knowledge/wechat-image-prompt-guide.md",
+      "reason": "微信配图规范和风格选择",
+      "mandatory": true,
+      "required_for_steps": [9],
+      "note": "生成配图时必读"
+    },
+    {
+      "file": "../../knowledge/pre-publish-checklist.md",
+      "reason": "推送前检查清单",
+      "mandatory": true,
+      "required_for_steps": [11],
+      "note": "推送前检查时必读"
     },
     {
       "file": "../_global_config/unified-content-workflow.md",
-      "reason": "统一内容生成工作流"
+      "reason": "统一内容生成工作流",
+      "mandatory": false,
+      "required_for_steps": [],
+      "note": "参考文档"
     }
   ]
 }

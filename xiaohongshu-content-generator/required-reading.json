@@ -2,6 +2,13 @@
   "skill": "xiaohongshu-content-generator",
   "required_before_execution": [
     {
+      "file": "../../knowledge/follower-engagement-guide.md",
+      "reason": "粉丝数询问和鼓励语生成规则",
+      "mandatory": true,
+      "required_for_steps": [0],
+      "note": "Step 0 执行前必读"
+    },
+    {
       "file": "knowledge/xiaohongshu-core-features.md",
       "reason": "信任型双标题系统、标签规则(5+5)、配图策略",
       "mandatory": true,
@@ -58,15 +65,15 @@
       "note": "生成文案时必读"
     },
     {
-      "file": "../_global_config/content-value-checklist.md",
-      "reason": "内容价值自检",
+      "file": "../../knowledge/value-check-standards.md",
+      "reason": "价值自检的详细标准和判断方法",
       "mandatory": true,
       "required_for_steps": [6],
       "note": "价值自检时必读"
     },
     {
-      "file": "knowledge/product-matching-guide.md",
-      "reason": "账号阶段商品匹配策略",
+      "file": "../../knowledge/product-matching-strategy.md",
+      "reason": "商品匹配的查询优先策略和存储规则",
       "mandatory": true,
       "required_for_steps": [8],
       "note": "商品匹配时必读"
