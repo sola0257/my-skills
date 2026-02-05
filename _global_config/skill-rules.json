@@ -1,0 +1,195 @@
+{
+  "version": "1.0",
+  "description": "Skills 自动激活触发规则配置",
+  "last_updated": "2026-01-28",
+
+  "skills": {
+    "xiaohongshu-content-generator": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["小红书", "种草", "笔记", "xhs"]},
+        {"type": "file_pattern", "pattern": "**/小红书/**"},
+        {"type": "intent", "intents": ["生成小红书内容", "写小红书"]}
+      ],
+      "priority": "high",
+      "auto_suggest": true,
+      "dependencies": ["compliance-checker", "account-stage-manager"]
+    },
+
+    "wechat-content-generator": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["公众号", "订阅号", "服务号", "微信文章"]},
+        {"type": "file_pattern", "pattern": "**/订阅号/**"},
+        {"type": "file_pattern", "pattern": "**/服务号/**"}
+      ],
+      "priority": "high",
+      "auto_suggest": true,
+      "dependencies": ["compliance-checker", "account-stage-manager"]
+    },
+
+    "video-script-generator": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["视频脚本", "视频号", "抖音", "快手", "短视频"]},
+        {"type": "file_pattern", "pattern": "**/视频脚本/**"}
+      ],
+      "priority": "high",
+      "auto_suggest": true,
+      "dependencies": ["compliance-checker", "account-stage-manager"]
+    },
+
+    "content-production-workflow": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["内容规划", "周内容", "排期", "批量生成"]},
+        {"type": "intent", "intents": ["规划本周内容", "生成排期表"]}
+      ],
+      "priority": "high",
+      "auto_suggest": true,
+      "note": "这是内容生产的指挥中心,会调用其他内容生成 Skills"
+    },
+
+    "topic-discovery": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["选题", "热点", "爆款", "趋势"]},
+        {"type": "intent", "intents": ["找选题", "搜索热点"]}
+      ],
+      "priority": "medium",
+      "auto_suggest": true
+    },
+
+    "marketing-calendar": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["营销日历", "节气", "节日", "营销节点"]},
+        {"type": "intent", "intents": ["查看营销节点", "今天有什么节日"]}
+      ],
+      "priority": "medium",
+      "auto_suggest": true
+    },
+
+    "product-catalog": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["商品库", "商品数据", "有赞商品"]},
+        {"type": "file_pattern", "pattern": "**/商品库/**"}
+      ],
+      "priority": "low",
+      "auto_suggest": false,
+      "note": "内部服务技能,通常被其他 Skill 调用"
+    },
+
+    "product-selector": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["选品", "1688", "爆款潜力"]},
+        {"type": "intent", "intents": ["分析选品", "推荐商品"]}
+      ],
+      "priority": "medium",
+      "auto_suggest": true
+    },
+
+    "product-optimizer": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["商品优化", "SKU精简", "卖点提炼"]},
+        {"type": "intent", "intents": ["优化商品", "提炼卖点"]}
+      ],
+      "priority": "medium",
+      "auto_suggest": true
+    },
+
+    "product-pipeline": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["商品流水线", "批量优化商品"]},
+        {"type": "file_pattern", "pattern": "**/商品/**/*.xlsx"}
+      ],
+      "priority": "medium",
+      "auto_suggest": true
+    },
+
+    "account-stage-manager": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["账号阶段", "粉丝数", "更新粉丝"]},
+        {"type": "intent", "intents": ["更新账号状态", "查看账号阶段"]}
+      ],
+      "priority": "high",
+      "auto_suggest": true,
+      "note": "账号阶段变更会影响所有内容生成 Skills 的行为"
+    },
+
+    "competitor-monitor": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["对标账号", "竞品分析", "爆文分析"]},
+        {"type": "intent", "intents": ["分析对标", "找对标账号"]}
+      ],
+      "priority": "medium",
+      "auto_suggest": true,
+      "note": "需要 MediaCrawler 支持"
+    },
+
+    "traffic-diagnosis": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["流量诊断", "二发", "数据分析", "CTR"]},
+        {"type": "intent", "intents": ["分析笔记数据", "诊断流量问题"]}
+      ],
+      "priority": "medium",
+      "auto_suggest": true
+    },
+
+    "compliance-checker": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["违禁词", "合规检查", "敏感词"]},
+        {"type": "intent", "intents": ["检查违禁词", "文案合规"]}
+      ],
+      "priority": "high",
+      "auto_suggest": false,
+      "note": "通常被内容生成 Skills 自动调用"
+    },
+
+    "knowledge-extractor": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["知识整理", "提取方法论", "文档整理"]},
+        {"type": "file_pattern", "pattern": "**/知识库/**"}
+      ],
+      "priority": "low",
+      "auto_suggest": true
+    },
+
+    "docs-scraper": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["抓取文档", "下载文档", "同步文档"]},
+        {"type": "intent", "intents": ["抓取网页文档", "下载帮助文档"]}
+      ],
+      "priority": "low",
+      "auto_suggest": true
+    },
+
+    "pdf-processing": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["PDF", "转换PDF", "处理PDF"]},
+        {"type": "file_pattern", "pattern": "**/*.pdf"}
+      ],
+      "priority": "low",
+      "auto_suggest": true
+    },
+
+    "skill-standards": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["创建Skill", "优化Skill", "Skill规范"]},
+        {"type": "intent", "intents": ["新建技能", "优化技能"]}
+      ],
+      "priority": "medium",
+      "auto_suggest": true,
+      "note": "Skill 开发的标准规范库"
+    },
+
+    "skill-suitability-evaluator": {
+      "triggers": [
+        {"type": "keyword", "keywords": ["评估Skill", "是否适合做Skill"]},
+        {"type": "intent", "intents": ["判断任务是否适合做成Skill"]}
+      ],
+      "priority": "low",
+      "auto_suggest": true
+    }
+  },
+
+  "global_settings": {
+    "default_auto_suggest": false,
+    "suggestion_threshold": 0.7,
+    "max_suggestions": 3
+  }
+}

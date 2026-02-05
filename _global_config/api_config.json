@@ -1,0 +1,19 @@
+{
+  "yunwu": {
+    "base_url": "https://yunwu.ai/v1",
+    "chat_endpoint": "/chat/completions",
+    "default_model": "gemini-3-pro-image-preview",
+    "api_key": "sk-UqMsXIWjukWom3cHPkbf5xBqYrnEJHz3J7cdQQNhkFg974X5",
+    "description": "云雾 API 配置 - 强制使用 Gemini 模型生成图片"
+  },
+  "deeprouter": {
+    "base_url": "https://deeprouter.top",
+    "api_key": "",
+    "description": "DeepRouter MJ 配置 (可选)"
+  },
+  "image_generation": {
+    "default_provider": "yunwu",
+    "force_model": "gemini-3-pro-image-preview",
+    "note": "所有 skills 必须使用此配置，不得随意更改模型"
+  }
+}

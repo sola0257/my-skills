@@ -292,7 +292,7 @@ class IllustrationGenerator:
         else:
             return None
 
-    def generate_series(self, style_code, subject, details="", mood="", output_dir=None, reference_image_path=None):
+    def generate_series(self, style_code, subject, details="", mood="", output_dir=None, reference_image_path=None, element_description=None, skip_existing=False):
         """
         生成4张系列插画（标准模式：局部、中景、整体全景、意境氛围）
 
@@ -303,6 +303,8 @@ class IllustrationGenerator:
             mood: 情绪关键词
             output_dir: 输出目录
             reference_image_path: 参考图片路径（可选）
+            element_description: 意境图元素描述（可选，仅用于第4张意境图）
+            skip_existing: 是否跳过已存在的文件（默认为 False）
 
         Returns:
             list: 输出文件路径列表
@@ -458,12 +460,23 @@ Natural Logic (CRITICAL):
 
             # 构建带有构图指导的 Prompt
             base_prompt = self._build_prompt(style_code, subject, details, mood)
+            
+            # 特殊处理：如果是意境图（第4张）且有元素描述，将其添加到 Prompt 中
+            if comp['name'] == "意境氛围" and element_description:
+                comp['prompt_addition'] += f"\n\nADDITIONAL ELEMENT:\n{element_description}"
+                
             full_prompt = f"{base_prompt}\n\nComposition: {comp['prompt_addition']}"
 
             # 输出路径 - 使用中文友好的文件名
             # 格式：序号_构图类型_主题简介.png
             filename = f"{i:02d}_{comp['name']}_{subject}.png"
             output_path = output_dir / filename
+
+            # 检查是否跳过
+            if skip_existing and output_path.exists():
+                print(f"⏩ 跳过已存在的文件: {filename}")
+                output_paths.append(str(output_path))
+                continue
 
             # 生成图片
             success = self.generate_single_image(full_prompt, str(output_path), reference_image_path=reference_image_path)

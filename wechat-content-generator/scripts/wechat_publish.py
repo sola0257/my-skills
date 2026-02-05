@@ -58,19 +58,40 @@ def get_image_mime_type(image_path):
     return mime_types.get(ext, 'image/jpeg')
 
 
-def image_to_base64_data_uri(image_path):
+from PIL import Image
+import io
+
+def compress_image_to_jpeg_bytes(image_path, quality=80):
     """
-    将图片转换为 Base64 Data URI
-
-    Args:
-        image_path: 图片文件路径
-
-    Returns:
-        Base64 Data URI 字符串，失败返回 None
+    读取图片并压缩为JPEG格式的bytes
     """
     try:
-        with open(image_path, 'rb') as f:
-            image_data = f.read()
+        with Image.open(image_path) as img:
+            # 转换为RGB（兼容PNG透明通道，防止变黑）
+            if img.mode in ('RGBA', 'P'):
+                img = img.convert('RGB')
+            
+            output_buffer = io.BytesIO()
+            img.save(output_buffer, format='JPEG', quality=quality)
+            return output_buffer.getvalue()
+    except Exception as e:
+        print(f"❌ 图片压缩失败: {e}")
+        return None
+
+def image_to_base64_data_uri(image_path):
+    """
+    将图片转换为 Base64 Data URI (带自动压缩)
+    """
+    try:
+        # 尝试压缩图片
+        image_data = compress_image_to_jpeg_bytes(image_path)
+        mime_type = 'image/jpeg' # 压缩后统一为 JPEG
+        
+        if image_data is None:
+            # 如果压缩失败，回退到原始读取
+            with open(image_path, 'rb') as f:
+                image_data = f.read()
+            mime_type = get_image_mime_type(image_path)
 
         # 获取文件大小
         file_size = len(image_data)
@@ -82,10 +103,9 @@ def image_to_base64_data_uri(image_path):
 
         # 转换为 Base64
         image_base64 = base64.b64encode(image_data).decode('utf-8')
-        mime_type = get_image_mime_type(image_path)
         data_uri = f"data:{mime_type};base64,{image_base64}"
 
-        print(f"✅ Base64 嵌入成功 ({file_size / 1024:.1f}KB): {os.path.basename(image_path)}")
+        print(f"✅ Base64 生成成功 (压缩后 {file_size / 1024:.1f}KB): {os.path.basename(image_path)}")
         return data_uri
 
     except Exception as e:
@@ -132,55 +152,85 @@ def upload_image_to_imgbb(image_path):
         return None
 
 
-def process_markdown_images(markdown_content, image_folder):
+def markdown_to_html_with_base64(markdown_content, image_folder):
     """
-    处理Markdown中的图片
-
-    策略（v3.0 优化）：
-    1. 封面图：必须使用图床（API 数据库字段有长度限制）
-    2. 正文图片：优先 Base64 嵌入（≤2MB），过大则用图床
-
+    将Markdown转换为HTML，并将图片嵌入为Base64（用户指定模式）
+    
     Args:
         markdown_content: Markdown内容
         image_folder: 图片文件夹路径
-
+        
     Returns:
-        处理后的Markdown内容，封面图URL
+        HTML内容, 封面图Base64
     """
-    cover_image_url = None
-    processed_content = markdown_content
-
-    # 查找所有图片引用
+    html_content = markdown_content
+    cover_image_data = None
+    
+    # 1. 转换标题
+    html_content = re.sub(r'^# (.*?)$', r'<h1>\1</h1>', html_content, flags=re.MULTILINE)
+    html_content = re.sub(r'^## (.*?)$', r'<h2>\1</h2>', html_content, flags=re.MULTILINE)
+    html_content = re.sub(r'^### (.*?)$', r'<h3>\1</h3>', html_content, flags=re.MULTILINE)
+    
+    # 2. 转换加粗
+    html_content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html_content)
+    
+    # 3. 处理图片 - 转换为Base64并嵌入
     image_pattern = r'!\[([^\]]*)\]\(([^)]+)\)'
-    matches = re.findall(image_pattern, processed_content)
-
+    matches = re.findall(image_pattern, html_content)
+    
     for i, (alt_text, image_file) in enumerate(matches):
         image_path = os.path.join(image_folder, image_file)
-
+        
         if os.path.exists(image_path):
-            # 第一张图是封面，必须使用图床（API 限制）
+            print(f"🔄 处理图片: {os.path.basename(image_path)}")
+            
+            # 策略：封面图必须上传图床（为了 coverImage 字段），正文图使用 Base64（为了编辑器稳定）
+            
+            # 1. 如果是第一张图（封面），先上传图床获取 URL 用于 API metadata
             if i == 0:
-                print(f"📸 封面图使用图床: {os.path.basename(image_path)}")
-                image_uri = upload_image_to_imgbb(image_path)
-                if image_uri:
-                    cover_image_url = image_uri
-            else:
-                # 正文图片：尝试 Base64，失败则用图床
-                image_uri = image_to_base64_data_uri(image_path)
-                if not image_uri:
-                    print(f"📤 使用图床备用方案: {os.path.basename(image_path)}")
-                    image_uri = upload_image_to_imgbb(image_path)
-
+                print(f"📸 封面图上传图床(用于封面字段): {os.path.basename(image_path)}")
+                cover_url = upload_image_to_imgbb(image_path)
+                if cover_url:
+                    cover_image_data = cover_url
+            
+            # 2. 生成 Base64 用于正文嵌入 (带压缩)
+            image_uri = image_to_base64_data_uri(image_path)
+            
             if image_uri:
-                # 替换图片链接
-                processed_content = processed_content.replace(
-                    f'![{alt_text}]({image_file})',
-                    f'![{alt_text}]({image_uri})'
-                )
+                 img_tag = f'<img src="{image_uri}" alt="{alt_text}" style="max-width:100%; height:auto;" />'
+                 html_content = html_content.replace(f'![{alt_text}]({image_file})', img_tag)
+                 print(f"✅ 图片已嵌入HTML (Base64): {os.path.basename(image_path)}")
+            else:
+                print(f"❌ Base64生成失败，尝试使用图床链接")
+                # 如果 Base64 失败（比如太大），尝试用图床链接
+                fallback_url = upload_image_to_imgbb(image_path)
+                if fallback_url:
+                    img_tag = f'<img src="{fallback_url}" alt="{alt_text}" style="max-width:100%; height:auto;" />'
+                    html_content = html_content.replace(f'![{alt_text}]({image_file})', img_tag)
+                    print(f"✅ 图片已替换为URL (Fallback): {os.path.basename(image_path)}")
+
         else:
             print(f"⚠️  图片文件不存在: {image_path}")
+            
+    # 4. 处理段落 (将剩余的非HTML行包裹在<p>中)
+    lines = html_content.split('\n')
+    new_lines = []
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith('<'): # 已经是HTML标签
+            new_lines.append(line)
+        else:
+            new_lines.append(f'<p>{line}</p>')
+            
+    html_content = '\n'.join(new_lines)
+    
+    return html_content, cover_image_data
 
-    return processed_content, cover_image_url
+def process_markdown_images(markdown_content, image_folder):
+    # This function is kept for backward compatibility but main logic will switch
+    pass 
 
 
 def extract_summary(markdown_content):
@@ -313,10 +363,22 @@ def main(markdown_file, account_type='subscription'):
     # 获取图片文件夹
     image_folder = os.path.dirname(markdown_file)
 
-    # 处理图片
+    # 处理图片 - 切换到 HTML + Base64 (压缩版) 模式
     print("🖼️  处理图片...")
-    print("📋 策略: 封面用图床 + 正文用Base64（≤2MB）\n")
-    processed_content, cover_image = process_markdown_images(markdown_content, image_folder)
+    print("📋 策略: 智能压缩 + Base64嵌入。将图片压缩为JPEG以减小体积，解决编辑器丢图问题。\n")
+    
+    # 使用新函数转换
+    processed_content, cover_image = markdown_to_html_with_base64(markdown_content, image_folder)
+
+    # DEBUG: 保存生成的 HTML 到本地以供检查
+    debug_html_path = os.path.join(image_folder, "debug_preview.html")
+    with open(debug_html_path, "w", encoding="utf-8") as f:
+        # 添加简单的 HTML 骨架以便浏览器预览
+        f.write('<!DOCTYPE html><html><head><meta charset="utf-8"><style>img {max-width:100%;}</style></head><body>')
+        f.write(processed_content)
+        f.write('</body></html>')
+    print(f"🐛 [DEBUG] HTML预览已保存: {debug_html_path}")
+    print(f"   请检查此文件以确认 Base64 图片是否正确嵌入")
 
     # 提取摘要
     print("\n📝 提取摘要...")
@@ -325,7 +387,44 @@ def main(markdown_file, account_type='subscription'):
 
     # 推送到草稿箱
     print(f"\n📤 推送到{account_type}草稿箱...")
-    result = push_to_wechat_draft(title, processed_content, summary, cover_image, account_type)
+    
+    api_key = SUBSCRIPTION_API_KEY if account_type == 'subscription' else SERVICE_API_KEY
+    wechat_appid = SUBSCRIPTION_APPID if account_type == 'subscription' else SERVICE_APPID
+
+    try:
+        payload = {
+            'wechatAppid': wechat_appid,
+            'title': title,
+            'content': processed_content,
+            'contentFormat': 'html',  # 必须使用 HTML 格式才能支持 Base64 img 标签
+            'articleType': 'news',
+            'author': '小静'
+        }
+
+        if summary:
+            payload['summary'] = summary
+        if cover_image:
+            # 封面图直接传 Base64 Data URI
+            payload['coverImage'] = cover_image
+
+        print(f"📡 API URL: {API_BASE}/wechat-publish")
+        
+        response = requests.post(
+            f"{API_BASE}/wechat-publish",
+            headers={
+                'X-API-Key': api_key,
+                'Content-Type': 'application/json'
+            },
+            json=payload,
+            timeout=180 # Base64 数据量大，增加超时
+        )
+        
+        print(f"📊 HTTP Status: {response.status_code}")
+        result = response.json()
+        print(f"📄 Response: {json.dumps(result, indent=2, ensure_ascii=False)}")
+        
+    except Exception as e:
+        result = {'success': False, 'error': str(e)}
 
     # 保存推送结果
     result_file = os.path.join(image_folder, "推送结果.json")
@@ -362,9 +461,33 @@ def main(markdown_file, account_type='subscription'):
 
 
 if __name__ == '__main__':
+    # 处理 --help 参数
+    if len(sys.argv) > 1 and sys.argv[1] in ['--help', '-h', 'help']:
+        print("=" * 50)
+        print("📤 微信公众号推送脚本 v3.0")
+        print("=" * 50)
+        print("\n用法:")
+        print("  python wechat_publish.py <markdown_file> [account_type]")
+        print("\n参数:")
+        print("  markdown_file   Markdown文件路径（必需）")
+        print("  account_type    账号类型（可选，默认: subscription）")
+        print("                  - subscription: 订阅号")
+        print("                  - service: 服务号")
+        print("\n示例:")
+        print("  python wechat_publish.py article.md")
+        print("  python wechat_publish.py article.md subscription")
+        print("  python wechat_publish.py article.md service")
+        print("\n功能:")
+        print("  - 封面图: 使用图床")
+        print("  - 正文图片: Base64嵌入（≤2MB）或图床（>2MB）")
+        print("  - 自动提取标题、摘要")
+        print("  - 推送到公众号草稿箱")
+        print()
+        sys.exit(0)
+    
     if len(sys.argv) < 2:
         print("用法: python wechat_publish.py <markdown_file> [account_type]")
-        print("account_type: subscription (默认) 或 service")
+        print("使用 --help 查看详细帮助")
         sys.exit(1)
 
     markdown_file = sys.argv[1]

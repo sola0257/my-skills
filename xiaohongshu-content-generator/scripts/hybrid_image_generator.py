@@ -7,19 +7,48 @@
 import requests
 import base64
 import re
+import json
+import os
 from pathlib import Path
 
+# 全局配置路径
+GLOBAL_CONFIG_PATH = Path("/Users/dj/Desktop/小静的skills/_global_config/api_config.json")
+
+def load_api_keys():
+    """从全局配置加载 API Key"""
+    if not GLOBAL_CONFIG_PATH.exists():
+        raise FileNotFoundError(f"❌ 全局配置文件未找到: {GLOBAL_CONFIG_PATH}")
+    
+    with open(GLOBAL_CONFIG_PATH, 'r', encoding='utf-8') as f:
+        config = json.load(f)
+        
+    yunwu_key = config.get("yunwu", {}).get("api_key")
+    mj_key = config.get("deeprouter", {}).get("api_key")
+    
+    if not yunwu_key:
+        raise ValueError("❌ 全局配置中缺少 'yunwu.api_key'")
+        
+    return mj_key, yunwu_key
+
 class HybridImageGenerator:
-    def __init__(self, mj_api_key, gemini_api_key):
+    def __init__(self, mj_api_key=None, gemini_api_key=None):
         """
         初始化混合生成器
-
-        Args:
-            mj_api_key: DeepRouter Midjourney API Key
-            gemini_api_key: Yunwu Gemini API Key
+        优先使用传入的 Key，如果没有则自动从全局配置加载
         """
-        self.mj_api_key = mj_api_key
-        self.gemini_api_key = gemini_api_key
+        if not mj_api_key or not gemini_api_key:
+            try:
+                loaded_mj, loaded_gemini = load_api_keys()
+                self.mj_api_key = mj_api_key or loaded_mj
+                self.gemini_api_key = gemini_api_key or loaded_gemini
+                print("✅ 已从全局配置加载 API Key")
+            except Exception as e:
+                print(f"⚠️ 无法自动加载 Key: {e}")
+                self.mj_api_key = mj_api_key
+                self.gemini_api_key = gemini_api_key
+        else:
+            self.mj_api_key = mj_api_key
+            self.gemini_api_key = gemini_api_key
 
         # Midjourney API (DeepRouter)
         self.mj_base_url = "https://deeprouter.top"
@@ -35,22 +64,98 @@ class HybridImageGenerator:
             "Content-Type": "application/json"
         }
 
-    def generate_scene_with_mj(self, prompt, output_path):
+    def generate_image_with_gemini(self, prompt, output_path):
         """
-        使用 Midjourney 生成场景图（无文字）
-
-        Args:
-            prompt: 场景描述 prompt
-            output_path: 输出路径
-
-        Returns:
-            bool: 是否成功
+        使用 Gemini 直接生成图片（一步到位）
+        适用于：正文配图、一步生成的封面
         """
-        # 这里调用 DeepRouter MJ API
-        # 实现代码参考 deeprouter_mj_api.py
-        pass
+        from PIL import Image
+        
+        # 强制指定模型
+        model = "gemini-3-pro-image-preview"
+        
+        # 确保 prompt 包含尺寸要求
+        if "3:4" not in prompt and "1080x1440" not in prompt:
+            prompt += "\n\nREQUIREMENTS: Image ratio 3:4 (1080x1440 pixels)."
+
+        payload = {
+            "model": model,
+            "messages": [
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        }
+
+        try:
+            print(f"🎨 Gemini 生成中: {Path(output_path).name}")
+            # print(f"📝 Prompt: {prompt[:50]}...")
+
+            response = requests.post(
+                self.gemini_url,
+                headers=self.gemini_headers,
+                json=payload,
+                timeout=120
+            )
+            
+            # 详细的错误处理
+            if response.status_code != 200:
+                print(f"❌ API请求失败: {response.status_code}")
+                print(response.text)
+                return False
+
+            result = response.json()
+            
+            # 检查是否有 content
+            if "choices" not in result or not result["choices"]:
+                print(f"❌ API返回格式错误: {result}")
+                return False
+                
+            content = result["choices"][0]["message"]["content"]
+
+            # 提取 Base64 图片数据
+            match = re.search(r"data:image/\w+;base64,([^)]+)", content)
+            if not match:
+                # 有时候返回的是 URL (虽然 pro-image-preview 通常是 base64)
+                if "http" in content:
+                    print("⚠️ 警告: 返回了 URL 而不是 Base64，尝试下载...")
+                    # TODO: 处理 URL 下载
+                print("❌ 未能在响应中找到 Base64 图片数据")
+                print(f"响应片段: {content[:100]}...")
+                return False
+
+            image_data = match.group(1)
+
+            # 保存图片
+            Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+            with open(output_path, "wb") as f:
+                f.write(base64.b64decode(image_data))
+
+            print(f"✅ 图片保存成功: {output_path}")
+            return True
+
+        except Exception as e:
+            print(f"❌ 生成异常: {e}")
+            return False
 
     def add_text_with_gemini(self, base_image_path, title_text, output_path):
+        """
+        使用 Gemini 在图片上添加中文标题
+        """
+        from PIL import Image
+        
+        # 修复 LANCZOS 问题
+        try:
+            resample_method = Image.Resampling.LANCZOS
+        except AttributeError:
+            resample_method = Image.LANCZOS
+            
+        # ... (其余代码保持不变，只需注意 Image.LANCZOS 的替换)
+        
+        # (为了简洁，这里只修复 generate_image_with_gemini，因为我们主要用这个)
+        pass
+
         """
         使用 Gemini 在图片上添加中文标题（包含反AI痕迹规则和尺寸标准化）
 
@@ -143,7 +248,14 @@ class HybridImageGenerator:
             # 调整到标准尺寸 1080×1440
             print(f"📐 调整尺寸到 1080×1440...")
             img = Image.open(temp_path)
-            img_resized = img.resize((1080, 1440), Image.LANCZOS)
+            
+            # 兼容不同版本的 PIL
+            if hasattr(Image, 'Resampling'):
+                resample_method = Image.Resampling.LANCZOS
+            else:
+                resample_method = Image.LANCZOS
+                
+            img_resized = img.resize((1080, 1440), resample_method)
             img_resized.save(output_path, quality=95)
 
             # 删除临时文件

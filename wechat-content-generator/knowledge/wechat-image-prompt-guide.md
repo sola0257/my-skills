@@ -30,19 +30,20 @@
    - ✅ 必须使用 `A 2.35:1 wide banner...`
    - ❌ 禁止使用 `3:4`、`--ar 3:4`、任何竖版比例
 
-2. **文字约束**：
+2. **文字约束（v2.1 强制更新）**：
    - ✅ 封面图**不添加标题文字**
-   - ✅ 必须包含 `NO TEXT. NO WORDS. NO LETTERS.`
-   - ❌ 禁止任何中文或英文文字标注
+   - ✅ 必须包含 `NO TEXT. NO WORDS. NO LETTERS. NO PINYIN.`
+   - ❌ 禁止任何中文、英文或拼音文字标注
 
 3. **风格选择**：
    - ✅ 根据文案整体内容匹配最合适的风格
    - ✅ 参考"风格选择规则"部分
 
-4. **现代家居风格**：
-   - ✅ 必须包含 `modern home aesthetic`
-   - ✅ 必须包含 `clean and well-maintained interior`
-   - ❌ 禁止 `old or worn-out interior`
+4. **现代家居风格（v2.1 强制更新）**：
+   - ✅ 必须包含 `Modern minimalist interior`
+   - ✅ 必须包含 `stylish contemporary home, 2024 design trends`
+   - ✅ 必须包含 `bright and airy, soft natural light`
+   - ❌ 禁止 `old or worn-out interior`、`vintage`（除非特意要求）
 
 5. **真实感优先**：
    - ✅ 必须包含 `NOT overly stylized AI art`
@@ -117,15 +118,15 @@ CRITICAL REQUIREMENTS:
 
 ```
 A 2.35:1 wide banner photograph in dreamy realistic style.
-Scene: [具体场景描述], authentic home environment, lived-in atmosphere.
-Lighting: Soft natural window light, warm golden hour glow, gentle shadows.
+Scene: [具体场景描述], Modern minimalist interior, stylish contemporary home, 2024 design trends.
+Lighting: Soft natural window light, bright and airy, warm golden hour glow.
 Details: [场景细节元素]
 Mood: [情绪关键词], cozy, inviting.
 Composition: Wide horizontal layout, balanced composition, subject centered or rule-of-thirds.
 Color palette: Muted Morandi colors, desaturated tones, cream and sage.
 Color control: Use dusty coral instead of red, muted rose instead of pink, soft terracotta for warm accents.
 Style: Realistic lifestyle photography, soft focus, film-like quality, NOT product photography.
-NO TEXT. NO WORDS. NO LETTERS. NO PEOPLE. NO STUDIO LIGHTING.
+NO TEXT. NO WORDS. NO LETTERS. NO PINYIN. NO PEOPLE. NO STUDIO LIGHTING.
 ```
 
 ### cozy-sketch 风格（教程类）
@@ -193,15 +194,15 @@ NO TEXT. NO WORDS. NO LETTERS.
 
 ```
 A 16:9 wide photograph in dreamy realistic style.
-Scene: [具体场景描述], authentic home environment, lived-in atmosphere.
-Lighting: Soft natural window light, warm golden hour glow, gentle shadows.
+Scene: [具体场景描述], Modern minimalist interior, stylish contemporary home, 2024 design trends.
+Lighting: Soft natural window light, bright and airy, warm golden hour glow.
 Details: [场景细节元素]
 Mood: [情绪关键词], cozy, inviting.
 Composition: Wide horizontal layout, subject clearly visible, natural framing.
 Color palette: Muted Morandi colors, desaturated tones, cream and sage.
 Color control: Use dusty coral instead of red, muted rose instead of pink, soft terracotta for warm accents.
 Style: Realistic lifestyle photography, soft focus, film-like quality, NOT product photography.
-NO TEXT. NO WORDS. NO LETTERS. NO PEOPLE. NO STUDIO LIGHTING.
+NO TEXT. NO WORDS. NO LETTERS. NO PINYIN. NO PEOPLE. NO STUDIO LIGHTING.
 ```
 
 ### cozy-sketch 风格（教程类）
