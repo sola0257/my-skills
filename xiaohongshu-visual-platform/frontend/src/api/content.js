@@ -1,5 +1,20 @@
-// Mock API for content generation
-// This will be replaced with real API calls later
+// API client for content generation
+// Connects to backend API at http://localhost:5001
+
+const API_BASE = '/api'
+
+/**
+ * Handle API response
+ * @param {Response} response - Fetch response
+ * @returns {Promise<Object>} Parsed JSON response
+ */
+async function handleResponse(response) {
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ error: 'Unknown error' }))
+    throw new Error(error.error || `HTTP ${response.status}: ${response.statusText}`)
+  }
+  return response.json()
+}
 
 /**
  * Generate content based on topic
@@ -7,22 +22,15 @@
  * @returns {Promise<Object>} Generated content with title, content, and images
  */
 export async function generateContent(topic) {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 2000))
+  const response = await fetch(`${API_BASE}/generate`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ topic })
+  })
 
-  return {
-    id: Date.now().toString(),
-    topic,
-    title: `${topic}的完整指南`,
-    content: `这是关于${topic}的详细内容。\n\n## 第一部分\n这里是第一部分的内容...\n\n## 第二部分\n这里是第二部分的内容...`,
-    images: Array(12).fill(null).map((_, i) => ({
-      id: `img-${i}`,
-      url: `https://via.placeholder.com/400x533?text=Image+${i + 1}`,
-      prompt: `Image ${i + 1} for ${topic}`
-    })),
-    status: 'draft',
-    createdAt: new Date().toISOString()
-  }
+  return handleResponse(response)
 }
 
 /**
@@ -32,6 +40,8 @@ export async function generateContent(topic) {
  * @returns {Promise<Array<Object>>} Generated images
  */
 export async function generateImages(prompts, onProgress) {
+  // For now, this is still mock since we haven't implemented image generation yet
+  // This will be replaced in Task 13
   const images = []
 
   for (let i = 0; i < prompts.length; i++) {
@@ -58,50 +68,67 @@ export async function generateImages(prompts, onProgress) {
  * @returns {Promise<Object>} Saved content with id
  */
 export async function saveContent(content) {
-  console.log('Saving content:', content)
+  const response = await fetch(`${API_BASE}/contents`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(content)
+  })
 
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 500))
-
-  return {
-    ...content,
-    id: content.id || Date.now().toString(),
-    savedAt: new Date().toISOString()
-  }
+  return handleResponse(response)
 }
 
 /**
  * List all contents
+ * @param {string} status - Optional status filter ('draft', 'published')
  * @returns {Promise<Array<Object>>} Array of content objects
  */
-export async function listContents() {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 300))
+export async function listContents(status = null) {
+  const url = status ? `${API_BASE}/contents?status=${status}` : `${API_BASE}/contents`
+  const response = await fetch(url)
 
-  return [
-    {
-      id: '1',
-      topic: '多肉植物养护',
-      title: '多肉植物养护完全指南',
-      thumbnail: 'https://via.placeholder.com/400x533?text=Thumbnail+1',
-      status: 'published',
-      createdAt: '2024-01-15T10:00:00Z'
+  return handleResponse(response)
+}
+
+/**
+ * Get content by ID
+ * @param {string} id - Content ID
+ * @returns {Promise<Object>} Content object
+ */
+export async function getContent(id) {
+  const response = await fetch(`${API_BASE}/contents/${id}`)
+
+  return handleResponse(response)
+}
+
+/**
+ * Update content
+ * @param {string} id - Content ID
+ * @param {Object} updates - Fields to update
+ * @returns {Promise<Object>} Updated content
+ */
+export async function updateContent(id, updates) {
+  const response = await fetch(`${API_BASE}/contents/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
     },
-    {
-      id: '2',
-      topic: '室内绿植推荐',
-      title: '10种适合室内养护的绿植',
-      thumbnail: 'https://via.placeholder.com/400x533?text=Thumbnail+2',
-      status: 'draft',
-      createdAt: '2024-01-16T14:30:00Z'
-    },
-    {
-      id: '3',
-      topic: '春季园艺',
-      title: '春季园艺必做的5件事',
-      thumbnail: 'https://via.placeholder.com/400x533?text=Thumbnail+3',
-      status: 'published',
-      createdAt: '2024-01-17T09:15:00Z'
-    }
-  ]
+    body: JSON.stringify(updates)
+  })
+
+  return handleResponse(response)
+}
+
+/**
+ * Delete content
+ * @param {string} id - Content ID
+ * @returns {Promise<Object>} Success message
+ */
+export async function deleteContent(id) {
+  const response = await fetch(`${API_BASE}/contents/${id}`, {
+    method: 'DELETE'
+  })
+
+  return handleResponse(response)
 }
