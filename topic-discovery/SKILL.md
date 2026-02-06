@@ -2,7 +2,7 @@
 name: topic-discovery
 description: "Use when discovering content topics for social media accounts. Searches trending topics, analyzes insights. For startup stage (0-500 fans), generates structured product recommendations for Feishu catalog. For growth/mature stages, matches existing products."
 license: MIT
-version: "4.0"
+version: "4.1"
 ---
 
 
@@ -22,7 +22,7 @@ version: "4.0"
 
 ---
 
-# 🔍 选题发现器 v4.0
+# 🔍 选题发现器 v4.1
 
 ## 🚨 静默执行协议（必须遵守）
 
@@ -195,11 +195,30 @@ version: "4.0"
 |------|------|
 | 选题标题 | 具体可执行的选题方向 |
 | 选题角度 | 切入点和差异化描述 |
+| **用户痛点** | **核心问题 + 困扰原因 + 解决方案（v4.1新增）** |
+| **互动引导策略** | **内容设计 + 引导话术 + 预期互动 + 回复策略（v4.1新增）** |
 | 目标人群 | 受众画像 |
 | 内容形式 | 图文 / 短视频 / 长视频 |
 | 推荐平台 | 带权重的平台标签 |
 | 爆款潜力 | 1-5星评分 |
 | 参考标题 | 各平台适配的标题示例 |
+
+**用户痛点格式要求：**
+```markdown
+**用户痛点**：
+- 核心问题：[具体问题描述]
+- 困扰原因：[为什么这个问题让用户困扰]
+- 解决方案：[这个选题如何解决这个问题]
+```
+
+**互动引导策略格式要求：**
+```markdown
+**互动引导策略**：
+1. **内容设计**：[如何在内容中埋下引导点]
+2. **引导话术**：[文末或评论区的引导语]
+3. **预期互动**：[读者可能的反应]
+4. **回复策略**：[如何回复读者的询问]
+```
 
 **平台标签系统：**
 ```
@@ -324,20 +343,101 @@ cat ~/.claude/CLAUDE.md | grep -A 20 "## 多平台账号配置"
 - **禁止凭空推荐**：必须从选题中提取商品需求
 - **禁止简化输出**：必须包含所有9个飞书表格字段
 
-**Feishu MCP 调用示例**（可选）：
+**自动写入飞书商品库（v4.1 新增）**：
+
+**执行流程**：
+
+**1. 读取现有商品**（去重检查）
 ```python
-# 如果需要直接写入飞书表格
-from mcp import feishu_add_product
+# 调用 mcp__feishu-mcp__feishu_list_products (如果可用)
+# 或维护本地去重缓存
+existing_products = set()  # 已存在的商品名称
+```
+
+**2. 双层去重写入**
+```python
+duplicate_count = 0  # Tier 1: 名称重复
+new_products = []
+category_stats = {}  # Tier 2: 品类统计
 
 for product in product_recommendations:
-    feishu_add_product(
-        name=product['商品名称'],
-        category=product['商品分类'],
-        price=product['价格'],
-        stock=product['库存'],
-        link=""  # 待补充
-    )
+    # Tier 1: 名称去重（数据库完整性）
+    if product['商品名称'] not in existing_products:
+        # 写入飞书商品库
+        mcp__feishu-mcp__feishu_add_product(
+            name=product['商品名称'],
+            category=product['商品分类'],
+            price=product['价格'],
+            stock=product['库存'],
+            link=""  # 待补充
+        )
+        new_products.append(product['商品名称'])
+        existing_products.add(product['商品名称'])
+
+        # Tier 2: 品类统计
+        category = product['商品分类']
+        category_stats[category] = category_stats.get(category, 0) + 1
+    else:
+        duplicate_count += 1
 ```
+
+**3. 双层质量检查**
+```python
+total_recommendations = len(product_recommendations)
+
+# Tier 1 检查：名称重复率
+name_duplicate_rate = duplicate_count / total_recommendations
+if name_duplicate_rate > 0.3:
+    print(f"⚠️ 名称重复率：{name_duplicate_rate:.1%}")
+    print("建议：扩大选题范围，探索更多场景")
+
+# Tier 2 检查：品类集中度
+max_category_rate = max(category_stats.values()) / total_recommendations
+dominant_category = max(category_stats, key=category_stats.get)
+
+if max_category_rate > 0.35:
+    print(f"🚨 品类集中度过高：{dominant_category} 占比 {max_category_rate:.1%}")
+    print("建议：")
+    print(f"1. 减少 {dominant_category} 相关选题")
+    print("2. 探索其他品类的商品需求")
+    print("3. 检查选题是否过于聚焦单一场景")
+
+# 输出品类分布
+print("\n📊 品类分布：")
+for category, count in sorted(category_stats.items(), key=lambda x: x[1], reverse=True):
+    rate = count / total_recommendations
+    print(f"  {category}: {count}个 ({rate:.1%})")
+```
+
+**为什么这样设计**：
+
+**双层检查机制**：
+- **Tier 1: 名称去重** = 数据库完整性保护
+  - 防止完全相同的商品重复录入
+  - 示例：阻止"陶瓷花盆套装（3个装）"重复录入
+
+- **Tier 2: 品类分布分析** = 选题质量信号
+  - 识别选题同质化（即使商品名称不同）
+  - 示例：如果10个选题中8个都推荐"基质类"商品，说明选题过于集中在"换盆/配土"场景
+  - **关键洞察**：品类集中度 > 商品名称重复率，更能反映选题多样性
+
+**质量指标解读**：
+- **名称重复率**（Tier 1）：
+  - <20%：正常 ✅
+  - 20-30%：可接受 ⚠️
+  - >30%：选题重复严重 🚨
+
+- **品类集中度**（Tier 2）：
+  - 最高品类 <35%：品类分布均衡 ✅
+  - 最高品类 35-50%：某品类过于集中 ⚠️
+  - 最高品类 >50%：选题严重同质化 🚨
+
+**为什么品类分析更重要**：
+- 名称不同但品类相同 = 选题角度相似
+- 例如：10个选题都推荐"营养土"（即使名称不同），说明选题都聚焦在"配土/换盆"场景
+- 这比名称重复更能反映选题的真实多样性
+
+**自动写入 = 提高效率，减少手动操作**
 
 #### 策略B：成长期/成熟期（500+粉）- 匹配现有商品
 
@@ -429,6 +529,8 @@ matched_products = match_products_for_topic(keywords)
 | "商品建议可以不分析选题需求" | ❌ 必须从选题中提取商品需求，不能凭空推荐 |
 | "用 WebSearch 就够了" | ❌ 必须优先用 GPT MCP deep_research 做深度研究 |
 | "deep_research 失败就停止" | ❌ 必须使用 WebSearch 作为备选方案，继续执行 |
+| **"商品重复没关系，直接写入"** | **❌ 必须去重检查，重复率>30%需警告（v4.1新增）** |
+| **"不需要检查重复率"** | **❌ 重复率是选题质量指标，必须计算并输出（v4.1新增）** |
 
 ### 常见合理化与反驳
 
@@ -445,13 +547,35 @@ matched_products = match_products_for_topic(keywords)
 
 ---
 
-### Step 5: 生成报告并保存
+### Step 5: 输出到飞书多维表格（v4.1 升级）
 
-**报告文件命名：**
+**⚠️ 重要变更：不再保存到本地文件，改为输出到飞书多维表格**
+
+**飞书表格路径**：
+- 数据库：慢养四季运营数据库
+- 表格：选题清单
+
+**使用 Feishu MCP 写入选题：**
+```python
+# 调用 mcp__feishu-mcp__feishu_add_content_record
+for topic in topics:
+    feishu_add_content_record(
+        title=topic['选题标题'],
+        platform=topic['推荐平台'],  # 如：小红书/公众号/抖音
+        content_type="选题",
+        date=today  # YYYY-MM-DD 格式
+    )
 ```
-[日期]_[行业关键词]_选题报告.md
-示例：2026-01-14_家居绿植_选题报告.md
-```
+
+**输出确认：**
+- ✅ 成功写入飞书后，向用户确认已保存的选题数量
+- ✅ 提供飞书表格链接（如果可用）
+- ✅ 同时在对话中输出完整报告供用户查看
+
+**⚠️ 注意**：
+- 飞书 MCP 仅支持基础字段（标题、平台、类型、日期）
+- 完整的选题详情（痛点、互动策略、商品建议等）仍需在对话中输出
+- 用户可以从对话中复制完整信息到飞书表格
 
 ---
 
@@ -484,16 +608,20 @@ matched_products = match_products_for_topic(keywords)
 | 维度 | 内容 |
 |------|------|
 | **选题角度** | [切入点描述] |
+| **用户痛点** | 核心问题：[问题]<br>困扰原因：[原因]<br>解决方案：[方案] |
+| **互动引导策略** | 1. 内容设计：[设计]<br>2. 引导话术：[话术]<br>3. 预期互动：[互动]<br>4. 回复策略：[策略] |
 | **目标人群** | [受众画像] |
 | **内容形式** | 图文 / 短视频 |
 | **推荐平台** | 🔴小红书 🟢公众号 |
 | **爆款潜力** | ⭐⭐⭐⭐☆ |
-| **商品关联机会** | [匹配的商品名称] |
 
 **参考标题：**
 - 🔴 小红书：「[适合小红书的标题]」
 - 🟢 公众号：「[适合公众号的标题]」
 - 🔵 抖音：「[适合抖音的标题]」
+
+**商品建议：**
+[商品需求分析 + 完整的飞书表格格式商品列表]
 
 ---
 
@@ -530,7 +658,7 @@ matched_products = match_products_for_topic(keywords)
 
 ---
 
-*报告由 Topic Discovery Skill v1.0 自动生成*
+*报告由 Topic Discovery Skill v4.1 自动生成*
 ```
 
 ---
@@ -626,6 +754,7 @@ matched_products = match_products_for_topic(keywords)
 
 | 版本 | 日期 | 更新内容 |
 |------|------|----------|
+| v4.1 | 2026-02-07 | **痛点驱动+互动引导+飞书集成+去重机制**：<br>1. 新增"用户痛点"字段（核心问题+困扰原因+解决方案）<br>2. 新增"互动引导策略"字段（内容设计+引导话术+预期互动+回复策略）<br>3. 完善商品建议输出格式（完整飞书表格字段）<br>4. 输出改为飞书多维表格（慢养四季运营数据库 > 选题清单）<br>5. **商品自动写入飞书商品库+去重检查+重复率质量指标** |
 | v4.0 | 2026-02-06 | **深度研究+选题即选品**：<br>1. Step 2 升级为 GPT MCP deep_research（评论区分析、痛点挖掘）<br>2. 起号期商品策略重构：从选题提取商品需求<br>3. 商品分类优先级：周边品（容器/基质/养护/工具）> 绿植<br>4. 新增8条红旗+7条合理化反驳 |
 | v3.0 | 2026-01-14 | **选题策略整合**：选题优先级、选题模板、场景矩阵、临时文件管理 |
 | v2.0 | 2026-01-14 | **商品库集成**：自动匹配商品，输出商品关联机会 |
