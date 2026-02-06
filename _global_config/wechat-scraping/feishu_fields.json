@@ -1,0 +1,298 @@
+[
+  {
+    "field_id": "fldIH2HrCj",
+    "field_name": "日期",
+    "is_primary": true,
+    "property": {
+      "auto_fill": false,
+      "date_formatter": "yyyy-MM-dd"
+    },
+    "type": 5,
+    "ui_type": "DateTime"
+  },
+  {
+    "field_id": "fldP4Jtsmw",
+    "field_name": "发布时间",
+    "is_primary": false,
+    "property": {
+      "auto_fill": false,
+      "date_formatter": "yyyy-MM-dd"
+    },
+    "type": 5,
+    "ui_type": "DateTime"
+  },
+  {
+    "description": "关联: 关联到\"选题库\"表格的\"选题ID\"字段\n说明: 用于追踪同一选题在不同平台的发布情况\n使用场景:\n同一选题发布到多个平台时,选题ID相同\n便于统计同一选题的跨平台表现\n便于验证选题优先级评估的准确性",
+    "field_id": "fldMxKN75C",
+    "field_name": "选题ID",
+    "is_primary": false,
+    "property": null,
+    "type": 1,
+    "ui_type": "Text"
+  },
+  {
+    "field_id": "fldRegcizF",
+    "field_name": "选题标题",
+    "is_primary": false,
+    "property": null,
+    "type": 1,
+    "ui_type": "Text"
+  },
+  {
+    "field_id": "fldJOWmcbj",
+    "field_name": "平台",
+    "is_primary": false,
+    "property": {
+      "options": [
+        {
+          "color": 0,
+          "id": "optnyQ1OZd",
+          "name": "视频号"
+        },
+        {
+          "color": 1,
+          "id": "optxde0weE",
+          "name": "小红书"
+        },
+        {
+          "color": 2,
+          "id": "optB5MmBSA",
+          "name": "快手"
+        },
+        {
+          "color": 3,
+          "id": "optd2O2cmP",
+          "name": "公众号"
+        },
+        {
+          "color": 4,
+          "id": "optfETiVzc",
+          "name": "抖音"
+        },
+        {
+          "color": 5,
+          "id": "optMG5SgiI",
+          "name": "服务号"
+        },
+        {
+          "color": 6,
+          "id": "opt191878507",
+          "name": "订阅号"
+        },
+        {
+          "color": 7,
+          "id": "opt1005785015",
+          "name": "微信公众号-订阅号"
+        }
+      ]
+    },
+    "type": 3,
+    "ui_type": "SingleSelect"
+  },
+  {
+    "field_id": "fld43IC5iv",
+    "field_name": "标题",
+    "is_primary": false,
+    "property": null,
+    "type": 1,
+    "ui_type": "Text"
+  },
+  {
+    "description": "",
+    "field_id": "fldQkiRlCw",
+    "field_name": "内容类型",
+    "is_primary": false,
+    "property": {
+      "options": [
+        {
+          "color": 0,
+          "id": "optA22xUvm",
+          "name": "图文"
+        },
+        {
+          "color": 1,
+          "id": "optgmJgBe9",
+          "name": "视频"
+        },
+        {
+          "color": 2,
+          "id": "optKSknrvo",
+          "name": "深度图文"
+        },
+        {
+          "color": 3,
+          "id": "optVgteyqy",
+          "name": "直播"
+        },
+        {
+          "color": 4,
+          "id": "opt186950639",
+          "name": "短视频"
+        },
+        {
+          "color": 5,
+          "id": "opt1500382627",
+          "name": "知识文章"
+        },
+        {
+          "color": 6,
+          "id": "opt144802129",
+          "name": "长文"
+        },
+        {
+          "color": 7,
+          "id": "opt144439140",
+          "name": "未知"
+        }
+      ]
+    },
+    "type": 3,
+    "ui_type": "SingleSelect"
+  },
+  {
+    "description": "内容曝光量（实际数字，如：32000）",
+    "field_id": "fld8jegRih",
+    "field_name": "曝光量",
+    "is_primary": false,
+    "property": {
+      "formatter": "0"
+    },
+    "type": 2,
+    "ui_type": "Number"
+  },
+  {
+    "description": "内容点击量（实际数字，如：1856）",
+    "field_id": "flddF5ciam",
+    "field_name": "点击量",
+    "is_primary": false,
+    "property": {
+      "formatter": "0"
+    },
+    "type": 2,
+    "ui_type": "Number"
+  },
+  {
+    "description": "内容互动量（点赞+收藏+评论，如：1856）",
+    "field_id": "fldohnkpxp",
+    "field_name": "互动量",
+    "is_primary": false,
+    "property": {
+      "formatter": "0"
+    },
+    "type": 2,
+    "ui_type": "Number"
+  },
+  {
+    "description": "转化量（咨询/下单/关注等，如：12）",
+    "field_id": "fldrfb2SZc",
+    "field_name": "转化量",
+    "is_primary": false,
+    "property": {
+      "formatter": "0"
+    },
+    "type": 2,
+    "ui_type": "Number"
+  },
+  {
+    "description": "补充说明或特殊情况",
+    "field_id": "fld8wS1lgg",
+    "field_name": "数据表现",
+    "is_primary": false,
+    "property": {
+      "formatter": "",
+      "formula_expression": "IF(ISBLANK(bitable::$table[tbltqXWK6ozCXAXo].$field[fld8jegRih]),\"\",CONCATENATE(\"曝光量：\",bitable::$table[tbltqXWK6ozCXAXo].$field[fld8jegRih]))&IF(ISBLANK(bitable::$table[tbltqXWK6ozCXAXo].$field[flddF5ciam]),\"\",CONCATENATE(\"点击量：\",bitable::$table[tbltqXWK6ozCXAXo].$field[flddF5ciam]))&IF(ISBLANK(bitable::$table[tbltqXWK6ozCXAXo].$field[fldohnkpxp]),\"\",CONCATENATE(\"互动量：\",bitable::$table[tbltqXWK6ozCXAXo].$field[fldohnkpxp]))&IF(ISBLANK(bitable::$table[tbltqXWK6ozCXAXo].$field[fldrfb2SZc]),\"\",CONCATENATE(\"转化量：\",bitable::$table[tbltqXWK6ozCXAXo].$field[fldrfb2SZc]))"
+    },
+    "type": 20,
+    "ui_type": "Formula"
+  },
+  {
+    "description": "内容复盘和经验总结（AB版本标注在此字段，如\"A版-痛点直给型\"）",
+    "field_id": "fldgx153Xv",
+    "field_name": "复盘说明",
+    "is_primary": false,
+    "property": null,
+    "type": 1,
+    "ui_type": "Text"
+  },
+  {
+    "field_id": "fldAlEegC3",
+    "field_name": "是否爆文",
+    "is_primary": false,
+    "property": null,
+    "type": 7,
+    "ui_type": "Checkbox"
+  },
+  {
+    "field_id": "fld743UjSn",
+    "field_name": "本地文件路径",
+    "is_primary": false,
+    "property": null,
+    "type": 1,
+    "ui_type": "Text"
+  },
+  {
+    "field_id": "fld06qAQbs",
+    "field_name": "主题分类",
+    "is_primary": false,
+    "property": {
+      "options": [
+        {
+          "color": 0,
+          "id": "optXQBvjtW",
+          "name": "养护"
+        },
+        {
+          "color": 1,
+          "id": "optoI5h13n",
+          "name": "选购"
+        },
+        {
+          "color": 2,
+          "id": "optXGObuUJ",
+          "name": "搭配"
+        },
+        {
+          "color": 3,
+          "id": "optPZzRkvC",
+          "name": "知识"
+        }
+      ]
+    },
+    "type": 3,
+    "ui_type": "SingleSelect"
+  },
+  {
+    "field_id": "fldovWjgly",
+    "field_name": "合集",
+    "is_primary": false,
+    "property": null,
+    "type": 1,
+    "ui_type": "Text"
+  },
+  {
+    "field_id": "fldGGBkPzh",
+    "field_name": "发布状态",
+    "is_primary": false,
+    "property": {
+      "options": [
+        {
+          "color": 0,
+          "id": "optBOrFpFd",
+          "name": "草稿"
+        },
+        {
+          "color": 1,
+          "id": "optVPWdIIQ",
+          "name": "已发布"
+        },
+        {
+          "color": 2,
+          "id": "optNRFTUvF",
+          "name": "已删除"
+        }
+      ]
+    },
+    "type": 3,
+    "ui_type": "SingleSelect"
+  }
+]

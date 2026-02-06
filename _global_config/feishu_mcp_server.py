@@ -40,6 +40,11 @@ TABLES = {
         "app_token": "N42HbN11JaIxxgstE4gcRdl0nPf",
         "table_id": "tblgmTuHejIoWu2i",
         "name": "粉丝数记录"
+    },
+    "topic_list": {
+        "app_token": "N42HbN11JaIxxgstE4gcRdl0nPf",
+        "table_id": "需要用户提供",
+        "name": "选题清单"
     }
 }
 
@@ -113,6 +118,75 @@ class FeishuAPI:
         payload = {"fields": fields}
         response = requests.put(url, headers=headers, json=payload)
         return response.json()
+
+    def delete_record(self, table_key: str, app_token: str, record_id: str) -> Dict:
+        """Delete a record from a table"""
+        token = self.get_access_token()
+        url = f"https://open.feishu.cn/open-api/bitable/v1/apps/{app_token}/tables/{table_key}/records/{record_id}"
+
+        headers = {
+            "Authorization": f"Bearer {token}"
+        }
+
+        response = requests.delete(url, headers=headers)
+        return response.json()
+
+    def batch_add_records(self, table_key: str, app_token: str, records_list: List[Dict[str, Any]]) -> Dict:
+        """Batch add records to a table"""
+        token = self.get_access_token()
+        url = f"https://open.feishu.cn/open-api/bitable/v1/apps/{app_token}/tables/{table_key}/records/batch_create"
+
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json"
+        }
+
+        # Split into batches of 500 (API limit)
+        batch_size = 500
+        results = []
+
+        for i in range(0, len(records_list), batch_size):
+            batch = records_list[i:i + batch_size]
+            payload = {
+                "records": [{"fields": record} for record in batch]
+            }
+
+            response = requests.post(url, headers=headers, json=payload)
+            results.append(response.json())
+
+        return {"batches": len(results), "results": results}
+
+    def list_all_records(self, table_key: str, app_token: str) -> List[Dict]:
+        """List all records from a table (handles pagination)"""
+        token = self.get_access_token()
+        url = f"https://open.feishu.cn/open-api/bitable/v1/apps/{app_token}/tables/{table_key}/records"
+
+        headers = {
+            "Authorization": f"Bearer {token}"
+        }
+
+        all_records = []
+        page_token = None
+
+        while True:
+            params = {"page_size": 500}
+            if page_token:
+                params["page_token"] = page_token
+
+            response = requests.get(url, headers=headers, params=params)
+            result = response.json()
+
+            if result.get("code") == 0:
+                items = result.get("data", {}).get("items", [])
+                all_records.extend(items)
+
+                page_token = result.get("data", {}).get("page_token")
+                if not page_token:
+                    break
+            else:
+                raise Exception(f"Failed to list records: {result}")
+
+        return all_records
 
 # Initialize Feishu API client
 feishu_api = FeishuAPI()

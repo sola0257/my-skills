@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-05T11:33:11.412Z",
+  "timestamp": "2026-02-06T13:40:26.655Z",
   "version": "4.0",
   "scan_summary": {
-    "documents_scanned": 73,
-    "segments_extracted": 1530,
-    "rule_groups": 580,
-    "conflicts_detected": 76,
-    "conflicts_after_filter": 76
+    "documents_scanned": 80,
+    "segments_extracted": 1644,
+    "rule_groups": 629,
+    "conflicts_detected": 78,
+    "conflicts_after_filter": 78
   },
   "conflicts": [
     {
@@ -21,7 +21,8 @@
         "wechat-content-generator/SKILL.md",
         "wechat-content-generator/knowledge/wechat-image-prompt-guide.md",
         "xiaohongshu-content-generator/SKILL.md",
-        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md"
+        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+        "xiaohongshu-content-generator/knowledge/step0-init-checklist.md"
       ],
       "segments": [
         {
@@ -232,9 +233,20 @@
           "context": "red pen circles. Style: Educational sketchnote aesthetic. Chinese text must use clear, legible handwritten style font similar to marker or brush pen writing. NO ENGLISH TEXT. ```  **⚠️ 强制约束（每个 prompt 必须包含）**： - `NO ENGLISH TEXT` - 禁止任何英文文字 - `Chinese text must use clear, legible handwritten style font` - 中文必须清晰可读 - **重要**：prompt 中描述对比内容时，应使用简洁英文或直接用中文，避免复杂英文句子  **文字处理规则**： - 图片中直接包含中文标注 - 使用清晰的手写风格字体（类似马克",
           "sectionTitle": "📊 infographic-sketch（信息图手绘风）",
           "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "必须执行",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "# Step 0 初始化检查清单  > 基于 follower-engagement-guide.md 整合 > 每次生成内容前必须执行  ---  ## 执行步骤  ### 1. 询问粉丝数（强制使用 AskUserQuestion 工具）  - [ ] 使用 AskUserQuestion 工具询问当前粉丝数 - [ ] 提供选项：0粉、1-100粉、101-500粉、501-2000粉、2000+粉、其他 - [ ] 记录具体数字（区间选中位数）  ### 2. 读取历史记录  - [ ] 读取 `/Users/dj/Des",
+          "sectionTitle": "Step 0 初始化检查清单",
+          "patternType": "mandatory"
         }
       ],
-      "avg_similarity": 0.701754385964912,
+      "avg_similarity": 0.6999999999999997,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -292,6 +304,10 @@
           {
             "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
             "current_text": "必须包含）**："
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+            "current_text": "必须执行"
           }
         ]
       }
@@ -499,7 +515,7 @@
           "ruleText": "必须遵守）",
           "category": "mandatory",
           "weight": 1,
-          "context": "本 Skill 的所有步骤都可能需要用户输入或确认。 在恢复执行任何步骤前，请遵循全局\"恢复执行强制规则\"（~/.claude/CLAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v3.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以",
+          "context": "本 Skill 的所有步骤都可能需要用户输入或确认。 在恢复执行任何步骤前，请遵循全局\"恢复执行强制规则\"（~/.claude/CLAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v4.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以",
           "sectionTitle": "🚨 静默执行协议（",
           "patternType": "mandatory"
         },
@@ -803,7 +819,9 @@
         ".claude/CLAUDE.md",
         "video-script-generator/SKILL.md",
         "wechat-content-generator/SKILL.md",
-        "xiaohongshu-content-generator/SKILL.md"
+        "xiaohongshu-content-generator/SKILL.md",
+        "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+        "xiaohongshu-content-generator/knowledge/step5-content-checklist.md"
       ],
       "segments": [
         {
@@ -915,9 +933,31 @@
           "context": "- 数量：12-15张（不得少于12张）    - 尺寸：1080×1440（3:4竖版）    - 封面：白色粗体+黑边、简洁背景、主体突出    - 命名：`序号_建议文字说明.png`  3. **违禁词检查**    - 调用 `compliance-checker`    - 确保无违禁词、夸张用语  4. **账号阶段策略检查**    - 起号期（0-500粉）：仅作案例提及，禁止价格    - 成长期（500-2000粉）：软植入，可提价格    - 成熟期（2000+粉）：可挂链接，可说价格  5. **信任型内容原则检查**    - 客观中性，避免情绪化标题    - 真实体验分享，包含优缺点    - 避免过度营销  ---  ### Step E5: 保存文件 [必需，静默执行]  **保存**： - Markdown 文档（存档版） - 纯文本文档（发布版） -",
           "sectionTitle": "Step E4: 质量检查 [强制，静默执行]",
           "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "禁止价格 |",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "近内容数据  ### 6. 更新粉丝数记录  - [ ] 追加新记录到 JSON 文件 - [ ] 更新 `last_update` 和 `current_stage`  ---  ## 账号阶段判断  | 阶段 | 粉丝数 | 内容策略 | 商品策略 | |------|--------|---------|---------| | 起号期 | 0-500 | 纯干货建立信任 | 仅作案例提及，禁止价格 | | 成长期 | 500-2000 | 价值+适度引导 | 软植入，评论区引导，可提价格 | | 成熟期 | 2000+ | 信任+转化 | 可挂链接，可说价格，可直接推荐 |  ---  ## 常见问题  **Q: 如果用户选择\"没有变化\"，还需要生成鼓励语吗？** A: 需要。但鼓励语的重点是\"坚持\"，而不是\"涨粉\"。  **Q: 如果是第一次使用，没有历史记录怎么办？** A: 创建新的记录",
+          "sectionTitle": "账号阶段判断",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "禁止价格 |",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "含优缺点） - [ ] 专业知识支撑 - [ ] 客观平衡评价 - [ ] 避免过度情绪化 - [ ] 避免夸张绝对化 - [ ] 避免虚假承诺  ---  ## 八、账号阶段策略  | 阶段 | 标题 | 结构 | 方向 | 商品 | |------|------|------|------|------| | 起号期(0-500粉) | 爆款型 | 黄金模板 | 颜值+求生 | 仅作案例提及，禁止价格 | | 成长期(500-2000粉) | 混合 | 两种混合 | 根据内容选择 | 软植入，评论区引导，可提价格 | | 成熟期(2000+粉) | 信任型 | 5步信任型 | 懒人+颜值 | 可挂链接，可说价格，可直接推荐 |  ---  ## 九、字数控制技巧  - [ ] 使用短句，避免长句 - [ ] 使用emoji代替部分文字 - [ ] 使用数字列表，提高信息密度 - [ ] 删除冗余的",
+          "sectionTitle": "八、账号阶段策略",
+          "patternType": "mandatory"
         }
       ],
-      "avg_similarity": 1,
+      "avg_similarity": 0.9666666666666668,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -939,6 +979,14 @@
           {
             "document": "xiaohongshu-content-generator/SKILL.md",
             "current_text": "禁止价格"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+            "current_text": "禁止价格 |"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "禁止价格 |"
           }
         ]
       }
@@ -1620,6 +1668,7 @@
       "documents": [
         ".claude/CLAUDE.md",
         "skill-standards/knowledge/optimization-rules.md",
+        "topic-discovery/SKILL.md",
         "video-script-generator/knowledge/video-image-prompt-guide.md",
         "wechat-content-generator/knowledge/wechat-image-prompt-guide.md"
       ],
@@ -1644,6 +1693,17 @@
           "weight": 1,
           "context": "本，降低 80-90% 成本 2. **增量处理**：已处理文件不重复分析 3. **索引缓存**：建立索引快速定位，避免全量扫描 ```  ### 检测逻辑 ```python def check_token_optimization(content):     keywords = ['成本', 'Token', '预处理', '增量', '缓存']     # 仅对大文本处理类 Skill 强制要求     if is_text_heavy_skill(content):         return any(kw in content for kw in keywords)     return True  # 非文本密集型 Skill 跳过 ```  ---  ## R07: 知识库引用一致性 🔴  ### 规则说明 所有知识库引用路径必须有效，跨 Skill 引用必须使用正确格式。",
           "sectionTitle": "仅对大文本处理类 Skill",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "topic-discovery/SKILL.md",
+          "skill": "topic-discovery",
+          "type": "skill",
+          "ruleText": "强制要求）",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "| 🥇 **工具类** | 喷壶、剪刀、铲子 | 实用、耐用、口碑传播 | 园艺工具套装、喷雾瓶 |    | 🥈 **绿植类** | 活体植物 | 配送复杂、退货率高、起号期慎重 | 多肉植物、小型盆栽 |     **⚠️ 重要**：    - 必须优先推荐周边品（容器/基质/养护/工具）    - 绿植本身作为次要选项，仅在话题强相关时推荐  3. **为每个选题推荐3-5个商品**（强制要求）    - 每个商品包含完整的飞书表格字段（9个字段）    - 输出格式可直接复制到飞书多维表格    - **⚠️ 禁止简化输出**：必须包含所有字段  **飞书商品库表字段映射**： ```python {     \"商品名称\": \"具体商品名称（如：龟背竹盆栽）\",     \"商品分类\": \"分类（如：观叶植物/多肉植物/花卉）\",     \"价格\": \"建议价格区间（如：29.9-49.",
+          "sectionTitle": "策略A：起号期（0-500粉）- 从选题提取商品需求",
           "patternType": "mandatory"
         },
         {
@@ -1702,7 +1762,7 @@
           "patternType": "mandatory"
         }
       ],
-      "avg_similarity": 0.9428571428571428,
+      "avg_similarity": 0.95,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -1712,6 +1772,10 @@
           {
             "document": "skill-standards/knowledge/optimization-rules.md",
             "current_text": "强制要求"
+          },
+          {
+            "document": "topic-discovery/SKILL.md",
+            "current_text": "强制要求）"
           },
           {
             "document": "video-script-generator/knowledge/video-image-prompt-guide.md",
@@ -1748,7 +1812,9 @@
         "wechat-content-generator/SKILL.md",
         "xiaohongshu-content-generator/SKILL.md",
         "xiaohongshu-content-generator/knowledge/corrected-prompts-example.md",
-        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md"
+        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+        "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
       ],
       "segments": [
         {
@@ -2091,6 +2157,28 @@
           "context": "止词汇（`bright`, `vivid`, `neon`）？ - [ ] 是否包含真实感约束（`lived-in`, `natural light`）？ - [ ] 是否有生活化场景（不是纯白背景/棚拍）？ - [ ] 红色系是否使用替代词（`dusty coral`, `terracotta`）？  **强制约束**： - [ ] **是否包含 `NO ENGLISH TEXT` 约束？**（强制） - [ ] **是否包含 `NO PEOPLE` 约束？**（如果不需要人物） - [ ] **是否包含 `NO STUDIO LIGHTING` 约束？**（真实感要求） - [ ] **是否包含现代家居风格约束？**（`modern home aesthetic`, `clean and well-maintained interior`, `NOT old or worn-out inte",
           "sectionTitle": "🔄 Prompt 生成检查清单",
           "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "强制）",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "# Step 5 内容生成检查清单  > 整合8个文档的核心要点 > 生成文案前必须检查  ---  ## 一、平台限制（强制）  - [ ] **标题≤20字**（小红书正文标题强制限制） - [ ] **正文≤1000字**（小红书正文强制限制） - [ ] 视觉标题10-15字（封面显示效果最佳）  ---  ## 二、标题公式  ### 信任型标题（成熟期账号推荐） - [ ] 客观描述 + 价值点 + 时间/经验 - [ ] 推荐用词：\"客观来说\"、\"个人体验是\"、\"根据我的经验\" - [ ] 避免用词：\"必买!",
+          "sectionTitle": "一、平台限制（",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "强制）",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "否避免了禁止词汇（`bright`, `vivid`, `neon`）？ - [ ] 是否包含真实感约束（`lived-in`, `natural light`）？ - [ ] 是否有生活化场景（不是纯白背景/棚拍）？ - [ ] 红色系是否使用替代词（`dusty coral`, `terracotta`）？  ### 强制约束 - [ ] 是否包含 `NO ENGLISH TEXT` 约束？（强制） - [ ] 是否包含 `NO PEOPLE` 约束？（如果不需要人物） - [ ] 是否包含 `NO STUDIO LIGHTING` 约束？（真实感要求） - [ ] 是否包含现代家居风格约束？（`modern home aesthetic`, `clean and well-maintained interior`, `NOT old or worn-out interior`） - [ ]",
+          "sectionTitle": "强制约束",
+          "patternType": "mandatory"
         }
       ],
       "avg_similarity": 1,
@@ -2207,6 +2295,106 @@
           {
             "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
             "current_text": "强制）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "强制）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+            "current_text": "强制）"
+          }
+        ]
+      }
+    },
+    {
+      "id": 64,
+      "category": "mandatory",
+      "representative_text": "强制约束",
+      "documents": [
+        ".claude/CLAUDE.md",
+        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
+      ],
+      "segments": [
+        {
+          "document": ".claude/CLAUDE.md",
+          "skill": "global",
+          "type": "global",
+          "ruleText": "强制约束",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "取平台配图指南**（强制） - 小红书：`knowledge/image-prompt-guide.md` - 微信：`knowledge/wechat-image-prompt-guide.md` - 视频：`knowledge/video-image-prompt-guide.md`  **Step 4: 生成 prompt**（按照模板） - 根据内容类型选择对应的风格模板 - 确保包含所有强制约束  **Step 5: 执行检查清单**（强制） - 使用配图指南中的检查清单（15项） - 逐一检查每个 prompt - 发现问题立即修正  **⚠️ 重要**： - 这个流程是**强制的**，不是可选的 - 必须按照 Step 1 → Step 2 → Step 3 → Step 4 → Step 5 的顺序执行 - 不得跳过任何一步 - 不得改变执行顺序 - 如果跳过任何一步，生成的 pr",
+          "sectionTitle": "平台特定规则",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "强制约束",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "cover-design-guide.md 目的：根据内容类型选择合适的封面结构 重点关注： - 5种封面类型（新手求生、懒人省心、颜值正义、稀有猎奇、统一风格） - 封面类型选择决策树 - 每种类型的 prompt 模板 ```  ### Step 4: 生成 prompt（按照模板） ``` - 封面：根据内容类型选择对应的封面类型和模板 - 正文：根据内容类型选择对应的风格模板 确保包含所有强制约束 ```  ### Step 5: 执行检查清单（强制） ``` 使用本文档中的\"Prompt 生成检查清单\"（15项） 逐一检查每个 prompt 发现问题立即修正 ```  **⚠️ 重要**： - 这个流程是**强制的**，不是可选的 - 必须按照 Step 1 → Step 2 → Step 3 → Step 4 → Step 5 的顺序执行 - 不得跳过任何一步 - 不得改变执行顺序 -",
+          "sectionTitle": "Step 4: 生成 prompt（按照模板）",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "强制约束",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "度/假感）： - bright red, vivid red, pure red - hot pink, neon pink, fuchsia - bright orange, vivid yellow - neon green, lime green - any \"bright\", \"vivid\", \"neon\", \"pure\" color descriptors ```  ### 📸 真实感强制约束  **每个 Prompt 必须包含以下约束词之一：**  ``` # 真实感约束（选择1-2个添加到每个 Prompt） - \"authentic home environment\" - \"lived-in atmosphere\" - \"natural imperfections\" - \"realistic indoor lighting\" - \"lifestyle photography fe",
+          "sectionTitle": "📸 真实感",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "强制约束）",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "lage**（拼贴风）：产品类、推荐类、测评类  ### 风格混用原则 - [ ] 封面：按通篇内容主题选择 - [ ] 正文：按对应段落内容类型选择 - [ ] 对比图 → infographic-sketch - [ ] 步骤图 → cozy-sketch - [ ] 细节图 → dreamy-photo - [ ] 场景图 → dreamy-photo  ---  ## 三、小红书审美调性（强制约束）  ### 颜色控制（必须严格遵守） - [ ] 红色 → `dusty coral`, `muted rose`, `terracotta red` - [ ] 粉色 → `blush pink`, `dusty pink`, `muted salmon` - [ ] 橙色 → `burnt sienna`, `muted peach`, `soft terracotta` - [ ] 绿色 →",
+          "sectionTitle": "三、小红书审美调性（",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "强制约束",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "ted`, `desaturated`, `dusty`）？ - [ ] 是否避免了禁止词汇（`bright`, `vivid`, `neon`）？ - [ ] 是否包含真实感约束（`lived-in`, `natural light`）？ - [ ] 是否有生活化场景（不是纯白背景/棚拍）？ - [ ] 红色系是否使用替代词（`dusty coral`, `terracotta`）？  ### 强制约束 - [ ] 是否包含 `NO ENGLISH TEXT` 约束？（强制） - [ ] 是否包含 `NO PEOPLE` 约束？（如果不需要人物） - [ ] 是否包含 `NO STUDIO LIGHTING` 约束？（真实感要求） - [ ] 是否包含现代家居风格约束？（`modern home aesthetic`, `clean and well-maintained interior`,",
+          "sectionTitle": "基础约束",
+          "patternType": "mandatory"
+        }
+      ],
+      "avg_similarity": 1,
+      "confidence": 1,
+      "suggestion": {
+        "action": "sync_from_global",
+        "source": "CLAUDE.md",
+        "source_text": "强制约束",
+        "targets": [
+          {
+            "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+            "current_text": "强制约束"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+            "current_text": "强制约束"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+            "current_text": "强制约束）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+            "current_text": "强制约束"
           }
         ]
       }
@@ -2530,13 +2718,16 @@
         "skill-standards/SKILL.md",
         "skill-standards/knowledge/optimization-rules.md",
         "skill-standards/knowledge/skill-template.md",
+        "topic-discovery/SKILL.md",
         "topic-discovery/knowledge/topic_strategy_handbook.md",
         "video-script-generator/SKILL.md",
         "video-script-generator/knowledge/video-script-templates.md",
         "wechat-content-generator/SKILL.md",
         "wechat-content-generator/knowledge/cta-templates.md",
         "wechat-content-generator/knowledge/wechat-operation-tips.md",
-        "xiaohongshu-content-generator/SKILL.md"
+        "xiaohongshu-content-generator/SKILL.md",
+        "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+        "xiaohongshu-content-generator/knowledge/step5-content-checklist.md"
       ],
       "segments": [
         {
@@ -2683,6 +2874,28 @@
           "patternType": "recommended"
         },
         {
+          "document": "topic-discovery/SKILL.md",
+          "skill": "topic-discovery",
+          "type": "skill",
+          "ruleText": "推荐`",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "究维度**（3个并行查询）： 1. **热门话题挖掘**    - 查询：`[行业] 2026 热门话题 小红书 抖音 公众号`    - 重点：识别高评论度、高互动的话题  2. **评论区深度分析**    - 查询：`[行业] 用户痛点 评论区 争论点 需求`    - 重点：提取真实用户的困惑、抱怨、需求  3. **商品需求挖掘**    - 查询：`[行业] 周边产品 工具 配件 用户推荐`    - 重点：识别话题中隐含的商品需求  **研究输出**： - 热门话题列表（含热度指数、评论量、争论点） - 用户痛点清单（从评论区提取） - 商品需求矩阵（话题 → 可匹配商品类型） - 趋势判断（上升/稳定/下降/新兴）  **为什么用 deep_research**： - 比 WebSearch 更深入，能分析评论区 - 能识别用户真实需求和痛点 - 为商品匹配提供更准确的依据  #",
+          "sectionTitle": "Step 2: 深度行业研究（v4.0 升级）",
+          "patternType": "recommended"
+        },
+        {
+          "document": "topic-discovery/SKILL.md",
+          "skill": "topic-discovery",
+          "type": "skill",
+          "ruleText": "推荐 |",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "库匹配\" | ❌ 起号期=商品库是空的，只能生成建议 | | \"成长期可以生成商品建议\" | ❌ 成长期必须从商品库匹配，不能生成 | | \"用户没要求飞书格式，简化输出\" | ❌ 起号期必须输出飞书格式，这是核心需求 | | \"先推荐绿植，再推荐周边品\" | ❌ 起号期必须优先推荐周边品（容器、基质、养护、工具） | | \"商品建议可以不分析选题需求\" | ❌ 必须从选题中提取商品需求，不能凭空推荐 | | \"用 WebSearch 就够了\" | ❌ 必须优先用 GPT MCP deep_research 做深度研究 | | \"deep_research 失败就停止\" | ❌ 必须使用 WebSearch 作为备选方案，继续执行 |  ### 常见合理化与反驳  | 合理化 | 现实 | |--------|------| | \"账号配置不会变，我记得是起号期\" | 账号配置会更新（粉丝增长），",
+          "sectionTitle": "🚩 红旗列表 - 商品策略执行检查",
+          "patternType": "recommended"
+        },
+        {
           "document": "topic-discovery/knowledge/topic_strategy_handbook.md",
           "skill": "topic-discovery",
           "type": "knowledge",
@@ -2758,9 +2971,53 @@
           "context": "丝数 2. 读取历史记录 3. 生成个性化鼓励语 4. 触发5天提醒机制（如适用） 5. 更新粉丝数记录  **详细规则**：参考必读文档  ---  ### Step 1: 苏格拉底式提问 [强制]  **⚠️ 重要**：这是开放式对话，不是固定选项。用户可以自由描述，AI 要智能理解。  **询问内容**： 1. 内容目的（涨粉/互动/专业形象/其他） 2. 选题方向（指定选题/大致方向/AI推荐） 3. 内容深度（基础/进阶/专业/创新角度） 4. 商品植入（是/否/极少）  **详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md` **内容方向参考**：`../../knowledge/content-directions-universal.md`  ---  ### Step 2: 检查已发布内容 [强制]",
           "sectionTitle": "Step 1: 苏格拉底式提问 [强制]",
           "patternType": "recommended"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "推荐 |",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "## 账号阶段判断  | 阶段 | 粉丝数 | 内容策略 | 商品策略 | |------|--------|---------|---------| | 起号期 | 0-500 | 纯干货建立信任 | 仅作案例提及，禁止价格 | | 成长期 | 500-2000 | 价值+适度引导 | 软植入，评论区引导，可提价格 | | 成熟期 | 2000+ | 信任+转化 | 可挂链接，可说价格，可直接推荐 |  ---  ## 常见问题  **Q: 如果用户选择\"没有变化\"，还需要生成鼓励语吗？** A: 需要。但鼓励语的重点是\"坚持\"，而不是\"涨粉\"。  **Q: 如果是第一次使用，没有历史记录怎么办？** A: 创建新的记录文件，初始化第一条记录。",
+          "sectionTitle": "账号阶段判断",
+          "patternType": "recommended"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "推荐）",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "# Step 5 内容生成检查清单  > 整合8个文档的核心要点 > 生成文案前必须检查  ---  ## 一、平台限制（强制）  - [ ] **标题≤20字**（小红书正文标题强制限制） - [ ] **正文≤1000字**（小红书正文强制限制） - [ ] 视觉标题10-15字（封面显示效果最佳）  ---  ## 二、标题公式  ### 信任型标题（成熟期账号推荐） - [ ] 客观描述 + 价值点 + 时间/经验 - [ ] 推荐用词：\"客观来说\"、\"个人体验是\"、\"根据我的经验\" - [ ] 避免用词：\"必买!\"、\"绝了!\"、\"姐妹们冲!\"  ### 爆款型标题（起号期账号推荐） - [ ] 人群+痛点+解决方案 - [ ] 数字+结果+反常识 - [ ] 价值+互动+钩子  ### 双标题系统（小红书特有） - [ ] 视觉标题（封面大字）：10-15",
+          "sectionTitle": "信任型标题（成熟期账号",
+          "patternType": "recommended"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "推荐）",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "- [ ] **正文≤1000字**（小红书正文强制限制） - [ ] 视觉标题10-15字（封面显示效果最佳）  ---  ## 二、标题公式  ### 信任型标题（成熟期账号推荐） - [ ] 客观描述 + 价值点 + 时间/经验 - [ ] 推荐用词：\"客观来说\"、\"个人体验是\"、\"根据我的经验\" - [ ] 避免用词：\"必买!\"、\"绝了!\"、\"姐妹们冲!\"  ### 爆款型标题（起号期账号推荐） - [ ] 人群+痛点+解决方案 - [ ] 数字+结果+反常识 - [ ] 价值+互动+钩子  ### 双标题系统（小红书特有） - [ ] 视觉标题（封面大字）：10-15字，情绪化，吸引点击 - [ ] 正文标题（笔记标题）：≤20字，包含SEO关键词  ### SEO优化 - [ ] 包含核心关键词（植物名称、养护动作、问题描述、场景描述） - [ ] 包含长尾关键词（人群标签、时间节点",
+          "sectionTitle": "爆款型标题（起号期账号",
+          "patternType": "recommended"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "推荐 |",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "品 | |------|------|------|------|------| | 起号期(0-500粉) | 爆款型 | 黄金模板 | 颜值+求生 | 仅作案例提及，禁止价格 | | 成长期(500-2000粉) | 混合 | 两种混合 | 根据内容选择 | 软植入，评论区引导，可提价格 | | 成熟期(2000+粉) | 信任型 | 5步信任型 | 懒人+颜值 | 可挂链接，可说价格，可直接推荐 |  ---  ## 九、字数控制技巧  - [ ] 使用短句，避免长句 - [ ] 使用emoji代替部分文字 - [ ] 使用数字列表，提高信息密度 - [ ] 删除冗余的修饰词  **示例对比**： - ❌ \"在春秋季节的时候，我们需要大概每隔7-10天左右给绿萝浇一次水\"（28字） - ✅ \"春秋季7-10天浇一次\"（10字）  ---  ## 十、执行检查（生成后）  - [ ] 标题是否",
+          "sectionTitle": "八、账号阶段策略",
+          "patternType": "recommended"
         }
       ],
-      "avg_similarity": 0.95,
+      "avg_similarity": 0.9102564102564104,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -2816,6 +3073,14 @@
             "current_text": "推荐 |"
           },
           {
+            "document": "topic-discovery/SKILL.md",
+            "current_text": "推荐`"
+          },
+          {
+            "document": "topic-discovery/SKILL.md",
+            "current_text": "推荐 |"
+          },
+          {
             "document": "topic-discovery/knowledge/topic_strategy_handbook.md",
             "current_text": "推荐类"
           },
@@ -2842,6 +3107,22 @@
           {
             "document": "xiaohongshu-content-generator/SKILL.md",
             "current_text": "推荐）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step0-init-checklist.md",
+            "current_text": "推荐 |"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "推荐）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "推荐）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "推荐 |"
           }
         ]
       }
@@ -2856,7 +3137,8 @@
         "video-script-generator/knowledge/video-image-prompt-guide.md",
         "xiaohongshu-content-generator/SKILL.md",
         "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
-        "xiaohongshu-content-generator/knowledge/image-quantity-guide.md"
+        "xiaohongshu-content-generator/knowledge/image-quantity-guide.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
       ],
       "segments": [
         {
@@ -3100,9 +3382,20 @@
           "context": "**配图要与文案紧密结合**：    - 用户看图就能理解文案内容    - 图文互补，不是简单重复    - 配图位置要准确对应文案段落  4. **配图要符合小红书风格**：    - 3:4竖版比例    - 清晰、美观、有质感    - 符合平台审美（莫兰迪色、氛围感）  ---  ## 🔄 版本历史  - **v2.0 (2026-01-25)**：   - 配图数量从4-5张调整为12-18张   - 新增配图与文案匹配规则   - 新增配图分配策略和示例   - 明确配图类型和插入位置",
           "sectionTitle": "🔄 版本历史",
           "patternType": "quantitative"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "12-15张",
+          "category": "quantitative",
+          "weight": 0.9,
+          "context": "e/image-generation-cases/anti-patterns.md` - [ ] **Step 3**: 根据内容类型选择风格模板 - [ ] **Step 4**: 生成 prompt（按照模板） - [ ] **Step 5**: 执行检查清单（15项）  **⚠️ 不得跳过任何一步，不得改变执行顺序**  ---  ## 二、配图规范  ### 数量和尺寸 - [ ] 数量：12-15张（不得少于12张） - [ ] 尺寸：1080x1440像素（3:4竖版） - [ ] 命名：`序号_中文说明_风格标识.png`  ### 风格选择（可混用） - [ ] **dreamy-photo**（真实感）：场景类、生活类、细节特写 - [ ] **cozy-sketch**（手绘风）：教程类、步骤类、技巧类 - [ ] **infographic-sketch**（信息图）：科普类、知",
+          "sectionTitle": "数量和尺寸",
+          "patternType": "quantitative"
         }
       ],
-      "avg_similarity": 0.8257575757575757,
+      "avg_similarity": 0.8333333333333333,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -3192,6 +3485,10 @@
           {
             "document": "xiaohongshu-content-generator/knowledge/image-quantity-guide.md",
             "current_text": "12-18张"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+            "current_text": "12-15张"
           }
         ]
       }
@@ -3500,7 +3797,8 @@
         "xiaohongshu-content-generator/SKILL.md",
         "xiaohongshu-content-generator/knowledge/corrected-prompts-example.md",
         "xiaohongshu-content-generator/knowledge/cover-design-guide.md",
-        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md"
+        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
       ],
       "segments": [
         {
@@ -4217,9 +4515,20 @@
           "context": "d in the [位置], using a soft cream or dusty rose color that complements the image. The text should look like it was naturally added to a lifestyle photo, not like a graphic design element. Image size: 1080x1440 pixels (3:4 vertical format). NO ENGLISH TEXT. NO PEOPLE. NO STUDIO LIGHTING. ```  **⚠️ 强制约束（每个 prompt 必须包含）**： - `NO ENGLISH TEXT` - 禁止任何英文文字 - `NO PEOPLE` - 禁止人物（如果不需要人物） - `NO STUDIO LIGHTING` - 禁",
           "sectionTitle": "🌅 dreamy-photo（梦幻实拍风）",
           "patternType": "quantitative"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "1080x1440",
+          "category": "quantitative",
+          "weight": 0.9,
+          "context": "anti-patterns.md` - [ ] **Step 3**: 根据内容类型选择风格模板 - [ ] **Step 4**: 生成 prompt（按照模板） - [ ] **Step 5**: 执行检查清单（15项）  **⚠️ 不得跳过任何一步，不得改变执行顺序**  ---  ## 二、配图规范  ### 数量和尺寸 - [ ] 数量：12-15张（不得少于12张） - [ ] 尺寸：1080x1440像素（3:4竖版） - [ ] 命名：`序号_中文说明_风格标识.png`  ### 风格选择（可混用） - [ ] **dreamy-photo**（真实感）：场景类、生活类、细节特写 - [ ] **cozy-sketch**（手绘风）：教程类、步骤类、技巧类 - [ ] **infographic-sketch**（信息图）：科普类、知识类、对比类 - [ ] **soft-botanica",
+          "sectionTitle": "数量和尺寸",
+          "patternType": "quantitative"
         }
       ],
-      "avg_similarity": 0.9299145299145292,
+      "avg_similarity": 0.9309764309764302,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -4468,6 +4777,10 @@
           },
           {
             "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+            "current_text": "1080x1440"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
             "current_text": "1080x1440"
           }
         ]
@@ -4798,7 +5111,8 @@
         "xiaohongshu-content-generator/knowledge/corrected-prompts-example.md",
         "xiaohongshu-content-generator/knowledge/cover-design-guide.md",
         "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
-        "xiaohongshu-content-generator/knowledge/image-quantity-guide.md"
+        "xiaohongshu-content-generator/knowledge/image-quantity-guide.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
       ],
       "segments": [
         {
@@ -6274,6 +6588,17 @@
           "context": "- 避免配图过多导致加载慢    - 避免配图过少导致内容单调  2. **配图要有信息量**：    - 每张图都要传达明确信息    - 避免纯装饰性的无意义配图    - 避免重复相似的配图  3. **配图要与文案紧密结合**：    - 用户看图就能理解文案内容    - 图文互补，不是简单重复    - 配图位置要准确对应文案段落  4. **配图要符合小红书风格**：    - 3:4竖版比例    - 清晰、美观、有质感    - 符合平台审美（莫兰迪色、氛围感）  ---  ## 🔄 版本历史  - **v2.0 (2026-01-25)**：   - 配图数量从4-5张调整为12-18张   - 新增配图与文案匹配规则   - 新增配图分配策略和示例   - 明确配图类型和插入位置",
           "sectionTitle": "⚠️ 注意事项",
           "patternType": "quantitative"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "3:4",
+          "category": "quantitative",
+          "weight": 0.9,
+          "context": "s.md` - [ ] **Step 3**: 根据内容类型选择风格模板 - [ ] **Step 4**: 生成 prompt（按照模板） - [ ] **Step 5**: 执行检查清单（15项）  **⚠️ 不得跳过任何一步，不得改变执行顺序**  ---  ## 二、配图规范  ### 数量和尺寸 - [ ] 数量：12-15张（不得少于12张） - [ ] 尺寸：1080x1440像素（3:4竖版） - [ ] 命名：`序号_中文说明_风格标识.png`  ### 风格选择（可混用） - [ ] **dreamy-photo**（真实感）：场景类、生活类、细节特写 - [ ] **cozy-sketch**（手绘风）：教程类、步骤类、技巧类 - [ ] **infographic-sketch**（信息图）：科普类、知识类、对比类 - [ ] **soft-botanical**（水彩",
+          "sectionTitle": "数量和尺寸",
+          "patternType": "quantitative"
         }
       ],
       "avg_similarity": 1,
@@ -6805,6 +7130,10 @@
           },
           {
             "document": "xiaohongshu-content-generator/knowledge/image-quantity-guide.md",
+            "current_text": "3:4"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
             "current_text": "3:4"
           }
         ]
@@ -8122,6 +8451,68 @@
       }
     },
     {
+      "id": 50,
+      "category": "mandatory",
+      "representative_text": "不得少于12张）",
+      "documents": [
+        ".claude/CLAUDE.md",
+        "xiaohongshu-content-generator/SKILL.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
+      ],
+      "segments": [
+        {
+          "document": ".claude/CLAUDE.md",
+          "skill": "global",
+          "type": "global",
+          "ruleText": "不得少于12张）",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "- **可混用风格**：一篇文章中可以使用多种风格  **文字处理规则**： - 默认：`NO TEXT, NO WORDS, NO LETTERS` - 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）  #### 平台特定规则  **小红书**（xiaohongshu-content-generator）： - 数量：12-15张（不得少于12张） - 尺寸：1080x1440像素（3:4竖版） - 命名：`序号_建议文字说明.png` - 文字说明：5-8个字，简洁、信息性强 - 详细指南：`knowledge/image-prompt-guide.md` - **封面设计**：参考全局案例库 `/Users/dj/Desktop/小静的skills/knowledge/image-generation-successful-cases.",
+          "sectionTitle": "平台特定规则",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/SKILL.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "skill",
+          "ruleText": "不得少于12张）",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "执行**，遵循小红书所有规范。  ---  ### Step E4: 质量检查 [强制，静默执行]  **⚠️ 不能因为是\"修改\"就跳过质量检查**  **必须执行的检查**：  1. **双标题系统检查**    - 视觉标题：客观描述 + 价值点 + 时间/经验    - 搜索标题：关键词堆叠，SEO优化    - 两个标题必须不同  2. **配图规范检查**    - 数量：12-15张（不得少于12张）    - 尺寸：1080×1440（3:4竖版）    - 封面：白色粗体+黑边、简洁背景、主体突出    - 命名：`序号_建议文字说明.png`  3. **违禁词检查**    - 调用 `compliance-checker`    - 确保无违禁词、夸张用语  4. **账号阶段策略检查**    - 起号期（0-500粉）：仅作案例提及，禁止价格    - 成长期（500-2000粉",
+          "sectionTitle": "Step E4: 质量检查 [强制，静默执行]",
+          "patternType": "mandatory"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "不得少于12张）",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "-generation-cases/anti-patterns.md` - [ ] **Step 3**: 根据内容类型选择风格模板 - [ ] **Step 4**: 生成 prompt（按照模板） - [ ] **Step 5**: 执行检查清单（15项）  **⚠️ 不得跳过任何一步，不得改变执行顺序**  ---  ## 二、配图规范  ### 数量和尺寸 - [ ] 数量：12-15张（不得少于12张） - [ ] 尺寸：1080x1440像素（3:4竖版） - [ ] 命名：`序号_中文说明_风格标识.png`  ### 风格选择（可混用） - [ ] **dreamy-photo**（真实感）：场景类、生活类、细节特写 - [ ] **cozy-sketch**（手绘风）：教程类、步骤类、技巧类 - [ ] **infographic-sketch**（信息图）：科普类、知识类、对比类 -",
+          "sectionTitle": "数量和尺寸",
+          "patternType": "mandatory"
+        }
+      ],
+      "avg_similarity": 1,
+      "confidence": 0.9999999999999999,
+      "suggestion": {
+        "action": "sync_from_global",
+        "source": "CLAUDE.md",
+        "source_text": "不得少于12张）",
+        "targets": [
+          {
+            "document": "xiaohongshu-content-generator/SKILL.md",
+            "current_text": "不得少于12张）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+            "current_text": "不得少于12张）"
+          }
+        ]
+      }
+    },
+    {
       "id": 55,
       "category": "mandatory",
       "representative_text": "强制检查顺序",
@@ -8184,62 +8575,187 @@
       }
     },
     {
-      "id": 64,
-      "category": "mandatory",
-      "representative_text": "强制约束",
+      "id": 94,
+      "category": "format",
+      "representative_text": "命名：`序号_建议文字说明.png`",
       "documents": [
         ".claude/CLAUDE.md",
-        "xiaohongshu-content-generator/knowledge/image-prompt-guide.md"
+        "xiaohongshu-content-generator/SKILL.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
       ],
       "segments": [
         {
           "document": ".claude/CLAUDE.md",
           "skill": "global",
           "type": "global",
-          "ruleText": "强制约束",
-          "category": "mandatory",
-          "weight": 1,
-          "context": "取平台配图指南**（强制） - 小红书：`knowledge/image-prompt-guide.md` - 微信：`knowledge/wechat-image-prompt-guide.md` - 视频：`knowledge/video-image-prompt-guide.md`  **Step 4: 生成 prompt**（按照模板） - 根据内容类型选择对应的风格模板 - 确保包含所有强制约束  **Step 5: 执行检查清单**（强制） - 使用配图指南中的检查清单（15项） - 逐一检查每个 prompt - 发现问题立即修正  **⚠️ 重要**： - 这个流程是**强制的**，不是可选的 - 必须按照 Step 1 → Step 2 → Step 3 → Step 4 → Step 5 的顺序执行 - 不得跳过任何一步 - 不得改变执行顺序 - 如果跳过任何一步，生成的 pr",
+          "ruleText": "命名：`序号_建议文字说明.png`",
+          "category": "format",
+          "weight": 0.8,
+          "context": "**： - 默认：`NO TEXT, NO WORDS, NO LETTERS` - 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）  #### 平台特定规则  **小红书**（xiaohongshu-content-generator）： - 数量：12-15张（不得少于12张） - 尺寸：1080x1440像素（3:4竖版） - 命名：`序号_建议文字说明.png` - 文字说明：5-8个字，简洁、信息性强 - 详细指南：`knowledge/image-prompt-guide.md` - **封面设计**：参考全局案例库 `/Users/dj/Desktop/小静的skills/knowledge/image-generation-successful-cases.md`（案例2：白色粗体+黑边、简洁背景、主体突出）  **微信公众号**（wechat-",
           "sectionTitle": "平台特定规则",
-          "patternType": "mandatory"
+          "patternType": "format"
         },
         {
-          "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+          "document": "xiaohongshu-content-generator/SKILL.md",
           "skill": "xiaohongshu-content-generator",
-          "type": "knowledge",
-          "ruleText": "强制约束",
-          "category": "mandatory",
-          "weight": 1,
-          "context": "cover-design-guide.md 目的：根据内容类型选择合适的封面结构 重点关注： - 5种封面类型（新手求生、懒人省心、颜值正义、稀有猎奇、统一风格） - 封面类型选择决策树 - 每种类型的 prompt 模板 ```  ### Step 4: 生成 prompt（按照模板） ``` - 封面：根据内容类型选择对应的封面类型和模板 - 正文：根据内容类型选择对应的风格模板 确保包含所有强制约束 ```  ### Step 5: 执行检查清单（强制） ``` 使用本文档中的\"Prompt 生成检查清单\"（15项） 逐一检查每个 prompt 发现问题立即修正 ```  **⚠️ 重要**： - 这个流程是**强制的**，不是可选的 - 必须按照 Step 1 → Step 2 → Step 3 → Step 4 → Step 5 的顺序执行 - 不得跳过任何一步 - 不得改变执行顺序 -",
-          "sectionTitle": "Step 4: 生成 prompt（按照模板）",
-          "patternType": "mandatory"
+          "type": "skill",
+          "ruleText": "命名：`序号_建议文字说明.png`",
+          "category": "format",
+          "weight": 0.8,
+          "context": "就跳过质量检查**  **必须执行的检查**：  1. **双标题系统检查**    - 视觉标题：客观描述 + 价值点 + 时间/经验    - 搜索标题：关键词堆叠，SEO优化    - 两个标题必须不同  2. **配图规范检查**    - 数量：12-15张（不得少于12张）    - 尺寸：1080×1440（3:4竖版）    - 封面：白色粗体+黑边、简洁背景、主体突出    - 命名：`序号_建议文字说明.png`  3. **违禁词检查**    - 调用 `compliance-checker`    - 确保无违禁词、夸张用语  4. **账号阶段策略检查**    - 起号期（0-500粉）：仅作案例提及，禁止价格    - 成长期（500-2000粉）：软植入，可提价格    - 成熟期（2000+粉）：可挂链接，可说价格  5. **信任型内容原则检查**    - 客观中性，避免情绪化标题",
+          "sectionTitle": "Step E4: 质量检查 [强制，静默执行]",
+          "patternType": "format"
         },
         {
-          "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
           "skill": "xiaohongshu-content-generator",
           "type": "knowledge",
-          "ruleText": "强制约束",
-          "category": "mandatory",
-          "weight": 1,
-          "context": "度/假感）： - bright red, vivid red, pure red - hot pink, neon pink, fuchsia - bright orange, vivid yellow - neon green, lime green - any \"bright\", \"vivid\", \"neon\", \"pure\" color descriptors ```  ### 📸 真实感强制约束  **每个 Prompt 必须包含以下约束词之一：**  ``` # 真实感约束（选择1-2个添加到每个 Prompt） - \"authentic home environment\" - \"lived-in atmosphere\" - \"natural imperfections\" - \"realistic indoor lighting\" - \"lifestyle photography fe",
-          "sectionTitle": "📸 真实感",
-          "patternType": "mandatory"
+          "ruleText": "命名：`序号_中文说明_风格标识.png`",
+          "category": "format",
+          "weight": 0.8,
+          "context": "*Step 3**: 根据内容类型选择风格模板 - [ ] **Step 4**: 生成 prompt（按照模板） - [ ] **Step 5**: 执行检查清单（15项）  **⚠️ 不得跳过任何一步，不得改变执行顺序**  ---  ## 二、配图规范  ### 数量和尺寸 - [ ] 数量：12-15张（不得少于12张） - [ ] 尺寸：1080x1440像素（3:4竖版） - [ ] 命名：`序号_中文说明_风格标识.png`  ### 风格选择（可混用） - [ ] **dreamy-photo**（真实感）：场景类、生活类、细节特写 - [ ] **cozy-sketch**（手绘风）：教程类、步骤类、技巧类 - [ ] **infographic-sketch**（信息图）：科普类、知识类、对比类 - [ ] **soft-botanical**（水彩风）：情感类、心情类、治愈类 - [ ] **minimal-",
+          "sectionTitle": "数量和尺寸",
+          "patternType": "format"
         }
       ],
-      "avg_similarity": 1,
-      "confidence": 0.9999999999999999,
+      "avg_similarity": 0.8947368421052632,
+      "confidence": 0.9600000000000001,
       "suggestion": {
         "action": "sync_from_global",
         "source": "CLAUDE.md",
-        "source_text": "强制约束",
+        "source_text": "命名：`序号_建议文字说明.png`",
         "targets": [
           {
-            "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
-            "current_text": "强制约束"
+            "document": "xiaohongshu-content-generator/SKILL.md",
+            "current_text": "命名：`序号_建议文字说明.png`"
           },
           {
-            "document": "xiaohongshu-content-generator/knowledge/image-prompt-guide.md",
-            "current_text": "强制约束"
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+            "current_text": "命名：`序号_中文说明_风格标识.png`"
+          }
+        ]
+      }
+    },
+    {
+      "id": 95,
+      "category": "format",
+      "representative_text": "尺寸：1080x1440像素（3:4竖版）",
+      "documents": [
+        ".claude/CLAUDE.md",
+        "xiaohongshu-content-generator/SKILL.md",
+        "xiaohongshu-content-generator/knowledge/step9-image-checklist.md"
+      ],
+      "segments": [
+        {
+          "document": ".claude/CLAUDE.md",
+          "skill": "global",
+          "type": "global",
+          "ruleText": "尺寸：1080x1440像素（3:4竖版）",
+          "category": "format",
+          "weight": 0.8,
+          "context": "：一篇文章中可以使用多种风格  **文字处理规则**： - 默认：`NO TEXT, NO WORDS, NO LETTERS` - 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）  #### 平台特定规则  **小红书**（xiaohongshu-content-generator）： - 数量：12-15张（不得少于12张） - 尺寸：1080x1440像素（3:4竖版） - 命名：`序号_建议文字说明.png` - 文字说明：5-8个字，简洁、信息性强 - 详细指南：`knowledge/image-prompt-guide.md` - **封面设计**：参考全局案例库 `/Users/dj/Desktop/小静的skills/knowledge/image-generation-successful-cases.md`（案例2：白色粗体+黑边、简洁背景、主体突",
+          "sectionTitle": "平台特定规则",
+          "patternType": "format"
+        },
+        {
+          "document": "xiaohongshu-content-generator/SKILL.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "skill",
+          "ruleText": "尺寸：1080×1440（3:4竖版）",
+          "category": "format",
+          "weight": 0.8,
+          "context": "。  ---  ### Step E4: 质量检查 [强制，静默执行]  **⚠️ 不能因为是\"修改\"就跳过质量检查**  **必须执行的检查**：  1. **双标题系统检查**    - 视觉标题：客观描述 + 价值点 + 时间/经验    - 搜索标题：关键词堆叠，SEO优化    - 两个标题必须不同  2. **配图规范检查**    - 数量：12-15张（不得少于12张）    - 尺寸：1080×1440（3:4竖版）    - 封面：白色粗体+黑边、简洁背景、主体突出    - 命名：`序号_建议文字说明.png`  3. **违禁词检查**    - 调用 `compliance-checker`    - 确保无违禁词、夸张用语  4. **账号阶段策略检查**    - 起号期（0-500粉）：仅作案例提及，禁止价格    - 成长期（500-2000粉）：软植入，可提价格    - 成熟期（2000+",
+          "sectionTitle": "Step E4: 质量检查 [强制，静默执行]",
+          "patternType": "format"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "尺寸：1080x1440像素（3:4竖版）",
+          "category": "format",
+          "weight": 0.8,
+          "context": "es/anti-patterns.md` - [ ] **Step 3**: 根据内容类型选择风格模板 - [ ] **Step 4**: 生成 prompt（按照模板） - [ ] **Step 5**: 执行检查清单（15项）  **⚠️ 不得跳过任何一步，不得改变执行顺序**  ---  ## 二、配图规范  ### 数量和尺寸 - [ ] 数量：12-15张（不得少于12张） - [ ] 尺寸：1080x1440像素（3:4竖版） - [ ] 命名：`序号_中文说明_风格标识.png`  ### 风格选择（可混用） - [ ] **dreamy-photo**（真实感）：场景类、生活类、细节特写 - [ ] **cozy-sketch**（手绘风）：教程类、步骤类、技巧类 - [ ] **infographic-sketch**（信息图）：科普类、知识类、对比类 - [ ] **soft-botanical**（水彩风）：",
+          "sectionTitle": "数量和尺寸",
+          "patternType": "format"
+        }
+      ],
+      "avg_similarity": 0.9411764705882352,
+      "confidence": 0.9600000000000001,
+      "suggestion": {
+        "action": "sync_from_global",
+        "source": "CLAUDE.md",
+        "source_text": "尺寸：1080x1440像素（3:4竖版）",
+        "targets": [
+          {
+            "document": "xiaohongshu-content-generator/SKILL.md",
+            "current_text": "尺寸：1080×1440（3:4竖版）"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step9-image-checklist.md",
+            "current_text": "尺寸：1080x1440像素（3:4竖版）"
+          }
+        ]
+      }
+    },
+    {
+      "id": 79,
+      "category": "recommended",
+      "representative_text": "推荐用词",
+      "documents": [
+        ".claude/CLAUDE.md",
+        "video-script-generator/knowledge/video-script-templates.md",
+        "xiaohongshu-content-generator/knowledge/step5-content-checklist.md"
+      ],
+      "segments": [
+        {
+          "document": ".claude/CLAUDE.md",
+          "skill": "global",
+          "type": "global",
+          "ruleText": "推荐用词",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "0%价值输出 | | **成长期** | 500-2000 | 价值+适度引导 | 软植入,评论区引导 | 80%价值+20%引导 | | **成熟期** | 2000+ | 信任+转化 | 可挂链接,可说价格 | 70%价值+30%转化 |  **更新粉丝数**: 使用 `/account-stage-manager` skill  ---  ## 信任型内容核心原则 (全平台适用)  ### 推荐用词 - \"客观来说...\"、\"个人体验是...\" - \"根据我的经验...\"、\"建议大家...\" - \"比较推荐的是...\"、\"可能比较适合...\"  ### 避免用词 - \"必买!\"、\"绝了!\"、\"太爱了!\" - \"姐妹们冲!\"、\"一定要买!\" - \"我不允许你还不知道!\" - 过度感叹号和情绪化表达  ### 内容要求 - ✅ 真实体验分享(包含优缺点) - ✅ 专业知识支撑 - ✅ 客观平衡评",
+          "sectionTitle": "信任型内容核心原则 (全平台适用)",
+          "patternType": "recommended"
+        },
+        {
+          "document": "video-script-generator/knowledge/video-script-templates.md",
+          "skill": "video-script-generator",
+          "type": "knowledge",
+          "ruleText": "推荐用法",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "| 适用类型 | |------|--------|----------| | 15-30秒 | 3-5 | 感悟类短视频 | | 30秒-1分钟 | 5-8 | 感悟类/单点知识 | | 1-2分钟 | 8-12 | 标准知识/感悟 | | 2-3分钟 | 12-16 | 深度知识 | | 3-5分钟 | 16-25 | 系统知识/教程 |  ---  ## 四、逐字稿口语化技巧  ### ✅ 推荐用法  | 技巧 | 书面语 | 口语化 | |------|--------|--------| | **短句化** | 绿萝是一种适合室内养护的观叶植物 | 绿萝嘛，室内养特别合适 | | **加语气词** | 这个方法很有效 | 这个方法真的超有用诶 | | **设问** | 接下来讲第二点 | 那第二点是什么呢？ | | **口头禅** | 首先 | 其实呢 / 你知道吗 | | **感叹**",
+          "sectionTitle": "✅",
+          "patternType": "recommended"
+        },
+        {
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+          "skill": "xiaohongshu-content-generator",
+          "type": "knowledge",
+          "ruleText": "推荐用词",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "\"完美\"（像说明书，缺少人情味） - [ ] 避免内容过于基础（\"要浇水、要施肥\"） - [ ] 避免内容过于宽泛（没有针对性） - [ ] 避免字数超过1000字  ### 互动错误 - [ ] 避免不够\"具体\"（提问太宽泛） - [ ] 避免缺少\"激励\"（没有回报） - [ ] 避免过于\"营销化\"（\"快关注我，不关注你会后悔!\"）  ---  ## 七、信任型内容原则（全平台适用）  ### 推荐用词 - [ ] \"客观来说...\"、\"个人体验是...\" - [ ] \"根据我的经验...\"、\"建议大家...\" - [ ] \"比较推荐的是...\"、\"可能比较适合...\"  ### 避免用词 - [ ] \"必买!\"、\"绝了!\"、\"太爱了!\" - [ ] \"姐妹们冲!\"、\"一定要买!\" - [ ] \"我不允许你还不知道!\"  ### 内容要求 - [ ] 真实体验分享（包含优缺点） - [ ] 专业",
+          "sectionTitle": "七、信任型内容原则（全平台适用）",
+          "patternType": "recommended"
+        }
+      ],
+      "avg_similarity": 0.9166666666666666,
+      "confidence": 0.9400000000000001,
+      "suggestion": {
+        "action": "sync_from_global",
+        "source": "CLAUDE.md",
+        "source_text": "推荐用词",
+        "targets": [
+          {
+            "document": "video-script-generator/knowledge/video-script-templates.md",
+            "current_text": "推荐用法"
+          },
+          {
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "推荐用词"
           }
         ]
       }
@@ -8521,52 +9037,6 @@
       }
     },
     {
-      "id": 50,
-      "category": "mandatory",
-      "representative_text": "不得少于12张）",
-      "documents": [
-        ".claude/CLAUDE.md",
-        "xiaohongshu-content-generator/SKILL.md"
-      ],
-      "segments": [
-        {
-          "document": ".claude/CLAUDE.md",
-          "skill": "global",
-          "type": "global",
-          "ruleText": "不得少于12张）",
-          "category": "mandatory",
-          "weight": 1,
-          "context": "- **可混用风格**：一篇文章中可以使用多种风格  **文字处理规则**： - 默认：`NO TEXT, NO WORDS, NO LETTERS` - 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）  #### 平台特定规则  **小红书**（xiaohongshu-content-generator）： - 数量：12-15张（不得少于12张） - 尺寸：1080x1440像素（3:4竖版） - 命名：`序号_建议文字说明.png` - 文字说明：5-8个字，简洁、信息性强 - 详细指南：`knowledge/image-prompt-guide.md` - **封面设计**：参考全局案例库 `/Users/dj/Desktop/小静的skills/knowledge/image-generation-successful-cases.",
-          "sectionTitle": "平台特定规则",
-          "patternType": "mandatory"
-        },
-        {
-          "document": "xiaohongshu-content-generator/SKILL.md",
-          "skill": "xiaohongshu-content-generator",
-          "type": "skill",
-          "ruleText": "不得少于12张）",
-          "category": "mandatory",
-          "weight": 1,
-          "context": "执行**，遵循小红书所有规范。  ---  ### Step E4: 质量检查 [强制，静默执行]  **⚠️ 不能因为是\"修改\"就跳过质量检查**  **必须执行的检查**：  1. **双标题系统检查**    - 视觉标题：客观描述 + 价值点 + 时间/经验    - 搜索标题：关键词堆叠，SEO优化    - 两个标题必须不同  2. **配图规范检查**    - 数量：12-15张（不得少于12张）    - 尺寸：1080×1440（3:4竖版）    - 封面：白色粗体+黑边、简洁背景、主体突出    - 命名：`序号_建议文字说明.png`  3. **违禁词检查**    - 调用 `compliance-checker`    - 确保无违禁词、夸张用语  4. **账号阶段策略检查**    - 起号期（0-500粉）：仅作案例提及，禁止价格    - 成长期（500-2000粉",
-          "sectionTitle": "Step E4: 质量检查 [强制，静默执行]",
-          "patternType": "mandatory"
-        }
-      ],
-      "avg_similarity": 1,
-      "confidence": 0.8999999999999999,
-      "suggestion": {
-        "action": "sync_from_global",
-        "source": "CLAUDE.md",
-        "source_text": "不得少于12张）",
-        "targets": [
-          {
-            "document": "xiaohongshu-content-generator/SKILL.md",
-            "current_text": "不得少于12张）"
-          }
-        ]
-      }
-    },
-    {
       "id": 52,
       "category": "mandatory",
       "representative_text": "不得跳过任何一步",
@@ -8783,7 +9253,7 @@
           "ruleText": "禁止** 请求确认以继续",
           "category": "mandatory",
           "weight": 1,
-          "context": "或确认。 在恢复执行任何步骤前，请遵循全局\"恢复执行强制规则\"（~/.claude/CLAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v3.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势",
+          "context": "或确认。 在恢复执行任何步骤前，请遵循全局\"恢复执行强制规则\"（~/.claude/CLAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v4.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势",
           "sectionTitle": "🚨 静默执行协议（必须遵守）",
           "patternType": "mandatory"
         },
@@ -8890,6 +9360,7 @@
         "compliance-checker/SKILL.md",
         "illustration-converter/knowledge/README.md",
         "illustration-converter/knowledge/complete-optimization-record.md",
+        "topic-discovery/SKILL.md",
         "wechat-content-generator/knowledge/summary-generation-rules.md"
       ],
       "segments": [
@@ -9026,6 +9497,17 @@
           "patternType": "mandatory"
         },
         {
+          "document": "topic-discovery/SKILL.md",
+          "skill": "topic-discovery",
+          "type": "skill",
+          "ruleText": "禁止假设**：",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "略**  #### 阶段判断  **⚠️ 强制要求：必须先读取账号配置，不能假设**  读取账号阶段配置： ```bash # 读取账号阶段配置 cat ~/.claude/CLAUDE.md | grep -A 20 \"## 多平台账号配置\" ```  **账号阶段标准：** - **起号期**：0-500粉 - **成长期**：500-2000粉 - **成熟期**：2000+粉  **⚠️ 禁止假设**： - ❌ \"我知道是起号期，直接生成商品建议\" - ✅ 必须先读取 CLAUDE.md，确认当前阶段  #### 策略A：起号期（0-500粉）- 从选题提取商品需求  **核心逻辑**：选题 → 商品需求 → 商品建议  **执行流程**： 1. **分析每个选题的商品需求**（强制步骤）    - 从选题标题、角度、痛点中提取商品关键词    - 识别用户在这个话题下可能需要的商品    -",
+          "sectionTitle": "读取账号阶段配置",
+          "patternType": "mandatory"
+        },
+        {
           "document": "wechat-content-generator/knowledge/summary-generation-rules.md",
           "skill": "wechat-content-generator",
           "type": "knowledge",
@@ -9037,7 +9519,7 @@
           "patternType": "mandatory"
         }
       ],
-      "avg_similarity": 0.8205128205128204,
+      "avg_similarity": 0.8095238095238093,
       "confidence": 0.8999999999999999,
       "suggestion": {
         "action": "needs_review",
@@ -9090,6 +9572,10 @@
           {
             "document": "illustration-converter/knowledge/complete-optimization-record.md",
             "text": "禁止**："
+          },
+          {
+            "document": "topic-discovery/SKILL.md",
+            "text": "禁止假设**："
           },
           {
             "document": "wechat-content-generator/knowledge/summary-generation-rules.md",
@@ -9420,7 +9906,7 @@
           "ruleText": "1-2个",
           "category": "quantitative",
           "weight": 0.9,
-          "context": "输出：[{'name': '营养土3L装', 'price': 29.9, 'category': '土壤基质'}, ...] ```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ### S",
+          "context": "输出：[{'name': '营养土3L装', 'price': 29.9, 'category': '土壤基质'}, ...] ```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ---",
           "sectionTitle": "输出：[{'name': '营养土3L装', 'price': 29.9, 'category': '土壤基质'}, ...]",
           "patternType": "quantitative"
         },
@@ -10216,8 +10702,19 @@
           "ruleText": "3-5个",
           "category": "quantitative",
           "weight": 0.9,
-          "context": "《植物的美学价值》（看完就走，没有转化） - ❌ **负面内容**：如《这些植物有毒千万别养》（吓跑用户）  ---  ## 🔄 执行流程  ### Step 1: 解析输入  **输入格式判断：** | 输入类型 | 示例 | 处理方式 | |----------|------|----------| | 明确行业 | \"家居绿植\" | 直接搜索 | | 模糊领域 | \"关于生活\" | 细化为3-5个子领域 | | 带时间限定 | \"最近一周的AI热点\" | 调整搜索时间范围 | | 指定平台 | \"适合小红书的美妆选题\" | 优先该平台权重 |  **默认值规则：** - 未指定时间 → 默认近7天 - 未指定平台 → 输出全平台建议 - 未指定数量 → 默认10个选题  ### Step 2: 多源热点搜索  **使用 search_web 工具搜索以下维度：**  1. **平台热点搜索",
+          "context": "《植物的美学价值》（看完就走，没有转化） - ❌ **负面内容**：如《这些植物有毒千万别养》（吓跑用户）  ---  ## 🔄 执行流程  ### Step 1: 解析输入  **输入格式判断：** | 输入类型 | 示例 | 处理方式 | |----------|------|----------| | 明确行业 | \"家居绿植\" | 直接搜索 | | 模糊领域 | \"关于生活\" | 细化为3-5个子领域 | | 带时间限定 | \"最近一周的AI热点\" | 调整搜索时间范围 | | 指定平台 | \"适合小红书的美妆选题\" | 优先该平台权重 |  **默认值规则：** - 未指定时间 → 默认近7天 - 未指定平台 → 输出全平台建议 - 未指定数量 → 默认10个选题  ### Step 2: 深度行业研究（v4.0 升级）  **⚠️ 强制要求：必须使用 GPT Researcher M",
           "sectionTitle": "Step 1: 解析输入",
+          "patternType": "quantitative"
+        },
+        {
+          "document": "topic-discovery/SKILL.md",
+          "skill": "topic-discovery",
+          "type": "skill",
+          "ruleText": "3-5个",
+          "category": "quantitative",
+          "weight": 0.9,
+          "context": "、有机肥 |    | 🥇 **工具类** | 喷壶、剪刀、铲子 | 实用、耐用、口碑传播 | 园艺工具套装、喷雾瓶 |    | 🥈 **绿植类** | 活体植物 | 配送复杂、退货率高、起号期慎重 | 多肉植物、小型盆栽 |     **⚠️ 重要**：    - 必须优先推荐周边品（容器/基质/养护/工具）    - 绿植本身作为次要选项，仅在话题强相关时推荐  3. **为每个选题推荐3-5个商品**（强制要求）    - 每个商品包含完整的飞书表格字段（9个字段）    - 输出格式可直接复制到飞书多维表格    - **⚠️ 禁止简化输出**：必须包含所有字段  **飞书商品库表字段映射**： ```python {     \"商品名称\": \"具体商品名称（如：龟背竹盆栽）\",     \"商品分类\": \"分类（如：观叶植物/多肉植物/花卉）\",     \"价格\": \"建议价格区间（",
+          "sectionTitle": "策略A：起号期（0-500粉）- 从选题提取商品需求",
           "patternType": "quantitative"
         },
         {
@@ -10298,7 +10795,7 @@
           "patternType": "quantitative"
         }
       ],
-      "avg_similarity": 0.9444444444444444,
+      "avg_similarity": 0.9473684210526315,
       "confidence": 0.88,
       "suggestion": {
         "action": "needs_review",
@@ -10342,6 +10839,10 @@
           },
           {
             "document": "product-selector/SKILL.md",
+            "text": "3-5个"
+          },
+          {
+            "document": "topic-discovery/SKILL.md",
             "text": "3-5个"
           },
           {
@@ -10742,7 +11243,7 @@
       }
     },
     {
-      "id": 384,
+      "id": 416,
       "category": "quantitative",
       "representative_text": "2-3个",
       "documents": [
@@ -10774,7 +11275,7 @@
           "ruleText": "2-3个",
           "category": "quantitative",
           "weight": 0.9,
-          "context": "ice': 29.9, 'category': '土壤基质'}, ...] ```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ### Step 5: 生成报告并保存  **报告文件命名：**",
+          "context": "ice': 29.9, 'category': '土壤基质'}, ...] ```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ---  ### 🚩 红旗列表 - 商品策略执行检查  **如",
           "sectionTitle": "输出：[{'name': '营养土3L装', 'price': 29.9, 'category': '土壤基质'}, ...]",
           "patternType": "quantitative"
         },
@@ -10977,7 +11478,7 @@
       }
     },
     {
-      "id": 505,
+      "id": 537,
       "category": "quantitative",
       "representative_text": "7:00",
       "documents": [
@@ -11071,93 +11572,47 @@
       }
     },
     {
-      "id": 94,
-      "category": "format",
-      "representative_text": "命名：`序号_建议文字说明.png`",
+      "id": 75,
+      "category": "recommended",
+      "representative_text": "建议大家...\"",
       "documents": [
         ".claude/CLAUDE.md",
-        "xiaohongshu-content-generator/SKILL.md"
+        "xiaohongshu-content-generator/knowledge/step5-content-checklist.md"
       ],
       "segments": [
         {
           "document": ".claude/CLAUDE.md",
           "skill": "global",
           "type": "global",
-          "ruleText": "命名：`序号_建议文字说明.png`",
-          "category": "format",
-          "weight": 0.8,
-          "context": "**： - 默认：`NO TEXT, NO WORDS, NO LETTERS` - 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）  #### 平台特定规则  **小红书**（xiaohongshu-content-generator）： - 数量：12-15张（不得少于12张） - 尺寸：1080x1440像素（3:4竖版） - 命名：`序号_建议文字说明.png` - 文字说明：5-8个字，简洁、信息性强 - 详细指南：`knowledge/image-prompt-guide.md` - **封面设计**：参考全局案例库 `/Users/dj/Desktop/小静的skills/knowledge/image-generation-successful-cases.md`（案例2：白色粗体+黑边、简洁背景、主体突出）  **微信公众号**（wechat-",
-          "sectionTitle": "平台特定规则",
-          "patternType": "format"
+          "ruleText": "建议大家...\"",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "植入,评论区引导 | 80%价值+20%引导 | | **成熟期** | 2000+ | 信任+转化 | 可挂链接,可说价格 | 70%价值+30%转化 |  **更新粉丝数**: 使用 `/account-stage-manager` skill  ---  ## 信任型内容核心原则 (全平台适用)  ### 推荐用词 - \"客观来说...\"、\"个人体验是...\" - \"根据我的经验...\"、\"建议大家...\" - \"比较推荐的是...\"、\"可能比较适合...\"  ### 避免用词 - \"必买!\"、\"绝了!\"、\"太爱了!\" - \"姐妹们冲!\"、\"一定要买!\" - \"我不允许你还不知道!\" - 过度感叹号和情绪化表达  ### 内容要求 - ✅ 真实体验分享(包含优缺点) - ✅ 专业知识支撑 - ✅ 客观平衡评价 - ❌ 避免过度情绪化 - ❌ 避免夸张绝对化 - ❌ 避免虚假承诺 - **账号阶段：*",
+          "sectionTitle": "推荐用词",
+          "patternType": "recommended"
         },
         {
-          "document": "xiaohongshu-content-generator/SKILL.md",
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
           "skill": "xiaohongshu-content-generator",
-          "type": "skill",
-          "ruleText": "命名：`序号_建议文字说明.png`",
-          "category": "format",
-          "weight": 0.8,
-          "context": "就跳过质量检查**  **必须执行的检查**：  1. **双标题系统检查**    - 视觉标题：客观描述 + 价值点 + 时间/经验    - 搜索标题：关键词堆叠，SEO优化    - 两个标题必须不同  2. **配图规范检查**    - 数量：12-15张（不得少于12张）    - 尺寸：1080×1440（3:4竖版）    - 封面：白色粗体+黑边、简洁背景、主体突出    - 命名：`序号_建议文字说明.png`  3. **违禁词检查**    - 调用 `compliance-checker`    - 确保无违禁词、夸张用语  4. **账号阶段策略检查**    - 起号期（0-500粉）：仅作案例提及，禁止价格    - 成长期（500-2000粉）：软植入，可提价格    - 成熟期（2000+粉）：可挂链接，可说价格  5. **信任型内容原则检查**    - 客观中性，避免情绪化标题",
-          "sectionTitle": "Step E4: 质量检查 [强制，静默执行]",
-          "patternType": "format"
+          "type": "knowledge",
+          "ruleText": "建议大家...\"",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "内容过于宽泛（没有针对性） - [ ] 避免字数超过1000字  ### 互动错误 - [ ] 避免不够\"具体\"（提问太宽泛） - [ ] 避免缺少\"激励\"（没有回报） - [ ] 避免过于\"营销化\"（\"快关注我，不关注你会后悔!\"）  ---  ## 七、信任型内容原则（全平台适用）  ### 推荐用词 - [ ] \"客观来说...\"、\"个人体验是...\" - [ ] \"根据我的经验...\"、\"建议大家...\" - [ ] \"比较推荐的是...\"、\"可能比较适合...\"  ### 避免用词 - [ ] \"必买!\"、\"绝了!\"、\"太爱了!\" - [ ] \"姐妹们冲!\"、\"一定要买!\" - [ ] \"我不允许你还不知道!\"  ### 内容要求 - [ ] 真实体验分享（包含优缺点） - [ ] 专业知识支撑 - [ ] 客观平衡评价 - [ ] 避免过度情绪化 - [ ] 避免夸张绝对化 - [ ] 避免虚",
+          "sectionTitle": "推荐用词",
+          "patternType": "recommended"
         }
       ],
       "avg_similarity": 1,
-      "confidence": 0.8600000000000001,
+      "confidence": 0.8400000000000001,
       "suggestion": {
         "action": "sync_from_global",
         "source": "CLAUDE.md",
-        "source_text": "命名：`序号_建议文字说明.png`",
+        "source_text": "建议大家...\"",
         "targets": [
           {
-            "document": "xiaohongshu-content-generator/SKILL.md",
-            "current_text": "命名：`序号_建议文字说明.png`"
-          }
-        ]
-      }
-    },
-    {
-      "id": 95,
-      "category": "format",
-      "representative_text": "尺寸：1080x1440像素（3:4竖版）",
-      "documents": [
-        ".claude/CLAUDE.md",
-        "xiaohongshu-content-generator/SKILL.md"
-      ],
-      "segments": [
-        {
-          "document": ".claude/CLAUDE.md",
-          "skill": "global",
-          "type": "global",
-          "ruleText": "尺寸：1080x1440像素（3:4竖版）",
-          "category": "format",
-          "weight": 0.8,
-          "context": "：一篇文章中可以使用多种风格  **文字处理规则**： - 默认：`NO TEXT, NO WORDS, NO LETTERS` - 如需文字：必须中文，清晰锐利（`CLEAR CHINESE TEXT, SHARP and LEGIBLE`）  #### 平台特定规则  **小红书**（xiaohongshu-content-generator）： - 数量：12-15张（不得少于12张） - 尺寸：1080x1440像素（3:4竖版） - 命名：`序号_建议文字说明.png` - 文字说明：5-8个字，简洁、信息性强 - 详细指南：`knowledge/image-prompt-guide.md` - **封面设计**：参考全局案例库 `/Users/dj/Desktop/小静的skills/knowledge/image-generation-successful-cases.md`（案例2：白色粗体+黑边、简洁背景、主体突",
-          "sectionTitle": "平台特定规则",
-          "patternType": "format"
-        },
-        {
-          "document": "xiaohongshu-content-generator/SKILL.md",
-          "skill": "xiaohongshu-content-generator",
-          "type": "skill",
-          "ruleText": "尺寸：1080×1440（3:4竖版）",
-          "category": "format",
-          "weight": 0.8,
-          "context": "。  ---  ### Step E4: 质量检查 [强制，静默执行]  **⚠️ 不能因为是\"修改\"就跳过质量检查**  **必须执行的检查**：  1. **双标题系统检查**    - 视觉标题：客观描述 + 价值点 + 时间/经验    - 搜索标题：关键词堆叠，SEO优化    - 两个标题必须不同  2. **配图规范检查**    - 数量：12-15张（不得少于12张）    - 尺寸：1080×1440（3:4竖版）    - 封面：白色粗体+黑边、简洁背景、主体突出    - 命名：`序号_建议文字说明.png`  3. **违禁词检查**    - 调用 `compliance-checker`    - 确保无违禁词、夸张用语  4. **账号阶段策略检查**    - 起号期（0-500粉）：仅作案例提及，禁止价格    - 成长期（500-2000粉）：软植入，可提价格    - 成熟期（2000+",
-          "sectionTitle": "Step E4: 质量检查 [强制，静默执行]",
-          "patternType": "format"
-        }
-      ],
-      "avg_similarity": 0.9117647058823529,
-      "confidence": 0.8600000000000001,
-      "suggestion": {
-        "action": "sync_from_global",
-        "source": "CLAUDE.md",
-        "source_text": "尺寸：1080x1440像素（3:4竖版）",
-        "targets": [
-          {
-            "document": "xiaohongshu-content-generator/SKILL.md",
-            "current_text": "尺寸：1080×1440（3:4竖版）"
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "建议大家...\""
           }
         ]
       }
@@ -11209,47 +11664,47 @@
       }
     },
     {
-      "id": 79,
+      "id": 80,
       "category": "recommended",
-      "representative_text": "推荐用词",
+      "representative_text": "推荐的是...\"、\"可能比较适合...\"",
       "documents": [
         ".claude/CLAUDE.md",
-        "video-script-generator/knowledge/video-script-templates.md"
+        "xiaohongshu-content-generator/knowledge/step5-content-checklist.md"
       ],
       "segments": [
         {
           "document": ".claude/CLAUDE.md",
           "skill": "global",
           "type": "global",
-          "ruleText": "推荐用词",
+          "ruleText": "推荐的是...\"、\"可能比较适合...\"",
           "category": "recommended",
           "weight": 0.7,
-          "context": "0%价值输出 | | **成长期** | 500-2000 | 价值+适度引导 | 软植入,评论区引导 | 80%价值+20%引导 | | **成熟期** | 2000+ | 信任+转化 | 可挂链接,可说价格 | 70%价值+30%转化 |  **更新粉丝数**: 使用 `/account-stage-manager` skill  ---  ## 信任型内容核心原则 (全平台适用)  ### 推荐用词 - \"客观来说...\"、\"个人体验是...\" - \"根据我的经验...\"、\"建议大家...\" - \"比较推荐的是...\"、\"可能比较适合...\"  ### 避免用词 - \"必买!\"、\"绝了!\"、\"太爱了!\" - \"姐妹们冲!\"、\"一定要买!\" - \"我不允许你还不知道!\" - 过度感叹号和情绪化表达  ### 内容要求 - ✅ 真实体验分享(包含优缺点) - ✅ 专业知识支撑 - ✅ 客观平衡评",
-          "sectionTitle": "信任型内容核心原则 (全平台适用)",
+          "context": "价值+20%引导 | | **成熟期** | 2000+ | 信任+转化 | 可挂链接,可说价格 | 70%价值+30%转化 |  **更新粉丝数**: 使用 `/account-stage-manager` skill  ---  ## 信任型内容核心原则 (全平台适用)  ### 推荐用词 - \"客观来说...\"、\"个人体验是...\" - \"根据我的经验...\"、\"建议大家...\" - \"比较推荐的是...\"、\"可能比较适合...\"  ### 避免用词 - \"必买!\"、\"绝了!\"、\"太爱了!\" - \"姐妹们冲!\"、\"一定要买!\" - \"我不允许你还不知道!\" - 过度感叹号和情绪化表达  ### 内容要求 - ✅ 真实体验分享(包含优缺点) - ✅ 专业知识支撑 - ✅ 客观平衡评价 - ❌ 避免过度情绪化 - ❌ 避免夸张绝对化 - ❌ 避免虚假承诺 - **账号阶段：** 起号阶段 - **内容策略：** 爆款内容，快速",
+          "sectionTitle": "推荐用词",
           "patternType": "recommended"
         },
         {
-          "document": "video-script-generator/knowledge/video-script-templates.md",
-          "skill": "video-script-generator",
+          "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+          "skill": "xiaohongshu-content-generator",
           "type": "knowledge",
-          "ruleText": "推荐用法",
+          "ruleText": "推荐的是...\"、\"可能比较适合...\"",
           "category": "recommended",
           "weight": 0.7,
-          "context": "| 适用类型 | |------|--------|----------| | 15-30秒 | 3-5 | 感悟类短视频 | | 30秒-1分钟 | 5-8 | 感悟类/单点知识 | | 1-2分钟 | 8-12 | 标准知识/感悟 | | 2-3分钟 | 12-16 | 深度知识 | | 3-5分钟 | 16-25 | 系统知识/教程 |  ---  ## 四、逐字稿口语化技巧  ### ✅ 推荐用法  | 技巧 | 书面语 | 口语化 | |------|--------|--------| | **短句化** | 绿萝是一种适合室内养护的观叶植物 | 绿萝嘛，室内养特别合适 | | **加语气词** | 这个方法很有效 | 这个方法真的超有用诶 | | **设问** | 接下来讲第二点 | 那第二点是什么呢？ | | **口头禅** | 首先 | 其实呢 / 你知道吗 | | **感叹**",
-          "sectionTitle": "✅",
+          "context": "] 避免字数超过1000字  ### 互动错误 - [ ] 避免不够\"具体\"（提问太宽泛） - [ ] 避免缺少\"激励\"（没有回报） - [ ] 避免过于\"营销化\"（\"快关注我，不关注你会后悔!\"）  ---  ## 七、信任型内容原则（全平台适用）  ### 推荐用词 - [ ] \"客观来说...\"、\"个人体验是...\" - [ ] \"根据我的经验...\"、\"建议大家...\" - [ ] \"比较推荐的是...\"、\"可能比较适合...\"  ### 避免用词 - [ ] \"必买!\"、\"绝了!\"、\"太爱了!\" - [ ] \"姐妹们冲!\"、\"一定要买!\" - [ ] \"我不允许你还不知道!\"  ### 内容要求 - [ ] 真实体验分享（包含优缺点） - [ ] 专业知识支撑 - [ ] 客观平衡评价 - [ ] 避免过度情绪化 - [ ] 避免夸张绝对化 - [ ] 避免虚假承诺  ---  ## 八、账号阶段策略  | 阶段 |",
+          "sectionTitle": "推荐用词",
           "patternType": "recommended"
         }
       ],
-      "avg_similarity": 0.875,
+      "avg_similarity": 1,
       "confidence": 0.8400000000000001,
       "suggestion": {
         "action": "sync_from_global",
         "source": "CLAUDE.md",
-        "source_text": "推荐用词",
+        "source_text": "推荐的是...\"、\"可能比较适合...\"",
         "targets": [
           {
-            "document": "video-script-generator/knowledge/video-script-templates.md",
-            "current_text": "推荐用法"
+            "document": "xiaohongshu-content-generator/knowledge/step5-content-checklist.md",
+            "current_text": "推荐的是...\"、\"可能比较适合...\""
           }
         ]
       }
@@ -11746,6 +12201,28 @@
           "document": "topic-discovery/SKILL.md",
           "skill": "topic-discovery",
           "type": "skill",
+          "ruleText": "建议\"",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "须先读取账号配置，不能假设**  读取账号阶段配置： ```bash # 读取账号阶段配置 cat ~/.claude/CLAUDE.md | grep -A 20 \"## 多平台账号配置\" ```  **账号阶段标准：** - **起号期**：0-500粉 - **成长期**：500-2000粉 - **成熟期**：2000+粉  **⚠️ 禁止假设**： - ❌ \"我知道是起号期，直接生成商品建议\" - ✅ 必须先读取 CLAUDE.md，确认当前阶段  #### 策略A：起号期（0-500粉）- 从选题提取商品需求  **核心逻辑**：选题 → 商品需求 → 商品建议  **执行流程**： 1. **分析每个选题的商品需求**（强制步骤）    - 从选题标题、角度、痛点中提取商品关键词    - 识别用户在这个话题下可能需要的商品    - 优先识别周边品需求（花盆、土、肥、工具）",
+          "sectionTitle": "读取账号阶段配置",
+          "patternType": "recommended"
+        },
+        {
+          "document": "topic-discovery/SKILL.md",
+          "skill": "topic-discovery",
+          "type": "skill",
+          "ruleText": "建议 |",
+          "category": "recommended",
+          "weight": 0.7,
+          "context": "- 商品策略执行检查  **如果你有以下想法，立即停止并重新执行 Step 4.5：**  | 红旗 | 正确做法 | |------|---------| | \"我知道是起号期，直接生成商品建议\" | ❌ 必须先读取账号配置，不能假设 | | \"只输出商品名称和价格就够了\" | ❌ 必须包含所有飞书表格字段（9个字段） | | \"起号期也可以从商品库匹配\" | ❌ 起号期=商品库是空的，只能生成建议 | | \"成长期可以生成商品建议\" | ❌ 成长期必须从商品库匹配，不能生成 | | \"用户没要求飞书格式，简化输出\" | ❌ 起号期必须输出飞书格式，这是核心需求 | | \"先推荐绿植，再推荐周边品\" | ❌ 起号期必须优先推荐周边品（容器、基质、养护、工具） | | \"商品建议可以不分析选题需求\" | ❌ 必须从选题中提取商品需求，不能凭空推荐 | | \"用 WebSearch 就够了\" | ❌",
+          "sectionTitle": "🚩 红旗列表 - 商品策略执行检查",
+          "patternType": "recommended"
+        },
+        {
+          "document": "topic-discovery/SKILL.md",
+          "skill": "topic-discovery",
+          "type": "skill",
           "ruleText": "建议]",
           "category": "recommended",
           "weight": 0.7,
@@ -11776,7 +12253,7 @@
           "patternType": "recommended"
         }
       ],
-      "avg_similarity": 0.8787878787878788,
+      "avg_similarity": 0.8717948717948717,
       "confidence": 0.84,
       "suggestion": {
         "action": "needs_review",
@@ -11813,6 +12290,14 @@
           {
             "document": "skill-standards/knowledge/self-check-list.md",
             "text": "建议）"
+          },
+          {
+            "document": "topic-discovery/SKILL.md",
+            "text": "建议\""
+          },
+          {
+            "document": "topic-discovery/SKILL.md",
+            "text": "建议 |"
           },
           {
             "document": "topic-discovery/SKILL.md",
@@ -12080,7 +12565,7 @@
           "ruleText": "必须** 数据缺失时使用默认值或扩展搜索范围",
           "category": "mandatory",
           "weight": 1,
-          "context": "参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v3.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个选题匹配1-3个相关商品） 4. 输出 **10个具体选题建议**（含多平台适配标签 + 商品关联） 5. 保存报告至选题库  ---  ## ⚙️ 配置信息  ### 默",
+          "context": "参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v4.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个选题匹配1-3个相关商品） 4. 输出 **10个具体选题建议**（含多平台适配标签 + 商品关联） 5. 保存报告至选题库  ---  ## ⚙️ 配置信息  ### 默",
           "sectionTitle": "🚨 静默执行协议（必须遵守）",
           "patternType": "mandatory"
         },
@@ -12160,7 +12645,7 @@
           "ruleText": "必须** 遇到错误时静默处理并继续",
           "category": "mandatory",
           "weight": 1,
-          "context": "止假设已知上下文。**  ---  # 🔍 选题发现器 v3.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个选题匹配1-3个相关商品） 4. 输出 **10个具体选题建议**（含多平台适配标签 + 商品关联） 5. 保存报告至选题库  ---  ## ⚙️ 配置信息  ### 默认配置 - **搜索周期**: 近7天 - **",
+          "context": "止假设已知上下文。**  ---  # 🔍 选题发现器 v4.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个选题匹配1-3个相关商品） 4. 输出 **10个具体选题建议**（含多平台适配标签 + 商品关联） 5. 保存报告至选题库  ---  ## ⚙️ 配置信息  ### 默认配置 - **搜索周期**: 近7天 - **",
           "sectionTitle": "🚨 静默执行协议（必须遵守）",
           "patternType": "mandatory"
         }
@@ -12225,7 +12710,7 @@
           "ruleText": "禁止** 询问\"是否需要更多信息\"",
           "category": "mandatory",
           "weight": 1,
-          "context": "全局\"恢复执行强制规则\"（~/.claude/CLAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v3.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个",
+          "context": "全局\"恢复执行强制规则\"（~/.claude/CLAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v4.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个",
           "sectionTitle": "🚨 静默执行协议（必须遵守）",
           "patternType": "mandatory"
         }
@@ -12290,7 +12775,7 @@
           "ruleText": "禁止** 中途停顿等待用户反馈",
           "category": "mandatory",
           "weight": 1,
-          "context": "LAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v3.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个选题匹配1-3个相关商品） 4. 输出 **",
+          "context": "LAUDE.md）：  1. ✅ 先读取该步骤的完整描述 2. ✅ 检查是否需要提问或确认 3. ✅ 确认所有输入参数 4. ✅ 有疑问先问用户  **禁止直接开始执行，禁止假设已知上下文。**  ---  # 🔍 选题发现器 v4.0  ## 🚨 静默执行协议（必须遵守）  **执行规则：** - ❌ **禁止** 请求确认以继续 - ❌ **禁止** 询问\"是否需要更多信息\" - ❌ **禁止** 中途停顿等待用户反馈 - ✅ **必须** 一次性输出完整报告（热点 + 选题 + 趋势） - ✅ **必须** 数据缺失时使用默认值或扩展搜索范围 - ✅ **必须** 遇到错误时静默处理并继续  ---  ## 📋 概述  用户提供行业/领域关键词后，自动完成以下任务： 1. 搜索近7天的爆款热点内容 2. 分析行业趋势和内容机会 3. **智能匹配商品库**（为每个选题匹配1-3个相关商品） 4. 输出 **",
           "sectionTitle": "🚨 静默执行协议（必须遵守）",
           "patternType": "mandatory"
         }
@@ -12461,7 +12946,7 @@
       }
     },
     {
-      "id": 386,
+      "id": 418,
       "category": "format",
       "representative_text": "格式：**",
       "documents": [
@@ -12478,7 +12963,7 @@
           "ruleText": "格式：**",
           "category": "format",
           "weight": 0.8,
-          "context": "```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ### Step 5: 生成报告并保存  **报告文件命名：** ``` [日期]_[行业关键词]_选题报告.md 示例：2026-01-14",
+          "context": "```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ---  ### 🚩 红旗列表 - 商品策略执行检查  **如果你有以下想法，立即停止并重新执行 Step 4.5：**  | 红旗 | 正",
           "sectionTitle": "输出：[{'name': '营养土3L装', 'price': 29.9, 'category': '土壤基质'}, ...]",
           "patternType": "format"
         },
@@ -12901,7 +13386,7 @@
       }
     },
     {
-      "id": 385,
+      "id": 417,
       "category": "quantitative",
       "representative_text": "0-1个",
       "documents": [
@@ -12916,7 +13401,7 @@
           "ruleText": "0-1个",
           "category": "quantitative",
           "weight": 0.9,
-          "context": "壤基质'}, ...] ```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ### Step 5: 生成报告并保存  **报告文件命名：** ``` [日期]_[行业关键词]_选题报告.md",
+          "context": "壤基质'}, ...] ```  **匹配策略：** | 选题类型 | 关键词提取 | 匹配数量 | |----------|------------|----------| | 养护类 | 提取品类词（绿植、花盆、土壤） | 2-3个 | | 场景类 | 提取场景词（阳台、室内、桌面） | 1-2个 | | 节日类 | 提取节日词+品类词 | 2-3个 | | 通用内容 | 提取核心关键词 | 0-1个 |  **输出格式：** 在每个选题中增加\"商品关联机会\"字段： ``` **商品关联机会**：营养土3L装、陶瓷花盆、发财树 ```  **⚠️ 自动化规则：** - 无匹配商品时，该字段显示\"无\"或跳过 - 不因商品匹配失败而中断流程 - 商品信息仅作为创作参考，不强制植入  ---  ### 🚩 红旗列表 - 商品策略执行检查  **如果你有以下想法，立即停止并重新执行 Step 4.5",
           "sectionTitle": "输出：[{'name': '营养土3L装', 'price': 29.9, 'category': '土壤基质'}, ...]",
           "patternType": "quantitative"
         },
@@ -12999,7 +13484,7 @@
       }
     },
     {
-      "id": 436,
+      "id": 468,
       "category": "recommended",
       "representative_text": "推荐（2-3段） |",
       "documents": [

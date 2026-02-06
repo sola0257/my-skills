@@ -52,6 +52,22 @@
             "usage_count": 1,
             "promoted": true,
             "promoted_to_rule": "R11 组合Skill同步"
+        },
+        {
+            "id": "LP004",
+            "created_at": "2026-02-06T13:20:00+08:00",
+            "source_skill": "wechat-content-generator",
+            "category": "平台兼容性",
+            "problem": "微信公众号草稿箱 Base64 图片丢失，排版工具（如壹伴）导致 HTML 格式错乱",
+            "solution": "1. 强制使用图床链接（ImgBB），禁用 Base64 嵌入。2. 使用内联 CSS 样式（Inline Styles）而非依赖编辑器默认样式，确保跨平台排版一致性。",
+            "is_universal": true,
+            "applicable_to": [
+                "所有涉及微信公众号推送的 Skills",
+                "wechat-content-generator",
+                "content-production-pipeline"
+            ],
+            "usage_count": 1,
+            "promoted": false
         }
     ],
     "rule_promotions": [

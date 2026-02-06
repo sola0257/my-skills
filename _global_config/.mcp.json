@@ -7,6 +7,25 @@
     "supabase": {
       "type": "http",
       "url": "https://mcp.supabase.com/mcp"
+    },
+    "gptr-mcp": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["/Users/dj/Desktop/小静的skills/gptr-mcp/server.py"],
+      "env": {
+        "OPENAI_API_KEY": "sk-7w2ybnUh996mAzXhiVcv9TNix13EV1tDVMBWRnpiN74NGyH0",
+        "OPENAI_API_BASE": "https://deeprouter.top/v1",
+        "TAVILY_API_KEY": "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"
+      }
+    },
+    "feishu-mcp": {
+      "type": "stdio",
+      "command": "python3",
+      "args": ["/Users/dj/Desktop/小静的skills/_global_config/feishu_mcp_server.py"],
+      "env": {
+        "FEISHU_APP_ID": "cli_a9c9443f9278dbd6",
+        "FEISHU_APP_SECRET": "Nzkl6zFqpJ1hZ6oNJgz3Se0UhQsdUst4"
+      }
     }
   }
 }

@@ -34,7 +34,7 @@ IMGBB_API_KEY = "392e09c3d61043f9de6371365696ee56"
 IMGBB_UPLOAD_URL = "https://api.imgbb.com/1/upload"
 
 # 图片大小阈值（2MB）
-MAX_BASE64_SIZE = 2 * 1024 * 1024  # 2MB
+MAX_BASE64_SIZE = 0  # Force ImgBB for better editor compatibility
 
 
 def get_image_mime_type(image_path):
@@ -166,10 +166,10 @@ def markdown_to_html_with_base64(markdown_content, image_folder):
     html_content = markdown_content
     cover_image_data = None
     
-    # 1. 转换标题
-    html_content = re.sub(r'^# (.*?)$', r'<h1>\1</h1>', html_content, flags=re.MULTILINE)
-    html_content = re.sub(r'^## (.*?)$', r'<h2>\1</h2>', html_content, flags=re.MULTILINE)
-    html_content = re.sub(r'^### (.*?)$', r'<h3>\1</h3>', html_content, flags=re.MULTILINE)
+    # 1. 转换标题 (带微信风格样式)
+    html_content = re.sub(r'^# (.*?)$', r'<h1 style="font-size: 22px; font-weight: bold; color: #333; margin-bottom: 20px;">\1</h1>', html_content, flags=re.MULTILINE)
+    html_content = re.sub(r'^## (.*?)$', r'<h2 style="font-size: 18px; font-weight: bold; border-bottom: 2px solid #07c160; padding-bottom: 10px; margin-top: 30px; margin-bottom: 15px; color: #07c160;">\1</h2>', html_content, flags=re.MULTILINE)
+    html_content = re.sub(r'^### (.*?)$', r'<h3 style="font-size: 16px; font-weight: bold; border-left: 4px solid #07c160; padding-left: 10px; margin-top: 20px; margin-bottom: 10px; color: #333;">\1</h3>', html_content, flags=re.MULTILINE)
     
     # 2. 转换加粗
     html_content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html_content)
@@ -197,7 +197,7 @@ def markdown_to_html_with_base64(markdown_content, image_folder):
             image_uri = image_to_base64_data_uri(image_path)
             
             if image_uri:
-                 img_tag = f'<img src="{image_uri}" alt="{alt_text}" style="max-width:100%; height:auto;" />'
+                 img_tag = f'<p style="text-align: center; margin: 10px 0;"><img src="{image_uri}" alt="{alt_text}" style="max-width:100%; height:auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" /></p>'
                  html_content = html_content.replace(f'![{alt_text}]({image_file})', img_tag)
                  print(f"✅ 图片已嵌入HTML (Base64): {os.path.basename(image_path)}")
             else:
@@ -205,7 +205,7 @@ def markdown_to_html_with_base64(markdown_content, image_folder):
                 # 如果 Base64 失败（比如太大），尝试用图床链接
                 fallback_url = upload_image_to_imgbb(image_path)
                 if fallback_url:
-                    img_tag = f'<img src="{fallback_url}" alt="{alt_text}" style="max-width:100%; height:auto;" />'
+                    img_tag = f'<p style="text-align: center; margin: 10px 0;"><img src="{fallback_url}" alt="{alt_text}" style="max-width:100%; height:auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" /></p>'
                     html_content = html_content.replace(f'![{alt_text}]({image_file})', img_tag)
                     print(f"✅ 图片已替换为URL (Fallback): {os.path.basename(image_path)}")
 

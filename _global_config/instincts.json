@@ -1,39 +1,7 @@
 {
-  "last_updated": "2026-02-05T10:51:58.300Z",
-  "learned_patterns": [
-    {
-      "trigger": "wechat-content-generator",
-      "action": "enforce_hybrid_publishing_strategy",
-      "description": "When publishing to WeChat, ALWAYS use hybrid strategy: 1. Cover to ImgBB (URL) for metadata. 2. Body images as Base64 in HTML. 3. Explicitly insert cover as first body image.",
-      "priority": "critical"
-    },
-    {
-      "trigger": "generate_wechat_images",
-      "action": "enforce_modern_no_text_style",
-      "description": "For WeChat images: 1. Add 'Modern minimalist, 2024 trends' to interior prompts. 2. Add 'NO TEXT, NO PINYIN' to negative prompts. 3. Cover image MUST NOT contain text.",
-      "priority": "high"
-    }
-  ],
+  "last_updated": "2026-02-06T13:41:13.214Z",
+  "learned_patterns": [],
   "successful_cases": [],
-  "failed_cases": [
-    {
-      "date": "2026-02-04",
-      "skill": "wechat-content-generator",
-      "issue": "WeChat API rejected large Base64 in coverImage field; Body images failed when using ImgBB URLs.",
-      "fix": "Hybrid Strategy: URL for cover metadata, Base64 for body content."
-    },
-    {
-      "date": "2026-02-04",
-      "skill": "generate_wechat_images",
-      "issue": "AI generated Pinyin text 'Li Chun' on cover; Interior style looked outdated.",
-      "fix": "Added 'NO PINYIN' and 'Modern minimalist' to prompt templates."
-    },
-    {
-      "date": "2026-02-05",
-      "skill": "wechat-content-generator",
-      "issue": "Multiple workflow violations: 1) WebSearch failed but AI skipped without reporting; 2) No content confirmation before image generation; 3) No push confirmation; 4) Follower count tracking used ranges instead of specific numbers; 5) Deduplication check happened after topic selection instead of before.",
-      "fix": "Updated SKILL.md: 1) Step 4 now requires reporting search failures and asking user confirmation; 2) Added user confirmation after content generation; 3) Changed follower tracking to ask for specific numbers; 4) Enforced correct workflow order."
-    }
-  ],
+  "failed_cases": [],
   "optimization_suggestions": []
 }

@@ -1,0 +1,81 @@
+import json
+
+# 读取现有数据
+with open('wechat_articles_data.json', 'r', encoding='utf-8') as f:
+    existing_data = json.load(f)
+
+# 新数据（第21-29条）
+new_data = [
+  {
+    "title": "北京的冬天，植物需要的不是溺爱，而是这就事论事的"距离感"",
+    "url": "https://mp.weixin.qq.com/s/uCk-6kMCVzIz-uNgsQuLVg",
+    "publishTime": "01月04日",
+    "isOriginal": True,
+    "extractedAt": "2026-02-05T11:59:56.424Z"
+  },
+  {
+    "title": "北京阳台全年种养日历：12个月该种什么，一篇说清",
+    "url": "https://mp.weixin.qq.com/s/ugLEMUELzOm9d2n0wrb-Mw",
+    "publishTime": "01月01日",
+    "isOriginal": True,
+    "extractedAt": "2026-02-05T11:59:56.424Z"
+  },
+  {
+    "title": ""望闻问切"四招，轻松辨别植物需水",
+    "url": "https://mp.weixin.qq.com/s/JNXeKSNCzls_2LWP_5WJXw",
+    "publishTime": "2025年12月31日",
+    "isOriginal": False,
+    "extractedAt": "2026-02-05T11:59:56.424Z"
+  },
+  {
+    "title": "你买回家的不是"永久花"，是时间的胶囊",
+    "url": "https://mp.weixin.qq.com/s/AvdIcx7yuGvgUeQGkUn3DQ",
+    "publishTime": "2025年12月30日",
+    "isOriginal": False,
+    "extractedAt": "2026-02-05T11:59:56.424Z"
+  },
+  {
+    "title": "不是冻死，是"热"死？北方室内养花的 5 个隐形杀手",
+    "url": "https://mp.weixin.qq.com/s/4raJot6ETAeEyDS7aCPPXQ",
+    "publishTime": "2025年12月29日",
+    "isOriginal": True,
+    "extractedAt": "2026-02-05T11:59:56.424Z"
+  },
+  {
+    "title": "家里光照不好，植物总养死？可能是你误解了"耐阴"",
+    "url": "https://mp.weixin.qq.com/s/ixZ49jw_kdHs3uYHtSBkEQ",
+    "publishTime": "2025年12月28日",
+    "isOriginal": True,
+    "extractedAt": "2026-02-05T11:59:56.425Z"
+  },
+  {
+    "title": "慢养四季：新手植愈系养护指南",
+    "url": "https://mp.weixin.qq.com/s/1BHu6dKmjTz1QIwLNg3u0g",
+    "publishTime": "2025年12月26日",
+    "isOriginal": False,
+    "extractedAt": "2026-02-05T11:59:56.425Z"
+  },
+  {
+    "title": "慢养四季 | 大棚动工，都市绿洲正在成长",
+    "url": "https://mp.weixin.qq.com/s/L8Hu-GjVoR_3y4JrB9fN1g",
+    "publishTime": "2025年09月10日",
+    "isOriginal": True,
+    "extractedAt": "2026-02-05T11:59:56.425Z"
+  },
+  {
+    "title": "慢养四季：在城市中心种下一片节气花园",
+    "url": "https://mp.weixin.qq.com/s/mb8WUbU0REVDr4BrThsFHA",
+    "publishTime": "2025年08月24日",
+    "isOriginal": True,
+    "extractedAt": "2026-02-05T11:59:56.425Z"
+  }
+]
+
+# 合并数据
+all_data = existing_data + new_data
+
+# 保存
+with open('wechat_articles_data.json', 'w', encoding='utf-8') as f:
+    json.dump(all_data, f, ensure_ascii=False, indent=2)
+
+print(f"✅ 已保存 {len(all_data)} 条数据（原有 {len(existing_data)} 条 + 新增 {len(new_data)} 条）")
