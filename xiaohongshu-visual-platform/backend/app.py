@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime
 import time
+import storage
 
 # Load environment variables
 load_dotenv()
@@ -11,40 +12,6 @@ load_dotenv()
 # Initialize Flask app
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend communication
-
-# Mock data for testing
-MOCK_CONTENTS = [
-    {
-        'id': '1',
-        'topic': '多肉植物养护指南',
-        'title': '新手必看！多肉植物养护的5个关键技巧',
-        'content': '多肉植物以其可爱的外形和易养护的特点深受喜爱。今天分享5个关键养护技巧，让你的多肉健康成长！',
-        'images': [f'https://via.placeholder.com/400x300?text=Image+{i}' for i in range(1, 13)],
-        'status': 'published',
-        'created_at': '2024-01-15T10:30:00',
-        'updated_at': '2024-01-15T10:30:00'
-    },
-    {
-        'id': '2',
-        'topic': '室内绿植推荐',
-        'title': '适合新手的10种室内绿植',
-        'content': '想要在家里养些绿植，但不知道从哪里开始？这10种植物非常适合新手！',
-        'images': [f'https://via.placeholder.com/400x300?text=Plant+{i}' for i in range(1, 13)],
-        'status': 'draft',
-        'created_at': '2024-01-14T15:20:00',
-        'updated_at': '2024-01-14T15:20:00'
-    },
-    {
-        'id': '3',
-        'topic': '春季养花技巧',
-        'title': '春天来了！这些养花技巧你一定要知道',
-        'content': '春季是植物生长的黄金时期，掌握这些技巧让你的花卉更加茂盛！',
-        'images': [f'https://via.placeholder.com/400x300?text=Spring+{i}' for i in range(1, 13)],
-        'status': 'published',
-        'created_at': '2024-01-13T09:00:00',
-        'updated_at': '2024-01-13T09:00:00'
-    }
-]
 
 # Routes
 
@@ -99,9 +66,11 @@ def generate_content():
     return jsonify(content)
 
 @app.route('/api/contents', methods=['GET'])
-def list_contents():
+def list_contents_route():
     """List all contents"""
-    return jsonify(MOCK_CONTENTS)
+    status_filter = request.args.get('status')
+    contents = storage.list_contents(status=status_filter)
+    return jsonify(contents)
 
 @app.route('/api/contents', methods=['POST'])
 def create_content():
@@ -114,26 +83,24 @@ def create_content():
         if field not in data:
             return jsonify({'error': f'{field} is required'}), 400
 
-    # Create new content
-    new_content = {
-        'id': str(len(MOCK_CONTENTS) + 1),
+    # Create content data
+    content_data = {
         'topic': data['topic'],
         'title': data['title'],
         'content': data['content'],
         'images': data.get('images', []),
-        'status': data.get('status', 'draft'),
-        'created_at': datetime.now().isoformat(),
-        'updated_at': datetime.now().isoformat()
+        'status': data.get('status', 'draft')
     }
 
-    MOCK_CONTENTS.append(new_content)
+    # Save to storage
+    saved_content = storage.save_content(content_data)
 
-    return jsonify(new_content), 201
+    return jsonify(saved_content), 201
 
 @app.route('/api/contents/<content_id>', methods=['GET'])
-def get_content(content_id):
+def get_content_route(content_id):
     """Get content by ID"""
-    content = next((c for c in MOCK_CONTENTS if c['id'] == content_id), None)
+    content = storage.get_content(content_id)
 
     if not content:
         return jsonify({'error': 'Content not found'}), 404
@@ -143,7 +110,7 @@ def get_content(content_id):
 @app.route('/api/contents/<content_id>', methods=['PUT'])
 def update_content(content_id):
     """Update existing content"""
-    content = next((c for c in MOCK_CONTENTS if c['id'] == content_id), None)
+    content = storage.get_content(content_id)
 
     if not content:
         return jsonify({'error': 'Content not found'}), 404
@@ -156,21 +123,19 @@ def update_content(content_id):
     content['content'] = data.get('content', content['content'])
     content['images'] = data.get('images', content['images'])
     content['status'] = data.get('status', content['status'])
-    content['updated_at'] = datetime.now().isoformat()
 
-    return jsonify(content)
+    # Save updated content
+    updated_content = storage.save_content(content)
+
+    return jsonify(updated_content)
 
 @app.route('/api/contents/<content_id>', methods=['DELETE'])
-def delete_content(content_id):
+def delete_content_route(content_id):
     """Delete content by ID"""
-    global MOCK_CONTENTS
+    success = storage.delete_content(content_id)
 
-    content = next((c for c in MOCK_CONTENTS if c['id'] == content_id), None)
-
-    if not content:
+    if not success:
         return jsonify({'error': 'Content not found'}), 404
-
-    MOCK_CONTENTS = [c for c in MOCK_CONTENTS if c['id'] != content_id]
 
     return jsonify({'message': 'Content deleted successfully'})
 
