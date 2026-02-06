@@ -48,6 +48,21 @@ MOCK_CONTENTS = [
 
 # Routes
 
+@app.route('/', methods=['GET'])
+def index():
+    """Root endpoint - API information"""
+    return jsonify({
+        'name': 'Xiaohongshu Visual Platform API',
+        'version': '1.0.0',
+        'status': 'running',
+        'endpoints': {
+            'health': '/api/health',
+            'generate': '/api/generate (POST)',
+            'contents': '/api/contents (GET, POST)',
+            'content_detail': '/api/contents/<id> (GET, PUT, DELETE)'
+        }
+    })
+
 @app.route('/api/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""
