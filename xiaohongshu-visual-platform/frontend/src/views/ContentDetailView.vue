@@ -108,13 +108,47 @@
         </button>
       </div>
     </div>
+
+    <!-- Delete Confirmation Dialog -->
+    <div
+      v-if="showDeleteDialog"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      @click.self="cancelDelete"
+    >
+      <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">确认删除</h3>
+        <p class="text-gray-600 mb-6">
+          确定要删除这篇内容吗？此操作无法撤销。
+        </p>
+        <div class="flex gap-3">
+          <button
+            @click="cancelDelete"
+            :disabled="deleting"
+            class="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors disabled:opacity-50"
+          >
+            取消
+          </button>
+          <button
+            @click="confirmDelete"
+            :disabled="deleting"
+            class="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center justify-center"
+          >
+            <span v-if="!deleting">确认删除</span>
+            <div v-else class="flex items-center">
+              <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+              删除中...
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { getContent } from '../api/content'
+import { getContent, deleteContent } from '../api/content'
 
 const route = useRoute()
 const router = useRouter()
@@ -124,6 +158,8 @@ const loading = ref(false)
 const error = ref(null)
 const imageLoaded = reactive({})
 const imageError = reactive({})
+const showDeleteDialog = ref(false)
+const deleting = ref(false)
 
 // Fetch content by ID
 async function fetchContent() {
@@ -178,8 +214,29 @@ function handleEdit() {
 
 // Handle delete action
 function handleDelete() {
-  // TODO: Implement delete confirmation and API call
-  console.log('Delete content:', content.value.id)
+  showDeleteDialog.value = true
+}
+
+// Confirm delete
+async function confirmDelete() {
+  deleting.value = true
+
+  try {
+    await deleteContent(content.value.id)
+    // Navigate back to list after successful delete
+    router.push({ name: 'list' })
+  } catch (err) {
+    error.value = err.message || '删除失败'
+    console.error('Failed to delete content:', err)
+    showDeleteDialog.value = false
+  } finally {
+    deleting.value = false
+  }
+}
+
+// Cancel delete
+function cancelDelete() {
+  showDeleteDialog.value = false
 }
 
 // Status display
