@@ -36,6 +36,8 @@ import { useRouter } from 'vue-router'
 import TopicInput from '../components/TopicInput.vue'
 import ResultPreview from '../components/ResultPreview.vue'
 import ProgressModal from '../components/ProgressModal.vue'
+import ContentReviewPanel from '../components/ContentReviewPanel.vue'
+import ContentEditModal from '../components/ContentEditModal.vue'
 import { generateContent, generateImages, saveContent } from '../api/content.js'
 
 export default {
@@ -43,7 +45,9 @@ export default {
   components: {
     TopicInput,
     ResultPreview,
-    ProgressModal
+    ProgressModal,
+    ContentReviewPanel,
+    ContentEditModal
   },
   setup() {
     const router = useRouter()
@@ -54,6 +58,11 @@ export default {
     const progress = ref(0)
     const progressTotal = ref(0)
 
+    // New state for two-stage workflow
+    const reviewStage = ref(false)
+    const generatedContent = ref(null)
+    const showEditModal = ref(false)
+
     const handleGenerate = async (topic) => {
       try {
         // Show progress modal
@@ -61,32 +70,66 @@ export default {
         progressTitle.value = '正在生成内容'
         progressMessage.value = '正在生成文案...'
         progress.value = 0
-        progressTotal.value = 2
+        progressTotal.value = 1
 
-        // Step 1: Generate content
+        // Step 1: Generate content only (no images yet)
         const content = await generateContent(topic)
         progress.value = 1
-        progressMessage.value = '正在生成配图...'
 
-        // Step 2: Generate images
-        const imagePrompts = content.images.map(img => img.prompt)
-        const images = await generateImages(imagePrompts, (current, total) => {
-          progressMessage.value = `正在生成配图 ${current}/${total}...`
-        })
-
-        // Update content with generated images
-        content.images = images
-        progress.value = 2
-
-        // Hide progress and show result
+        // Hide progress and show review stage
         showProgress.value = false
-        result.value = content
+        generatedContent.value = content
+        reviewStage.value = true
 
       } catch (error) {
         console.error('生成失败:', error)
         showProgress.value = false
         alert('生成失败，请重试')
       }
+    }
+
+    const handleConfirmContent = async () => {
+      try {
+        // Show progress modal
+        showProgress.value = true
+        progressTitle.value = '正在生成配图'
+        progressMessage.value = '正在生成配图...'
+
+        // Step 2: Generate images after user confirms
+        const imagePrompts = generatedContent.value.images.map(img => img.prompt)
+        const images = await generateImages(imagePrompts, (current, total) => {
+          progressMessage.value = `正在生成配图 ${current}/${total}...`
+        })
+
+        // Update content with generated images
+        generatedContent.value.images = images
+
+        // Hide progress and show result
+        showProgress.value = false
+        reviewStage.value = false
+        result.value = generatedContent.value
+
+      } catch (error) {
+        console.error('生成配图失败:', error)
+        showProgress.value = false
+        alert('生成配图失败，请重试')
+      }
+    }
+
+    const handleRegenerateContent = async () => {
+      // Reset to topic input stage
+      reviewStage.value = false
+      generatedContent.value = null
+    }
+
+    const handleEditContent = () => {
+      showEditModal.value = true
+    }
+
+    const handleSaveEdit = (editedContent) => {
+      generatedContent.value.title = editedContent.title
+      generatedContent.value.body = editedContent.body
+      showEditModal.value = false
     }
 
     const handleSave = async () => {
@@ -145,7 +188,14 @@ export default {
       progressMessage,
       progress,
       progressTotal,
+      reviewStage,
+      generatedContent,
+      showEditModal,
       handleGenerate,
+      handleConfirmContent,
+      handleRegenerateContent,
+      handleEditContent,
+      handleSaveEdit,
       handleSave,
       handleEdit,
       handleDiscard,
