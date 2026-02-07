@@ -1,655 +1,131 @@
-# 微信公众号内容生成器 v4.3（场景化工作流）
+---
+name: wechat-content-generator
+description: "Generate WeChat Official Account content. v5.0: Simplified & Progressive Disclosure. Knowledge base externalized."
+license: MIT
+version: "5.0"
+---
 
-**版本**：v4.3
-**更新日期**：2026-02-05
-**重大变更**：修复工作流执行问题（搜索失败处理、用户确认环节、粉丝数跟踪）
+## ⚠️ Recovery Execution Rules
+
+**When user says "Continue Step X", "Next", "Proceed":**
+1. ✅ Read the step description fully.
+2. ✅ Check for required questions/confirmations.
+3. ✅ Verify input parameters.
+4. ✅ Ask if anything is missing.
+
+**DO NOT assume context. DO NOT skip questions.**
 
 ---
 
-## 🔍 场景识别（强制执行）
+## 📱 Platform & Formats
 
-**在执行任何操作前，必须先识别场景类型**：
+**Read:** `knowledge/wechat_strategy_handbook.md`
 
-### 场景A：新建内容（完整工作流）
+### Formats
+- **Long Article**: 1 Cover (2.35:1) + 3 Body Images (16:9).
+- **Image-Text**: 1 Cover (3:4) + 5 Body Images (3:4).
+- **Default**: Long Article if not specified.
 
-**触发词**：
-- "生成"、"创建"、"写一篇"
-- "帮我生成XX"、"创建一篇XX"
-
-**执行流程**：
-- Step 0-8 完整工作流
-- 包括：苏格拉底式提问、去重检查、选题确定等
-
----
-
-
-## ⚠️ 恢复执行重要提醒
-
-**当用户说"继续Step X"、"继续执行"、"下一步"时**：
-
-本 Skill 的所有步骤都可能需要用户输入或确认。
-在恢复执行任何步骤前，请遵循全局"恢复执行强制规则"（~/.claude/CLAUDE.md）：
-
-1. ✅ 先读取该步骤的完整描述
-2. ✅ 检查是否需要提问或确认
-3. ✅ 确认所有输入参数
-4. ✅ 有疑问先问用户
-
-**禁止直接开始执行，禁止假设已知上下文。**
+### Accounts
+- **Subscription**: Knowledge, Emotional, Soft sell.
+- **Service**: Product, Service, Direct sell.
 
 ---
 
-### 场景B：编辑内容（简化工作流）
+## 🔍 Scenario Recognition [Mandatory]
 
-**触发词**：
-- "修改"、"调整"、"改一下"
-- "优化"、"重写"、"完善"
+### Scenario A: New Content ("Create", "Generate")
+**Execute**: Workflow A (Step 0-13)
 
-**执行流程**：
-```
-Step 0: 识别为编辑场景
-Step 1: 读取已有内容
-Step 2: 询问修改需求（简化提问）
-Step 3: 执行修改
-Step 4: 质量检查（必须遵循所有规范）
-Step 5: 保存
-Step 6: 询问是否重新推送
-```
-
-**⚠️ 重要**：
-- 虽然是简化流程，但**必须遵循所有 Skill 规范**
-- 包括：内容质量标准、配图规范、违禁词检查、账号阶段策略等
-- 不能因为是"修改"就降低质量要求
+### Scenario B: Edit Content ("Modify", "Update")
+**Execute**: Workflow B (Step E0-E6)
+**Reference**: `_global_config/docs/workflows/content-editing-standards.md`
 
 ---
 
-## 🚨 执行协议
+## 📝 Workflow A: New Content
 
-### 新建内容场景（两阶段）
+### Step 0: Follower Engagement [Mandatory]
+**⚠️ Read:** `knowledge/follower-engagement-guide.md`
+1. **Ask User**: Current follower count (Use `AskUserQuestion`).
+2. **Read History**: `粉丝数记录_公众号.json`.
+3. **Action**: Generate encouragement, check 5-day stagnation.
 
-**阶段1：交互式收集信息**
-- ✅ **必须** 先执行 Step 0（询问粉丝数并提供反馈）
-- ✅ **必须** 进行苏格拉底式提问
-- ✅ **必须** 检查已发布内容（去重）
-- ✅ **必须** 根据账号阶段决定商品植入策略
+### Step 1: Socratic Questioning [Mandatory]
+**Ask**: Format, Platform, Purpose, Topic, Depth, Product preference.
+**Reference**: `_global_config/docs/standards/intelligent-topic-selection-guide.md`
 
-**阶段2：生成内容（关键节点需确认）**
-- ✅ **必须** 生成完整文案
-- ✅ **必须** 生成后让用户确认文案质量
-- ✅ **必须** 用户确认后生成配图
-- ✅ **必须** 配图完成后询问是否推送
-- ✅ **必须** 自动进行违禁词检查
+### Step 2: History Check [Mandatory]
+**Action**: Read last 30 days of content to avoid duplicates.
 
----
+### Step 3: Topic Selection [Mandatory]
+**Action**: Propose topic based on user input + history check.
 
-### 编辑内容场景（简化但严格）
+### Step 4: Knowledge Search [Mandatory]
+**Action**: WebSearch (Mandatory for deep content) + Local Knowledge Base.
+**If Search Fails**: Report to user and ask to continue or not.
 
-**简化的部分**：
-- ❌ 不需要苏格拉底式提问（已有内容）
-- ❌ 不需要去重检查（已有内容）
-- ❌ 不需要选题确定（已有选题）
+### Step 5: Copy Generation [Silent]
+**Action**: Generate Title, Abstract, Body (Structure depends on Format), CTA.
+**Reference**: `knowledge/subscription-copywriting.md`
 
-**必须遵循的规范**：
-- ✅ 内容质量标准（标题、摘要、正文结构）
-- ✅ 配图规范（尺寸、数量、风格）
-- ✅ 违禁词检查
-- ✅ 账号阶段策略（商品植入度）
-- ✅ 保存和推送规范
-- ✅ 信任型内容原则
+### Step 6: Value Check [Mandatory]
+**⚠️ Read:** `knowledge/value-check-standards.md`
+**Action**: Answer 6 self-check questions. If fail -> STOP.
 
----
+### Step 7: Compliance Check [Silent]
+**Action**: Use `compliance-checker` skill.
 
-## 📋 核心功能
+### Step 8: Product Matching [Silent, Unconditional]
+**⚠️ Read:** `knowledge/product-matching-strategy.md`
+**Action**: Match products, update Excel.
+**Strategy**: 0-500 (No mention), 500-2000 (Soft), 2000+ (Direct).
 
-1. 搜索/加载知识文档
-2. 匹配相关商品（从商品库智能匹配1-3个）
-3. 生成内容（标题 + 摘要 + 正文 + CTA）
-4. 生成配图（根据格式选择比例）
-5. 保存文件到专属文件夹
-6. 推送至微信公众号草稿箱
+### Step 9: Image Generation [Silent]
+**⚠️ Read:** `knowledge/image-generation-dynamic-count.md`
+**Action**: Generate images based on Format (Long vs Image-Text).
+**Tool**: `scripts/generate_wechat_images.py`
+**Reference**: `knowledge/wechat-image-prompt-guide.md`
 
----
+### Step 10: Save Files [Silent]
+**Action**: Save .md, images, data.json to specific folder.
 
-## 🆕 [必需] 内容格式参数
+### Step 11: Pre-Publish Check [Mandatory]
+**⚠️ Read:** `knowledge/pre-publish-checklist.md`
+**Action**: Check file integrity, image specs, push params.
+**If Fail**: STOP and report.
 
-### 两种格式对照
+### Step 12: Publish to Drafts [Silent]
+**Action**: Call `scripts/wechat_publish.py`
+**Strategy**: Hybrid (Cover via URL, Body via Base64).
 
-| 格式 | 触发词 | 配图比例 | 配图数量 |
-|-----|-------|---------|---------|
-| **长文** | \"公众号长文\"、\"订阅号长文\" | 横版（封面2.35:1，正文16:9） | 1封面+3正文 |
-| **图文** | \"公众号图文\"、\"订阅号图文\" | 竖版（3:4，1080×1440） | 1封面+5正文 |
-
-**默认**：未指定时默认生成长文（横版）
-
----
-
-## 📚 [必需] 订阅号图文格式库
-
-**当用户说\"订阅号图文\"时，必须询问格式：**
-
-1. **诗意金句治愈哲理** - 现代小诗体，触动人心
-2. **实用干货体** - 结构化知识点，清晰实用
-3. **故事叙事体** - 情节化叙述，画面感强
-4. **问答互动体** - 问答结构，对话感强
-
-**详细格式说明**：参考 `knowledge/subscription-copywriting.md`
+### Step 13: Satisfaction Check & Loop [Mandatory]
+**Action**: Ask satisfaction (1-5).
+- **≤ 3**: Ask "Which part?" -> Jump back -> Loop.
+- **≥ 4**: Record to `successful-cases`, End task.
 
 ---
 
-## 🎯 [必需] 双号运营策略
+## ✏️ Workflow B: Edit Content
 
-### 订阅号 vs 服务号定位
+### Step E0-E2: Identify & Ask
+**Action**: Read existing content, ask what to change.
 
-| 维度 | 订阅号 | 服务号 |
-|------|--------|--------|
-| **内容类型** | 干货知识、情感共鸣 | 产品介绍、服务说明 |
-| **商品植入** | 软植入（1-2段） | 可直接推荐（2-3段） |
-| **CTA** | 引导关注、评论 | 引导购买、咨询 |
+### Step E3: Execute Change [Silent]
+**Action**: Modify content/images.
 
-**详细策略**：参考 `knowledge/wechat_strategy_handbook.md`
+### Step E4: Quality Assurance [Mandatory]
+**⚠️ Read:** `knowledge/value-check-standards.md`
+**Action**: Full check (Title, Images, Compliance, Strategy).
 
----
-
-## 🖼️ [必需] 配图规范
-
-### 核心要求
-
-**长文格式**：
-- 封面：2.35:1（900×383px）
-- 正文：16:9（900×506px）
-- 数量：1封面 + 3正文
-
-**图文格式**：
-- 封面：3:4（1080×1440px）
-- 正文：3:4（1080×1440px）
-- 数量：1封面 + 5正文
-
-### 配图风格规则
-
-**封面图**：按照通篇文档的风格选择
-**正文配图**：按照对应段落内容选择风格
-
-**详细指南**：参考 `knowledge/wechat-image-prompt-guide.md`
+### Step E5-E6: Save & Republish
+**Action**: Save files, ask to push again.
 
 ---
 
-## 🔄 执行流程
+## 📦 Output Structure
 
-### 流程选择
+**Path**: `/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/订阅号/`
+**Files**: .md, cover.png, 01.png..., data.json
 
-**根据场景识别结果，选择对应的执行流程**：
-- 场景A（新建内容） → 执行流程A（Step 0-13）
-- 场景B（编辑内容） → 执行流程B（Step E0-E6）
-
----
-
-## 📝 流程A：新建内容（完整工作流）
-
-### Step 0: 询问粉丝数并提供反馈 [强制]
-
-**⚠️ 执行前必读**：`../../knowledge/follower-engagement-guide.md`
-
-**操作**：
-1. 使用 AskUserQuestion 工具询问粉丝数
-2. 读取历史记录
-3. 生成个性化鼓励语
-4. 触发5天提醒机制（如适用）
-5. 更新粉丝数记录
-
-**详细规则**：参考必读文档
-
----
-
-### Step 1: 苏格拉底式提问 [强制]
-
-**⚠️ 重要**：这是开放式对话，不是固定选项。用户可以自由描述，AI 要智能理解。
-
-**询问内容**：
-1. 内容格式（长文/图文）
-2. 平台类型（订阅号/服务号）
-3. 内容目的（涨粉/互动/专业形象/其他）
-4. 选题方向（指定选题/大致方向/AI推荐）
-5. 内容深度（基础/进阶/专业/创新角度）
-6. 商品植入（是/否/极少）
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 2: 检查已发布内容 [强制]
-
-**目的**：避免选题和角度重复
-
-**操作**：
-1. 读取 `/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/订阅号/` 目录
-2. 列出最近30天的已发布内容标题和主题
-3. 分析：哪些话题已经写过？哪些角度已经用过？
-4. **强制要求**：新选题必须与已发布内容有明显差异
-
----
-
-### Step 3: 确定选题 [强制]
-
-**核心原则**：
-- ❌ 不要局限于常见植物
-- ❌ 不要局限于基础养护
-- ✅ 要有深度、创新、专业性
-- ✅ 新手内容可以讲，但要换角度
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 4: 知识搜索 [必需，强制执行]
-
-**⚠️ 深度内容必须进行网络搜索（强制规则）**
-
-**执行流程**：
-1. **尝试 WebSearch**
-   - 搜索专业、深度、创新的内容
-   - 不要只搜索基础养护知识
-   - 要有科学依据、专业术语
-
-2. **如果搜索失败**
-   - ❌ **禁止**直接跳过
-   - ✅ **必须**报告用户："网络搜索失败，原因：[具体错误]"
-   - ✅ **必须**询问用户："是否继续使用内部知识生成？"
-   - ✅ 等待用户确认后再继续
-
-3. **搜索本地知识库**
-   - 搜索 `knowledge/` 目录
-   - 搜索已发布内容中的相关知识
-
-4. **整合知识**
-   - 整合网络和本地知识
-   - 确保内容有权威来源支撑
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 5: 生成内容 [必需，静默执行]
-
-- 生成标题、摘要、正文
-- 根据平台类型和账号阶段调整商品植入度
-- 生成 CTA
-
----
-
-### Step 6: 价值自检 [强制，不能跳过] ⚠️
-
-**⚠️ 执行前必读**：`../../knowledge/value-check-standards.md`
-
-**操作**：
-1. 回答6个必答问题（详见必读文档）
-2. 如果任何一个问题答不上来 → 停止生成
-3. 如果所有问题都能回答 → 继续执行
-4. 在 data.json 中记录自检结果
-
-**详细标准**：参考必读文档
-
----
-
-### Step 7: 违禁词检查 [必需，静默执行]
-
-**操作**：调用 `compliance-checker` skill
-
-**目的**：确保内容符合平台规范，避免违禁词、夸张用语
-
----
-
-### Step 8: 商品匹配 [无条件执行，静默执行]
-
-**⚠️ 重大修正：商品匹配是选品策略，不是内容策略**
-
-**⚠️ 执行前必读**：`../../knowledge/product-matching-strategy.md`
-
-**执行条件**：**无条件执行**（所有阶段都必须执行）
-
-**操作**：
-1. 查询已有商品信息（优先查询统一商品记录 Excel）
-2. 判断是否需要网络搜索
-3. 网络搜索（条件执行）
-4. 追加新商品到 Excel
-5. 根据账号阶段决定内容策略
-
-**商品信息存储**：`/Users/dj/Desktop/全域自媒体运营/商品库/内容关联商品记录.xlsx`
-
-**根据账号阶段决定内容策略**：
-- **起号期（0-500粉）**：执行商品匹配，记录商品信息，但**不在内容中提及商品**
-- **成长期（500-2000粉）**：软植入（1-2段），可提价格
-- **成熟期（2000+粉）**：可挂链接，可说价格，可直接推荐
-
-**详细策略**：参考必读文档
-
----
-
-### Step 9: 生成配图 [必需，静默执行]
-
-**⚠️ 执行前必读**：`../../knowledge/image-generation-dynamic-count.md`
-
-**长文格式**：
-- 封面：1张（2.35:1，900×383px）
-- 正文：N张（16:9，900×506px），N = 正文知识点段落数
-- 配图与段落对应
-
-**图文格式**：
-- 封面：1张（3:4，1080×1440px）
-- 正文：5张（3:4，1080×1440px）
-
-**配图风格规则**：
-- 封面图：按照通篇文档的风格选择
-- 正文配图：按照对应段落内容选择风格
-
-**详细指南**：参考必读文档和 `knowledge/wechat-image-prompt-guide.md`
-
----
-
-### Step 10: 保存文件 [必需，静默执行]
-
-- 创建专属文件夹
-- 保存 Markdown 文档
-- 保存所有配图
-
----
-
-### Step 11: 推送前检查 [强制，不能跳过] ⚠️
-
-**⚠️ 执行前必读**：`../../knowledge/pre-publish-checklist.md`
-
-**操作**：
-1. 文件完整性检查
-2. 配图规范检查
-3. 推送参数检查
-4. 推送脚本验证
-5. 内容质量检查
-
-**如果检查失败**：
-- 不推送
-- 输出检查失败的具体原因
-
-**详细清单**：参考必读文档
-
----
-
-### Step 12: 推送草稿箱 [必需，静默执行]
-
-- 调用 wechat_publish.py
-- **Hybrid Publishing Strategy (v4.2 强制执行)**:
-  - **Cover Image (Metadata)**: Upload to ImgBB -> Pass URL to API `coverImage` field
-  - **Body Images (Content)**: Embed as Base64 Data URI in HTML `src`
-  - **Dual Cover**: Explicitly insert cover image at the top of article body as Base64
-- 推送至微信公众号草稿箱
-
----
-
-### Step 13: 满意度确认与闭环学习 [强制] ⚠️
-
-**操作**：
-1. 展示最终成果（文案+配图）
-2. 询问用户满意度（1-5分评分）
-
-**分支逻辑**：
-
-**A. 如果用户不满意（评分 ≤ 3分）**：
-1. **询问具体问题**：哪个环节有问题？
-   - 选项：选题/文案/配图/商品匹配/其他
-2. **记录反面案例**：
-   - 将问题记录到 `../../knowledge/anti-patterns/wechat/`
-   - 标注为"用户不喜欢的模式"
-3. **执行回滚（Loop）**：
-   - 选题问题 → 跳回 **Step 2**（检查已发布内容）
-   - 文案问题 → 跳回 **Step 5**（生成内容）
-   - 配图问题 → 跳回 **Step 9**（生成配图）
-   - 商品匹配问题 → 跳回 **Step 8**（商品匹配）
-   - **从该步骤开始重新执行后续所有步骤**
-   - **直到用户满意为止**
-
-**B. 如果用户满意（评分 ≥ 4分）**：
-1. **记录正面案例**：
-   - 将成功模式记录到 `../../knowledge/successful-cases/wechat/`
-   - 包含：选题、标题、正文结构、配图风格
-2. **询问是否需要其他操作**
-3. **结束任务**
-
-**⚠️ 核心价值**：不仅仅是改错，更是**学习**。每次用户的反馈都必须转化为规则，避免下次再犯。
-
----
-
-**检查点**：
-- [ ] 已执行 Step 0（询问粉丝数并提供反馈）
-- [ ] 已完成苏格拉底式提问
-- [ ] 已检查已发布内容（去重）
-- [ ] 已确定选题（与已发布内容有差异）
-- [ ] 已执行知识搜索
-- [ ] 已生成内容
-- [ ] 已完成价值自检
-- [ ] 已完成违禁词检查
-- [ ] 已执行商品匹配（无条件执行）
-- [ ] 已生成配图（动态数量）
-- [ ] 已保存文件
-- [ ] 已完成推送前检查
-- [ ] 已推送草稿箱
-- [ ] 已询问满意度
-
----
-
-## 📦 输出结构
-
-```
-/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/订阅号/
-└── 2026-01-29_选题名称/
-    ├── 2026-01-29_选题名称.md
-    ├── cover.png
-    ├── 01.png, 02.png, 03.png
-    └── data.json
-```
-
----
-
-## ✏️ 流程B：编辑内容（简化但严格工作流）
-
-### Step E0: 场景识别和内容定位 [强制]
-
-**操作**：
-1. 识别用户意图（修改/优化/重写）
-2. 确定要编辑的内容位置
-3. 读取已有内容
-
-**询问**：
-- "请提供要编辑的内容路径或日期"
-- 或"请描述要编辑的内容（如：昨天生成的订阅号文章）"
-
----
-
-### Step E1: 读取已有内容 [强制]
-
-**操作**：
-1. 读取 Markdown 文档
-2. 读取配图文件
-3. 读取 data.json（如果存在）
-4. 分析当前内容的：
-   - 格式（长文/图文）
-   - 平台类型（订阅号/服务号）
-   - 账号阶段
-   - 商品植入情况
-
----
-
-### Step E2: 询问修改需求 [强制]
-
-**使用 AskUserQuestion 工具询问**：
-
-```
-问题1：需要修改哪些部分？（可多选）
-选项：
-- 标题
-- 摘要
-- 正文内容
-- 配图
-- CTA
-- 全部重写
-
-问题2：修改的原因或目标是什么？
-选项：
-- 优化质量（提升可读性）
-- 调整商品植入度
-- 修正错误信息
-- 适配不同平台
-- 其他（请描述）
-```
-
----
-
-### Step E3: 执行修改 [必需，静默执行]
-
-**根据修改需求执行对应操作**：
-
-**如果修改标题**：
-- 遵循标题规范（≤25字）
-- 保持吸引力和信息性
-- 符合平台调性
-
-**如果修改正文**：
-- 保持原有结构（除非要求重构）
-- 遵循信任型内容原则
-- 确保逻辑连贯
-
-**如果修改配图**：
-- 遵循配图规范（尺寸、数量、风格）
-- 调用 `generate_wechat_images.py`
-- 确保与内容匹配
-
-**如果调整商品植入**：
-- 根据账号阶段执行对应策略
-- 起号期：仅作案例提及，禁止价格
-- 成长期：软植入，可提价格
-- 成熟期：可挂链接，可说价格
-
-**如果全部重写**：
-- 保留原有选题方向
-- 重新生成内容
-- 遵循所有 Skill 规范
-
----
-
-### Step E4: 质量检查 [强制，静默执行]
-
-**必须执行以下检查**（不能因为是"修改"就跳过）：
-
-1. **违禁词检查**
-   - 调用 `compliance-checker`
-   - 确保无违禁词、夸张用语
-
-2. **配图规范检查**
-   - 长文：1封面（2.35:1）+ 3正文（16:9）
-   - 图文：1封面（3:4）+ 5正文（3:4）
-   - 确保尺寸、数量、风格符合要求
-
-3. **内容质量检查**
-   - 标题 ≤25字
-   - 摘要简洁有力
-   - 正文结构清晰
-   - CTA 完整
-
-4. **账号阶段策略检查**
-   - 商品植入度符合账号阶段
-   - 起号期：禁止价格
-   - 成长期/成熟期：按规范执行
-
-5. **信任型内容原则检查**
-   - 客观真实
-   - 避免情绪化标题
-   - 避免夸张绝对化
-
-**如果发现问题**：
-- 自动修正（如违禁词替换）
-- 或提示用户需要调整
-
----
-
-### Step E5: 保存文件 [必需，静默执行]
-
-**操作**：
-1. 保存修改后的 Markdown 文档
-2. 保存新生成的配图（如果有）
-3. 更新 data.json
-4. 在文件名或 data.json 中标注"已修改"
-
-**文件结构**：
-```
-/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/订阅号/
-└── 2026-01-30_选题名称/
-    ├── 2026-01-30_选题名称.md（已更新）
-    ├── cover.png（如果重新生成）
-    ├── 01.png, 02.png, 03.png（如果重新生成）
-    └── data.json（已更新，标注修改时间）
-```
-
----
-
-### Step E6: 询问是否重新推送 [必需]
-
-**使用 AskUserQuestion 工具询问**：
-
-```
-问题：是否需要重新推送到微信公众号草稿箱？
-选项：
-- 是（立即推送）
-- 否（仅保存本地）
-- 稍后手动推送
-```
-
-**如果选择"是"**：
-- 调用 `wechat_publish.py`
-- 推送至草稿箱
-- 输出推送结果
-
----
-
-## 📋 编辑场景检查清单
-
-**每次编辑内容时，必须确认**：
-
-- [ ] 已识别为编辑场景
-- [ ] 已读取已有内容
-- [ ] 已询问修改需求
-- [ ] 已执行修改
-- [ ] **已进行质量检查（违禁词、配图、内容质量、账号阶段、信任型原则）**
-- [ ] 已保存文件
-- [ ] 已询问是否重新推送
-
-**⚠️ 重点**：
-- 编辑场景虽然简化了前期步骤，但**质量检查不能省略**
-- 所有 Skill 规范都必须遵循
-- 不能因为是"修改"就降低质量要求
-
----
-
-## 📚 详细文档
-
-- **格式库详细说明**：`knowledge/subscription-copywriting.md`
-- **配图生成指南**：`knowledge/wechat-image-prompt-guide.md`
-- **运营策略手册**：`knowledge/wechat_strategy_handbook.md`
-- **CTA 模板库**：`knowledge/cta-templates.md`
-- **商品植入指南**：`knowledge/service-product-linking.md`
-
----
-
-## 🔧 依赖
-
-- `product-catalog` (Skill) - 商品匹配
-- `compliance-checker` (Skill) - 违禁词检查
-- `WebSearch` - 知识搜索
-- `scripts/generate_wechat_images.py` - 配图生成
-- `scripts/wechat_publish.py` - 推送草稿箱
-
----
-
-**版本历史**：
-- v4.2 (2026-02-04): 固化"Hybrid Strategy"推送策略（Metadata用URL，正文用Base64）；强制配图"Modern"风格和"No Text"规则。
-- v4.1 (2026-01-30): 增加场景识别，区分新建和编辑流程
-- v4.0 (2026-01-30): 修正执行流程，采用苏格拉底式提问 + 去重检查
-- v3.8 (2026-01-29): 按照四层机制精简 SKILL.md
-- v3.7 (2026-01-23): 新增订阅号图文格式库
-- v3.3 (2026-01-15): 新增内容格式参数
+**Reference**: `knowledge/wechat_strategy_handbook.md`

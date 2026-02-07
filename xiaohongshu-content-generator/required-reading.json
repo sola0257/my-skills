@@ -9,21 +9,21 @@
       "note": "Step 0 执行前必读"
     },
     {
-      "file": "knowledge/xiaohongshu-core-features.md",
+      "file": "../../knowledge/xiaohongshu-core-features.md",
       "reason": "信任型双标题系统、标签规则(5+5)、配图策略",
       "mandatory": true,
       "required_for_steps": [5],
       "note": "生成文案时必读"
     },
     {
-      "file": "knowledge/xiaohongshu-platform-limits.md",
+      "file": "../../knowledge/xiaohongshu-platform-limits.md",
       "reason": "平台限制(标题≤20字、正文≤1000字、配图12-15张)",
       "mandatory": true,
       "required_for_steps": [5],
       "note": "生成文案时必读"
     },
     {
-      "file": "../_global_config/xiaohongshu-execution-standards.md",
+      "file": "../_global_config/docs/standards/xiaohongshu-execution-standards.md",
       "reason": "Emoji使用规范、人说话方式、日期准确性",
       "mandatory": true,
       "required_for_steps": [5],

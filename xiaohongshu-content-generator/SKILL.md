@@ -1,626 +1,127 @@
 ---
 name: xiaohongshu-content-generator
-description: "Generate Xiaohongshu (Little Red Book) content. v9.0重构版：渐进式披露，知识外置，工作流优化（知识搜索→文案生成→价值检查→合规检查→商品匹配）。"
+description: "Generate Xiaohongshu content. v10.0: Simplified & Progressive Disclosure. Knowledge base externalized."
 license: MIT
-version: "9.0"
+version: "10.0"
 ---
 
+## ⚠️ Recovery Execution Rules
 
-## ⚠️ 恢复执行重要提醒
+**When user says "Continue Step X", "Next", "Proceed":**
+1. ✅ Read the step description fully.
+2. ✅ Check for required questions/confirmations.
+3. ✅ Verify input parameters.
+4. ✅ Ask if anything is missing.
 
-**当用户说"继续Step X"、"继续执行"、"下一步"时**：
-
-本 Skill 的所有步骤都可能需要用户输入或确认。
-在恢复执行任何步骤前，请遵循全局"恢复执行强制规则"（~/.claude/CLAUDE.md）：
-
-1. ✅ 先读取该步骤的完整描述
-2. ✅ 检查是否需要提问或确认
-3. ✅ 确认所有输入参数
-4. ✅ 有疑问先问用户
-
-**禁止直接开始执行，禁止假设已知上下文。**
+**DO NOT assume context. DO NOT skip questions.**
 
 ---
 
-# 小红书图文内容一键生成器 v9.0（渐进式披露重构版）
+## 📱 Platform Limits & Core Features
 
-**版本**：v9.0
-**更新日期**：2026-02-01
-**重大变更**：
-- 知识外置到 knowledge/ 目录
-- 工作流优化：知识搜索→文案生成→价值检查→合规检查→商品匹配
-- 增加用户确认步骤
-- 遵循渐进式披露原则
+**Read:** `knowledge/xiaohongshu-platform-limits.md`
+**Read:** `knowledge/xiaohongshu-core-features.md`
 
----
-
-## 📱 平台限制
-
-**详细规范**：`knowledge/xiaohongshu-platform-limits.md`
-
-**核心限制**：
-- 正文标题：≤20字
-- 正文内容：≤1000字
-- 配图：12-15张，1080×1440像素（3:4竖版）
+- **Visual Title**: Big text on cover.
+- **Note Title**: SEO friendly, < 20 chars.
+- **Body**: < 1000 chars, 5-step trust framework.
+- **Images**: 12-15 images, 3:4 vertical.
 
 ---
 
-## 🔍 场景识别（强制执行）
+## 🔍 Scenario Recognition [Mandatory]
 
-**在执行任何操作前，必须先识别场景类型**：
+### Scenario A: New Content ("Create", "Generate")
+**Execute**: Workflow A (Step 0-12)
 
-### 场景A：新建内容（完整工作流）
-
-**触发词**：
-- "生成"、"创建"、"写一篇"
-- "帮我生成XX"、"创建一篇XX"
-
-**执行流程**：
-- Step 0-12 完整工作流
-- 包括：苏格拉底式提问、去重检查、选题确定等
+### Scenario B: Edit Content ("Modify", "Update")
+**Execute**: Workflow B (Step E0-E6)
+**Reference**: `_global_config/docs/workflows/content-editing-standards.md`
 
 ---
 
-### 场景B：编辑内容（简化工作流）
+## 📝 Workflow A: New Content
 
-**触发词**：
-- "修改"、"调整"、"改一下"
-- "优化"、"重写"、"完善"
+### Step 0: Follower Engagement [Mandatory]
+**⚠️ Read:** `knowledge/follower-engagement-guide.md`
+1. **Ask User**: Current follower count (Use `AskUserQuestion`).
+2. **Read History**: `粉丝数记录_小红书.json`.
+3. **Action**: Generate encouragement, check 5-day stagnation.
 
-**执行流程**：
-```
-Step E0: 识别为编辑场景
-Step E1: 读取已有内容
-Step E2: 询问修改需求（简化提问）
-Step E3: 执行修改
-Step E4: 质量检查（必须遵循所有规范）
-Step E5: 保存
-Step E6: 询问后续操作
-```
+### Step 1: Socratic Questioning [Mandatory]
+**Ask**: Purpose, Topic Direction, Depth, Product Inclusion preferences.
+**Reference**: `_global_config/docs/standards/intelligent-topic-selection-guide.md`
 
-**⚠️ 重要**：
-- 虽然是简化流程，但**必须遵循所有 Skill 规范**
-- 包括：双标题系统、12-15张配图、违禁词检查、账号阶段策略等
-- 不能因为是"修改"就降低质量要求
+### Step 2: History Check [Mandatory]
+**Action**: Read last 30 days of content to avoid duplicates.
 
-**详细流程参考**：`/Users/dj/Desktop/小静的skills/_global_config/content-editing-standards.md`
+### Step 3: Topic Selection [Mandatory]
+**Action**: Propose topic based on user input + history check.
 
----
+### Step 4: Knowledge Search [Silent]
+**Action**: WebSearch + Local Knowledge Base for authority and depth.
 
-## 🚨 执行协议
+### Step 5: Copy Generation [Silent]
+**Action**: Generate Visual Title (3 options), Note Title, Body (5-step framework), Tags.
+**Reference**: `_global_config/docs/standards/xiaohongshu-execution-standards.md`
 
-**⚠️ 强制执行规范**：
-- 📋 选题规范：`_global_config/topic-selection-standards.md`
-- ✍️ 执行规范：`_global_config/xiaohongshu-execution-standards.md`
+### Step 5.5: Visual Title Confirmation [Mandatory]
+**Action**: Ask user to select one visual title for the cover.
 
-**每次生成内容前，必须遵循以上两个规范文档**
+### Step 6: Value Check [Mandatory]
+**⚠️ Read:** `knowledge/value-check-standards.md`
+**Action**: Answer 6 self-check questions. If fail -> STOP.
 
-### 🔴 强制检查清单（生成前必查）
+### Step 7: Compliance Check [Silent]
+**Action**: Use `compliance-checker` skill.
 
-**执行前确认**：
-- [ ] 已读取所有必读文档（见 required-reading.json）
-- [ ] 理解所有平台限制和规范要求
-- [ ] **已执行 Step 0（询问粉丝数并提供反馈）**
+### Step 8: Product Matching [Silent, Unconditional]
+**⚠️ Read:** `knowledge/product-matching-strategy.md`
+**Action**: Match products, update Excel.
+**Strategy**: 
+- **0-500**: No mention in text.
+- **500-2000**: Soft mention.
+- **2000+**: Direct link/price.
 
-**生成后检查**：
-- [ ] 视觉标题符合字数和格式要求
-- [ ] 正文标题符合字数和格式要求
-- [ ] 标签数量和比例正确
-- [ ] 使用了混搭玩法（不是单一内容方向）
-- [ ] Emoji使用符合规范
-- [ ] 开头有痛点冲击
-- [ ] 每个要点有生活故事
-- [ ] 结尾引导具体有趣
-- [ ] 正文字数≤1000字
-- [ ] 配图方案12-15张
+### Step 9: Image Generation [Silent]
+**⚠️ Read:** `knowledge/image-prompt-guide.md`
+**Action**: Generate 12-15 images (1 Cover + 11-14 Content).
+**Tool**: `_shared_scripts/yunwu_image_api.py` (Gemini model).
+**Cover**: Must match selected Visual Title text.
 
-**详细规范**：所有规范详见 required-reading.json 中列出的必读文档
+### Step 10: Save Files [Silent]
+**Action**: Save .md, .txt (release version), images, data.json.
+**Path**: `/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/小红书/`
 
-### 新建内容场景（两阶段）
-
-**阶段1：交互式收集信息**
-- ✅ **必须** 先执行 Step 0（询问粉丝数并提供反馈）
-- ✅ **必须** 进行苏格拉底式提问
-- ✅ **必须** 检查已发布内容（去重）
-- ✅ **必须** 根据账号阶段决定商品植入策略
-- ✅ **必须** 遵循选题规范（灵活性 + 价值自检）
-
-**阶段2：静默执行生成**
-- ❌ **禁止** 请求确认以继续
-- ✅ **必须** 一次性生成完整输出（文案 + 自动排版封面 + 配图）
-- ✅ **必须** 自动进行违禁词检查
-- ✅ **必须** 根据粉丝数自动判断内容策略
-- ✅ **必须** 遵循执行规范（emoji + 人说话方式 + 日期准确 + 植物多样性）
+### Step 11: Satisfaction Check & Loop [Mandatory]
+**Action**: Ask satisfaction (1-5).
+- **≤ 3**: Ask "Which part?" -> Jump back to Step 2/5/8/9 -> Loop.
+- **≥ 4**: Record to `successful-cases`, Ask "Push now?".
 
 ---
 
-## 📋 核心功能
+## ✏️ Workflow B: Edit Content
 
-**详细功能说明**：`knowledge/xiaohongshu-core-features.md`
+### Step E0-E2: Identify & Ask
+**Action**: Read existing content, ask what to change.
 
-**核心特性**：
-1. **信任型双标题系统**（视觉标题 + 正文标题）
-2. **5步信任型正文框架**
-3. **客观中性语气调性**
-4. **价值先行互动策略**
-5. **真实感配图策略**（12-15张）
-6. **封面排版自动化**
-7. **违禁词自动检查**
+### Step E3: Execute Change [Silent]
+**Action**: Modify content/images.
 
-**标题公式参考**：`../../knowledge/title-formulas-by-platform.md`
-**内容结构参考**：`../../knowledge/content-structures-short-form.md`
-**内容方向参考**：`../../knowledge/content-directions-universal.md`
-**互动话术参考**：`../../knowledge/interaction-templates-universal.md`
-**配图指南参考**：`knowledge/image-prompt-guide.md`
+### Step E4: Quality Assurance [Mandatory]
+**⚠️ Read:** `knowledge/value-check-standards.md`
+**Action**: Full check (Title, Images, Compliance, Strategy).
+
+### Step E5-E6: Save & Finalize
+**Action**: Save files, ask to push.
 
 ---
 
-## ⚙️ 账号阶段配置
+## 📦 Output Structure
 
-**判断逻辑（满足任一条件即可进阶）：**
+**Format**:
+- `_发布版.txt`: Plain text for copy-paste.
+- `.md`: Archive with metadata.
+- Images: `cover_final.png`, `01.png`...
 
-| 阶段 | 粉丝数 | 互动特征 | 内容策略 | 内容比例 |
-|------|--------|---------|---------|---------||
-| **起号期** | 0-500 | 评论区无购买询问 | 纯干货建立信任 | 100%价值输出 |
-| **成长期** | 500-2000 | 评论区出现"在哪买" | 价值+适度引导 | 80%价值+20%软引导 |
-| **成熟期** | 2000+ | 评论区大量购买询问 | 信任+转化 | 70%价值+30%转化内容 |
-
-**变现策略：**
-
-- **起号期**：暂不考虑变现，仅评论区互动
-- **成长期**：资料领取引导，低价虚拟产品（9.9-19.9元）
-- **成熟期**：多元化转化路径，全产品线变现
-
----
-
-## 🔄 执行流程
-
-### 流程选择
-
-**根据场景识别结果，选择对应的执行流程**：
-- 场景A（新建内容） → 执行流程A（Step 0-12）
-- 场景B（编辑内容） → 执行流程B（Step E0-E6）
-
----
-
-## 📝 流程A：新建内容（完整工作流）
-
-### Step 0: 询问粉丝数并提供反馈 [强制]
-
-**⚠️ 执行前必读**：`../../knowledge/follower-engagement-guide.md`
-
-**操作**：
-1. 使用 AskUserQuestion 工具询问粉丝数
-2. 读取历史记录
-3. 生成个性化鼓励语
-4. 触发5天提醒机制（如适用）
-5. 更新粉丝数记录
-
-**详细规则**：参考必读文档
-
----
-
-### Step 1: 苏格拉底式提问 [强制]
-
-**⚠️ 重要**：这是开放式对话，不是固定选项。用户可以自由描述，AI 要智能理解。
-
-**询问内容**：
-1. 内容目的（涨粉/互动/专业形象/其他）
-2. 选题方向（指定选题/大致方向/AI推荐）
-3. 内容深度（基础/进阶/专业/创新角度）
-4. 商品植入（是/否/极少）
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-**内容方向参考**：`../../knowledge/content-directions-universal.md`
-
----
-
-### Step 2: 检查已发布内容 [强制]
-
-**操作**：读取最近30天的已发布内容，识别重复话题。
-
-**目的**：避免选题重复，确保内容多样性。
-
----
-
-### Step 3: 确定选题 [强制]
-
-**核心原则**：
-- ❌ 不要局限于常见植物（绿萝、龟背竹等）
-- ❌ 不要局限于基础养护（浇水、施肥等）
-- ✅ 要有深度、创新、专业性
-- ✅ 新手内容可以讲，但要换角度
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 4: 知识搜索 [必需，静默执行]
-
-**⚠️ 工作流优化：知识搜索前置**
-
-**从此步骤开始，进入静默执行模式，不再请求确认**
-
-**要求**：
-- 搜索专业、深度、创新的内容
-- 不要只搜索基础养护知识
-- 要有科学依据、专业术语
-- 使用 WebSearch 获取权威知识
-- 搜索本地知识库
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 5: 生成文案 [必需，静默执行]
-
-**⚠️ 执行前必读**（见 required-reading.json 中 required_for_steps: [5] 的文档）：
-- xiaohongshu-core-features.md
-- xiaohongshu-platform-limits.md
-- xiaohongshu-execution-standards.md
-- title-formulas-by-platform.md
-- content-structures-short-form.md
-- content-directions-universal.md
-- interaction-templates-universal.md
-- content-anti-patterns-universal.md
-
-**操作**：
-1. **解析输入**：获取主题、粉丝数、互动情况。
-2. **生成文案**：
-   - 生成信任型双标题（视觉标题+正文标题）
-   - **⚠️ 必须生成 3 个备选视觉标题（封面大字）**
-   - 生成5步信任型正文框架
-   - 生成标签
-   - 生成两个版本：存档版（.md）和发布版（.txt）
-
-**关键提醒**：
-- 严格遵循必读文档中的规范
-- 不要凭记忆生成，要参考文档中的具体要求
-
----
-
-### Step 5.5: 视觉标题确认 [强制] ⚠️
-
-**操作**：
-1. 暂停执行。
-2. 展示 3 个备选视觉标题方案。
-3. 询问用户："您希望使用哪个作为封面图上的大字？"
-
-**目的**：确保封面文字符合用户预期，避免"AI 擅自做主"。
-
-**只有用户确认标题后，才能继续执行后续步骤。**
-
----
-
-### Step 6: 价值自检 [强制，不能跳过] ⚠️
-
-**⚠️ 执行前必读**：`../../knowledge/value-check-standards.md`
-
-**操作**：
-1. 回答6个必答问题（详见必读文档）
-2. 如果任何一个问题答不上来 → 停止生成
-3. 如果所有问题都能回答 → 继续执行
-4. 在 data.json 中记录自检结果
-
-**详细标准**：参考必读文档
-
----
-
-### Step 7: 违禁词检查 [必需，静默执行]
-
-**操作**：调用 `compliance-checker` skill
-
-**目的**：确保内容符合平台规范，避免违禁词、夸张用语。
-
----
-
-### Step 8: 商品匹配 [无条件执行，静默执行]
-
-**⚠️ 重大修正：商品匹配是选品策略，不是内容策略**
-
-**⚠️ 执行前必读**：`../../knowledge/product-matching-strategy.md`
-
-**执行条件**：**无条件执行**（所有阶段都必须执行）
-
-**操作**：
-1. 查询已有商品信息（优先查询统一商品记录 Excel）
-2. 判断是否需要网络搜索
-3. 网络搜索（条件执行）
-4. 追加新商品到 Excel
-5. 根据账号阶段决定内容策略
-
-**商品信息存储**：`/Users/dj/Desktop/全域自媒体运营/商品库/内容关联商品记录.xlsx`
-
-**根据账号阶段决定内容策略**：
-- **起号期（0-500粉）**：执行商品匹配，记录商品信息，但**不在内容中提及商品**
-- **成长期（500-2000粉）**：软植入（1-2段），可提价格
-- **成熟期（2000+粉）**：可挂链接，可说价格，可直接推荐
-
-**详细策略**：参考必读文档
-
----
-
-### Step 9: 生成图片 [必需，静默执行]
-
-**⚠️ 统一 API 客户端的真正意义**：
-
-统一 API 客户端（`_shared_scripts/yunwu_image_api.py`）的核心价值：
-1. **集中管理 API 配置**：所有 API 配置（URL、Key、Model）统一管理
-2. **强制使用 Gemini 模型**：确保所有 skills 都调用 `gemini-3-pro-image-preview`
-3. **提供一致的调用接口**：统一的错误处理、图片保存逻辑
-
-**执行步骤**：
-1. **读取案例库标准**：
-   - 封面：`knowledge/image-generation-cases/case-002-xhs-cover.md`
-   - 正文配图：`knowledge/image-generation-cases/case-003-xhs-scene.md`
-
-2. **创建符合标准的 prompts**：
-   - ⚠️ **强制一致性**：封面 prompt 中的文字（Text Overlay）必须与文案中确定的"视觉标题（封面大字）"**完全一致**。严禁出现"文案是A，图上写B"的情况。
-   - 封面：白色粗体+黑边、顶部留白、简洁背景
-   - 正文：手写风格、柔和颜色、灵活位置
-
-3. **调用统一 API 客户端**：
-   ```python
-   from pathlib import Path
-   import sys
-   sys.path.append(str(Path(__file__).parent.parent.parent / "_shared_scripts"))
-   from yunwu_image_api import batch_generate
-
-   # 准备 prompts 和配置
-   prompts_dict = {
-       "cover.png": cover_prompt,
-       "01.png": scene_prompt_1,
-       ...
-   }
-   text_config = {
-       "cover.png": True,  # 封面需要文字
-       "01.png": False,    # 正文配图不需要文字
-       ...
-   }
-
-   # 批量生成（自动使用 Gemini 模型）
-   results = batch_generate(prompts_dict, base_dir, text_config, aspect_ratio="3:4")
-   ```
-
-**检查点**：
-- [ ] 已读取案例库标准
-- [ ] Prompts 符合案例库规范
-- [ ] 使用统一 API 客户端（不创建新脚本）
-- [ ] 自动使用 Gemini 模型
-
-**详细指南**：参考 `knowledge/image-prompt-guide.md`
-
----
-
-### Step 10: 封面合成 [必需，静默执行]
-
-**统一方案：使用 Gemini API 生成带文字的封面**
-
-**⚠️ 强制检查**：
-- 生成前必须核对：封面图片上的文字 = 文案中的"视觉标题"
-- 如果不一致，必须修正 prompt 重新生成。
-
-**方式1：一步生成（推荐）**
-- 在 prompt 中同时指定场景和文字要求
-- 一次性生成带文字的完整封面
-
-**方式2：两步生成（可选）**
-- 第一步：Gemini 生成封面底图（无文字）
-- 第二步：Gemini 在底图基础上添加文字
-
-**参考**：全局案例库 `/Users/dj/Desktop/小静的skills/knowledge/image-generation-successful-cases.md`（案例2：小红书封面设计规范）
-
----
-
-### Step 11: 保存文件 [必需，静默执行]
-
-**保存内容**：
-1. **Markdown 文档**（存档版，含格式标记）
-2. **纯文本文档**（发布版，可直接复制粘贴）
-3. **所有图片文件**（cover_final.png + 01.png-14.png）
-4. **发布信息文件**（推荐发布时间）
-5. **元数据文件**（data.json，记录价值自检结果）
-
-**文件结构**：
-```
-/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/小红书/
-└── 2026-02-01_[主题]/
-    ├── 2026-02-01_[主题].md
-    ├── 2026-02-01_[主题]_发布版.txt
-    ├── 发布信息.md
-    ├── cover_final.png
-    ├── 01.png, 02.png...
-    └── data.json
-```
-
-**推荐发布时间**：
-- 工作日：7:00-9:00、12:00-13:00、21:00-23:00
-- 周末：9:00-11:00、15:00-17:00、20:00-22:00
-
----
-
-### Step 12: 满意度确认与闭环学习 [强制] ⚠️
-
-**操作**：
-1. 展示最终成果（文案+配图）
-2. 询问用户满意度（1-5分评分）
-
-**分支逻辑**：
-
-**A. 如果用户不满意（评分 ≤ 3分）**：
-1. **询问具体问题**：哪个环节有问题？
-   - 选项：选题/文案/配图/商品匹配/其他
-2. **记录反面案例**：
-   - 将问题记录到 `../../knowledge/anti-patterns/xiaohongshu/`
-   - 标注为"用户不喜欢的模式"
-3. **执行回滚（Loop）**：
-   - 选题问题 → 跳回 **Step 2**（检查已发布内容）
-   - 文案问题 → 跳回 **Step 5**（文案生成）
-   - 标题问题 → 跳回 **Step 5.5**（标题确认）
-   - 配图问题 → 跳回 **Step 9**（图片生成）
-   - 商品匹配问题 → 跳回 **Step 8**（商品匹配）
-   - **从该步骤开始重新执行后续所有步骤**
-   - **直到用户满意为止**
-
-**B. 如果用户满意（评分 ≥ 4分）**：
-1. **记录正面案例**：
-   - 将成功模式记录到 `../../knowledge/successful-cases/xiaohongshu/`
-   - 包含：选题、标题、正文结构、配图风格
-2. **询问是否推送**：是否需要手动发布到小红书？
-3. **结束任务**
-
-**⚠️ 核心价值**：不仅仅是改错，更是**学习**。每次用户的反馈都必须转化为规则，避免下次再犯。
-
----
-
-## ✏️ 流程B：编辑内容（简化但严格工作流）
-
-**详细流程参考**：`/Users/dj/Desktop/小静的skills/_global_config/content-editing-standards.md`
-
-### Step E0-E2: 场景识别、读取内容、询问需求 [强制]
-
-**操作**：
-1. 识别为编辑场景
-2. 读取已有笔记（Markdown + 配图）
-3. 使用 AskUserQuestion 询问修改需求
-
----
-
-### Step E3: 执行修改 [必需，静默执行]
-
-**根据修改需求执行**，遵循小红书所有规范。
-
----
-
-### Step E4: 质量检查 [强制，静默执行]
-
-**⚠️ 不能因为是"修改"就跳过质量检查**
-
-**必须执行的检查**：
-
-1. **双标题系统检查**
-   - 视觉标题：客观描述 + 价值点 + 时间/经验
-   - 搜索标题：关键词堆叠，SEO优化
-   - 两个标题必须不同
-
-2. **配图规范检查**
-   - 数量：12-15张（不得少于12张）
-   - 尺寸：1080×1440（3:4竖版）
-   - 封面：白色粗体+黑边、简洁背景、主体突出
-   - 命名：`序号_建议文字说明.png`
-
-3. **违禁词检查**
-   - 调用 `compliance-checker`
-   - 确保无违禁词、夸张用语
-
-4. **账号阶段策略检查**
-   - 起号期（0-500粉）：仅作案例提及，禁止价格
-   - 成长期（500-2000粉）：软植入，可提价格
-   - 成熟期（2000+粉）：可挂链接，可说价格
-
-5. **信任型内容原则检查**
-   - 客观中性，避免情绪化标题
-   - 真实体验分享，包含优缺点
-   - 避免过度营销
-
----
-
-### Step E5: 保存文件 [必需，静默执行]
-
-**保存**：
-- Markdown 文档（存档版）
-- 纯文本文档（发布版）
-- 所有配图
-- 更新 data.json（标注修改时间）
-
----
-
-### Step E6: 询问后续操作 [必需]
-
-**询问**：是否需要手动发布到小红书？
-
----
-
-## 📦 输出结构
-
-### 文件结构
-
-```
-/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/小红书/
-└── 2026-02-01_[主题]/                # 必须创建文件夹
-    ├── 2026-02-01_[主题].md          # 存档版本（含格式标记）
-    ├── 2026-02-01_[主题]_发布版.txt  # 可直接复制粘贴版本
-    ├── 发布信息.md                      # 推荐发布时间
-    ├── cover_final.png                 # 最终合成封面（带文字）
-    ├── 01.png, 02.png...               # 正文配图
-    └── data.json                       # 元数据
-```
-
-### 输出格式规范
-
-#### 存档版本（.md 文件）
-
-包含完整的结构化信息，用于存档和查看：
-
-```markdown
-# [视觉标题]
-
-**发布平台**：小红书
-**内容类型**：图文笔记
-...
-
-## 📝 视觉标题（封面大字）
-[封面标题]
-
-## 🔍 正文标题（笔记标题）
-[正文标题]
-
-## 🏷️ 标签
-#标签1 #标签2 ...
-
-## 📄 正文内容
-[正文内容，可包含 markdown 格式]
-```
-
-#### 发布版本（_发布版.txt 文件）
-
-**[重要] 可直接复制粘贴到小红书后台，无需编辑**
-
-格式要求：
-1. ❌ **不使用** markdown 格式符号（`**`、`#`、`-` 等）
-2. ✅ **使用** 纯文本格式
-3. ✅ 标签放在正文最下面（不是单独章节）
-4. ✅ 段落之间用空行分隔
-
----
-
-## ✅ 执行检查清单
-
-### 发布前检查
-
-- [ ] 标题是否客观中性？
-- [ ] 内容是否避免过度营销？
-- [ ] 是否有真实的使用体验？
-- [ ] 是否承认了不足之处？
-- [ ] 引流方式是否自然？
-- [ ] 语气是否专业但亲切？
-
-### 避免的信任陷阱
-
-- [ ] 避免100%正面评价
-- [ ] 避免催促购买的语言
-- [ ] 避免夸大宣传
-- [ ] 避免使用感叹号过度
-
----
-
-## 📝 依赖
-
-- `compliance-checker` (Skill)
-- `yunwu-api` (Image Generation)
-- `_shared_scripts/yunwu_image_api.py` (统一 API 客户端，强制使用 Gemini 模型)
-- `WebSearch` - 知识搜索
-
----
-
-**v9.0 重大更新：渐进式披露重构，知识外置，工作流优化**
+**Reference**: `knowledge/xiaohongshu-core-features.md`

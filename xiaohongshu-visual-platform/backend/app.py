@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 import time
 import storage
+import skill_caller
 
 # Load environment variables
 load_dotenv()
@@ -48,22 +49,26 @@ def generate_content():
     if not topic:
         return jsonify({'error': 'Topic is required'}), 400
 
-    # Simulate processing time
-    time.sleep(2)
+    try:
+        # Call xiaohongshu-content-generator skill
+        content_data = skill_caller.call_xiaohongshu_skill(topic)
 
-    # Return mock generated content
-    content = {
-        'id': str(len(MOCK_CONTENTS) + 1),
-        'topic': topic,
-        'title': f'关于{topic}的精彩内容',
-        'content': f'这是关于{topic}的详细介绍。内容包含了丰富的信息和实用的建议...',
-        'images': [f'https://via.placeholder.com/400x300?text=Generated+{i}' for i in range(1, 13)],
-        'status': 'draft',
-        'created_at': datetime.now().isoformat(),
-        'updated_at': datetime.now().isoformat()
-    }
+        # Add metadata
+        content = {
+            'id': str(len(storage.list_contents()) + 1),
+            'topic': topic,
+            'title': content_data.get('title', f'关于{topic}的内容'),
+            'content': content_data.get('content', ''),
+            'images': content_data.get('images', []),
+            'status': 'draft',
+            'created_at': datetime.now().isoformat(),
+            'updated_at': datetime.now().isoformat()
+        }
 
-    return jsonify(content)
+        return jsonify(content)
+
+    except Exception as e:
+        return jsonify({'error': f'Failed to generate content: {str(e)}'}), 500
 
 @app.route('/api/contents', methods=['GET'])
 def list_contents_route():

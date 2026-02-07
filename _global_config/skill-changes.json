@@ -1,18 +1,25 @@
 {
-  "last_check": "2026-02-06T11:38:07.712Z",
+  "last_check": "2026-02-07T01:34:14.171Z",
   "detected_changes": [
     {
-      "skill": "topic-discovery",
-      "old_version": "3.0",
-      "new_version": "4.0",
+      "skill": "xiaohongshu-content-generator",
+      "old_version": "9.0",
+      "new_version": "10.0",
       "change_types": [
+        "策略变更",
         "账号阶段标准变更",
-        "新增功能"
+        "标题策略变更",
+        "调性变更"
       ],
       "sync_needed": [
+        "更新 分阶段调性配置.md",
+        "更新 quality-standards.json",
         "统一 CLAUDE.md 中的账号阶段标准",
         "更新 quality-standards.json 的阶段适配标准",
-        "更新 skill-rules.json 添加新功能的触发规则"
+        "更新 quality-standards.json 的标题评估标准",
+        "检查 brand-tonality.md 是否需要更新",
+        "检查其他内容生成 Skills 是否需要同步",
+        "检查其他平台的内容生成 Skills 是否需要同步更新"
       ]
     }
   ],

@@ -1,479 +1,130 @@
-# 视频脚本生成器 v3.2（场景化工作流）
+---
+name: video-script-generator
+description: "Generate short video scripts for all platforms. v4.0: Simplified & Progressive Disclosure. Knowledge base externalized."
+license: MIT
+version: "4.0"
+---
 
-**版本**：v3.2
-**更新日期**：2026-01-30
-**重大变更**：增加 Step 5.5 价值自检机制，确保内容提供价值
+## ⚠️ Recovery Execution Rules
+
+**When user says "Continue Step X", "Next", "Proceed":**
+1. ✅ Read the step description fully.
+2. ✅ Check for required questions/confirmations.
+3. ✅ Verify input parameters.
+4. ✅ Ask if anything is missing.
+
+**DO NOT assume context. DO NOT skip questions.**
 
 ---
 
-## 🔍 场景识别（强制执行）
+## 🎬 Types & Platforms
 
-**在执行任何操作前，必须先识别场景类型**：
+**Read:** `knowledge/video_platform_strategy.md`
 
-### 场景A：新建内容（完整工作流）
+### Types
+- **Knowledge Share**: Hook + Points + Summary (1-3 min).
+- **Life Insight**: Scene + Emotion + Golden Sentence (30s-1 min).
 
-**触发词**：
-- "生成"、"创建"、"写一个"
-- "帮我生成XX"、"创建一个XX脚本"
-
-**执行流程**：
-- Step 0-9 完整工作流（含 Step 5.5 价值自检）
-- 包括：苏格拉底式提问、去重检查、选题确定、价值自检等
+### Platforms & Cover Sizes
+- **Xiaohongshu/Video**: 3:4 Vertical (1080x1440).
+- **Douyin/Kuaishou**: 9:16 Vertical (1080x1920).
 
 ---
 
+## 🔍 Scenario Recognition [Mandatory]
 
-## ⚠️ 恢复执行重要提醒
+### Scenario A: New Content ("Create", "Generate")
+**Execute**: Workflow A (Step 0-12)
 
-**当用户说"继续Step X"、"继续执行"、"下一步"时**：
-
-本 Skill 的所有步骤都可能需要用户输入或确认。
-在恢复执行任何步骤前，请遵循全局"恢复执行强制规则"（~/.claude/CLAUDE.md）：
-
-1. ✅ 先读取该步骤的完整描述
-2. ✅ 检查是否需要提问或确认
-3. ✅ 确认所有输入参数
-4. ✅ 有疑问先问用户
-
-**禁止直接开始执行，禁止假设已知上下文。**
+### Scenario B: Edit Content ("Modify", "Update")
+**Execute**: Workflow B (Step E0-E6)
+**Reference**: `_global_config/docs/workflows/content-editing-standards.md`
 
 ---
 
-### 场景B：编辑内容（简化工作流）
+## 📝 Workflow A: New Content
 
-**触发词**：
-- "修改"、"调整"、"改一下"
-- "优化"、"重写"、"完善"
+### Step 0: Follower Engagement [Mandatory]
+**⚠️ Read:** `knowledge/follower-engagement-guide.md`
+1. **Ask User**: Current follower count (Use `AskUserQuestion`).
+2. **Read History**: `粉丝数记录_{平台}.json`.
+3. **Action**: Generate encouragement, check 5-day stagnation.
 
-**执行流程**：
-```
-Step E0: 识别为编辑场景
-Step E1: 读取已有脚本
-Step E2: 询问修改需求（简化提问）
-Step E3: 执行修改
-Step E4: 质量检查（必须遵循所有规范）
-Step E5: 保存
-Step E6: 询问后续操作
-```
+### Step 1: Socratic Questioning [Mandatory]
+**Ask**: Type, Platform, Duration, Purpose, Topic, Depth, Product preference.
+**Reference**: `_global_config/docs/standards/intelligent-topic-selection-guide.md`
 
-**⚠️ 重要**：
-- 虽然是简化流程，但**必须遵循所有 Skill 规范**
-- 包括：分镜结构、4平台封面、违禁词检查、账号阶段策略等
-- 不能因为是"修改"就降低质量要求
+### Step 2: History Check [Mandatory]
+**Action**: Read last 30 days of content to avoid duplicates.
 
----
+### Step 3: Topic Selection [Mandatory]
+**Action**: Propose topic based on user input + history check.
 
-## 🚨 执行协议
+### Step 4: Knowledge Search [Mandatory]
+**Action**: WebSearch + Local Knowledge Base.
+**Requirement**: Deep/Scientific content must be verified.
 
-### 新建内容场景（两阶段）
+### Step 5: Parse Input [Silent]
+**Action**: Determine final Type, Platforms, Duration.
 
-**阶段1：交互式收集信息**
-- ✅ **必须** 先执行 Step 0（询问粉丝数并提供反馈）
-- ✅ **必须** 进行苏格拉底式提问
-- ✅ **必须** 检查已发布内容（去重）
-- ✅ **必须** 根据账号阶段决定商品植入策略
+### Step 6: Value Check [Mandatory]
+**⚠️ Read:** `knowledge/value-check-standards.md`
+**Action**: Answer 6 self-check questions. If fail -> STOP.
 
-**阶段2：静默执行生成**
-- ❌ **禁止** 请求确认以继续
-- ✅ **必须** 一次性生成完整输出（分镜 + 逐字稿 + 配图 + 4平台封面）
-- ✅ **必须** 数据缺失时使用默认值或自动搜索
+### Step 7: Product Matching [Silent, Unconditional]
+**⚠️ Read:** `knowledge/product-matching-strategy.md`
+**Action**: Match products, update Excel.
+**Strategy**: 
+- **0-500**: No mention.
+- **500-2000**: Soft mention (1-2 times in script).
+- **2000+**: Direct mention/link.
 
----
+### Step 8: Generate Storyboard [Silent]
+**Action**: Create 3-8 scenes (Visual + Audio + Duration).
 
-### 编辑内容场景（简化但严格）
+### Step 9: Generate Verbatim Script [Silent]
+**Action**: Write natural spoken script for each scene.
 
-**简化的部分**：
-- ❌ 不需要苏格拉底式提问（已有内容）
-- ❌ 不需要去重检查（已有内容）
-- ❌ 不需要选题确定（已有选题）
+### Step 10: Generate Images [Silent]
+**⚠️ Read:** `knowledge/video-image-prompt-guide.md`
+**Action**: 
+1. Generate Scene images (3:4 or 9:16 based on primary platform).
+2. Generate **4 separate Covers** (2 sizes x 2 styles if needed).
+**Tool**: `../_shared_scripts/yunwu_image_api.py`
 
-**必须遵循的规范**：
-- ✅ 分镜脚本结构（3-8个分镜）
-- ✅ 逐字稿质量（口播自然流畅）
-- ✅ 4平台封面规范（尺寸、风格）
-- ✅ 违禁词检查
-- ✅ 账号阶段策略（商品植入度）
-- ✅ 视频类型策略（知识分享/生活感悟）
+### Step 11: Save Files [Silent]
+**Action**: Save scripts (.md), images (folders), data.json.
+**Path**: `/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/视频脚本/`
 
----
-
-## 📋 核心功能
-
-1. 生成分镜脚本（3-8个分镜）
-2. 生成逐字稿（对应分镜）
-3. 生成分镜配图
-4. 生成4平台封面（小红书/视频号/快手/抖音）
-5. 匹配商品（1-2个软植入）
-6. 保存所有文件
+### Step 12: Satisfaction Check & Loop [Mandatory]
+**Action**: Ask satisfaction (1-5).
+- **≤ 3**: Ask "Which part?" -> Jump back -> Loop.
+- **≥ 4**: Record to `successful-cases`, End task.
 
 ---
 
-## 🎯 [必需] 两种视频类型
+## ✏️ Workflow B: Edit Content
 
-### 类型一：知识分享类 📚
-- 特点：干货知识、实用技巧、教程方法
-- 时长：1-3分钟
-- 结构：开场钩子 + 知识点展开 + 总结升华
+### Step E0-E2: Identify & Ask
+**Action**: Read existing script, ask what to change.
 
-### 类型二：生活感悟类 🌿
-- 特点：情感共鸣、生活记录、治愈氛围
-- 时长：30秒-1分钟
-- 结构：场景切入 + 情感递进 + 金句收尾
+### Step E3: Execute Change [Silent]
+**Action**: Modify script/images.
 
-**详细策略**：参考 `knowledge/video_platform_strategy.md`
+### Step E4: Quality Assurance [Mandatory]
+**⚠️ Read:** `knowledge/value-check-standards.md`
+**Action**: Full check (Structure, Flow, Compliance, Strategy).
 
----
-
-## 🎨 [必需] 四平台适配
-
-### 平台配图尺寸
-
-| 平台 | 封面尺寸 | 分镜配图尺寸 |
-|------|---------|-------------|
-| **小红书** | 3:4竖版（1080×1440） | 3:4竖版 |
-| **视频号** | 3:4竖版（1080×1440） | 3:4竖版 |
-| **快手** | 9:16竖版（1080×1920） | 9:16竖版 |
-| **抖音** | 9:16竖版（1080×1920） | 9:16竖版 |
-
-### 配图风格规则
-
-**封面图**：按照视频整体风格选择（知识类用真实感，感悟类用治愈风）
-**分镜配图**：按照对应分镜内容选择风格
-
-**详细指南**：参考 `knowledge/video-image-prompt-guide.md`（待创建）
+### Step E5-E6: Save & Finalize
+**Action**: Save files, ask to publish (manual).
 
 ---
 
-## 🔄 执行流程
-
-### 流程选择
-
-**根据场景识别结果，选择对应的执行流程**：
-- 场景A（新建内容） → 执行流程A（Step 0-12）
-- 场景B（编辑内容） → 执行流程B（Step E0-E6）
-
----
-
-## 📝 流程A：新建内容（完整工作流）
-
-### Step 0: 询问粉丝数并提供反馈 [强制]
-
-**⚠️ 执行前必读**：`../../knowledge/follower-engagement-guide.md`
-
-**操作**：
-1. 使用 AskUserQuestion 工具询问粉丝数
-2. 读取历史记录
-3. 生成个性化鼓励语
-4. 触发5天提醒机制（如适用）
-5. 更新粉丝数记录
-
-**详细规则**：参考必读文档
-
----
-
-### Step 1: 苏格拉底式提问 [强制]
-
-**⚠️ 重要**：这是开放式对话，不是固定选项。用户可以自由描述，AI 要智能理解。
-
-**询问内容**：
-1. 视频类型（知识分享/生活感悟）
-2. 目标平台（小红书/视频号/抖音/快手/全平台）
-3. 视频时长（15秒/30秒/1分钟/3分钟）
-4. 内容目的（涨粉/互动/专业形象/其他）
-5. 选题方向（指定选题/大致方向/AI推荐）
-6. 内容深度（基础/进阶/专业/创新角度）
-7. 商品植入（是/否/极少）
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 2: 检查已发布内容 [强制]
-
-**操作**：读取最近30天的已发布内容，识别重复话题。
-
----
-
-### Step 3: 确定选题 [强制]
-
-**核心原则**：
-- ❌ 不要局限于常见植物
-- ❌ 不要局限于基础养护
-- ✅ 要有深度、创新、专业性
-- ✅ 新手内容可以讲，但要换角度
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 4: 知识搜索 [必需，静默执行]
-
-**要求**：
-- 搜索专业、深度、创新的内容
-- 不要只搜索基础养护知识
-- 要有科学依据、专业术语
-- 使用 WebSearch 搜索相关知识
-- 搜索本地知识库
-- 整合网络和本地知识
-
-**详细指南**：参考 `_global_config/intelligent-topic-selection-guide.md`
-
----
-
-### Step 5: 解析输入 [必需，静默执行]
-
-**从此步骤开始，进入静默执行模式，不再请求确认**
-
-- 识别视频类型（知识分享/生活感悟）
-- 识别目标平台（默认全平台）
-- 确定视频时长
-
----
-
-### Step 6: 价值自检 [强制，不能跳过] ⚠️
-
-**⚠️ 执行前必读**：`../../knowledge/value-check-standards.md`
-
-**操作**：
-1. 回答6个必答问题（详见必读文档）
-2. 如果任何一个问题答不上来 → 停止生成
-3. 如果所有问题都能回答 → 继续执行
-4. 在 data.json 中记录自检结果
-
-**详细标准**：参考必读文档
-
----
-
-### Step 7: 商品匹配 [无条件执行，静默执行]
-
-**⚠️ 重大修正：商品匹配是选品策略，不是内容策略**
-
-**⚠️ 执行前必读**：`../../knowledge/product-matching-strategy.md`
-
-**执行条件**：**无条件执行**（所有阶段都必须执行）
-
-**操作**：
-1. 查询已有商品信息（优先查询统一商品记录 Excel）
-2. 判断是否需要网络搜索
-3. 网络搜索（条件执行）
-4. 追加新商品到 Excel
-5. 根据账号阶段决定内容策略
-
-**商品信息存储**：`/Users/dj/Desktop/全域自媒体运营/商品库/内容关联商品记录.xlsx`
-
-**根据账号阶段决定内容策略**：
-- **起号期（0-500粉）**：执行商品匹配，记录商品信息，但**不在内容中提及商品**
-- **成长期（500-2000粉）**：口播中软植入（1-2次），可提价格
-- **成熟期（2000+粉）**：可挂链接，可说价格，可直接推荐
-
-**详细策略**：参考必读文档
-
----
-
-### Step 8: 生成分镜脚本 [必需，静默执行]
-
-- 根据视频类型选择结构
-- 生成3-8个分镜
-- 每个分镜包含：画面描述、时长、文案要点
-
----
-
-### Step 9: 生成逐字稿 [必需，静默执行]
-
-- 对应每个分镜生成口播文案
-- 自然口语化表达
-- 根据账号阶段决定是否植入商品
-
----
-
-### Step 10: 生成配图 [必需，静默执行]
-
-- 生成分镜配图（根据平台选择尺寸）
-- 生成4平台封面
-- 调用 generate_video_images.py
-
----
-
-### Step 11: 保存文件 [必需，静默执行]
-
-- 保存分镜脚本 Markdown
-- 保存逐字稿
-- 保存所有配图
-- 保存发布信息
-
----
-
-### Step 12: 满意度确认与闭环学习 [强制] ⚠️
-
-**操作**：
-1. 展示最终成果（分镜+逐字稿+配图）
-2. 询问用户满意度（1-5分评分）
-
-**分支逻辑**：
-
-**A. 如果用户不满意（评分 ≤ 3分）**：
-1. **询问具体问题**：哪个环节有问题？
-   - 选项：选题/分镜/逐字稿/配图/商品匹配/其他
-2. **记录反面案例**：
-   - 将问题记录到 `../../knowledge/anti-patterns/video/`
-   - 标注为"用户不喜欢的模式"
-3. **执行回滚（Loop）**：
-   - 选题问题 → 跳回 **Step 2**（检查已发布内容）
-   - 分镜问题 → 跳回 **Step 8**（生成分镜脚本）
-   - 逐字稿问题 → 跳回 **Step 9**（生成逐字稿）
-   - 配图问题 → 跳回 **Step 10**（生成配图）
-   - 商品匹配问题 → 跳回 **Step 7**（商品匹配）
-   - **从该步骤开始重新执行后续所有步骤**
-   - **直到用户满意为止**
-
-**B. 如果用户满意（评分 ≥ 4分）**：
-1. **记录正面案例**：
-   - 将成功模式记录到 `../../knowledge/successful-cases/video/`
-   - 包含：选题、分镜结构、逐字稿风格、配图风格
-2. **询问是否需要其他操作**
-3. **结束任务**
-
-**⚠️ 核心价值**：不仅仅是改错，更是**学习**。每次用户的反馈都必须转化为规则，避免下次再犯。
-
----
-
-**检查点**：
-- [ ] 已执行 Step 0（询问粉丝数并提供反馈）
-- [ ] 已完成苏格拉底式提问
-- [ ] 已检查已发布内容（去重）
-- [ ] 已确定选题
-- [ ] 已执行知识搜索
-- [ ] 已完成价值自检
-- [ ] 已执行商品匹配（无条件执行）
-- [ ] 已生成分镜脚本
-- [ ] 已生成逐字稿
-- [ ] 已生成配图（含4平台封面）
-- [ ] 已保存文件
-- [ ] 已询问满意度
-
----
-
-## 📦 输出结构
-
-```
-/Users/dj/Desktop/全域自媒体运营/内容发布/发布记录/2026/视频脚本/
-└── 2026-01-29_选题名称/
-    ├── 2026-01-29_选题名称_分镜脚本.md
-    ├── 2026-01-29_选题名称_逐字稿.md
-    ├── 发布信息.md
-    ├── 分镜配图/
-    │   ├── 01.png, 02.png, 03.png...
-    ├── 封面/
-    │   ├── 小红书_封面.png (3:4)
-    │   ├── 视频号_封面.png (3:4)
-    │   ├── 快手_封面.png (9:16)
-    │   └── 抖音_封面.png (9:16)
-    └── data.json
-```
-
----
-
-## ✏️ 流程B：编辑内容（简化但严格工作流）
-
-**详细流程参考**：`/Users/dj/Desktop/小静的skills/_global_config/content-editing-standards.md`
-
-### Step E0-E2: 场景识别、读取内容、询问需求 [强制]
-
-**操作**：
-1. 识别为编辑场景
-2. 读取已有脚本（分镜 + 逐字稿 + 配图）
-3. 使用 AskUserQuestion 询问修改需求
-
----
-
-### Step E3: 执行修改 [必需，静默执行]
-
-**根据修改需求执行**，遵循视频脚本所有规范。
-
----
-
-### Step E4: 质量检查 [强制，静默执行]
-
-**⚠️ 不能因为是"修改"就跳过质量检查**
-
-**必须执行的检查**：
-
-1. **分镜脚本结构检查**
-   - 知识分享类：开场钩子 + 知识点展开 + 总结升华
-   - 生活感悟类：场景切入 + 情感递进 + 金句收尾
-   - 分镜数量：3-8个
-
-2. **逐字稿质量检查**
-   - 口播自然流畅
-   - 符合视频类型风格
-   - 时长控制合理
-
-3. **配图规范检查**
-   - 小红书/视频号：3:4竖版（1080×1440）
-   - 抖音/快手：9:16竖版（1080×1920）
-   - 4平台封面：分别生成对应尺寸
-
-4. **违禁词检查**
-   - 调用 `compliance-checker`
-   - 确保无违禁词、夸张用语
-
-5. **账号阶段策略检查**
-   - 起号期（0-500粉）：仅在口播中自然提及1次，禁止价格
-   - 成长期（500-2000粉）：口播中软植入1-2次，可提价格
-   - 成熟期（2000+粉）：可挂链接，可说价格
-
----
-
-### Step E5: 保存文件 [必需，静默执行]
-
-**保存**：
-- 分镜脚本文档
-- 逐字稿文档
-- 所有配图
-- 4平台封面
-- 更新元数据（标注修改时间）
-
----
-
-### Step E6: 询问后续操作 [必需]
-
-**询问**：是否需要手动发布到视频平台？
-
----
-
-## 📋 编辑场景检查清单
-
-- [ ] 已识别为编辑场景
-- [ ] 已读取已有脚本
-- [ ] 已询问修改需求
-- [ ] 已执行修改
-- [ ] **已进行质量检查（分镜结构、逐字稿、配图、违禁词、账号阶段）**
-- [ ] 已保存文件
-- [ ] 已询问后续操作
-
----
-
-## 📚 详细文档
-
-- **平台策略手册**：`knowledge/video_platform_strategy.md`
-- **配图生成指南**：`knowledge/video-image-prompt-guide.md`（待创建）
-- **脚本模板库**：`knowledge/video-script-templates.md`
-- **平台适配指南**：`knowledge/platform-adaptation-guide.md`
-
----
-
-## 🔧 依赖
-
-- `product-catalog` (Skill) - 商品匹配
-- `WebSearch` - 知识搜索
-- `scripts/generate_video_images.py` - 配图生成
-
----
-
-**版本历史**：
-- v3.2 (2026-01-30): 增加 Step 5.5 价值自检机制
-- v3.1 (2026-01-30): 增加场景识别，区分新建和编辑流程
-- v3.0 (2026-01-30): 采用苏格拉底式提问 + 去重检查 + 静默执行
-- v2.1 (2026-01-29): 按照四层机制精简 SKILL.md，明确配图尺寸规范
-- v2.0 (2026-01-14): 新增内容策略核心
-- v1.1 (2026-01-13): 新增 MidJourney 高质量配图
+## 📦 Output Structure
+
+**Files**:
+- `_分镜脚本.md`
+- `_逐字稿.md`
+- `分镜配图/` (01.png...)
+- `封面/` (Xiaohongshu.png, Douyin.png...)
+- `data.json`
