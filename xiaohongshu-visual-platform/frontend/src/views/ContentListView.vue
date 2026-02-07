@@ -5,18 +5,39 @@
       <button
         v-for="filter in filters"
         :key="filter.value"
-        @click="currentFilter = filter.value"
+        @click="handleFilterChange(filter.value)"
         class="px-4 py-2 rounded-lg font-medium transition-colors"
         :class="currentFilter === filter.value
           ? 'bg-blue-600 text-white'
           : 'bg-white text-gray-600 hover:bg-gray-50'"
+        :disabled="loading"
       >
         {{ filter.label }}
       </button>
     </div>
 
+    <!-- Loading State -->
+    <div v-if="loading" class="text-center py-12">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <p class="text-gray-500 mt-4">加载中...</p>
+    </div>
+
+    <!-- Error State -->
+    <div v-else-if="error" class="text-center py-12">
+      <svg class="w-16 h-16 text-red-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <p class="text-red-500 text-lg mb-4">{{ error }}</p>
+      <button
+        @click="fetchContents"
+        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+      >
+        重试
+      </button>
+    </div>
+
     <!-- Content Grid -->
-    <div class="grid grid-cols-3 gap-6">
+    <div v-else-if="filteredContents.length > 0" class="grid grid-cols-3 gap-6">
       <ContentCard
         v-for="content in filteredContents"
         :key="content.id"
@@ -25,7 +46,7 @@
     </div>
 
     <!-- Empty State -->
-    <div v-if="filteredContents.length === 0" class="text-center py-12">
+    <div v-else class="text-center py-12">
       <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
@@ -35,8 +56,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import ContentCard from '../components/ContentCard.vue'
+import { listContents } from '../api/content'
 
 const filters = [
   { label: '全部', value: 'all' },
@@ -45,33 +67,46 @@ const filters = [
 ]
 
 const currentFilter = ref('all')
+const contents = ref([])
+const loading = ref(false)
+const error = ref(null)
 
-// Mock data
-const contents = ref([
-  {
-    id: 1,
-    title: '多肉植物养护指南：新手必看的5个技巧',
-    date: '2024-02-06',
-    status: 'published'
-  },
-  {
-    id: 2,
-    title: '春季绿植推荐：这些植物最适合办公室',
-    date: '2024-02-05',
-    status: 'draft'
-  },
-  {
-    id: 3,
-    title: '如何让你的绿萝长得更茂盛？',
-    date: '2024-02-04',
-    status: 'published'
+// Fetch contents from API
+async function fetchContents() {
+  loading.value = true
+  error.value = null
+
+  try {
+    const status = currentFilter.value === 'all' ? null : currentFilter.value
+    const data = await listContents(status)
+
+    // Transform API response to match component format
+    contents.value = data.map(item => ({
+      id: item.id,
+      title: item.title,
+      date: new Date(item.created_at).toLocaleDateString('zh-CN'),
+      status: item.status
+    }))
+  } catch (err) {
+    error.value = err.message || '加载内容失败'
+    console.error('Failed to fetch contents:', err)
+  } finally {
+    loading.value = false
   }
-])
+}
+
+// Fetch on mount
+onMounted(() => {
+  fetchContents()
+})
+
+// Refetch when filter changes
+function handleFilterChange(filterValue) {
+  currentFilter.value = filterValue
+  fetchContents()
+}
 
 const filteredContents = computed(() => {
-  if (currentFilter.value === 'all') {
-    return contents.value
-  }
-  return contents.value.filter(c => c.status === currentFilter.value)
+  return contents.value
 })
 </script>
