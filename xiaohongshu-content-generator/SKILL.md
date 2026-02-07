@@ -5,6 +5,30 @@ license: MIT
 version: "10.0"
 ---
 
+## 🔒 OUTPUT FORMAT CONTRACT (v1)
+
+**⚠️ CRITICAL: This skill is integrated with xiaohongshu-visual-platform**
+
+**Required Output Format:**
+```json
+{
+    "title": "string",      // Required: Content title
+    "content": "string",    // Required: Main body text
+    "images": []            // Required: Array of image URLs/paths
+}
+```
+
+**Before modifying this skill:**
+1. ✅ Check if your changes affect the output JSON structure
+2. ✅ If changing field names/types, update platform code first
+3. ✅ Read: `/Users/dj/Desktop/小静的skills/xiaohongshu-visual-platform/docs/skill-output-format.md`
+4. ✅ Test with validation script: `python validate_skill_output.py`
+
+**Safe to modify:** Content generation logic, prompts, knowledge base
+**Requires platform update:** Field names, field types, adding/removing required fields
+
+---
+
 ## ⚠️ Recovery Execution Rules
 
 **When user says "Continue Step X", "Next", "Proceed":**
