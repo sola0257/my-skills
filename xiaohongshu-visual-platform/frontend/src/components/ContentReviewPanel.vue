@@ -83,4 +83,112 @@ function formatContent(body) {
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+.review-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.review-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.review-hint {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0;
+}
+
+.content-display {
+  margin-bottom: 24px;
+}
+
+.content-section {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 6px;
+}
+
+.content-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 12px 0;
+}
+
+.content-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111827;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.content-body {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.image-prompts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.image-prompts li {
+  padding: 8px 0;
+  color: #4b5563;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.image-prompts li:last-child {
+  border-bottom: none;
+}
+
+.review-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2563eb;
+}
 </style>
