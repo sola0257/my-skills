@@ -13,7 +13,7 @@
 
       <div class="content-section">
         <h3>正文</h3>
-        <div class="content-body" v-html="formatContent(content.body)"></div>
+        <div class="content-body" v-html="formatContent(content.content)"></div>
       </div>
 
       <div class="content-section" v-if="content.images && content.images.length > 0">
