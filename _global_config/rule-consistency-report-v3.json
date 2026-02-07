@@ -1,16 +1,16 @@
 {
-  "timestamp": "2026-02-07T01:53:42.280Z",
+  "timestamp": "2026-02-07T01:59:01.119Z",
   "version": "4.0",
   "scan_summary": {
     "documents_scanned": 80,
-    "segments_extracted": 1496,
-    "rule_groups": 621,
+    "segments_extracted": 1503,
+    "rule_groups": 624,
     "conflicts_detected": 75,
     "conflicts_after_filter": 75
   },
   "conflicts": [
     {
-      "id": 7,
+      "id": 9,
       "category": "mandatory",
       "representative_text": "必须执行**：",
       "documents": [
@@ -74,7 +74,18 @@
           "ruleText": "强制执行**：",
           "category": "mandatory",
           "weight": 1,
-          "context": "-checklist.md Step 3: 逐一读取这些文档 Step 4: 调用 xiaohongshu-content-generator ```  **如果没有执行这个流程 → 这是严重的错误，会导致执行不稳定**  ---  ## 🚨 恢复执行强制规则（最高优先级）  **核心问题**：当用户说\"继续\"、\"继续Step X\"、\"下一步\"时，AI容易跳过必需的检查步骤，直接开始执行  **强制执行**：  ### 当用户说\"继续\"、\"继续Step X\"、\"下一步\"时，必须执行以下步骤：  1. **读取对应步骤的完整描述**    - 打开对应 Skill 的 SKILL.md    - 找到对应的 Step 章节    - 完整阅读该步骤的所有要求和子步骤  2. **检查是否有提问要求**    - 如果步骤中包含\"提问\"、\"询问\"、\"选择\"、\"确认\"等关键词    - 必须先提问，获得用户",
+          "context": "读取这些文档 Step 4: 调用 xiaohongshu-content-generator ```  **如果没有执行这个流程 → 这是严重的错误，会导致执行不稳定**  ---  ## 🚨 Skill 输出格式验证强制规则（最高优先级）  **核心问题**：AI 修改 `xiaohongshu-content-generator` skill 后，可能忘记验证输出格式，导致平台崩溃  **强制执行**：  ### 当 AI 修改 xiaohongshu-content-generator skill 后，必须执行以下步骤：  1. **识别修改类型**    - 如果只修改了生成逻辑、提示词、知识库 → 建议验证    - 如果修改了输出 JSON 结构（字段名/类型） → 必须验证  2. **自动运行验证脚本**    ```bash    cd /Users/dj/Desktop/小静的s",
+          "sectionTitle": "🚨 Skill 输出格式验证强制规则（最高优先级）",
+          "patternType": "mandatory"
+        },
+        {
+          "document": ".claude/CLAUDE.md",
+          "skill": "global",
+          "type": "global",
+          "ruleText": "强制执行**：",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "兼容\" ```  **禁止的行为**： - ❌ 修改 skill 后不运行验证就提交 - ❌ 验证失败但仍然提交 - ❌ 假设\"只是小改动，不需要验证\"  **如果没有执行这个流程 → 这是严重的错误，会导致平台崩溃**  ---  ## 🚨 恢复执行强制规则（最高优先级）  **核心问题**：当用户说\"继续\"、\"继续Step X\"、\"下一步\"时，AI容易跳过必需的检查步骤，直接开始执行  **强制执行**：  ### 当用户说\"继续\"、\"继续Step X\"、\"下一步\"时，必须执行以下步骤：  1. **读取对应步骤的完整描述**    - 打开对应 Skill 的 SKILL.md    - 找到对应的 Step 章节    - 完整阅读该步骤的所有要求和子步骤  2. **检查是否有提问要求**    - 如果步骤中包含\"提问\"、\"询问\"、\"选择\"、\"确认\"等关键词    - 必须先提问，获得用户",
           "sectionTitle": "🚨 恢复执行强制规则（最高优先级）",
           "patternType": "mandatory"
         },
@@ -189,7 +200,7 @@
           "patternType": "mandatory"
         }
       ],
-      "avg_similarity": 0.7555555555555553,
+      "avg_similarity": 0.7499999999999999,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -236,7 +247,7 @@
       }
     },
     {
-      "id": 24,
+      "id": 26,
       "category": "mandatory",
       "representative_text": "必须遵循",
       "documents": [
@@ -410,7 +421,7 @@
       }
     },
     {
-      "id": 26,
+      "id": 28,
       "category": "mandatory",
       "representative_text": "必须进行网络搜索",
       "documents": [
@@ -512,7 +523,7 @@
       }
     },
     {
-      "id": 38,
+      "id": 40,
       "category": "mandatory",
       "representative_text": "禁止的行为**：",
       "documents": [
@@ -522,6 +533,17 @@
         "topic-discovery/SKILL.md"
       ],
       "segments": [
+        {
+          "document": ".claude/CLAUDE.md",
+          "skill": "global",
+          "type": "global",
+          "ruleText": "禁止的行为**：",
+          "category": "mandatory",
+          "weight": 1,
+          "context": "**提交修改**    - 只有在验证通过后才能提交    - 提交信息中说明\"已验证输出格式\"  **示例流程**： ``` 用户：优化 xiaohongshu-content-generator 的生成逻辑 ↓ AI: 修改 SKILL.md 中的提示词 ↓ AI: 自动运行验证脚本 ↓ AI: 检查结果 → ✅ 格式正确 ↓ AI: 提交修改并告知用户\"已验证输出格式兼容\" ```  **禁止的行为**： - ❌ 修改 skill 后不运行验证就提交 - ❌ 验证失败但仍然提交 - ❌ 假设\"只是小改动，不需要验证\"  **如果没有执行这个流程 → 这是严重的错误，会导致平台崩溃**  ---  ## 🚨 恢复执行强制规则（最高优先级）  **核心问题**：当用户说\"继续\"、\"继续Step X\"、\"下一步\"时，AI容易跳过必需的检查步骤，直接开始执行  **强制执行**：  ### 当用户说\"继",
+          "sectionTitle": "当 AI 修改 xiaohongshu-content-generator skill 后，必须执行以下步骤：",
+          "patternType": "mandatory"
+        },
         {
           "document": ".claude/CLAUDE.md",
           "skill": "global",
@@ -622,7 +644,7 @@
           "patternType": "mandatory"
         }
       ],
-      "avg_similarity": 0.8412698412698412,
+      "avg_similarity": 0.8571428571428571,
       "confidence": 1,
       "suggestion": {
         "action": "sync_from_global",
@@ -657,7 +679,7 @@
       }
     },
     {
-      "id": 39,
+      "id": 41,
       "category": "mandatory",
       "representative_text": "禁止价格",
       "documents": [
@@ -774,7 +796,7 @@
       }
     },
     {
-      "id": 44,
+      "id": 46,
       "category": "mandatory",
       "representative_text": "禁止行为 |",
       "documents": [
@@ -914,7 +936,7 @@
       }
     },
     {
-      "id": 51,
+      "id": 53,
       "category": "mandatory",
       "representative_text": "不得跳过或改变顺序）：",
       "documents": [
@@ -997,7 +1019,7 @@
       }
     },
     {
-      "id": 59,
+      "id": 61,
       "category": "mandatory",
       "representative_text": "强制）**",
       "documents": [
@@ -1160,7 +1182,7 @@
       }
     },
     {
-      "id": 61,
+      "id": 63,
       "category": "mandatory",
       "representative_text": "强制规则",
       "documents": [
@@ -1279,7 +1301,7 @@
       }
     },
     {
-      "id": 62,
+      "id": 64,
       "category": "mandatory",
       "representative_text": "强制要求",
       "documents": [
@@ -1418,7 +1440,7 @@
       }
     },
     {
-      "id": 63,
+      "id": 65,
       "category": "mandatory",
       "representative_text": "强制）",
       "documents": [
@@ -1683,7 +1705,7 @@
       }
     },
     {
-      "id": 64,
+      "id": 66,
       "category": "mandatory",
       "representative_text": "强制约束",
       "documents": [
@@ -1775,7 +1797,7 @@
       }
     },
     {
-      "id": 77,
+      "id": 80,
       "category": "recommended",
       "representative_text": "推荐）**",
       "documents": [
@@ -2065,7 +2087,7 @@
       }
     },
     {
-      "id": 81,
+      "id": 84,
       "category": "recommended",
       "representative_text": "推荐)",
       "documents": [
@@ -2439,7 +2461,7 @@
       }
     },
     {
-      "id": 82,
+      "id": 85,
       "category": "quantitative",
       "representative_text": "12-15张",
       "documents": [
@@ -2729,7 +2751,7 @@
       }
     },
     {
-      "id": 83,
+      "id": 86,
       "category": "quantitative",
       "representative_text": "5-8个",
       "documents": [
@@ -2838,7 +2860,7 @@
       }
     },
     {
-      "id": 84,
+      "id": 87,
       "category": "quantitative",
       "representative_text": "至少1",
       "documents": [
@@ -2958,7 +2980,7 @@
       }
     },
     {
-      "id": 86,
+      "id": 89,
       "category": "quantitative",
       "representative_text": "1080x1440",
       "documents": [
@@ -3794,7 +3816,7 @@
       }
     },
     {
-      "id": 87,
+      "id": 90,
       "category": "quantitative",
       "representative_text": "900×383",
       "documents": [
@@ -3917,7 +3939,7 @@
       }
     },
     {
-      "id": 88,
+      "id": 91,
       "category": "quantitative",
       "representative_text": "900×506",
       "documents": [
@@ -4040,7 +4062,7 @@
       }
     },
     {
-      "id": 89,
+      "id": 92,
       "category": "quantitative",
       "representative_text": "3:4",
       "documents": [
@@ -5905,7 +5927,7 @@
       }
     },
     {
-      "id": 90,
+      "id": 93,
       "category": "quantitative",
       "representative_text": "35:1",
       "documents": [
@@ -6254,7 +6276,7 @@
       }
     },
     {
-      "id": 91,
+      "id": 94,
       "category": "quantitative",
       "representative_text": "16:9",
       "documents": [
@@ -6916,7 +6938,7 @@
       }
     },
     {
-      "id": 23,
+      "id": 25,
       "category": "mandatory",
       "representative_text": "必须**遵循以下8步工作流：",
       "documents": [
@@ -6973,7 +6995,7 @@
       }
     },
     {
-      "id": 57,
+      "id": 59,
       "category": "mandatory",
       "representative_text": "强制执行）",
       "documents": [
@@ -7045,7 +7067,7 @@
       }
     },
     {
-      "id": 79,
+      "id": 82,
       "category": "recommended",
       "representative_text": "推荐用词",
       "documents": [
@@ -7153,7 +7175,7 @@
       }
     },
     {
-      "id": 9,
+      "id": 11,
       "category": "mandatory",
       "representative_text": "必须说明原因",
       "documents": [
@@ -7199,7 +7221,7 @@
       }
     },
     {
-      "id": 20,
+      "id": 22,
       "category": "mandatory",
       "representative_text": "必须**按以下顺序检查：",
       "documents": [
@@ -7245,7 +7267,7 @@
       }
     },
     {
-      "id": 27,
+      "id": 29,
       "category": "mandatory",
       "representative_text": "必须先执行 WebSearch 获取权威知识",
       "documents": [
@@ -7291,7 +7313,7 @@
       }
     },
     {
-      "id": 30,
+      "id": 32,
       "category": "mandatory",
       "representative_text": "必须按照 Step 1 → Step 2 → Step 3 → Step 4 → Step 5 的顺序执行",
       "documents": [
@@ -7337,7 +7359,7 @@
       }
     },
     {
-      "id": 46,
+      "id": 48,
       "category": "mandatory",
       "representative_text": "禁止的做法",
       "documents": [
@@ -7383,7 +7405,7 @@
       }
     },
     {
-      "id": 50,
+      "id": 52,
       "category": "mandatory",
       "representative_text": "不得少于12张）",
       "documents": [
@@ -7429,7 +7451,7 @@
       }
     },
     {
-      "id": 52,
+      "id": 54,
       "category": "mandatory",
       "representative_text": "不得跳过任何一步",
       "documents": [
@@ -7475,7 +7497,7 @@
       }
     },
     {
-      "id": 55,
+      "id": 57,
       "category": "mandatory",
       "representative_text": "强制检查顺序",
       "documents": [
@@ -7521,7 +7543,7 @@
       }
     },
     {
-      "id": 60,
+      "id": 62,
       "category": "mandatory",
       "representative_text": "强制，不能省略）**",
       "documents": [
@@ -7567,7 +7589,7 @@
       }
     },
     {
-      "id": 65,
+      "id": 67,
       "category": "mandatory",
       "representative_text": "强制的**，不是可选的",
       "documents": [
@@ -7613,7 +7635,7 @@
       }
     },
     {
-      "id": 108,
+      "id": 111,
       "category": "mandatory",
       "representative_text": "禁止** 请求确认以继续",
       "documents": [
@@ -7789,7 +7811,7 @@
       }
     },
     {
-      "id": 109,
+      "id": 112,
       "category": "mandatory",
       "representative_text": "禁止词汇：**",
       "documents": [
@@ -8005,7 +8027,7 @@
       }
     },
     {
-      "id": 278,
+      "id": 281,
       "category": "mandatory",
       "representative_text": "禁止** 中途询问",
       "documents": [
@@ -8164,7 +8186,7 @@
       }
     },
     {
-      "id": 389,
+      "id": 392,
       "category": "mandatory",
       "representative_text": "必须包含：",
       "documents": [
@@ -8259,7 +8281,7 @@
       }
     },
     {
-      "id": 100,
+      "id": 103,
       "category": "quantitative",
       "representative_text": "1-2个",
       "documents": [
@@ -8509,7 +8531,7 @@
       }
     },
     {
-      "id": 103,
+      "id": 106,
       "category": "quantitative",
       "representative_text": "12:00",
       "documents": [
@@ -8817,7 +8839,7 @@
       }
     },
     {
-      "id": 113,
+      "id": 116,
       "category": "quantitative",
       "representative_text": "3-5个",
       "documents": [
@@ -9133,7 +9155,7 @@
       }
     },
     {
-      "id": 271,
+      "id": 274,
       "category": "quantitative",
       "representative_text": "08:00",
       "documents": [
@@ -9288,7 +9310,7 @@
       }
     },
     {
-      "id": 272,
+      "id": 275,
       "category": "quantitative",
       "representative_text": "14:30",
       "documents": [
@@ -9399,7 +9421,7 @@
       }
     },
     {
-      "id": 317,
+      "id": 320,
       "category": "quantitative",
       "representative_text": "6-10个",
       "documents": [
@@ -9495,7 +9517,7 @@
       }
     },
     {
-      "id": 443,
+      "id": 446,
       "category": "quantitative",
       "representative_text": "2-3个",
       "documents": [
@@ -9730,7 +9752,7 @@
       }
     },
     {
-      "id": 94,
+      "id": 97,
       "category": "format",
       "representative_text": "命名：`序号_建议文字说明.png`",
       "documents": [
@@ -9776,7 +9798,7 @@
       }
     },
     {
-      "id": 95,
+      "id": 98,
       "category": "format",
       "representative_text": "尺寸：1080x1440像素（3:4竖版）",
       "documents": [
@@ -9822,7 +9844,7 @@
       }
     },
     {
-      "id": 75,
+      "id": 78,
       "category": "recommended",
       "representative_text": "建议大家...\"",
       "documents": [
@@ -9868,7 +9890,7 @@
       }
     },
     {
-      "id": 80,
+      "id": 83,
       "category": "recommended",
       "representative_text": "推荐的是...\"、\"可能比较适合...\"",
       "documents": [
@@ -9914,7 +9936,7 @@
       }
     },
     {
-      "id": 99,
+      "id": 102,
       "category": "recommended",
       "representative_text": "建议**：",
       "documents": [
@@ -10207,7 +10229,7 @@
       }
     },
     {
-      "id": 164,
+      "id": 167,
       "category": "recommended",
       "representative_text": "推荐合适元素",
       "documents": [
@@ -10316,7 +10338,7 @@
       }
     },
     {
-      "id": 292,
+      "id": 295,
       "category": "recommended",
       "representative_text": "建议：",
       "documents": [
@@ -10565,7 +10587,7 @@
       }
     },
     {
-      "id": 303,
+      "id": 306,
       "category": "mandatory",
       "representative_text": "禁止临时文件散落在工作目录中",
       "documents": [
@@ -10646,7 +10668,7 @@
       }
     },
     {
-      "id": 329,
+      "id": 332,
       "category": "mandatory",
       "representative_text": "必须 |",
       "documents": [
@@ -10711,7 +10733,7 @@
       }
     },
     {
-      "id": 336,
+      "id": 339,
       "category": "mandatory",
       "representative_text": "必须** 数据缺失时使用默认值",
       "documents": [
@@ -10776,7 +10798,7 @@
       }
     },
     {
-      "id": 337,
+      "id": 340,
       "category": "mandatory",
       "representative_text": "必须** 遇到错误时静默处理并继续",
       "documents": [
@@ -10841,7 +10863,7 @@
       }
     },
     {
-      "id": 347,
+      "id": 350,
       "category": "mandatory",
       "representative_text": "禁止** 询问\"是否需要更多信息\"",
       "documents": [
@@ -10906,7 +10928,7 @@
       }
     },
     {
-      "id": 348,
+      "id": 351,
       "category": "mandatory",
       "representative_text": "禁止** 中途停顿等待用户反馈",
       "documents": [
@@ -10971,7 +10993,7 @@
       }
     },
     {
-      "id": 350,
+      "id": 353,
       "category": "mandatory",
       "representative_text": "禁止示例1：[问题名称]**",
       "documents": [
@@ -11051,7 +11073,7 @@
       }
     },
     {
-      "id": 373,
+      "id": 376,
       "category": "mandatory",
       "representative_text": "必须提问**（使用 AskUserQuestion 工具收集必要信息）",
       "documents": [
@@ -11130,7 +11152,7 @@
       }
     },
     {
-      "id": 300,
+      "id": 303,
       "category": "quantitative",
       "representative_text": "800x800",
       "documents": [
@@ -11194,7 +11216,7 @@
       }
     },
     {
-      "id": 445,
+      "id": 448,
       "category": "format",
       "representative_text": "格式：**",
       "documents": [
@@ -11259,7 +11281,7 @@
       }
     },
     {
-      "id": 265,
+      "id": 268,
       "category": "recommended",
       "representative_text": "应该：",
       "documents": [
@@ -11324,7 +11346,7 @@
       }
     },
     {
-      "id": 156,
+      "id": 159,
       "category": "mandatory",
       "representative_text": "禁止同一风格使用不同模型（保证视觉一致性）",
       "documents": [
@@ -11373,7 +11395,7 @@
       }
     },
     {
-      "id": 216,
+      "id": 219,
       "category": "mandatory",
       "representative_text": "must be evident",
       "documents": [
@@ -11422,7 +11444,7 @@
       }
     },
     {
-      "id": 324,
+      "id": 327,
       "category": "mandatory",
       "representative_text": "必须定义默认值 |",
       "documents": [
@@ -11471,7 +11493,7 @@
       }
     },
     {
-      "id": 325,
+      "id": 328,
       "category": "mandatory",
       "representative_text": "必须同步 |",
       "documents": [
@@ -11520,7 +11542,7 @@
       }
     },
     {
-      "id": 327,
+      "id": 330,
       "category": "mandatory",
       "representative_text": "必须声明]",
       "documents": [
@@ -11569,7 +11591,7 @@
       }
     },
     {
-      "id": 102,
+      "id": 105,
       "category": "quantitative",
       "representative_text": "20-50篇",
       "documents": [
@@ -11618,7 +11640,7 @@
       }
     },
     {
-      "id": 168,
+      "id": 171,
       "category": "quantitative",
       "representative_text": "6-7个",
       "documents": [
@@ -11667,7 +11689,7 @@
       }
     },
     {
-      "id": 444,
+      "id": 447,
       "category": "quantitative",
       "representative_text": "0-1个",
       "documents": [
@@ -11716,7 +11738,7 @@
       }
     },
     {
-      "id": 225,
+      "id": 228,
       "category": "recommended",
       "representative_text": "推荐模板",
       "documents": [
