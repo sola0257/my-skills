@@ -4,8 +4,26 @@
 
     <!-- Topic Input Section -->
     <TopicInput
-      v-if="!result"
+      v-if="!reviewStage && !result"
       @generate="handleGenerate"
+    />
+
+    <!-- Content Review Section -->
+    <ContentReviewPanel
+      v-if="reviewStage"
+      :content="generatedContent"
+      :loading="showProgress"
+      @regenerate="handleRegenerateContent"
+      @edit="handleEditContent"
+      @confirm="handleConfirmContent"
+    />
+
+    <!-- Content Edit Modal -->
+    <ContentEditModal
+      v-if="showEditModal"
+      :content="generatedContent"
+      @close="showEditModal = false"
+      @save="handleSaveEdit"
     />
 
     <!-- Result Preview Section -->
