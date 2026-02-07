@@ -22,10 +22,16 @@
         </span>
       </div>
       <div class="flex gap-2">
-        <button class="flex-1 px-3 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition-colors text-sm">
+        <button
+          @click="handleView"
+          class="flex-1 px-3 py-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100 transition-colors text-sm"
+        >
           查看
         </button>
-        <button class="flex-1 px-3 py-2 bg-gray-50 text-gray-600 rounded hover:bg-gray-100 transition-colors text-sm">
+        <button
+          @click="handleEdit"
+          class="flex-1 px-3 py-2 bg-gray-50 text-gray-600 rounded hover:bg-gray-100 transition-colors text-sm"
+        >
           编辑
         </button>
       </div>
@@ -35,6 +41,9 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const props = defineProps({
   content: {
@@ -52,4 +61,15 @@ const statusClass = computed(() => {
 const statusText = computed(() => {
   return props.content.status === 'published' ? '已发布' : '草稿'
 })
+
+// Navigate to detail view
+function handleView() {
+  router.push({ name: 'content-detail', params: { id: props.content.id } })
+}
+
+// Navigate to edit view (TODO)
+function handleEdit() {
+  console.log('Edit content:', props.content.id)
+  // TODO: Implement edit functionality
+}
 </script>
